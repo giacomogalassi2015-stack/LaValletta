@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Room | Ca' della Valletta</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+             <div class="logo">
+                Ca' della Valletta
+                <span class="sub-logo">CINQUE TERRE</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#camere">Camere</a></li>
+                <li><a href="index.html#territorio">Experience</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero page-hero">
+        <div class="video-wrapper">
+            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="King Room" class="hero-bg">
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content" data-aos="fade-up">
+            <span class="hero-subtitle">Intimità & Storia</span>
+            <h1>King Room</h1>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="room-detail-grid">
+                
+                <div class="detail-text" data-aos="fade-right">
+                    <h2 class="section-title" style="margin-bottom: 30px; text-align: left;">L'atmosfera</h2>
+                    <p class="lead-text" style="font-size: 1.1rem; margin-bottom: 20px;">
+                        Immersa nel silenzio dei caruggi, la King Room è un gioiello di architettura locale. 
+                        Le pareti in pietra a vista originali del 1800 raccontano la storia di Riomaggiore, mentre i comfort moderni garantiscono un riposo assoluto.
+                    </p>
+                    <p>Ideale per coppie, questa camera offre un rifugio fresco d'estate e accogliente d'inverno.</p>
+                    
+                    <div class="services-list">
+                        <h3>Servizi Inclusi</h3>
+                        <ul>
+                            <li><i class="fas fa-wifi"></i> Wi-Fi Alta Velocità</li>
+                            <li><i class="fas fa-wind"></i> Aria Condizionata</li>
+                            <li><i class="fas fa-coffee"></i> Macchina Nespresso</li>
+                            <li><i class="fas fa-shower"></i> Bagno Privato con Doccia</li>
+                            <li><i class="fas fa-bed"></i> Biancheria Premium</li>
+                            <li><i class="fas fa-wine-glass"></i> Calici da vino</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="price-tag" style="margin-top: 40px;">
+                        Prezzo da <strong>€ 130</strong> / notte
+                    </div>
+                    
+                    <div class="booking-widget" id="preventivo-box">
+                        <h3>Calcola Preventivo</h3>
+                        
+                        <div class="input-group">
+                            <label><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
+                            <input type="text" id="date-picker" placeholder="Check-in  &rarr;  Check-out">
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-user-friends"></i> Ospiti</label>
+                            <select id="guests">
+                                <option value="1">1 Ospite</option>
+                                <option value="2" selected>2 Ospiti</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-comment-dots"></i> Come vuoi ricevere la conferma?</label>
+                            <select id="contact-method">
+                                <option value="whatsapp">Rispondimi su WhatsApp</option>
+                                <option value="email">Rispondimi via Email</option>
+                            </select>
+                        </div>
+
+                        <div id="loading-prices" style="text-align:center; display:none; color:#888; font-size:0.8rem; margin:10px 0;">
+                            <i class="fas fa-sync fa-spin"></i> Caricamento tariffe e disponibilità...
+                        </div>
+
+                        <div id="price-summary" class="price-summary" style="display:none;">
+                            <div class="row">
+                                <span>Notti</span>
+                                <span id="total-nights">0</span>
+                            </div>
+                            <div class="row">
+                                <span>Tariffa media</span>
+                                <span id="avg-price">€ 0</span>
+                            </div>
+                            <hr>
+                            <div class="row total">
+                                <span>Totale Stimato</span>
+                                <span id="total-price">€ 0</span>
+                            </div>
+                            <p style="font-size:0.7rem; color:#666; margin-top:5px; text-align:right;">*Tassa di soggiorno esclusa</p>
+                        </div>
+
+                        <a href="#" id="btn-request" class="btn-gold-solid full-width disabled">
+                            Seleziona date
+                        </a>
+                        
+                        <small class="disclaimer">Risposta garantita entro 1 ora.</small>
+                    </div>
+                    </div>
+
+                <div class="detail-gallery" data-aos="fade-left">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Dettaglio Camera">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Bagno">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contatti">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Ca' della Valletta</h2>
+                <p>Riomaggiore, Cinque Terre</p>
+            </div>
+            <div class="footer-info">
+                <p>Via Della Valletta 13, 19017 (SP)</p>
+                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
+                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+            </div>
+            <div class="footer-legal">
+                <small>CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <script>
+        // CONFIGURAZIONE GLOBALE
+        const SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co'; 
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
+        
+        // Impostazioni Specifiche per KING ROOM
+        const CURRENT_ROOM = 'king'; // <--- Importante: 'king'
+        const ROOM_NAME = "King Room";
+    </script>
+
+    <script src="booking.js"></script>
+</body>
+</html>
