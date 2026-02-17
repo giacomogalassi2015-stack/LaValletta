@@ -51,12 +51,6 @@
             <div class="room-detail-grid">
                 
                 <div class="detail-text" data-aos="fade-right">
-                    <h2 class="section-title" style="margin-bottom: 30px; text-align: left;">L'Esperienza Superiore</h2>
-                    <p class="lead-text" style="font-size: 1.1rem; margin-bottom: 20px;">
-                        La King Deluxe è pensata per chi desidera vivere le Cinque Terre senza rinunciare ai propri spazi.
-                        Più ampia e luminosa, questa camera unisce il fascino della pietra ligure a un design contemporaneo e funzionale.
-                    </p>
-                    <p style="margin-bottom: 30px;">Dotata di un'area relax dedicata, è la scelta ideale per soggiorni più lunghi o per chi cerca un livello di comfort superiore dopo una giornata di trekking.</p>
                     
                     <script>
                         window.CURRENT_ROOM = 'deluxe'; 
@@ -64,14 +58,14 @@
                         window.BOOKING_ICAL = 'https://ical.booking.com/v1/export?t=4b6f3e56-fab9-49ca-afc7-921cc4afbbe3'; 
                     </script>
 
-                    <div class="booking-widget" id="preventivo-box" style="margin-bottom: 40px;">
+                    <div class="booking-widget" id="preventivo-box">
                         <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Prenota Ora</h3>
                         
                         <div class="input-group">
                             <label><i class="fas fa-users"></i> Numero Ospiti</label>
                             <select id="guests">
                                 <option value="2">2 Ospiti</option>
-                                <option value="1">1 Ospite</option>
+                                <option value="1">1 Ospite (Sconto Single)</option>
                             </select>
                         </div>
 
@@ -101,9 +95,51 @@
                             </button>
                         </div>
                     </div>
-                </div>
 
-                <div class="right-column-wrapper" data-aos="fade-left">
+                    <h2 class="h2-internal">Prenotazione & Dettagli</h2>
+                    
+                    <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;">
+                        La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.
+                    </p>
+
+                    <div class="policy-box">
+                        <div class="policy-item">
+                            <i class="far fa-clock"></i>
+                            <span>
+                                <strong>Orari</strong>
+                                Check-in: 14:00 - 00:00<br>
+                                Check-out: entro le 11:00
+                            </span>
+                        </div>
+                        
+                        <div class="policy-item">
+                            <i class="fas fa-bed"></i>
+                            <span>
+                                <strong>Disposizione Notte</strong>
+                                Letti matrimoniali non divisibili.<br>
+                                No culle o letti extra.
+                            </span>
+                        </div>
+
+                        <div class="policy-item">
+                            <i class="fas fa-ban"></i>
+                            <span>
+                                <strong>Regole Struttura</strong>
+                                Camere non fumatori.<br>
+                                No parcheggio privato.
+                            </span>
+                        </div>
+                    </div>
+
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                        <strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.
+                    </p>
+
+                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
+                        <strong>Cancellazione:</strong> Gratuita fino a 30 giorni dall'arrivo.
+                    </p>
+
+                </div> <div class="right-column-wrapper" data-aos="fade-left">
                     
                     <div class="detail-gallery-wrapper">
                         <div class="room-slider" id="roomSlider">
@@ -127,22 +163,20 @@
                     </div>
 
                     <div class="services-list" style="margin-top: 30px;">
-                        <h3>Servizi Premium Inclusi</h3>
+                        <h3>Servizi Inclusi</h3>
                         <ul>
                             <li><i class="fas fa-expand-arrows-alt"></i> Metratura Ampia</li>
                             <li><i class="fas fa-tv"></i> Smart TV 50" 4K</li>
                             <li><i class="fas fa-glass-martini-alt"></i> Minibar Premium</li>
                             <li><i class="fas fa-couch"></i> Area Relax / Lettura</li>
                             <li><i class="fas fa-wifi"></i> Wi-Fi High Speed</li>
-                            <li><i class="fas fa-wind"></i> Aria Condizionata</li>
-                            <li><i class="fas fa-coffee"></i> Kit Nespresso & Tè</li>
-                            <li><i class="fas fa-bath"></i> Set Cortesia Luxury</li>
+                            <li><i class="fas fa-snowflake"></i> Aria Condizionata</li>
+                            <li><i class="fas fa-mug-hot"></i> Bollitore Tè & Caffè</li>
+                            <li><i class="fas fa-wind"></i> Asciugacapelli</li>
                         </ul>
                     </div>
-
-                </div>
-
-            </div>
+                    
+                </div> </div>
         </div>
     </section>
 
@@ -165,21 +199,16 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
-    
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
     <script>
-        // Configurazione Supabase
         const SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co'; 
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
         AOS.init();
     </script>
-
     <script src="booking.js"></script>
 
 </body>

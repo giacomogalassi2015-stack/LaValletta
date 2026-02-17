@@ -30,9 +30,26 @@ img { width: 100%; height: 100%; object-fit: cover; }
 .small-container { max-width: 800px; }
 .text-center { text-align: center; }
 
+/* --- AGGIORNAMENTO SPAZIATURE --- */
+
+/* Aumentiamo lo spazio tra la Hero (foto grande) e il contenuto */
 .section-padding { 
-    padding-top: 10px; 
-    padding-bottom: 16px;
+    padding-top: 60px;  /* Prima era 10px, ora diamo respiro */
+    padding-bottom: 60px;
+}
+
+/* Stile specifico per il titolo interno "Prenotazione & Dettagli" */
+.h2-internal {
+    font-size: 1.8rem !important; /* Molto più piccolo di prima */
+    margin-top: 30px !important;  /* Spazio dal widget sopra */
+    margin-bottom: 10px !important; /* Vicinissimo al testo sotto */
+    color: var(--primary);
+    text-align: left;
+}
+
+/* Su mobile riduciamo un po' lo spazio in alto */
+@media (max-width: 900px) {
+    .section-padding { padding-top: 30px; }
 }
 
 h2.section-title { 
@@ -447,4 +464,58 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
     #navbar.scrolled .nav-links a { color: white !important; }
     #navbar:not(.scrolled) .hamburger { color: white !important; }
     #navbar.scrolled .hamburger { color: var(--primary) !important; }
+}
+
+/* --- STILE BOX CONDIZIONI --- */
+.policy-box {
+    background: #fdfbf7;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.policy-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.policy-item i {
+    color: var(--accent);
+    font-size: 1.4rem;
+    width: 30px;
+    text-align: center;
+}
+
+.policy-item span {
+    font-size: 0.95rem;
+    color: var(--primary);
+    line-height: 1.4;
+}
+
+.policy-item strong {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+/* --- FIX ALLINEAMENTO DESKTOP --- */
+/* Si applica solo su schermi larghi (computer) */
+@media (min-width: 900px) {
+    
+    /* 1. Tira SU il box "Prenota Ora" */
+    .detail-text .booking-widget {
+        margin-top: 0 !important; /* Rimuove lo spazio sopra */
+    }
+
+    /* 2. Spinge GIÙ la colonna destra (Slider + Servizi) */
+    .right-column-wrapper {
+        margin-top: 2px; /* Aggiunge spazio sopra per allinearsi */
+    }
 }
