@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria Fotografica | Ca' della Valletta</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+             <div class="logo">
+                Ca' della Valletta
+                <span class="sub-logo">CINQUE TERRE</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#camere">Camere</a></li>
+                <li><a href="galleria.html" class="active">Galleria</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" style="height: 50vh;">
+        <div class="video-wrapper">
+             <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Galleria" class="hero-bg">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up">
+            <span class="hero-subtitle">Esplora</span>
+            <h1>La Nostra Galleria</h1>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up"><img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Camera King"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Bagno"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Dettagli"></div>
+                </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="index.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Torna alle Camere</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contatti">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Ca' della Valletta</h2>
+                <p>Riomaggiore, Cinque Terre</p>
+            </div>
+            <div class="footer-info">
+                <p>Via Della Valletta 13, 19017 (SP)</p>
+                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

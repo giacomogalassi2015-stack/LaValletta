@@ -25,12 +25,11 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 img { width: 100%; height: 100%; object-fit: cover; }
 
-/* --- UTILITIES & SPAZIATURA COMPATTA --- */
+/* --- UTILITIES & SPAZIATURA --- */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 .small-container { max-width: 800px; }
 .text-center { text-align: center; }
 
-/* Spaziatura ridotta al minimo */
 .section-padding { 
     padding-top: 10px; 
     padding-bottom: 16px;
@@ -59,9 +58,10 @@ h2.section-title {
     position: fixed;
     top: 0; left: 0; width: 100%;
     padding: 25px 50px;
-    z-index: 1000;
+    z-index: 9999; /* Z-Index altissimo per stare sopra a tutto */
     transition: all 0.4s ease;
     display: flex; justify-content: center;
+    background: transparent; /* Trasparente all'inizio */
 }
 
 #navbar.scrolled {
@@ -107,6 +107,7 @@ h2.section-title {
     letter-spacing: 1.5px; 
     font-weight: 500; 
     position: relative; 
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 .nav-links a::after {
     content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px;
@@ -116,7 +117,7 @@ h2.section-title {
 
 .hamburger { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-/* --- HERO (Home) --- */
+/* --- HERO (Home & Pagine Interne) --- */
 .hero {
     height: 100vh;
     position: relative;
@@ -124,6 +125,8 @@ h2.section-title {
     text-align: center; color: white;
     overflow: hidden;
 }
+
+.page-hero { height: 60vh; min-height: 400px; }
 
 .video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
 .hero-bg { width: 100%; height: 100%; object-fit: cover; animation: slowZoom 20s infinite alternate; }
@@ -146,44 +149,60 @@ h2.section-title {
 
 @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
 
-/* --- LE CAMERE (HOME) --- */
+/* --- SISTEMA SLIDER UNIFICATO (Home & Camere) --- */
+/* Questa classe gestisce sia lo slider in Home che quello nelle pagine camere */
+.slider-container, .room-slider { 
+    position: relative;
+    width: 100%;
+    height: 500px; /* Altezza standard */
+    overflow: hidden;
+    border-radius: 8px; /* Arrotondamento leggero per tutti */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.slide, .room-slide {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0; transition: opacity 0.8s ease-in-out; z-index: 1;
+}
+.slide.active, .room-slide.active { opacity: 1; z-index: 2; }
+
+.slide img, .room-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Frecce Standard */
+.slider-btn, .slider-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4); color: white; border: none;
+    width: 45px; height: 45px; border-radius: 50%;
+    font-size: 1.2rem; cursor: pointer; z-index: 10;
+    transition: background 0.3s, transform 0.2s;
+    display: flex; align-items: center; justify-content: center;
+}
+.slider-btn:hover, .slider-arrow:hover { 
+    background: var(--accent); transform: translateY(-50%) scale(1.1); 
+}
+.prev, .prev-btn { left: 20px; }
+.next, .next-btn { right: 20px; }
+
+/* Bottone "Vedi Galleria" sovrapposto allo slider */
+.gallery-overlay-btn {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9); color: var(--primary);
+    padding: 10px 25px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    z-index: 20; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;
+}
+.gallery-overlay-btn:hover {
+    background: var(--primary); color: white; transform: translateX(-50%) translateY(-3px);
+}
+
+/* --- LE CAMERE (HOME LISTING) --- */
 .room-row { 
-    display: flex; 
-    align-items: center; 
-    gap: 40px; 
-    margin-bottom: 40px; 
+    display: flex; align-items: center; gap: 40px; margin-bottom: 40px; 
 }
 .room-row.reverse { flex-direction: row-reverse; }
 
-.room-img, .slider-container { 
-    flex: 1.2; 
-    height: 500px; 
-    overflow: hidden; 
-    position: relative; 
-}
-
-.slides-wrapper {
-    width: 100%; height: 100%; position: relative;
-}
-
-.slide {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; opacity: 0; transition: opacity 0.6s ease-in-out; z-index: 1;
-}
-.slide.active { opacity: 1; z-index: 2; }
-
-.slider-btn {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.3); color: white; border: none;
-    width: 40px; height: 40px; border-radius: 50%;
-    font-size: 1.2rem; cursor: pointer; z-index: 10;
-    transition: background 0.3s ease;
-    display: flex; align-items: center; justify-content: center;
-}
-.slider-btn:hover { background: var(--accent); }
-.prev-btn { left: 20px; }
-.next-btn { right: 20px; }
-
+/* Il contenitore immagine usa la classe unificata .slider-container definita sopra */
 .room-text { flex: 1; }
 .room-text h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--primary); }
 .description { color: #666; margin-bottom: 25px; font-weight: 300; }
@@ -198,7 +217,7 @@ h2.section-title {
 }
 .link-styled:hover { color: var(--accent); }
 
-/* --- AREE COMUNI (INTERNI) --- */
+/* --- AREE COMUNI & GALLERIA --- */
 .interior-overlay {
     position: absolute; bottom: 20px; left: 20px;
     background: rgba(0,0,0,0.5); color: white;
@@ -206,15 +225,17 @@ h2.section-title {
     font-family: var(--font-heading); letter-spacing: 1px;
 }
 
-/* --- STILI PAGINE INTERNE (CAMERE DEDICATE) --- */
-/* Questo blocco è essenziale per le pagine camera-king.html e camera-deluxe.html */
-.page-hero { height: 60vh; min-height: 400px; }
+.gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+}
+.gallery-item {
+    height: 300px; overflow: hidden; border-radius: 4px; cursor: pointer; transition: transform 0.3s ease;
+}
+.gallery-item:hover { transform: scale(1.02); }
 
+/* --- STILI PAGINE INTERNE (CAMERE DEDICATE) --- */
 .room-detail-grid {
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 60px; 
-    align-items: start;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
 }
 
 .services-list {
@@ -227,10 +248,7 @@ h2.section-title {
 .services-list li { font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 10px; }
 .services-list i { color: var(--accent); width: 20px; text-align: center; }
 
-.detail-gallery { display: flex; flex-direction: column; gap: 20px; }
-.detail-gallery img { border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-
-/* --- SEZIONE EXPERIENCE (RISORSE) --- */
+/* --- EXPERIENCE & RISORSE --- */
 .resources-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px;
 }
@@ -249,7 +267,6 @@ h2.section-title {
 .card-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
 .resource-card h3 { color: white; font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px; }
 .resource-card p { color: #ccc; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
-.resource-card.highlight { border: 1px solid var(--accent); background: rgba(197, 160, 89, 0.05); }
 
 .btn-text-gold { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
@@ -267,99 +284,26 @@ h2.section-title {
 .useful-links a:hover { color: var(--accent); padding-left: 5px; }
 .useful-links i { width: 20px; text-align: center; color: var(--accent); }
 
-/* --- FOOTER & FLOATING BTN --- */
-footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: center; }
-.footer-brand h2 { color: white; font-size: 2rem; margin-bottom: 10px; }
-.footer-info { margin: 40px 0; font-size: 1.1rem; }
-.contact-link { display: block; margin: 10px 0; color: var(--accent); }
-.footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
-
-.floating-btn {
-    position: fixed; bottom: 30px; right: 30px;
-    background: var(--accent); color: white;
-    padding: 15px 30px; border-radius: 50px;
-    display: flex; align-items: center; gap: 10px;
-    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-    z-index: 999; font-weight: 600; letter-spacing: 1px;
-    transition: transform 0.3s;
-}
-.floating-btn:hover { transform: translateY(-5px); background: #bfa060; }
-
-/* --- PAGINA PRENOTA (CARD SCELTA) --- */
-.booking-options-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;
-}
-
-.booking-card {
-    background: white; padding: 40px 30px; border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee;
-    transition: transform 0.3s; position: relative; overflow: hidden;
-}
-.booking-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-.booking-card.direct { border: 2px solid var(--accent); background: #fffcf5; }
-
-.badge-best {
-    position: absolute; top: 0; right: 0; background: var(--accent); color: white;
-    padding: 5px 15px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; border-bottom-left-radius: 8px;
-}
-
-.icon-header { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-.booking-card h3 { margin-bottom: 15px; font-size: 1.5rem; color: var(--primary); }
-.booking-card p { font-size: 0.95rem; color: #666; margin-bottom: 30px; min-height: 50px; }
-
-.btn-ota {
-    display: inline-block; background: #003580; color: white; padding: 12px 30px;
-    border-radius: 4px; font-weight: 600; width: 100%;
-}
-.btn-ota:hover { background: #002255; }
-
-.direct-buttons { display: flex; flex-direction: column; gap: 15px; }
-
-.btn-whatsapp {
-    background: #25D366; color: white; padding: 12px 20px;
-    border-radius: 4px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px;
-}
-.btn-whatsapp:hover { background: #128C7E; }
-
-.btn-email {
-    background: transparent; border: 1px solid var(--primary); color: var(--primary);
-    padding: 12px 20px; border-radius: 4px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px;
-}
-.btn-email:hover { background: var(--primary); color: white; }
-
-/* --- WIDGET PREVENTIVO SUPABASE (Incluso) --- */
+/* --- WIDGET PREVENTIVO --- */
 .booking-widget {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(10, 25, 47, 0.1);
-    border: 1px solid #f0f0f0;
-    margin-top: 30px;
-    max-width: 100%;
+    background: #ffffff; padding: 30px; border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(10, 25, 47, 0.1); border: 1px solid #f0f0f0;
+    margin-top: 30px; max-width: 100%;
 }
-
 .booking-widget h3 {
-    color: var(--primary);
-    font-family: var(--font-heading);
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 10px;
-    display: inline-block;
+    color: var(--primary); font-family: var(--font-heading); margin-bottom: 25px;
+    border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block;
 }
 
 .input-group { margin-bottom: 20px; }
-
 .input-group label {
     display: block; font-size: 0.85rem; color: var(--primary); margin-bottom: 8px;
     font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
 }
-
 .input-group input, .input-group select {
     width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px;
-    font-family: var(--font-body); font-size: 1rem; background: #fcfcfc; color: var(--text);
-    transition: 0.3s;
+    font-family: var(--font-body); font-size: 1rem; background: #fcfcfc; color: var(--text); transition: 0.3s;
 }
-
 .input-group input:focus, .input-group select:focus {
     border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
 }
@@ -368,45 +312,37 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
     background: #fdfbf7; padding: 20px; border-radius: 4px; margin-bottom: 20px;
     border: 1px dashed var(--accent);
 }
-
 .price-summary .row {
     display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; color: #555;
 }
-
 .price-summary .total {
     font-weight: 700; color: var(--primary); font-size: 1.3rem; margin-top: 10px;
 }
 
-.full-width {
-    width: 100%; display: block; text-align: center; padding: 15px; font-size: 1rem;
-}
+.full-width { width: 100%; display: block; text-align: center; padding: 15px; font-size: 1rem; }
+.flatpickr-day.selected { background: var(--accent) !important; border-color: var(--accent) !important; }
 
-.btn-request.disabled { background: #ccc; cursor: not-allowed; pointer-events: none; }
+/* --- FOOTER  --- */
+footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: center; }
+.footer-brand h2 { color: white; font-size: 2rem; margin-bottom: 10px; }
+.footer-info { margin: 40px 0; font-size: 1.1rem; }
+.contact-link { display: block; margin: 10px 0; color: var(--accent); }
+.footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
 
-.flatpickr-day.selected {
-    background: var(--accent) !important; border-color: var(--accent) !important;
-}
-
-/* --- RESPONSIVE UNIFICATO (MOBILE) --- */
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 900px) {
-    
-    /* Riduzioni spazi su mobile */
-    .section-padding { 
-        padding-top: 10px;    /* Più aria sopra il titolo su mobile */
-        padding-bottom: 16px; /* Recupera spazio sotto */
-    }
+    .section-padding { padding-top: 10px; padding-bottom: 16px; }
     h2.section-title { font-size: 2rem; margin-bottom: 15px !important; }
     .lead-text { margin-bottom: 20px !important; }
     
-    /* Gestione Griglie Mobile */
     .room-row { margin-bottom: 30px; gap: 20px; display: block; }
-    .room-detail-grid { grid-template-columns: 1fr; } /* FIX PAGINE INTERNE */
+    .room-detail-grid { grid-template-columns: 1fr; } 
     .booking-options-grid { grid-template-columns: 1fr; gap: 30px; }
     .resources-grid { grid-template-columns: 1fr; gap: 40px; }
     .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
     .services-list ul { grid-template-columns: 1fr; }
     
-    /* Menu Mobile Moderno (Overlay) */
+    /* Navbar Overlay Mobile */
     .nav-links {
         display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px;
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
@@ -419,62 +355,21 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
     #navbar.scrolled .hamburger { color: var(--primary); }
 
     /* Fix Slider Mobile */
-    .room-img, .slider-container { 
-        position: relative !important; width: 100%; height: 350px !important; min-height: 350px; 
-        overflow: hidden; margin-bottom: 20px; background-color: #eee;
-    }
-    .slides-wrapper { position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important; z-index: 1; }
-    .slide {
-        position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important;
-        object-fit: cover !important; display: block; 
-    }
-    .slide.active { opacity: 1 !important; z-index: 2; }
-    .slider-btn { width: 50px; height: 50px; background: rgba(0,0,0,0.6); opacity: 1; z-index: 10; }
+    .slider-container, .room-slider { height: 350px; margin-bottom: 20px; background-color: #eee; }
+    .slider-btn, .slider-arrow { width: 50px; height: 50px; background: rgba(0,0,0,0.6); opacity: 1; z-index: 10; }
+    .gallery-overlay-btn { bottom: 20px; padding: 8px 20px; font-size: 0.75rem; }
 
-    /* Pagine Interne & Card */
     .page-hero h1 { font-size: 2.5rem; }
     .resource-card { padding: 30px 20px; }
 
-    /* --- TRASFORMAZIONE PULSANTE CAMERA (SOLO MOBILE) --- */
-    /* 1. Rendi il contenitore del testo un punto di riferimento */
-    .room-text {
-        position: relative !important;
-        padding-top: 5px; /* Un po' di aria sopra per allineare */
-        text-align: left !important; /* Allinea i testi a sinistra per ordine */
-    }
-
-    /* 2. Trasforma il semplice link in un Bottone "Pillola" */
+    /* Bottone Pillola Home */
+    .room-text { position: relative !important; padding-top: 5px; text-align: left !important; }
     .room-text .link-styled {
-        position: absolute; /* Lo sgancia dal fondo */
-        top: 0;             /* Lo piazza in cima */
-        right: 0;           /* Lo piazza a destra */
-        
-        background-color: var(--accent); /* Sfondo Oro */
-        color: white !important;         /* Testo Bianco */
-        
-        font-size: 0.65rem;             /* Testo piccolo ed elegante */
-        font-weight: 600;
-        padding: 8px 15px;              /* Dimensioni del bottone */
-        border-radius: 50px;            /* Bordo arrotondato (Pillola) */
-        border: none;
-        
-        box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); /* Ombra leggera */
-        z-index: 10;
-        white-space: nowrap; /* Impedisce al testo di andare a capo */
+        position: absolute; top: 0; right: 0;
+        background-color: var(--accent); color: white !important;
+        font-size: 0.65rem; font-weight: 600; padding: 8px 15px; border-radius: 50px; border: none;
+        box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); z-index: 10; white-space: nowrap;
     }
-
-    /* Rimuovi la vecchia sottolineatura animata */
-    .room-text .link-styled::after {
-        display: none;
-    }
-
-    /* 3. Adatta il Titolo (H3) per non sovrapporsi al bottone */
-    .room-text h3 {
-        padding-right: 130px; /* Lascia spazio a destra per il bottone */
-        font-size: 1.5rem !important; /* Dimensione giusta per stare su due righe max */
-        line-height: 1.2;
-        margin-top: 0;
-        margin-bottom: 20px !important;
-        text-align: left;
-    }
+    .room-text .link-styled::after { display: none; }
+    .room-text h3 { padding-right: 130px; font-size: 1.5rem !important; margin-bottom: 20px !important; text-align: left; }
 }
