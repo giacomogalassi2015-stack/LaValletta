@@ -329,47 +329,122 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
 .contact-link { display: block; margin: 10px 0; color: var(--accent); }
 .footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
 
-/* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE MOBILE (Max 900px) --- */
 @media (max-width: 900px) {
+    /* Reset spaziature generali */
     .section-padding { padding-top: 10px; padding-bottom: 16px; }
     h2.section-title { font-size: 2rem; margin-bottom: 15px !important; }
     .lead-text { margin-bottom: 20px !important; }
     
-    .room-row { margin-bottom: 30px; gap: 20px; display: block; }
+    .room-row { margin-bottom: 40px; gap: 0; display: block; }
     .room-detail-grid { grid-template-columns: 1fr; } 
     .booking-options-grid { grid-template-columns: 1fr; gap: 30px; }
     .resources-grid { grid-template-columns: 1fr; gap: 40px; }
     .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
     .services-list ul { grid-template-columns: 1fr; }
+
+    /* 1. GESTIONE TITOLI E TESTI */
+    /* Nascondiamo il blocco di testo laterale (Desktop) */
+    .desktop-only { display: none !important; }
+
+    /* TITOLO MOBILE: IN ALTO CENTRATO */
+    .mobile-room-title {
+        display: block;
+        position: absolute;
+        top: 30px; /* Staccato dal bordo alto (simmetrico al bottone in basso) */
+        left: 50%;
+        transform: translateX(-50%); /* Centrato solo orizzontalmente */
+        
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        z-index: 20;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.7); /* Ombra forte per leggere su ogni foto */
+        pointer-events: none; /* Non blocca i click sullo slider */
+        margin: 0;
+        padding: 0 10px;
+        line-height: 1.1;
+    }
+
+    /* 2. BOTTONE "INFO & PRENOTA" SOVRAPPOSTO (IN BASSO) */
+    .room-overlay-btn {
+        display: block;
+        position: absolute;
+        bottom: 25px; /* Staccato dal bordo basso */
+        left: 50%;
+        transform: translateX(-50%);
+        
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--primary);
+        
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 30;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        text-decoration: none;
+        white-space: nowrap;
+        
+        /* FIX BUG GRAFICI MOBILE */
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* FIX COLORE PULSANTE */
+    .room-overlay-btn:hover, .room-overlay-btn:focus {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: var(--primary) !important;
+    }
+    .room-overlay-btn:active {
+        background: var(--accent) !important;
+        color: white !important;
+        transform: translateX(-50%) scale(0.95);
+    }
+
+    /* 3. FIX SLIDER E FRECCE */
+    .slider-container, .room-slider { 
+        height: 350px; 
+        margin-bottom: 20px; 
+        background-color: #eee; 
+    }
     
-    /* Navbar Overlay Mobile */
+    .slider-btn, .slider-arrow { 
+        width: 50px; height: 50px; 
+        background: rgba(0,0,0,0.4); 
+        opacity: 1; z-index: 25;
+        outline: none; 
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .slider-btn:hover, .slider-arrow:hover {
+        background: rgba(0,0,0,0.4) !important; 
+        transform: translateY(-50%) !important;
+    }
+    .slider-btn:active, .slider-arrow:active {
+        background: var(--accent) !important;
+    }
+
+    .gallery-overlay-btn { bottom: 20px; padding: 8px 20px; font-size: 0.75rem; }
+    .page-hero h1 { font-size: 2.5rem; }
+    .resource-card { padding: 30px 20px; }
+    
+    /* Navbar Overlay */
     .nav-links {
         display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px;
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-        background: rgba(10, 25, 47, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); z-index: 999;
+        background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px);
+        transition: right 0.4s ease; z-index: 999;
     }
     .nav-links.active { right: 0; }
-    .nav-links a { font-size: 1.5rem; color: white !important; }
-    .hamburger { display: block; position: relative; z-index: 1001; color: white; }
-    #navbar.scrolled .hamburger { color: var(--primary); }
-
-    /* Fix Slider Mobile */
-    .slider-container, .room-slider { height: 350px; margin-bottom: 20px; background-color: #eee; }
-    .slider-btn, .slider-arrow { width: 50px; height: 50px; background: rgba(0,0,0,0.6); opacity: 1; z-index: 10; }
-    .gallery-overlay-btn { bottom: 20px; padding: 8px 20px; font-size: 0.75rem; }
-
-    .page-hero h1 { font-size: 2.5rem; }
-    .resource-card { padding: 30px 20px; }
-
-    /* Bottone Pillola Home */
-    .room-text { position: relative !important; padding-top: 5px; text-align: left !important; }
-    .room-text .link-styled {
-        position: absolute; top: 0; right: 0;
-        background-color: var(--accent); color: white !important;
-        font-size: 0.65rem; font-weight: 600; padding: 8px 15px; border-radius: 50px; border: none;
-        box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); z-index: 10; white-space: nowrap;
-    }
-    .room-text .link-styled::after { display: none; }
-    .room-text h3 { padding-right: 130px; font-size: 1.5rem !important; margin-bottom: 20px !important; text-align: left; }
+    .nav-links a { color: white !important; font-size: 1.5rem; }
+    .hamburger { display: block; position: relative; z-index: 1001; }
+    #navbar:not(.scrolled) .nav-links a { color: white !important; }
+    #navbar.scrolled .nav-links a { color: white !important; }
+    #navbar:not(.scrolled) .hamburger { color: white !important; }
+    #navbar.scrolled .hamburger { color: var(--primary) !important; }
 }
