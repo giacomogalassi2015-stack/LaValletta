@@ -24,7 +24,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-    <li><a href="camera-deluxe.html">Camera Deluxe</a></li>
+                <li><a href="camera-deluxe.html">Camera Deluxe</a></li>
                 <li><a href="galleria.html">Galleria</a></li>
                 <li><a href="index.html#territorio">Experience</a></li>
                 <li><a href="#contatti">Contatti</a></li>
@@ -65,7 +65,7 @@
                             <label><i class="fas fa-users"></i> Numero Ospiti</label>
                             <select id="guests">
                                 <option value="2">2 Ospiti</option>
-                                <option value="1">1 Ospite (Sconto Single)</option>
+                                <option value="1">1 Ospite</option>
                             </select>
                         </div>
 
@@ -86,57 +86,55 @@
                             <i class="fas fa-spinner fa-spin"></i> Calcolo...
                         </div>
 
-                    <div id="price-summary" style="display:none;" class="price-summary">
-    
-    <div class="price-details-grid">
-        <div class="price-item">
-            <span class="price-label">Soggiorno</span>
-            <span class="price-value"><span id="total-nights">0</span> Notti</span>
-        </div>
-        <div class="price-item" style="text-align: right;">
-            <span class="price-label">Media Notte</span>
-            <span class="price-value" id="avg-price">€ 0</span>
-        </div>
-    </div>
+                        <div id="price-summary" style="display:none;" class="price-summary">
+                            <div class="price-details-grid">
+                                <div class="price-item">
+                                    <span class="price-label">Soggiorno</span>
+                                    <span class="price-value"><span id="total-nights">0</span> Notti</span>
+                                </div>
+                                <div class="price-item" style="text-align: right;">
+                                    <span class="price-label">Media Notte</span>
+                                    <span class="price-value" id="avg-price">€ 0</span>
+                                </div>
+                            </div>
 
-    <div class="total-row">
-        <span>Valore Totale Camera</span>
-        <span id="total-price">€ 0</span>
-    </div>
+                            <div class="total-row">
+                                <span>Valore Totale Camera</span>
+                                <span id="total-price">€ 0</span>
+                            </div>
 
-    <hr class="divider">
+                            <hr class="divider">
 
-    <div class="payment-block highlight">
-        <div class="payment-header">
-            <span>DA VERSARE ORA (20%)</span>
-            <div class="tooltip-container">
-                <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">
-                    La caparra blocca la camera ed è <strong>rimborsabile fino a 30 giorni</strong> prima del check-in. Oltre tale data non verrà restituita.
-                </span>
-            </div>
-        </div>
-        <div class="payment-amount" id="deposit-amount">€ 0</div>
-    </div>
+                            <div class="payment-block highlight">
+                                <div class="payment-header">
+                                    <span>DA VERSARE ORA (20%)</span>
+                                    <div class="tooltip-container">
+                                        <i class="fas fa-info-circle info-icon"></i>
+                                        <span class="tooltip-text">
+                                            La caparra blocca la camera ed è <strong>rimborsabile fino a 30 giorni</strong> prima del check-in. Oltre tale data non verrà restituita.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="payment-amount" id="deposit-amount">€ 0</div>
+                            </div>
 
-    <div class="payment-block secondary">
-        <div class="payment-header">DA SALDARE IN STRUTTURA</div>
-        <div class="payment-row">
-            <span>Saldo Camera</span>
-            <span id="balance-due">€ 0</span>
-        </div>
-        <div class="payment-row">
-            <span>Tassa Soggiorno (Extra)</span>
-            <span id="city-tax">€ 0</span>
-        </div>
-    </div>
+                            <div class="payment-block secondary">
+                                <div class="payment-header">DA SALDARE IN STRUTTURA</div>
+                                <div class="payment-row">
+                                    <span>Saldo Camera</span>
+                                    <span id="balance-due">€ 0</span>
+                                </div>
+                                <div class="payment-row">
+                                    <span>Tassa Soggiorno</span>
+                                    <span id="city-tax">€ 0</span>
+                                </div>
+                            </div>
 
-    <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
-        Richiedi e Blocca Camera <i class="fas fa-chevron-right"></i>
-    </button>
-
-</div>
-                    </div>
+                            <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
+                                Richiedi e Blocca Camera <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div> 
 
                     <h2 class="h2-internal">Prenotazione & Dettagli</h2>
                     
@@ -148,7 +146,7 @@
                         <div class="policy-item">
                             <i class="far fa-clock"></i>
                             <span>
-                                <strong>Orari</strong>
+                                <strong>Orari</strong><br>
                                 Check-in: 14:00 - 00:00<br>
                                 Check-out: entro le 11:00
                             </span>
@@ -157,7 +155,7 @@
                         <div class="policy-item">
                             <i class="fas fa-bed"></i>
                             <span>
-                                <strong>Disposizione Notte</strong>
+                                <strong>Disposizione Notte</strong><br>
                                 Letti matrimoniali non divisibili.<br>
                                 No culle o letti extra.
                             </span>
@@ -166,7 +164,7 @@
                         <div class="policy-item">
                             <i class="fas fa-ban"></i>
                             <span>
-                                <strong>Regole Struttura</strong>
+                                <strong>Regole Struttura</strong><br>
                                 Camere non fumatori.<br>
                                 No parcheggio privato.
                             </span>
@@ -177,12 +175,16 @@
                         <strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.
                     </p>
 
-                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
                         <strong>Cancellazione:</strong> Gratuita fino a 30 giorni dall'arrivo.
                     </p>
 
-                </div> <div class="right-column-wrapper" data-aos="fade-left">
-                    
+                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
+                        <strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.
+                    </p>
+                </div> 
+
+                <div class="right-column-wrapper" data-aos="fade-left">
                     <div class="detail-gallery-wrapper">
                         <div class="room-slider" id="roomSlider">
                             <div class="room-slide active">
@@ -217,9 +219,7 @@
                             <li><i class="fas fa-wind"></i> Asciugacapelli</li>
                         </ul>
                     </div>
-                    
-                </div> </div>
-        </div>
+                </div> </div> </div>
     </section>
 
     <footer id="contatti">

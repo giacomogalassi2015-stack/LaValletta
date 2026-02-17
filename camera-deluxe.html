@@ -46,180 +46,183 @@
         </div>
     </header>
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="room-detail-grid">
+   <section class="section-padding">
+    <div class="container">
+        <div class="room-detail-grid">
+            
+            <div class="detail-text" data-aos="fade-right">
                 
-                <div class="detail-text" data-aos="fade-right">
-                    
-                    <script>
-                        window.CURRENT_ROOM = 'deluxe'; 
-                        window.ROOM_NAME = 'King Deluxe';
-                        window.BOOKING_ICAL = 'https://ical.booking.com/v1/export?t=4b6f3e56-fab9-49ca-afc7-921cc4afbbe3'; 
-                    </script>
+                <script>
+                    window.CURRENT_ROOM = 'deluxe'; 
+                    window.ROOM_NAME = 'King Deluxe';
+                    window.BOOKING_ICAL = 'https://ical.booking.com/v1/export?t=4b6f3e56-fab9-49ca-afc7-921cc4afbbe3'; 
+                </script>
 
-                    <div class="booking-widget" id="preventivo-box">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Prenota Ora</h3>
+                <div class="booking-widget" id="preventivo-box">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Prenota Ora</h3>
+                    
+                    <div class="input-group">
+                        <label><i class="fas fa-users"></i> Numero Ospiti</label>
+                        <select id="guests">
+                            <option value="2">2 Ospiti</option>
+                            <option value="1">1 Ospite</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
+                        <input type="text" id="date-picker" placeholder="Seleziona date">
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-comments"></i> Contatto preferito</label>
+                        <select id="contact-method">
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="email">Email</option>
+                        </select>
+                    </div>
+
+                    <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
+                        <i class="fas fa-spinner fa-spin"></i> Calcolo...
+                    </div>
+
+                    <div id="price-summary" style="display:none;" class="price-summary">
+                        <div class="price-details-grid">
+                            <div class="price-item">
+                                <span class="price-label">Soggiorno</span>
+                                <span class="price-value"><span id="total-nights">0</span> Notti</span>
+                            </div>
+                            <div class="price-item" style="text-align: right;">
+                                <span class="price-label">Media Notte</span>
+                                <span class="price-value" id="avg-price">€ 0</span>
+                            </div>
+                        </div>
+
+                        <div class="total-row">
+                            <span>Valore Totale Camera</span>
+                            <span id="total-price">€ 0</span>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="payment-block highlight">
+                            <div class="payment-header">
+                                <span>DA VERSARE ORA (20%)</span>
+                                <div class="tooltip-container">
+                                    <i class="fas fa-info-circle info-icon"></i>
+                                    <span class="tooltip-text">
+                                        La caparra blocca la camera ed è <strong>rimborsabile fino a 30 giorni</strong> prima del check-in. Oltre tale data non verrà restituita.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="payment-amount" id="deposit-amount">€ 0</div>
+                        </div>
+
+                        <div class="payment-block secondary">
+                            <div class="payment-header">DA SALDARE IN STRUTTURA</div>
+                            <div class="payment-row">
+                                <span>Saldo Camera</span>
+                                <span id="balance-due">€ 0</span>
+                            </div>
+                            <div class="payment-row">
+                                <span>Tassa Soggiorno</span>
+                                <span id="city-tax">€ 0</span>
+                            </div>
+                        </div>
+
+                        <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
+                            Richiedi e Blocca Camera <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <h2 class="h2-internal">Prenotazione & Dettagli</h2>
+                
+                <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;">
+                    La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.
+                </p>
+
+                <div class="policy-box">
+                    <div class="policy-item">
+                        <i class="far fa-clock"></i>
+                        <span>
+                            <strong>Orari</strong><br>
+                            Check-in: 14:00 - 00:00<br>
+                            Check-out: entro le 11:00
+                        </span>
+                    </div>
+                    
+                    <div class="policy-item">
+                        <i class="fas fa-bed"></i>
+                        <span>
+                            <strong>Disposizione Notte</strong><br>
+                            Letti matrimoniali non divisibili.<br>
+                            No culle o letti extra.
+                        </span>
+                    </div>
+
+                    <div class="policy-item">
+                        <i class="fas fa-ban"></i>
+                        <span>
+                            <strong>Regole Struttura</strong><br>
+                            Camere non fumatori.<br>
+                            No parcheggio privato.
+                        </span>
+                    </div>
+                </div>
+
+                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                    <strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.
+                </p>
+
+                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                    <strong>Cancellazione:</strong> Gratuita fino a 30 giorni dall'arrivo.
+                </p>
+
+                <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
+                    <strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.
+                </p>
+            </div> 
+
+            <div class="right-column-wrapper" data-aos="fade-left">
+                <div class="detail-gallery-wrapper">
+                    <div class="room-slider" id="roomSlider">
+                        <div class="room-slide active">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg" alt="King Deluxe Letto">
+                        </div>
+                        <div class="room-slide">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037764/d2_lnozpv.jpg" alt="King Deluxe Dettagli">
+                        </div>
+                        <div class="room-slide">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Vista">
+                        </div>
                         
-                        <div class="input-group">
-                            <label><i class="fas fa-users"></i> Numero Ospiti</label>
-                            <select id="guests">
-                                <option value="2">2 Ospiti</option>
-                                <option value="1">1 Ospite (Sconto Single)</option>
-                            </select>
-                        </div>
+                        <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
+                        <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
 
-                        <div class="input-group">
-                            <label><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
-                            <input type="text" id="date-picker" placeholder="Seleziona date">
-                        </div>
-
-                        <div class="input-group">
-                            <label><i class="fas fa-comments"></i> Contatto preferito</label>
-                            <select id="contact-method">
-                                <option value="whatsapp">WhatsApp</option>
-                                <option value="email">Email</option>
-                            </select>
-                        </div>
-
-                        <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
-                            <i class="fas fa-spinner fa-spin"></i> Calcolo...
-                        </div>
-
-                       <div id="price-summary" style="display:none;" class="price-summary">
-    
-    <div class="price-details-grid">
-        <div class="price-item">
-            <span class="price-label">Soggiorno</span>
-            <span class="price-value"><span id="total-nights">0</span> Notti</span>
-        </div>
-        <div class="price-item" style="text-align: right;">
-            <span class="price-label">Media Notte</span>
-            <span class="price-value" id="avg-price">€ 0</span>
-        </div>
-    </div>
-
-    <div class="total-row">
-        <span>Valore Totale Camera</span>
-        <span id="total-price">€ 0</span>
-    </div>
-
-    <hr class="divider">
-
-    <div class="payment-block highlight">
-        <div class="payment-header">
-            <span>DA VERSARE ORA (20%)</span>
-            <div class="tooltip-container">
-                <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">
-                    La caparra blocca la camera ed è <strong>rimborsabile fino a 30 giorni</strong> prima del check-in. Oltre tale data non verrà restituita.
-                </span>
-            </div>
-        </div>
-        <div class="payment-amount" id="deposit-amount">€ 0</div>
-    </div>
-
-    <div class="payment-block secondary">
-        <div class="payment-header">DA SALDARE IN STRUTTURA</div>
-        <div class="payment-row">
-            <span>Saldo Camera</span>
-            <span id="balance-due">€ 0</span>
-        </div>
-        <div class="payment-row">
-            <span>Tassa Soggiorno (Extra)</span>
-            <span id="city-tax">€ 0</span>
-        </div>
-    </div>
-
-    <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
-        Richiedi e Blocca Camera <i class="fas fa-chevron-right"></i>
-    </button>
-
-</div>
-
-                    <h2 class="h2-internal">Prenotazione & Dettagli</h2>
-                    
-                    <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;">
-                        La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.
-                    </p>
-
-                    <div class="policy-box">
-                        <div class="policy-item">
-                            <i class="far fa-clock"></i>
-                            <span>
-                                <strong>Orari</strong>
-                                Check-in: 14:00 - 00:00<br>
-                                Check-out: entro le 11:00
-                            </span>
-                        </div>
-                        
-                        <div class="policy-item">
-                            <i class="fas fa-bed"></i>
-                            <span>
-                                <strong>Disposizione Notte</strong>
-                                Letti matrimoniali non divisibili.<br>
-                                No culle o letti extra.
-                            </span>
-                        </div>
-
-                        <div class="policy-item">
-                            <i class="fas fa-ban"></i>
-                            <span>
-                                <strong>Regole Struttura</strong>
-                                Camere non fumatori.<br>
-                                No parcheggio privato.
-                            </span>
-                        </div>
+                        <a href="galleria.html" class="gallery-overlay-btn">
+                            <i class="fas fa-th"></i> Vedi Galleria
+                        </a>
                     </div>
+                </div>
 
-                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
-                        <strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.
-                    </p>
-
-                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
-                        <strong>Cancellazione:</strong> Gratuita fino a 30 giorni dall'arrivo.
-                    </p>
-
-                </div> <div class="right-column-wrapper" data-aos="fade-left">
-                    
-                    <div class="detail-gallery-wrapper">
-                        <div class="room-slider" id="roomSlider">
-                            <div class="room-slide active">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg" alt="King Deluxe Letto">
-                            </div>
-                            <div class="room-slide">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037764/d2_lnozpv.jpg" alt="King Deluxe Dettagli">
-                            </div>
-                            <div class="room-slide">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Vista">
-                            </div>
-                            
-                            <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
-                            <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
-
-                            <a href="galleria.html" class="gallery-overlay-btn">
-                                <i class="fas fa-th"></i> Vedi Galleria
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="services-list" style="margin-top: 30px;">
-                        <h3>Servizi Inclusi</h3>
-                        <ul>
-                            <li><i class="fas fa-expand-arrows-alt"></i> Metratura Ampia</li>
-                            <li><i class="fas fa-tv"></i> Smart TV 50" 4K</li>
-                            <li><i class="fas fa-glass-martini-alt"></i> Minibar Premium</li>
-                            <li><i class="fas fa-couch"></i> Area Relax / Lettura</li>
-                            <li><i class="fas fa-wifi"></i> Wi-Fi High Speed</li>
-                            <li><i class="fas fa-snowflake"></i> Aria Condizionata</li>
-                            <li><i class="fas fa-mug-hot"></i> Bollitore Tè & Caffè</li>
-                            <li><i class="fas fa-wind"></i> Asciugacapelli</li>
-                        </ul>
-                    </div>
-                    
-                </div> </div>
-        </div>
-    </section>
+                <div class="services-list" style="margin-top: 30px;">
+                    <h3>Servizi Inclusi</h3>
+                    <ul>
+                        <li><i class="fas fa-expand-arrows-alt"></i> Metratura Ampia</li>
+                        <li><i class="fas fa-tv"></i> Smart TV 50" 4K</li>
+                        <li><i class="fas fa-glass-martini-alt"></i> Minibar Premium</li>
+                        <li><i class="fas fa-couch"></i> Area Relax / Lettura</li>
+                        <li><i class="fas fa-wifi"></i> Wi-Fi High Speed</li>
+                        <li><i class="fas fa-snowflake"></i> Aria Condizionata</li>
+                        <li><i class="fas fa-mug-hot"></i> Bollitore Tè & Caffè</li>
+                        <li><i class="fas fa-wind"></i> Asciugacapelli</li>
+                    </ul>
+                </div>
+            </div> 
+            
+        </div> </div>
+</section>
 
     <footer id="contatti">
         <div class="container footer-content">

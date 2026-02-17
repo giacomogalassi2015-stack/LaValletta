@@ -240,8 +240,34 @@ h2.section-title {
 .gallery-item { height: 300px; overflow: hidden; border-radius: 4px; cursor: pointer; transition: transform 0.3s ease; }
 .gallery-item:hover { transform: scale(1.02); }
 
-/* --- PAGINE INTERNE --- */
-.room-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+/* Layout per Desktop (schermi sopra i 768px) */
+@media (min-width: 768px) {
+    .room-detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Due colonne affiancate */
+        gap: 40px;
+        align-items: start;
+    }
+}
+
+/* Layout per Mobile (sotto i 768px) */
+@media (max-width: 767px) {
+    .room-detail-grid {
+        display: flex;
+        flex-direction: column; /* Una colonna sopra l'altra */
+        gap: 30px;
+    }
+
+    /* Assicuriamoci che la colonna con Prenota Ora sia la prima */
+    .detail-text {
+        order: 1;
+    }
+
+    /* La galleria andrà sotto */
+    .right-column-wrapper {
+        order: 2;
+    }
+}
 
 /* Lista Servizi */
 .services-list {
@@ -286,7 +312,8 @@ h2.section-title {
 .booking-widget {
     background: #ffffff; padding: 30px; border-radius: 8px;
     box-shadow: 0 15px 40px rgba(10, 25, 47, 0.08); border: 1px solid #eee;
-    margin-top: 0; max-width: 100%;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;; max-width: 100%;
 }
 .booking-widget h3 {
     color: var(--primary); font-family: var(--font-heading); margin-bottom: 25px;
