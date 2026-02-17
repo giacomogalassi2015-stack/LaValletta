@@ -72,57 +72,51 @@
                     
                     
                     
-                    <div class="booking-widget" id="preventivo-box">
-                        <h3>Calcola Preventivo</h3>
-                        
-                        <div class="input-group">
-                            <label><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
-                            <input type="text" id="date-picker" placeholder="Check-in  &rarr;  Check-out">
-                        </div>
+<script>
+    // Usa window. per rendere le variabili visibili ovunque
+    window.CURRENT_ROOM = 'king'; 
+    window.ROOM_NAME = 'King Room';
+    window.BOOKING_ICAL = 'https://ical.booking.com/v1/export?t=f2eccee5-18cb-4a0e-b7ce-a5c08543a13c'; 
+</script>
 
-                        <div class="input-group">
-                            <label><i class="fas fa-user-friends"></i> Ospiti</label>
-                            <select id="guests">
-                                <option value="1">1 Ospite</option>
-                                <option value="2" selected>2 Ospiti</option>
-                            </select>
-                        </div>
+<div class="booking-widget" id="preventivo-box">
+    <h3>Calcola Preventivo</h3>
+    
+    <div class="input-group">
+        <label><i class="fas fa-users"></i> Numero Ospiti</label>
+        <select id="guests">
+            <option value="2">2 Ospiti</option>
+            <option value="1">1 Ospite (Sconto Single)</option>
+        </select>
+    </div>
 
-                        <div class="input-group">
-                            <label><i class="fas fa-comment-dots"></i> Come vuoi ricevere la conferma?</label>
-                            <select id="contact-method">
-                                <option value="whatsapp">Rispondimi su WhatsApp</option>
-                                <option value="email">Rispondimi via Email</option>
-                            </select>
-                        </div>
+    <div class="input-group">
+        <label><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
+        <input type="text" id="date-picker" placeholder="Seleziona le date">
+    </div>
 
-                        <div id="loading-prices" style="text-align:center; display:none; color:#888; font-size:0.8rem; margin:10px 0;">
-                            <i class="fas fa-sync fa-spin"></i> Caricamento tariffe e disponibilità...
-                        </div>
+    <div class="input-group">
+        <label><i class="fas fa-comments"></i> Come preferisci essere ricontattato?</label>
+        <select id="contact-method">
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Email</option>
+        </select>
+    </div>
 
-                        <div id="price-summary" class="price-summary" style="display:none;">
-                            <div class="row">
-                                <span>Notti</span>
-                                <span id="total-nights">0</span>
-                            </div>
-                            <div class="row">
-                                <span>Tariffa media</span>
-                                <span id="avg-price">€ 0</span>
-                            </div>
-                            <hr>
-                            <div class="row total">
-                                <span>Totale Stimato</span>
-                                <span id="total-price">€ 0</span>
-                            </div>
-                            <p style="font-size:0.7rem; color:#666; margin-top:5px; text-align:right;">*Tassa di soggiorno esclusa</p>
-                        </div>
+    <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
+        <i class="fas fa-spinner fa-spin"></i> Calcolo in corso...
+    </div>
 
-                        <a href="#" id="btn-request" class="btn-gold-solid full-width disabled">
-                            Seleziona date
-                        </a>
-                        
-                        <small class="disclaimer">Risposta garantita entro 1 ora.</small>
-                    </div>
+    <div id="price-summary" style="display:none;" class="price-summary">
+        <div class="row"><span>Notti:</span> <span id="total-nights">0</span></div>
+        <div class="row"><span>Media a notte:</span> <span id="avg-price">€ 0</span></div>
+        <div class="row total"><span>Totale:</span> <span id="total-price">€ 0</span></div>
+        
+        <button id="btn-request" class="btn-gold-solid full-width" style="margin-top:15px; border:none; cursor:pointer;">
+            Richiedi Preventivo <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
                     </div>
 
                 <div class="detail-gallery" data-aos="fade-left">
@@ -155,18 +149,21 @@
     
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+    
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
+
     <script>
-        // CONFIGURAZIONE GLOBALE
+        // CONFIGURAZIONE GLOBALE (Usata da booking.js)
         const SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co'; 
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
         
-        // Impostazioni Specifiche per KING ROOM
-        const CURRENT_ROOM = 'king'; // <--- Importante: 'king'
-        const ROOM_NAME = "King Room";
+        // Inizializza le animazioni (se usate)
+        AOS.init();
     </script>
 
     <script src="booking.js"></script>
+
 </body>
 </html>

@@ -1,12 +1,13 @@
-/* --- booking.js (Versione Blindata) --- */
+/* --- booking.js (Versione DEFINITIVA: Prezzi Supabase + Calendario Booking) --- */
 
-// Recupera le variabili globali definite nell'HTML
+// Recupera le variabili globali
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const proxy = "https://api.codetabs.com/v1/proxy?quest=";
 let pricingRules = []; 
 
 document.addEventListener('DOMContentLoaded', async function() {
     
-    // 1. TENTA IL DOWNLOAD (Ma non bloccare tutto se fallisce)
+    // 1. SCARICA IL LISTINO PREZZI (Supabase)
     try {
         const { data, error } = await client
             .from('listino_prezzi')
@@ -14,38 +15,68 @@ document.addEventListener('DOMContentLoaded', async function() {
             .order('mese', { ascending: true });
         
         if (error) throw error;
-        
-        if (data && data.length > 0) {
-            pricingRules = data;
-            console.log("✅ Listino scaricato:", pricingRules.length + " regole.");
-        } else {
-            console.warn("⚠️ Tabella vuota o nessun dato.");
-        }
-
+        pricingRules = data || [];
+        console.log("✅ Listino scaricato:", pricingRules.length + " mesi.");
     } catch (err) {
-        console.error("❌ Errore connessione Supabase:", err.message);
-        console.log("⚠️ Attivo modalità offline (Prezzi standard + Apertura Maggio-Ottobre).");
-    } finally {
-        // 2. AVVIA IL CALENDARIO (Sempre, anche se c'è stato errore)
-        initCalendar();
+        console.error("❌ Errore Supabase:", err.message);
     }
 
-    // Gestione cambio ospiti
+    // 2. SCARICA LE DATE OCCUPATE (Booking.com)
+    let blockedDates = [];
+    
+    // Controlla se le variabili sono definite globalmente (window)
+    const icalLink = window.BOOKING_ICAL;
+    
+    if (icalLink && icalLink.startsWith('http')) {
+        console.log("⏳ Scarico calendario Booking per: " + window.ROOM_NAME);
+        blockedDates = await fetchBookingDates(icalLink);
+    } else {
+        console.warn("⚠️ Nessun link Booking trovato. (Se sei in Home è normale)");
+    }
+
+    // 3. AVVIA IL CALENDARIO (Con prezzi e date chiuse)
+    initCalendar(blockedDates);
+
+    // Gestione cambio ospiti (Ricalcola prezzo al volo)
     const guestsSelect = document.getElementById('guests');
     if(guestsSelect) {
         guestsSelect.addEventListener('change', function() {
-            const datePicker = document.getElementById('date-picker')._flatpickr;
-            if (datePicker && datePicker.selectedDates.length === 2) {
-                calculateTotal(datePicker.selectedDates[0], datePicker.selectedDates[1], datePicker.input.value);
+            const dp = document.getElementById('date-picker')._flatpickr;
+            if (dp && dp.selectedDates.length === 2) {
+                calculateTotal(dp.selectedDates[0], dp.selectedDates[1], dp.input.value);
             }
         });
     }
 });
 
-// 3. INIZIALIZZA CALENDARIO
-function initCalendar() {
-    // Se pricingRules è vuoto (errore connessione), usiamo fallback manuale
-    // Fallback: Apri mesi 5,6,7,8,9,10 (Maggio-Ottobre)
+// --- FUNZIONE PER SCARICARE BOOKING ---
+async function fetchBookingDates(url) {
+    try {
+        const response = await fetch(proxy + encodeURIComponent(url));
+        const text = await response.text();
+        
+        // Parsing con la libreria ical.js
+        const jcalData = ICAL.parse(text);
+        const comp = new ICAL.Component(jcalData);
+        const events = comp.getAllSubcomponents('vevent');
+
+        const blocked = events.map(vevent => {
+            const ev = new ICAL.Event(vevent);
+            return {
+                from: ev.startDate.toJSDate(),
+                to: ev.endDate.toJSDate()
+            };
+        });
+        console.log("🔒 Date chiuse importate:", blocked.length);
+        return blocked;
+    } catch (e) {
+        console.error("❌ Errore lettura calendario Booking:", e);
+        return [];
+    }
+}
+
+// --- INIZIALIZZA CALENDARIO ---
+function initCalendar(blockedDatesFromBooking) {
     const dbMonths = pricingRules.map(rule => rule.mese);
     const hasData = dbMonths.length > 0;
 
@@ -55,14 +86,13 @@ function initCalendar() {
         dateFormat: "d/m/Y",
         locale: "it",
         disable: [
-            function(date) {
-                const m = date.getMonth() + 1; // JS 0-11 -> Supabase 1-12
-                
+            ...blockedDatesFromBooking, // 1. Blocca le date di Booking
+            function(date) {            // 2. Blocca i mesi non presenti nel listino
+                const m = date.getMonth() + 1;
                 if (hasData) {
-                    // SE ABBIAMO I DATI: Usa le regole del database
                     return !dbMonths.includes(m);
                 } else {
-                    // SE SIAMO OFFLINE: Chiudi tutto tranne Maggio(5)-Ottobre(10)
+                    // Fallback se database offline: apre Maggio-Ottobre
                     return (m < 5 || m > 10);
                 }
             }
@@ -75,10 +105,13 @@ function initCalendar() {
     });
 }
 
-// 4. LOGICA DI CALCOLO
+// --- CALCOLO PREZZI ---
 function calculateTotal(startDate, endDate, dateString) {
-    document.getElementById('loading-prices').style.display = 'block';
-    document.getElementById('price-summary').style.display = 'none';
+    const loading = document.getElementById('loading-prices');
+    const summary = document.getElementById('price-summary');
+    
+    if(loading) loading.style.display = 'block';
+    if(summary) summary.style.display = 'none';
     
     let total = 0;
     let nights = 0;
@@ -89,30 +122,25 @@ function calculateTotal(startDate, endDate, dateString) {
     
     if (totalNights === 0) return;
 
-    const isSingleNight = (totalNights === 1);
-    const guestsElement = document.getElementById('guests');
-    const guests = guestsElement ? parseInt(guestsElement.value) : 2;
+    const guests = parseInt(document.getElementById('guests').value);
     const isSingleGuest = (guests === 1);
-
-    let appliedSurchargePercent = 0; 
+    const isSingleNight = (totalNights === 1);
+    let surchargePercent = 0;
 
     while (currentDate < endDate) {
         const month = currentDate.getMonth() + 1; 
         const dayOfWeek = currentDate.getDay(); 
         
-        // PREZZO BASE DI RISERVA (Se DB offline)
-        let dailyPrice = 160; 
+        let dailyPrice = 160; // Prezzo base fallback
 
-        // Cerca nel DB (se disponibile)
         const rule = pricingRules.find(r => r.mese == month);
         
         if (rule) {
-            // DATABASE ONLINE
+            // Usa il nome della camera definito nell'HTML (CURRENT_ROOM)
             dailyPrice = (typeof CURRENT_ROOM !== 'undefined' && CURRENT_ROOM === 'king') ? rule.prezzo_king : rule.prezzo_deluxe;
             
-            // Weekend
-            const extra = rule.extra_weekend !== null ? rule.extra_weekend : 20;
-            if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += extra;
+            // Extra Weekend
+            if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += (rule.extra_weekend ?? 20);
 
             // Sconto Single
             if (isSingleGuest && rule.sconto_singolo) {
@@ -120,15 +148,12 @@ function calculateTotal(startDate, endDate, dateString) {
             }
 
             // Maggiorazione Notte Singola
-            if (isSingleNight && rule.maggiorazione_singola) {
-                appliedSurchargePercent = rule.maggiorazione_singola;
-            }
+            if (isSingleNight) surchargePercent = rule.maggiorazione_singola || 0;
         } else {
-            // DATABASE OFFLINE O MESE NON TROVATO
-            // Applichiamo logiche base standard
-            if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += 20; // Extra weekend standard
-            if (isSingleGuest) dailyPrice -= dailyPrice * 0.05; // Sconto 5% standard
-            if (isSingleNight) appliedSurchargePercent = 30; // Maggiorazione 30% standard
+            // Logica Fallback
+            if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += 20;
+            if (isSingleGuest) dailyPrice *= 0.95; 
+            if (isSingleNight) surchargePercent = 30;
         }
 
         total += dailyPrice;
@@ -136,16 +161,20 @@ function calculateTotal(startDate, endDate, dateString) {
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    if (isSingleNight && appliedSurchargePercent > 0) {
-        total += total * (appliedSurchargePercent / 100);
+    if (isSingleNight && surchargePercent > 0) {
+        total += total * (surchargePercent / 100);
     }
 
-    updateUI(Math.round(total), nights, dateString);
+    updateUI(Math.round(total), nights, dateString, guests);
 }
 
-function updateUI(total, nights, dateString) {
-    document.getElementById('loading-prices').style.display = 'none';
-    document.getElementById('price-summary').style.display = 'block';
+// --- AGGIORNAMENTO INTERFACCIA ---
+function updateUI(total, nights, dateString, guests) {
+    const loading = document.getElementById('loading-prices');
+    const summary = document.getElementById('price-summary');
+    
+    if(loading) loading.style.display = 'none';
+    if(summary) summary.style.display = 'block';
     
     document.getElementById('total-nights').innerText = nights;
     document.getElementById('total-price').innerText = '€ ' + total;
@@ -153,19 +182,15 @@ function updateUI(total, nights, dateString) {
 
     const btn = document.getElementById('btn-request');
     if(btn) {
-        btn.classList.remove('disabled');
-        btn.innerHTML = `Richiedi Preventivo <i class="fas fa-paper-plane"></i>`;
-        
-        // Rimuovi vecchi event listener clonando il nodo
+        // Clona il bottone per rimuovere vecchi listener
         const newBtn = btn.cloneNode(true);
         btn.parentNode.replaceChild(newBtn, btn);
         
         newBtn.onclick = function(e) {
             e.preventDefault();
-            const guests = document.getElementById('guests').value;
             const method = document.getElementById('contact-method').value;
             
-            // Verifica che ROOM_NAME sia definito
+            // Recupera nome camera definito nell'HTML
             const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
 
             let message = `Ciao Ca' della Valletta! 👋\nVorrei un preventivo per la *${rName}*.\n\n📅 Date: ${dateString}\n🌙 Notti: ${nights}\n👤 Ospiti: ${guests}\n💰 Preventivo Web: €${total}\n\n`;
