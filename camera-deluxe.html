@@ -98,54 +98,56 @@
                         <i class="fas fa-spinner fa-spin"></i> Calcolo...
                     </div>
 
-                    <div id="price-summary" style="display:none;" class="price-summary">
-                        <div class="price-details-grid">
-                            <div class="price-item">
-                                <span class="price-label" data-i18n="lbl_stay">Soggiorno</span>
-                                <span class="price-value"><span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
-                            </div>
-                            <div class="price-item" style="text-align: right;">
-                                <span class="price-label" data-i18n="lbl_avg_night">Media Notte</span>
-                                <span class="price-value" id="avg-price">€ 0</span>
-                            </div>
-                        </div>
+                  <div id="price-summary" style="display:none;" class="price-summary-card">
+    
+    <div class="summary-header">
+        <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
+        <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
+    </div>
 
-                        <div class="total-row">
-                            <span data-i18n="lbl_total_val">Valore Totale Camera</span>
-                            <span id="total-price">€ 0</span>
-                        </div>
+    <div class="scroll-container">
+        <div id="nightly-details-list" class="nightly-list">
+            </div>
+    </div>
 
-                        <hr class="divider">
+    <div class="summary-row tax-row">
+        <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
+        <span id="city-tax-display">€ 0</span>
+    </div>
 
-                        <div class="payment-block highlight">
-                            <div class="payment-header">
-                                <span data-i18n="lbl_deposit">DA VERSARE ORA (20%)</span>
-                                <div class="tooltip-container">
-                                    <i class="fas fa-info-circle info-icon"></i>
-                                    <span class="tooltip-text" data-i18n="tooltip_deposit">
-                                        La caparra blocca la camera ed è rimborsabile fino a 30 giorni prima del check-in.
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="payment-amount" id="deposit-amount">€ 0</div>
-                        </div>
+    <div class="divider-solid"></div>
 
-                        <div class="payment-block secondary">
-                            <div class="payment-header" data-i18n="lbl_balance">DA SALDARE IN STRUTTURA</div>
-                            <div class="payment-row">
-                                <span data-i18n="lbl_balance_due">Saldo Camera</span>
-                                <span id="balance-due">€ 0</span>
-                            </div>
-                            <div class="payment-row">
-                                <span data-i18n="lbl_city_tax">Tassa Soggiorno</span>
-                                <span id="city-tax">€ 0</span>
-                            </div>
-                        </div>
+    <div class="summary-row total-row main-total">
+        <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
+        <span id="grand-total-display">€ 0</span>
+    </div>
 
-                        <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
-                            <span data-i18n="btn_request">Richiedi e Blocca Camera</span> <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
+    <div class="payment-cards-container">
+        
+        <div class="pay-card deposit">
+            <div class="pay-icon"><i class="fas fa-lock"></i></div>
+            <div class="pay-info">
+                <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
+                <span class="pay-amount" id="deposit-amount">€ 0</span>
+                <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (20%)</span>
+            </div>
+        </div>
+
+        <div class="pay-card balance">
+            <div class="pay-icon"><i class="fas fa-wallet"></i></div>
+            <div class="pay-info">
+                <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
+                <span class="pay-amount" id="balance-due">€ 0</span>
+                </div>
+        </div>
+
+    </div>
+
+    <button id="btn-request" class="btn-luxury">
+        <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
+        <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
+    </button>
+</div>
                 </div>
 
                 <h2 class="h2-internal" data-i18n="sec_details_title">Prenotazione & Dettagli</h2>

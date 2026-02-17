@@ -542,3 +542,210 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
     /* 2. Spinge GIÙ la colonna destra (Slider + Servizi) */
     .right-column-wrapper { margin-top: 2px; }
 }
+
+/* --- WIDGET LUXURY --- */
+
+.price-summary-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Ombra profonda */
+    border: 1px solid #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.summary-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    font-weight: 600;
+}
+.stay-duration {
+    background: #f8f9fa;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Lista Notti */
+.scroll-container {
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+.scroll-container::-webkit-scrollbar { width: 3px; }
+.scroll-container::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+
+.nightly-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+.night-label { color: #666; }
+.night-price { font-weight: 500; color: #333; }
+
+/* Tassa Soggiorno */
+.tax-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+.tax-row i { margin-right: 8px; color: #aaa; }
+
+/* Divisore */
+.divider-solid {
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0 15px 0;
+}
+
+/* Totale Complessivo */
+.main-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+.main-total span:first-child { font-weight: 600; }
+.main-total span:last-child { font-size: 1.4rem; font-weight: 700; color: #1a1a1a; }
+
+/* Card Pagamenti */
+.payment-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.pay-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: transform 0.2s;
+}
+
+.pay-card:hover { transform: translateY(-2px); }
+
+/* Stile Caparra */
+.pay-card.deposit {
+    background: #fffcf0;
+    border-color: #e6dcc0;
+}
+.pay-card.deposit .pay-icon {
+    background: #d4af37; /* Oro */
+    color: white;
+}
+.pay-card.deposit .pay-amount { color: #b08d26; }
+
+/* Stile Saldo */
+.pay-card.balance {
+    background: #f7f9fc;
+    border-color: #e1e6ed;
+}
+.pay-card.balance .pay-icon {
+    background: #2c3e50; /* Blu scuro */
+    color: white;
+}
+.pay-card.balance .pay-amount { color: #2c3e50; }
+
+/* Elementi comuni card */
+.pay-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+.pay-info {
+    display: flex;
+    flex-direction: column;
+}
+.pay-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+    margin-bottom: 2px;
+}
+.pay-amount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+.pay-sub {
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* Bottone Luxury */
+.btn-luxury {
+    width: 100%;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 0;
+    height: 55px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-luxury .btn-text {
+    padding-left: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-luxury .btn-icon-box {
+    background: #d4af37; /* Oro */
+    height: 100%;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.3s ease;
+}
+
+.btn-luxury:hover {
+    background: #000;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.btn-luxury:hover .btn-icon-box {
+    width: 70px;
+}

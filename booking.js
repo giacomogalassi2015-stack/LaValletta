@@ -107,18 +107,12 @@ function initCalendar(blockedDatesFromBooking) {
         }
     });
 }
-
-// --- CALCOLO PREZZI ---
 function calculateTotal(startDate, endDate, dateString) {
     const loading = document.getElementById('loading-prices');
     const summary = document.getElementById('price-summary');
-    
     if(loading) loading.style.display = 'block';
     if(summary) summary.style.display = 'none';
-    
-    let totalRoomPrice = 0;
-    let nights = 0;
-    
+
     let currentDate = new Date(startDate.getTime());
     currentDate.setHours(0,0,0,0);
     let endDateTime = new Date(endDate.getTime());
@@ -126,108 +120,100 @@ function calculateTotal(startDate, endDate, dateString) {
     
     const diffTime = Math.abs(endDateTime - currentDate);
     const totalNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
     if (totalNights === 0) return;
 
     const guests = parseInt(document.getElementById('guests').value);
     const isSingleGuest = (guests === 1);
-    const isSingleNight = (totalNights === 1);
-    let surchargePercent = 0;
+    
+    let totalRoomCost = 0; // Solo pernotto
+    let nightlyDetails = []; 
 
-    // --- LOGICA PREZZO GIORNALIERO ---
-    while (currentDate < endDateTime) {
-        const month = currentDate.getMonth() + 1; 
-        const dayOfWeek = currentDate.getDay(); 
-        
-        let dailyPrice = 160; 
+    // 1. Calcolo Pernotti
+    let tempDate = new Date(currentDate.getTime());
+    while (tempDate < endDateTime) {
+        const month = tempDate.getMonth() + 1;
+        const dayOfWeek = tempDate.getDay();
+        let dailyPrice = 165; 
 
         const rule = pricingRules.find(r => r.mese == month);
-        
         if (rule) {
             dailyPrice = (typeof CURRENT_ROOM !== 'undefined' && CURRENT_ROOM === 'king') ? rule.prezzo_king : rule.prezzo_deluxe;
-            if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += (rule.extra_weekend ?? 20);
+            if ((dayOfWeek === 5 || dayOfWeek === 6) && rule.extra_weekend) dailyPrice += rule.extra_weekend;
             if (isSingleGuest && rule.sconto_singolo) dailyPrice -= dailyPrice * (rule.sconto_singolo / 100);
-            if (isSingleNight) surchargePercent = rule.maggiorazione_singola || 0;
-        } else {
-            if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += 20;
-            if (isSingleGuest) dailyPrice *= 0.95; 
-            if (isSingleNight) surchargePercent = 30;
         }
-
-        totalRoomPrice += dailyPrice;
-        nights++;
-        currentDate.setDate(currentDate.getDate() + 1);
+        
+        totalRoomCost += dailyPrice;
+        nightlyDetails.push({ date: new Date(tempDate), price: dailyPrice });
+        tempDate.setDate(tempDate.getDate() + 1);
     }
 
-    if (isSingleNight && surchargePercent > 0) {
-        totalRoomPrice += totalRoomPrice * (surchargePercent / 100);
+    if (totalNights === 1) {
+        const rule = pricingRules.find(r => r.mese == (startDate.getMonth() + 1));
+        if(rule && rule.maggiorazione_singola) {
+            let surcharge = totalRoomCost * (rule.maggiorazione_singola / 100);
+            totalRoomCost += surcharge;
+            nightlyDetails[0].price += surcharge;
+        }
     }
+    totalRoomCost = Math.round(totalRoomCost);
 
-    totalRoomPrice = Math.round(totalRoomPrice);
+    // 2. Calcolo Tassa
+    const nightsForTax = totalNights > 3 ? 3 : totalNights;
+    const cityTax = 3.00 * guests * nightsForTax;
 
-    // --- CALCOLO TASSA SOGGIORNO ---
-    const nightsForTax = nights > 3 ? 3 : nights;
-    const cityTax = 3 * guests * nightsForTax;
+    // 3. Totale "Visivo" (Pernotti + Tassa)
+    const grandTotal = totalRoomCost + cityTax;
 
-    // --- CALCOLO CAPARRA (20%) ---
-    const deposit = Math.round(totalRoomPrice * 0.20);
+    // 4. Caparra (20% del solo Pernotto)
+    const deposit = Math.round(totalRoomCost * 0.20);
 
-    updateUI(totalRoomPrice, cityTax, deposit, nights, dateString, guests);
+    // 5. Saldo
+    const balanceDue = grandTotal - deposit;
+
+    updateUI(grandTotal, totalRoomCost, cityTax, deposit, balanceDue, totalNights, dateString, guests, nightlyDetails);
 }
 
-// --- AGGIORNAMENTO INTERFACCIA ---
-function updateUI(roomPrice, cityTax, deposit, nights, dateString, guests) {
-    const loading = document.getElementById('loading-prices');
-    const summary = document.getElementById('price-summary');
-    
-    if(loading) loading.style.display = 'none';
-    if(summary) summary.style.display = 'block';
-    
-    // Calcolo del saldo rimanente (Totale - Caparra)
-    const balanceRoom = roomPrice - deposit;
+function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, dateString, guests, nightlyDetails) {
+    document.getElementById('loading-prices').style.display = 'none';
+    document.getElementById('price-summary').style.display = 'block';
 
-    // Popolamento Dati HTML
+    // Lista Notti
+    const detailsContainer = document.getElementById('nightly-details-list');
+    detailsContainer.innerHTML = '';
+    nightlyDetails.forEach((n) => {
+        const dateFmt = n.date.toLocaleDateString('it-IT', {day:'numeric', month:'short'});
+        const row = document.createElement('div');
+        row.className = 'nightly-row';
+        row.innerHTML = `<span class="night-label">${dateFmt}</span><span class="night-price">€ ${Math.round(n.price)}</span>`;
+        detailsContainer.appendChild(row);
+    });
+
+    // Popolamento Valori
     document.getElementById('total-nights').innerText = nights;
-    document.getElementById('avg-price').innerText = '€ ' + Math.round(roomPrice / nights);
+    document.getElementById('city-tax-display').innerText = '€ ' + cityTax.toLocaleString('it-IT', {minimumFractionDigits: 2});
+    document.getElementById('grand-total-display').innerText = '€ ' + grandTotal.toLocaleString('it-IT', {minimumFractionDigits: 2});
     
-    document.getElementById('total-price').innerText = '€ ' + roomPrice; 
-    document.getElementById('deposit-amount').innerText = '€ ' + deposit; // Caparra
-    
-    // Nuovi campi "Saldo" e "Tassa"
-    const balanceEl = document.getElementById('balance-due');
-    if(balanceEl) balanceEl.innerText = '€ ' + balanceRoom;
-    
-    document.getElementById('city-tax').innerText = '€ ' + cityTax;
+    document.getElementById('deposit-amount').innerText = '€ ' + deposit.toLocaleString('it-IT', {minimumFractionDigits: 2});
+    document.getElementById('balance-due').innerText = '€ ' + balanceDue.toLocaleString('it-IT', {minimumFractionDigits: 2});
 
-    // Configurazione Bottone
+    // Bottone
     const btn = document.getElementById('btn-request');
-    if(btn) {
-        const newBtn = btn.cloneNode(true);
-        btn.parentNode.replaceChild(newBtn, btn);
-        
-        newBtn.onclick = function(e) {
-            e.preventDefault();
-            const method = document.getElementById('contact-method').value;
-            const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
-
-            // Messaggio strutturato per WhatsApp/Email
-            let message = `Salve, vorrei prenotare la *${rName}*.\n\n` +
-                          `📅 *Date:* ${dateString} (${nights} notti)\n` +
-                          `👤 *Ospiti:* ${guests}\n\n` +
-                          `💶 *TOTALE CAMERA:* € ${roomPrice}\n` +
-                          `--------------------------------\n` +
-                          `🔒 *DA VERSARE ORA (Caparra 20%):* € ${deposit}\n` +
-                          `--------------------------------\n` +
-                          `🏨 *SALDO IN STRUTTURA:* € ${balanceRoom}\n` +
-                          `🏛️ *TASSA SOGGIORNO:* € ${cityTax}\n\n` +
-                          `Attendo il link per il versamento della caparra. Grazie!`;
-            
-            if (method === 'whatsapp') {
-                window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
-            } else {
-                const subject = `Richiesta Prenotazione: ${rName}`;
-                window.location.href = `mailto:info@cadellavalletta.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-            }
-        };
-    }
+    const newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+    
+    newBtn.onclick = function(e) {
+        e.preventDefault();
+        const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
+        let message = `Salve, vorrei prenotare la *${rName}*.\n\n` + 
+                      `📅 *Date:* ${dateString} (${nights} notti)\n` + 
+                      `👤 *Ospiti:* ${guests}\n\n` + 
+                      `💶 *Totale Soggiorno:* € ${grandTotal}\n` + 
+                      `(Pernotti €${roomCost} + Tassa €${cityTax})\n` + 
+                      `--------------------------------\n` + 
+                      `🔒 *CAPARRA (20%):* € ${deposit}\n` + 
+                      `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` + 
+                      `--------------------------------\n` + 
+                      `Attendo link per la caparra. Grazie!`;
+        window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
+    };
 }
