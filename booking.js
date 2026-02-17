@@ -1,4 +1,4 @@
-/* --- booking.js (Versione DEFINITIVA: Prezzi Supabase + Calendario Booking) --- */
+/* --- booking.js (Versione DEFINITIVA con Tassa Soggiorno) --- */
 
 // Recupera le variabili globali
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -42,8 +42,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     if(guestsSelect) {
         guestsSelect.addEventListener('change', function() {
             const dp = document.getElementById('date-picker')._flatpickr;
+            // Se ci sono date selezionate, ricalcola
             if (dp && dp.selectedDates.length === 2) {
-                calculateTotal(dp.selectedDates[0], dp.selectedDates[1], dp.input.value);
+                // Recupera le date e formatta la stringa "dal... al..." per il ricalcolo
+                const dateStr = dp.input.value; 
+                calculateTotal(dp.selectedDates[0], dp.selectedDates[1], dateStr);
             }
         });
     }
@@ -113,11 +116,15 @@ function calculateTotal(startDate, endDate, dateString) {
     if(loading) loading.style.display = 'block';
     if(summary) summary.style.display = 'none';
     
-    let total = 0;
+    let totalRoomPrice = 0;
     let nights = 0;
-    let currentDate = new Date(startDate);
     
-    const diffTime = Math.abs(endDate - startDate);
+    let currentDate = new Date(startDate.getTime());
+    currentDate.setHours(0,0,0,0);
+    let endDateTime = new Date(endDate.getTime());
+    endDateTime.setHours(0,0,0,0);
+    
+    const diffTime = Math.abs(endDateTime - currentDate);
     const totalNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
     if (totalNights === 0) return;
@@ -127,80 +134,98 @@ function calculateTotal(startDate, endDate, dateString) {
     const isSingleNight = (totalNights === 1);
     let surchargePercent = 0;
 
-    while (currentDate < endDate) {
+    // --- LOGICA PREZZO GIORNALIERO ---
+    while (currentDate < endDateTime) {
         const month = currentDate.getMonth() + 1; 
         const dayOfWeek = currentDate.getDay(); 
         
-        let dailyPrice = 160; // Prezzo base fallback
+        let dailyPrice = 160; 
 
         const rule = pricingRules.find(r => r.mese == month);
         
         if (rule) {
-            // Usa il nome della camera definito nell'HTML (CURRENT_ROOM)
             dailyPrice = (typeof CURRENT_ROOM !== 'undefined' && CURRENT_ROOM === 'king') ? rule.prezzo_king : rule.prezzo_deluxe;
-            
-            // Extra Weekend
             if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += (rule.extra_weekend ?? 20);
-
-            // Sconto Single
-            if (isSingleGuest && rule.sconto_singolo) {
-                dailyPrice -= dailyPrice * (rule.sconto_singolo / 100);
-            }
-
-            // Maggiorazione Notte Singola
+            if (isSingleGuest && rule.sconto_singolo) dailyPrice -= dailyPrice * (rule.sconto_singolo / 100);
             if (isSingleNight) surchargePercent = rule.maggiorazione_singola || 0;
         } else {
-            // Logica Fallback
             if (dayOfWeek === 5 || dayOfWeek === 6) dailyPrice += 20;
             if (isSingleGuest) dailyPrice *= 0.95; 
             if (isSingleNight) surchargePercent = 30;
         }
 
-        total += dailyPrice;
+        totalRoomPrice += dailyPrice;
         nights++;
         currentDate.setDate(currentDate.getDate() + 1);
     }
 
     if (isSingleNight && surchargePercent > 0) {
-        total += total * (surchargePercent / 100);
+        totalRoomPrice += totalRoomPrice * (surchargePercent / 100);
     }
 
-    updateUI(Math.round(total), nights, dateString, guests);
+    totalRoomPrice = Math.round(totalRoomPrice);
+
+    // --- CALCOLO TASSA SOGGIORNO ---
+    const nightsForTax = nights > 3 ? 3 : nights;
+    const cityTax = 3 * guests * nightsForTax;
+
+    // --- CALCOLO CAPARRA (20%) ---
+    const deposit = Math.round(totalRoomPrice * 0.20);
+
+    updateUI(totalRoomPrice, cityTax, deposit, nights, dateString, guests);
 }
 
 // --- AGGIORNAMENTO INTERFACCIA ---
-function updateUI(total, nights, dateString, guests) {
+function updateUI(roomPrice, cityTax, deposit, nights, dateString, guests) {
     const loading = document.getElementById('loading-prices');
     const summary = document.getElementById('price-summary');
     
     if(loading) loading.style.display = 'none';
     if(summary) summary.style.display = 'block';
     
-    document.getElementById('total-nights').innerText = nights;
-    document.getElementById('total-price').innerText = '€ ' + total;
-    document.getElementById('avg-price').innerText = '€ ' + Math.round(total / nights);
+    // Calcolo del saldo rimanente (Totale - Caparra)
+    const balanceRoom = roomPrice - deposit;
 
+    // Popolamento Dati HTML
+    document.getElementById('total-nights').innerText = nights;
+    document.getElementById('avg-price').innerText = '€ ' + Math.round(roomPrice / nights);
+    
+    document.getElementById('total-price').innerText = '€ ' + roomPrice; 
+    document.getElementById('deposit-amount').innerText = '€ ' + deposit; // Caparra
+    
+    // Nuovi campi "Saldo" e "Tassa"
+    const balanceEl = document.getElementById('balance-due');
+    if(balanceEl) balanceEl.innerText = '€ ' + balanceRoom;
+    
+    document.getElementById('city-tax').innerText = '€ ' + cityTax;
+
+    // Configurazione Bottone
     const btn = document.getElementById('btn-request');
     if(btn) {
-        // Clona il bottone per rimuovere vecchi listener
         const newBtn = btn.cloneNode(true);
         btn.parentNode.replaceChild(newBtn, btn);
         
         newBtn.onclick = function(e) {
             e.preventDefault();
             const method = document.getElementById('contact-method').value;
-            
-            // Recupera nome camera definito nell'HTML
             const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
 
-            let message = `Ciao Ca' della Valletta! 👋\nVorrei un preventivo per la *${rName}*.\n\n📅 Date: ${dateString}\n🌙 Notti: ${nights}\n👤 Ospiti: ${guests}\n💰 Preventivo Web: €${total}\n\n`;
+            // Messaggio strutturato per WhatsApp/Email
+            let message = `Salve, vorrei prenotare la *${rName}*.\n\n` +
+                          `📅 *Date:* ${dateString} (${nights} notti)\n` +
+                          `👤 *Ospiti:* ${guests}\n\n` +
+                          `💶 *TOTALE CAMERA:* € ${roomPrice}\n` +
+                          `--------------------------------\n` +
+                          `🔒 *DA VERSARE ORA (Caparra 20%):* € ${deposit}\n` +
+                          `--------------------------------\n` +
+                          `🏨 *SALDO IN STRUTTURA:* € ${balanceRoom}\n` +
+                          `🏛️ *TASSA SOGGIORNO:* € ${cityTax}\n\n` +
+                          `Attendo il link per il versamento della caparra. Grazie!`;
             
             if (method === 'whatsapp') {
-                message += `Preferisco risposta qui su WhatsApp.`;
                 window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
             } else {
-                message += `Preferisco risposta via Email.`;
-                const subject = `Richiesta Preventivo: ${rName}`;
+                const subject = `Richiesta Prenotazione: ${rName}`;
                 window.location.href = `mailto:info@cadellavalletta.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
             }
         };

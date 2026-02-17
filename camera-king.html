@@ -24,7 +24,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#camere">Camere</a></li>
+    <li><a href="camera-deluxe.html">Camera Deluxe</a></li>
                 <li><a href="galleria.html">Galleria</a></li>
                 <li><a href="index.html#territorio">Experience</a></li>
                 <li><a href="#contatti">Contatti</a></li>
@@ -86,14 +86,56 @@
                             <i class="fas fa-spinner fa-spin"></i> Calcolo...
                         </div>
 
-                        <div id="price-summary" style="display:none;" class="price-summary">
-                            <div class="row"><span>Notti:</span> <span id="total-nights">0</span></div>
-                            <div class="row"><span>Media:</span> <span id="avg-price">€ 0</span></div>
-                            <div class="row total"><span>Totale:</span> <span id="total-price">€ 0</span></div>
-                            <button id="btn-request" class="btn-gold-solid full-width" style="margin-top:15px; border:none; cursor:pointer;">
-                                Richiedi Preventivo <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
+                    <div id="price-summary" style="display:none;" class="price-summary">
+    
+    <div class="price-details-grid">
+        <div class="price-item">
+            <span class="price-label">Soggiorno</span>
+            <span class="price-value"><span id="total-nights">0</span> Notti</span>
+        </div>
+        <div class="price-item" style="text-align: right;">
+            <span class="price-label">Media Notte</span>
+            <span class="price-value" id="avg-price">€ 0</span>
+        </div>
+    </div>
+
+    <div class="total-row">
+        <span>Valore Totale Camera</span>
+        <span id="total-price">€ 0</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="payment-block highlight">
+        <div class="payment-header">
+            <span>DA VERSARE ORA (20%)</span>
+            <div class="tooltip-container">
+                <i class="fas fa-info-circle info-icon"></i>
+                <span class="tooltip-text">
+                    La caparra blocca la camera ed è <strong>rimborsabile fino a 30 giorni</strong> prima del check-in. Oltre tale data non verrà restituita.
+                </span>
+            </div>
+        </div>
+        <div class="payment-amount" id="deposit-amount">€ 0</div>
+    </div>
+
+    <div class="payment-block secondary">
+        <div class="payment-header">DA SALDARE IN STRUTTURA</div>
+        <div class="payment-row">
+            <span>Saldo Camera</span>
+            <span id="balance-due">€ 0</span>
+        </div>
+        <div class="payment-row">
+            <span>Tassa Soggiorno (Extra)</span>
+            <span id="city-tax">€ 0</span>
+        </div>
+    </div>
+
+    <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
+        Richiedi e Blocca Camera <i class="fas fa-chevron-right"></i>
+    </button>
+
+</div>
                     </div>
 
                     <h2 class="h2-internal">Prenotazione & Dettagli</h2>
