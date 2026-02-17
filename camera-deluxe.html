@@ -22,12 +22,24 @@
                 Ca' della Valletta
                 <span class="sub-logo">CINQUE TERRE</span>
             </div>
+            
+            <div class="lang-switch-container" style="margin-left: 20px;">
+                <select id="language-selector" style="padding: 5px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="zh">🇨🇳 CN</option>
+                </select>
+            </div>
+
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                  <li><a href="camera-king.html">Camera King</a></li>
-                <li><a href="galleria.html">Galleria</a></li>
-                <li><a href="index.html#territorio">Experience</a></li>
-                <li><a href="#contatti">Contatti</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
+                <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
+                <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -41,8 +53,8 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up">
-            <span class="hero-subtitle">Spazio & Design</span>
-            <h1>King Deluxe Room</h1>
+            <span class="hero-subtitle" data-i18n="deluxe_hero_sub">Spazio & Design</span>
+            <h1 data-i18n="deluxe_hero_title">King Deluxe Room</h1>
         </div>
     </header>
 
@@ -59,23 +71,23 @@
                 </script>
 
                 <div class="booking-widget" id="preventivo-box">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Prenota Ora</h3>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota Ora</h3>
                     
                     <div class="input-group">
-                        <label><i class="fas fa-users"></i> Numero Ospiti</label>
+                        <label><i class="fas fa-users"></i> <span data-i18n="lbl_guests">Numero Ospiti</span></label>
                         <select id="guests">
-                            <option value="2">2 Ospiti</option>
-                            <option value="1">1 Ospite</option>
+                            <option value="2" data-i18n="opt_2guests">2 Ospiti</option>
+                            <option value="1" data-i18n="opt_1guest">1 Ospite</option>
                         </select>
                     </div>
 
                     <div class="input-group">
-                        <label><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
-                        <input type="text" id="date-picker" placeholder="Seleziona date">
+                        <label><i class="fas fa-calendar-alt"></i> <span data-i18n="lbl_dates">Date Soggiorno</span></label>
+                        <input type="text" id="date-picker" placeholder="Seleziona date" data-i18n="ph_dates">
                     </div>
 
                     <div class="input-group">
-                        <label><i class="fas fa-comments"></i> Contatto preferito</label>
+                        <label><i class="fas fa-comments"></i> <span data-i18n="lbl_contact">Contatto preferito</span></label>
                         <select id="contact-method">
                             <option value="whatsapp">WhatsApp</option>
                             <option value="email">Email</option>
@@ -89,17 +101,17 @@
                     <div id="price-summary" style="display:none;" class="price-summary">
                         <div class="price-details-grid">
                             <div class="price-item">
-                                <span class="price-label">Soggiorno</span>
-                                <span class="price-value"><span id="total-nights">0</span> Notti</span>
+                                <span class="price-label" data-i18n="lbl_stay">Soggiorno</span>
+                                <span class="price-value"><span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
                             </div>
                             <div class="price-item" style="text-align: right;">
-                                <span class="price-label">Media Notte</span>
+                                <span class="price-label" data-i18n="lbl_avg_night">Media Notte</span>
                                 <span class="price-value" id="avg-price">€ 0</span>
                             </div>
                         </div>
 
                         <div class="total-row">
-                            <span>Valore Totale Camera</span>
+                            <span data-i18n="lbl_total_val">Valore Totale Camera</span>
                             <span id="total-price">€ 0</span>
                         </div>
 
@@ -107,11 +119,11 @@
 
                         <div class="payment-block highlight">
                             <div class="payment-header">
-                                <span>DA VERSARE ORA (20%)</span>
+                                <span data-i18n="lbl_deposit">DA VERSARE ORA (20%)</span>
                                 <div class="tooltip-container">
                                     <i class="fas fa-info-circle info-icon"></i>
-                                    <span class="tooltip-text">
-                                        La caparra blocca la camera ed è <strong>rimborsabile fino a 30 giorni</strong> prima del check-in. Oltre tale data non verrà restituita.
+                                    <span class="tooltip-text" data-i18n="tooltip_deposit">
+                                        La caparra blocca la camera ed è rimborsabile fino a 30 giorni prima del check-in.
                                     </span>
                                 </div>
                             </div>
@@ -119,26 +131,26 @@
                         </div>
 
                         <div class="payment-block secondary">
-                            <div class="payment-header">DA SALDARE IN STRUTTURA</div>
+                            <div class="payment-header" data-i18n="lbl_balance">DA SALDARE IN STRUTTURA</div>
                             <div class="payment-row">
-                                <span>Saldo Camera</span>
+                                <span data-i18n="lbl_balance_due">Saldo Camera</span>
                                 <span id="balance-due">€ 0</span>
                             </div>
                             <div class="payment-row">
-                                <span>Tassa Soggiorno</span>
+                                <span data-i18n="lbl_city_tax">Tassa Soggiorno</span>
                                 <span id="city-tax">€ 0</span>
                             </div>
                         </div>
 
                         <button id="btn-request" class="btn-gold-solid full-width" style="margin-top: 15px; border:none; cursor:pointer;">
-                            Richiedi e Blocca Camera <i class="fas fa-chevron-right"></i>
+                            <span data-i18n="btn_request">Richiedi e Blocca Camera</span> <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>
 
-                <h2 class="h2-internal">Prenotazione & Dettagli</h2>
+                <h2 class="h2-internal" data-i18n="sec_details_title">Prenotazione & Dettagli</h2>
                 
-                <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;">
+                <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;" data-i18n="txt_deposit_info">
                     La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.
                 </p>
 
@@ -146,40 +158,38 @@
                     <div class="policy-item">
                         <i class="far fa-clock"></i>
                         <span>
-                            <strong>Orari</strong><br>
-                            Check-in: 14:00 - 00:00<br>
-                            Check-out: entro le 11:00
+                            <strong data-i18n="pol_hours_title">Orari</strong><br>
+                            <span data-i18n="pol_checkin">Check-in: 14:00 - 00:00</span><br>
+                            <span data-i18n="pol_checkout">Check-out: entro le 11:00</span>
                         </span>
                     </div>
                     
                     <div class="policy-item">
                         <i class="fas fa-bed"></i>
                         <span>
-                            <strong>Disposizione Notte</strong><br>
-                            Letti matrimoniali non divisibili.<br>
-                            No culle o letti extra.
+                            <strong data-i18n="pol_bed_title">Disposizione Notte</strong><br>
+                            <span data-i18n="pol_bed_desc">Letti matrimoniali non divisibili. No culle o letti extra.</span>
                         </span>
                     </div>
 
                     <div class="policy-item">
                         <i class="fas fa-ban"></i>
                         <span>
-                            <strong>Regole Struttura</strong><br>
-                            Camere non fumatori.<br>
-                            No parcheggio privato.
+                            <strong data-i18n="pol_rules_title">Regole Struttura</strong><br>
+                            <span data-i18n="pol_rules_desc">Camere non fumatori. No parcheggio privato.</span>
                         </span>
                     </div>
                 </div>
 
-                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_comfort">
                     <strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.
                 </p>
 
-                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_cancellation">
                     <strong>Cancellazione:</strong> Gratuita fino a 30 giorni dall'arrivo.
                 </p>
 
-                <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
+                <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;" data-i18n="txt_terrace">
                     <strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.
                 </p>
             </div> 
@@ -201,22 +211,22 @@
                         <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
 
                         <a href="galleria.html" class="gallery-overlay-btn">
-                            <i class="fas fa-th"></i> Vedi Galleria
+                            <i class="fas fa-th"></i> <span data-i18n="gal_btn">Vedi Galleria</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="services-list" style="margin-top: 30px;">
-                    <h3>Servizi Inclusi</h3>
+                    <h3 data-i18n="sec_services_title">Servizi Inclusi</h3>
                     <ul>
-                        <li><i class="fas fa-expand-arrows-alt"></i> Metratura Ampia</li>
-                        <li><i class="fas fa-tv"></i> Smart TV 50" 4K</li>
-                        <li><i class="fas fa-glass-martini-alt"></i> Minibar Premium</li>
-                        <li><i class="fas fa-couch"></i> Area Relax / Lettura</li>
-                        <li><i class="fas fa-wifi"></i> Wi-Fi High Speed</li>
-                        <li><i class="fas fa-snowflake"></i> Aria Condizionata</li>
-                        <li><i class="fas fa-mug-hot"></i> Bollitore Tè & Caffè</li>
-                        <li><i class="fas fa-wind"></i> Asciugacapelli</li>
+                        <li><i class="fas fa-expand-arrows-alt"></i> <span data-i18n="srv_space">Metratura Ampia</span></li>
+                        <li><i class="fas fa-tv"></i> <span data-i18n="srv_tv">Smart TV 50" 4K</span></li>
+                        <li><i class="fas fa-glass-martini-alt"></i> <span data-i18n="srv_minibar">Minibar Premium</span></li>
+                        <li><i class="fas fa-couch"></i> <span data-i18n="srv_relax">Area Relax / Lettura</span></li>
+                        <li><i class="fas fa-wifi"></i> <span data-i18n="srv_wifi">Wi-Fi High Speed</span></li>
+                        <li><i class="fas fa-snowflake"></i> <span data-i18n="srv_ac">Aria Condizionata</span></li>
+                        <li><i class="fas fa-mug-hot"></i> <span data-i18n="srv_kettle">Bollitore Tè & Caffè</span></li>
+                        <li><i class="fas fa-wind"></i> <span data-i18n="srv_hairdryer">Asciugacapelli</span></li>
                     </ul>
                 </div>
             </div> 
@@ -228,7 +238,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
+                <p data-i18n="footer_loc">Riomaggiore, Cinque Terre</p>
             </div>
             <div class="footer-info">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
@@ -243,10 +253,20 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
     <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/de.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/zh.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <script src="translations.js"></script>
+    <script src="language-manager.js"></script>
 
     <script>
         const SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co'; 
