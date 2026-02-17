@@ -52,26 +52,46 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-// --- FUNZIONE PER SCARICARE BOOKING ---
+// --- FUNZIONE PER SCARICARE BOOKING (CORRETTA) ---
 async function fetchBookingDates(url) {
     try {
-        const response = await fetch(proxy + encodeURIComponent(url));
+        // Aggiungiamo un parametro random per evitare la cache del proxy/browser
+        const cacheBuster = "&t=" + new Date().getTime();
+        const response = await fetch(proxy + encodeURIComponent(url) + cacheBuster);
         const text = await response.text();
         
-        // Parsing con la libreria ical.js
+        // Parsing con ical.js
         const jcalData = ICAL.parse(text);
         const comp = new ICAL.Component(jcalData);
         const events = comp.getAllSubcomponents('vevent');
 
         const blocked = events.map(vevent => {
             const ev = new ICAL.Event(vevent);
+            
+            // Gestione DTSTART (Data Inizio)
+            let startDate = ev.startDate.toJSDate();
+            
+            // Gestione DTEND (Data Fine)
+            let endDate = ev.endDate.toJSDate();
+
+            // FIX CRITICO: 
+            // 1. Booking usa DTEND esclusivo (giorno del check-out).
+            // 2. Flatpickr "disable" range include estremi.
+            // Quindi dobbiamo ridurre di 1 giorno la data fine per non bloccare il giorno del check-out
+            // (che è disponibile per un nuovo check-in).
+            
+            // Sottrai 1 giorno (24h) alla data di fine
+            endDate.setDate(endDate.getDate() - 1);
+
             return {
-                from: ev.startDate.toJSDate(),
-                to: ev.endDate.toJSDate()
+                from: startDate,
+                to: endDate
             };
         });
-        console.log("🔒 Date chiuse importate:", blocked.length);
+
+        console.log("🔒 Date chiuse importate (Corrette):", blocked.length);
         return blocked;
+
     } catch (e) {
         console.error("❌ Errore lettura calendario Booking:", e);
         return [];
