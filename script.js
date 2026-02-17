@@ -12,25 +12,35 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Menu Mobile Moderno
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
 hamburger.addEventListener('click', () => {
-    if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-        navLinks.style.position = 'static';
-        navLinks.style.backgroundColor = 'transparent';
+    navLinks.classList.toggle('active');
+    
+    // Cambia l'icona da "barre" a "X" quando è aperto
+    const icon = hamburger.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+
+    // Blocca lo scroll del body quando il menu è aperto
+    if (navLinks.classList.contains('active')) {
+        body.style.overflow = 'hidden';
     } else {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '80px';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.backgroundColor = 'var(--primary)';
-        navLinks.style.padding = '20px';
-        navLinks.style.textAlign = 'center';
+        body.style.overflow = 'auto';
     }
+});
+
+// Chiudi il menu quando si clicca su un link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        body.style.overflow = 'auto';
+        hamburger.querySelector('i').classList.add('fa-bars');
+        hamburger.querySelector('i').classList.remove('fa-times');
+    });
 });
 
 // --- GESTIONE SLIDER CAMERE ---
