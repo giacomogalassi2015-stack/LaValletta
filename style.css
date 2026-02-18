@@ -1,3 +1,7 @@
+/* ============================================================
+   STYLE.CSS - FIX FOTO INTERNE + GRAFICA EXPERIENCE
+   ============================================================ */
+
 /* --- VARIABILI & RESET --- */
 :root {
     --primary: #0A192F; /* Blu Notte Profondo */
@@ -13,12 +17,15 @@
 
 html { scroll-behavior: smooth; }
 
+/* --- SOSTITUISCI IL BLOCCO BODY ESISTENTE CON QUESTO --- */
 body {
     font-family: var(--font-body);
     color: var(--text);
     background-color: var(--bg-body);
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: hidden; /* <--- QUESTA RIGA RISOLVE LO SPAZIO BIANCO LATERALE */
+    width: 100%;       /* Assicura che il corpo non ecceda mai */
+    position: relative;
 }
 
 h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
@@ -31,10 +38,7 @@ img { width: 100%; height: 100%; object-fit: cover; }
 .text-center { text-align: center; }
 
 /* Spaziatura Sezioni */
-.section-padding { 
-    padding-top: 60px; 
-    padding-bottom: 60px;
-}
+.section-padding { padding-top: 60px; padding-bottom: 60px; }
 
 h2.section-title { 
     font-size: 3rem; 
@@ -44,12 +48,12 @@ h2.section-title {
 
 /* Titolo interno piccolo (Prenotazione & Dettagli) */
 .h2-internal {
-    font-size: 1.5rem !important; /* Ridotto per eleganza */
+    font-size: 1.5rem !important;
     margin-top: 30px !important;
     margin-bottom: 15px !important;
     color: var(--primary);
     text-align: left;
-    border-bottom: 1px solid #eee; /* Linea sottile elegante */
+    border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     display: inline-block;
 }
@@ -68,124 +72,85 @@ h2.section-title {
 
 /* --- NAVBAR GLASSMORPHISM --- */
 #navbar {
-    position: fixed;
-    top: 0; left: 0; width: 100%;
-    padding: 25px 50px;
-    z-index: 9999;
-    transition: all 0.4s ease;
-    display: flex; justify-content: center;
+    position: fixed; top: 0; left: 0; width: 100%; padding: 25px 50px;
+    z-index: 9999; transition: all 0.4s ease; display: flex; justify-content: center;
     background: transparent;
 }
 
 #navbar.scrolled {
     background: rgba(255, 255, 255, 0.90);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     padding: 15px 50px;
     box-shadow: 0 4px 30px rgba(0,0,0,0.05);
 }
 
-.nav-container {
-    width: 100%; max-width: 1400px;
-    display: flex; justify-content: space-between; align-items: center;
-}
+.nav-container { width: 100%; max-width: 1400px; display: flex; justify-content: space-between; align-items: center; }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-    letter-spacing: 1px;
-    display: flex; flex-direction: column; line-height: 1;
+    font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; color: white;
+    letter-spacing: 1px; display: flex; flex-direction: column; line-height: 1;
 }
+.sub-logo { font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 3px; margin-top: 5px; opacity: 0.8; text-transform: uppercase; }
 
-.sub-logo { 
-    font-family: var(--font-body); 
-    font-size: 0.6rem; 
-    letter-spacing: 3px; 
-    margin-top: 5px; 
-    opacity: 0.8; 
-    text-transform: uppercase;
-}
-
-/* Colori Navbar: Bianco all'inizio, Scuro allo scroll */
+/* Colori Navbar */
 #navbar:not(.scrolled) .nav-links a,
 #navbar:not(.scrolled) .logo,
-#navbar:not(.scrolled) .hamburger {
-    color: #ffffff !important; 
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-}
-
-#navbar.scrolled .logo,
-#navbar.scrolled .nav-links a,
-#navbar.scrolled .hamburger {
-    color: var(--primary) !important;
-    text-shadow: none;
-}
+#navbar:not(.scrolled) .hamburger { color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+#navbar.scrolled .logo, #navbar.scrolled .nav-links a, #navbar.scrolled .hamburger { color: var(--primary) !important; text-shadow: none; }
 
 .nav-links { display: flex; gap: 40px; }
-.nav-links a { 
-    font-size: 0.85rem; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px; 
-    font-weight: 500; 
-    position: relative; 
-}
-.nav-links a::after {
-    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px;
-    background: var(--accent); transition: width 0.3s;
-}
+.nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
 .nav-links a:hover::after { width: 100%; }
-
 .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
-
-/* --- HERO --- */
-.hero {
-    height: 100vh;
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; color: white;
-    overflow: hidden;
+/* --- STILE SELETTORE LINGUA (Nuovo) --- */
+.lang-item select {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5); /* Bordo sottile bianco iniziale */
+    color: inherit; /* Prende il colore del menu (bianco o blu) */
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
 }
 
-.page-hero { height: 60vh; min-height: 400px; }
+.lang-item select option {
+    color: #333; /* Le opzioni dentro devono essere sempre scure */
+}
 
+/* Quando la barra scorre, cambia il bordo del selettore */
+#navbar.scrolled .lang-item select {
+    border: 1px solid var(--primary);
+}
+/* --- HERO --- */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
+.page-hero { height: 60vh; min-height: 400px; }
 .video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
 .hero-bg { width: 100%; height: 100%; object-fit: cover; animation: slowZoom 20s infinite alternate; }
-
-.hero-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
-    z-index: -1;
-}
-
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%); z-index: -1; }
 .hero-content h1 { font-size: 4rem; line-height: 1.1; margin: 20px 0 40px; }
 .hero-subtitle { text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; color: var(--accent); display: block; }
-
-.btn-outline {
-    border: 1px solid white; color: white; padding: 15px 40px;
-    text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
-    transition: 0.3s; display: inline-block;
-}
-.btn-outline:hover { background: white; color: var(--primary); }
-
 @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
 
-/* --- SLIDER E GALLERIA --- */
-.slider-container, .room-slider { 
-    position: relative;
-    width: 100%;
-    height: 500px; 
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+/* Bottoni */
+.btn-outline { border: 1px solid white; color: white; padding: 15px 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: 0.3s; display: inline-block; }
+.btn-outline:hover { background: white; color: var(--primary); }
 
-.slide, .room-slide {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; opacity: 0; transition: opacity 0.8s ease-in-out; z-index: 1;
+.btn-text-gold { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+.btn-gold-solid { background: var(--accent); color: white; padding: 12px 25px; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; border-radius: 2px; transition: 0.3s; width: 100%; display: block; text-align: center; }
+.btn-gold-solid:hover { background: var(--primary); color: white; }
+
+/* --- SLIDER (Generale per Home) --- */
+.slider-container { 
+    position: relative; width: 100%; height: 500px; 
+    overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
 }
-.slide.active, .room-slide.active { opacity: 1; z-index: 2; }
+.slides-wrapper { width: 100%; height: 100%; position: relative; }
+.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease-in-out; z-index: 1; }
+.slide.active { opacity: 1; z-index: 2; }
 
 /* Frecce Slider */
 .slider-btn, .slider-arrow {
@@ -196,9 +161,7 @@ h2.section-title {
     transition: background 0.3s, transform 0.2s;
     display: flex; align-items: center; justify-content: center;
 }
-.slider-btn:hover, .slider-arrow:hover { 
-    background: var(--accent); transform: translateY(-50%) scale(1.1); 
-}
+.slider-btn:hover, .slider-arrow:hover { background: var(--accent); transform: translateY(-50%) scale(1.1); }
 .prev, .prev-btn { left: 20px; }
 .next, .next-btn { right: 20px; }
 
@@ -211,11 +174,9 @@ h2.section-title {
     z-index: 20; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;
 }
-.gallery-overlay-btn:hover {
-    background: var(--primary); color: white; transform: translateX(-50%) translateY(-3px);
-}
+.gallery-overlay-btn:hover { background: var(--primary); color: white; transform: translateX(-50%) translateY(-3px); }
 
-/* --- LE CAMERE (LISTING) --- */
+/* --- LE CAMERE (LISTING HOME) --- */
 .room-row { display: flex; align-items: center; gap: 40px; margin-bottom: 40px; }
 .room-row.reverse { flex-direction: row-reverse; }
 .room-text { flex: 1; }
@@ -229,60 +190,56 @@ h2.section-title {
 }
 .link-styled:hover { color: var(--accent); }
 
-/* --- AREE COMUNI --- */
-.interior-overlay {
-    position: absolute; bottom: 20px; left: 20px;
-    background: rgba(0,0,0,0.5); color: white;
-    padding: 10px 20px; border-radius: 4px;
-    font-family: var(--font-heading); letter-spacing: 1px;
+/* Elementi Mobile (Default nascosti su PC) */
+.mobile-room-title { display: none; }
+.room-overlay-btn { display: none; }
+
+/* --- FIX FOTO INTERNE (King/Deluxe) - AGGIUNTA IMPORTANTE --- */
+/* Questo blocco assicura che lo slider nelle pagine interne abbia altezza e le foto siano visibili */
+
+.detail-gallery-wrapper {
+    width: 100%;
+    margin-bottom: 30px;
 }
+
+.detail-gallery-wrapper .room-slider { 
+    position: relative; 
+    width: 100%; 
+    height: 500px !important; /* Altezza forzata per evitare che sparisca */
+    overflow: hidden; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: #f0f0f0; /* Sfondo grigio di caricamento */
+}
+
+/* Stile delle slide interne */
+.detail-gallery-wrapper .room-slider .room-slide {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    opacity: 0; 
+    transition: opacity 0.6s ease-in-out; 
+    z-index: 1;
+}
+
+.detail-gallery-wrapper .room-slider .room-slide.active { 
+    opacity: 1 !important; 
+    z-index: 2; 
+}
+
+.detail-gallery-wrapper .room-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- AREE COMUNI --- */
+.interior-overlay { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.5); color: white; padding: 10px 20px; border-radius: 4px; font-family: var(--font-heading); letter-spacing: 1px; }
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .gallery-item { height: 300px; overflow: hidden; border-radius: 4px; cursor: pointer; transition: transform 0.3s ease; }
 .gallery-item:hover { transform: scale(1.02); }
 
-/* Layout per Desktop (schermi sopra i 768px) */
-@media (min-width: 768px) {
-    .room-detail-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Due colonne affiancate */
-        gap: 40px;
-        align-items: start;
-    }
-}
-
-/* Layout per Mobile (sotto i 768px) */
-@media (max-width: 767px) {
-    .room-detail-grid {
-        display: flex;
-        flex-direction: column; /* Una colonna sopra l'altra */
-        gap: 30px;
-    }
-
-    /* Assicuriamoci che la colonna con Prenota Ora sia la prima */
-    .detail-text {
-        order: 1;
-    }
-
-    /* La galleria andrà sotto */
-    .right-column-wrapper {
-        order: 2;
-    }
-}
-
-/* Lista Servizi */
-.services-list {
-    margin-top: 20px; 
-    background: #fdfdfd; 
-    padding: 25px; 
-    border-radius: 6px;
-    border: 1px solid #eee;
-}
-.services-list h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary); }
-.services-list ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.services-list li { font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 10px; }
-.services-list i { color: var(--accent); width: 20px; text-align: center; }
-
-/* --- EXPERIENCE --- */
+/* --- EXPERIENCE & RISORSE (Grafica Ripristinata) --- */
 .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
 .resource-card {
     background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
@@ -294,172 +251,80 @@ h2.section-title {
 .card-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
 .resource-card h3 { color: white; font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 15px; }
 .resource-card p { color: #ccc; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
-.btn-text-gold { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-.btn-gold-solid {
-    background: var(--accent); color: white; padding: 12px 25px;
-    text-transform: uppercase; font-weight: 600; font-size: 0.8rem;
-    letter-spacing: 1px; border-radius: 2px; transition: 0.3s;
-    width: 100%; display: block; text-align: center;
-}
-.btn-gold-solid:hover { background: var(--primary); color: white; }
+
 .useful-links { list-style: none; width: 100%; text-align: left; }
 .useful-links li { margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
 .useful-links li:last-child { border-bottom: none; }
 .useful-links a { color: #ccc; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; transition: 0.3s; }
 .useful-links a:hover { color: var(--accent); padding-left: 5px; }
 
-/* --- WIDGET PREVENTIVO & INPUT --- */
-.booking-widget {
-    background: #ffffff; padding: 30px; border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(10, 25, 47, 0.08); border: 1px solid #eee;
-    margin-top: 30px !important;
-    margin-bottom: 30px !important;; max-width: 100%;
-}
-.booking-widget h3 {
-    color: var(--primary); font-family: var(--font-heading); margin-bottom: 25px;
-    border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block;
-}
+/* --- WIDGET PREVENTIVO --- */
+.booking-widget { background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 15px 40px rgba(10, 25, 47, 0.08); border: 1px solid #eee; margin-top: 30px !important; margin-bottom: 30px !important; max-width: 100%; }
+.booking-widget h3 { color: var(--primary); font-family: var(--font-heading); margin-bottom: 25px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block; }
 .input-group { margin-bottom: 20px; }
-.input-group label {
-    display: block; font-size: 0.75rem; color: #888; margin-bottom: 5px;
-    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-}
-.input-group input, .input-group select {
-    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;
-    font-family: var(--font-body); font-size: 1rem; background: #fff; color: var(--text); transition: 0.3s;
-}
-.input-group input:focus, .input-group select:focus {
-    border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
-}
+.input-group label { display: block; font-size: 0.75rem; color: #888; margin-bottom: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.input-group input, .input-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); font-size: 1rem; background: #fff; color: var(--text); transition: 0.3s; }
+.input-group input:focus, .input-group select:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
 .flatpickr-day.selected { background: var(--accent) !important; border-color: var(--accent) !important; }
 
-/* --- STILE PREVENTIVO "CLEAR SPLIT" --- */
-.price-summary {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
+/* --- WIDGET LUXURY (SCHEDA PREZZI) --- */
+.price-summary-card { background: #ffffff; border-radius: 16px; padding: 25px; margin-top: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden; }
+.summary-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.summary-header h4 { margin: 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600; }
+.stay-duration { background: #f8f9fa; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; color: #333; font-weight: 600; }
+.scroll-container { max-height: 120px; overflow-y: auto; margin-bottom: 15px; padding-right: 5px; }
+.scroll-container::-webkit-scrollbar { width: 3px; }
+.scroll-container::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+.nightly-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; padding: 8px 0; border-bottom: 1px dashed #eee; }
+.night-price { font-weight: 500; color: #333; }
+.tax-row { display: flex; justify-content: space-between; padding: 10px 0; color: #666; font-size: 0.95rem; }
+.divider-solid { border-top: 1px solid #e0e0e0; margin: 10px 0 15px 0; }
+.main-total { display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; color: #2c3e50; margin-bottom: 25px; }
+.main-total span:first-child { font-weight: 600; }
+.main-total span:last-child { font-size: 1.4rem; font-weight: 700; color: #1a1a1a; }
 
-.total-row {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 1.1rem; font-weight: 600; color: var(--primary);
-    margin-bottom: 15px;
-}
+/* Card Pagamenti */
+.payment-cards-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
+.pay-card { display: flex; align-items: center; padding: 15px; border-radius: 10px; border: 1px solid transparent; transition: transform 0.2s; }
+.pay-card:hover { transform: translateY(-2px); }
+.pay-card.deposit { background: #fffcf0; border-color: #e6dcc0; }
+.pay-card.deposit .pay-icon { background: #d4af37; color: white; }
+.pay-card.deposit .pay-amount { color: #b08d26; }
+.pay-card.balance { background: #f7f9fc; border-color: #e1e6ed; }
+.pay-card.balance .pay-icon { background: #2c3e50; color: white; }
+.pay-card.balance .pay-amount { color: #2c3e50; }
+.pay-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1rem; margin-right: 15px; flex-shrink: 0; }
+.pay-info { display: flex; flex-direction: column; }
+.pay-title { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; opacity: 0.7; margin-bottom: 2px; }
+.pay-amount { font-size: 1.1rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+.pay-sub { font-size: 0.7rem; color: #888; margin-top: 2px; }
 
-.divider { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
+/* Bottone Luxury */
+.btn-luxury { width: 100%; background: #111; color: #fff; border: none; padding: 0; height: 55px; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.btn-luxury .btn-text { padding-left: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+.btn-luxury .btn-icon-box { background: #d4af37; height: 100%; width: 55px; display: flex; justify-content: center; align-items: center; transition: width 0.3s ease; }
+.btn-luxury:hover { background: #000; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+.btn-luxury:hover .btn-icon-box { width: 70px; }
 
-/* Blocchi Pagamento */
-.payment-block {
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 10px;
-}
+/* --- TOOLTIP & POLICY --- */
+.tooltip-container { position: relative; display: inline-block; cursor: pointer; }
+.info-icon { color: var(--accent); font-size: 1rem; }
+.tooltip-text { visibility: hidden; width: 220px; background-color: #333; color: #fff; text-align: center; border-radius: 6px; padding: 10px; position: absolute; z-index: 100; bottom: 125%; left: 50%; margin-left: -110px; opacity: 0; transition: opacity 0.3s; font-size: 0.75rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.tooltip-text::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: #333 transparent transparent transparent; }
+.tooltip-container:hover .tooltip-text { visibility: visible; opacity: 1; }
 
-/* Blocco CAPARRA (Evidenziato) */
-.payment-block.highlight {
-    background-color: #fdfbf7;
-    border: 1px solid var(--accent);
-    color: var(--primary);
-}
-
-.payment-block.highlight .payment-amount {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-top: 5px;
-}
-
-/* Blocco SALDO (Secondario) */
-.payment-block.secondary {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.payment-header {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex; align-items: center; gap: 8px;
-}
-
-.payment-row {
-    display: flex; justify-content: space-between;
-    margin-top: 5px;
-}
-
-/* --- TOOLTIP (POPUP) --- */
-.tooltip-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.info-icon {
-    color: var(--accent);
-    font-size: 1rem;
-}
-
-.tooltip-text {
-    visibility: hidden;
-    width: 220px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 100;
-    bottom: 125%; /* Posizionato sopra l'icona */
-    left: 50%;
-    margin-left: -110px; /* Centrato */
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 0.75rem;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
-    line-height: 1.4;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Freccetta del tooltip */
-.tooltip-text::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-}
-
-/* Mostra tooltip al passaggio mouse */
-.tooltip-container:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-.tax-amount { font-weight: 700; color: #444; }
-
-/* --- BOX POLICY --- */
-.policy-box {
-    background: #fdfbf7;
-    border: 1px solid #eee;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    display: flex; flex-direction: column; gap: 15px;
-}
+.policy-box { background: #fdfbf7; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px; }
 .policy-item { display: flex; align-items: center; gap: 15px; }
 .policy-item i { color: var(--accent); font-size: 1.4rem; width: 30px; text-align: center; }
 .policy-item span { font-size: 0.95rem; color: var(--primary); line-height: 1.4; }
 .policy-item strong { display: block; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; color: var(--accent); }
+
+/* --- SERVIZI --- */
+.services-list { margin-top: 30px; background: #fdfdfd; padding: 25px; border-radius: 6px; border: 1px solid #eee; }
+.services-list h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary); }
+.services-list ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.services-list li { font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 10px; }
+.services-list i { color: var(--accent); width: 20px; text-align: center; }
 
 /* --- FOOTER --- */
 footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: center; }
@@ -467,465 +332,3 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
 .footer-info { margin: 40px 0; font-size: 1.1rem; }
 .contact-link { display: block; margin: 10px 0; color: var(--accent); }
 .footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
-
-/* --- RESPONSIVE MOBILE (Max 900px) --- */
-@media (max-width: 900px) {
-    /* Reset spaziature generali */
-    .section-padding { padding-top: 10px; padding-bottom: 16px; }
-    h2.section-title { font-size: 2rem; margin-bottom: 15px !important; }
-    .lead-text { margin-bottom: 20px !important; }
-    
-    .room-row { margin-bottom: 40px; gap: 0; display: block; }
-    .room-detail-grid { grid-template-columns: 1fr; } 
-    .resources-grid { grid-template-columns: 1fr; gap: 40px; }
-    .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-    .services-list ul { grid-template-columns: 1fr; }
-
-    /* TITOLO MOBILE */
-    .mobile-room-title {
-        display: block; position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
-        width: 100%; text-align: center; color: white;
-        font-family: var(--font-heading); font-size: 2rem; z-index: 20;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.7); pointer-events: none; margin: 0; padding: 0 10px; line-height: 1.1;
-    }
-
-    /* BOTTONE "INFO" MOBILE */
-    .room-overlay-btn {
-        display: block; position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.95); color: var(--primary);
-        padding: 12px 30px; border-radius: 50px;
-        font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-        z-index: 30; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none; white-space: nowrap;
-        outline: none; -webkit-tap-highlight-color: transparent;
-    }
-    .room-overlay-btn:hover, .room-overlay-btn:focus { background: rgba(255, 255, 255, 0.95) !important; color: var(--primary) !important; }
-    .room-overlay-btn:active { background: var(--accent) !important; color: white !important; transform: translateX(-50%) scale(0.95); }
-
-    /* FIX SLIDER E FRECCE (BUG ARANCIONE) */
-    .slider-container, .room-slider { height: 350px; margin-bottom: 20px; background-color: #eee; }
-    .slider-btn, .slider-arrow { 
-        width: 50px; height: 50px; background: rgba(0,0,0,0.4); opacity: 1; z-index: 25;
-        outline: none; -webkit-tap-highlight-color: transparent;
-    }
-    .slider-btn:hover, .slider-arrow:hover { background: rgba(0,0,0,0.4) !important; transform: translateY(-50%) !important; }
-    .slider-btn:active, .slider-arrow:active { background: var(--accent) !important; }
-
-    .gallery-overlay-btn { bottom: 20px; padding: 8px 20px; font-size: 0.75rem; }
-    .page-hero h1 { font-size: 2.5rem; }
-    .resource-card { padding: 30px 20px; }
-
-    /* TITOLI PULITI */
-    .room-text { padding-top: 15px !important; text-align: center !important; }
-    .room-text h3 { padding-right: 0 !important; margin-bottom: 5px !important; font-size: 1.8rem !important; }
-    .room-text .link-styled { display: none; } 
-    
-    /* Navbar Overlay */
-    .nav-links {
-        display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px;
-        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-        background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px);
-        transition: right 0.4s ease; z-index: 999;
-    }
-    .nav-links.active { right: 0; }
-    .nav-links a { color: white !important; font-size: 1.5rem; }
-    .hamburger { display: block; position: relative; z-index: 1001; }
-    #navbar:not(.scrolled) .nav-links a { color: white !important; }
-    #navbar.scrolled .nav-links a { color: white !important; }
-    #navbar:not(.scrolled) .hamburger { color: white !important; }
-    #navbar.scrolled .hamburger { color: var(--primary) !important; }
-}
-
-/* --- FIX ALLINEAMENTO DESKTOP --- */
-@media (min-width: 900px) {
-    /* 1. Tira SU il box "Prenota Ora" */
-    .detail-text .booking-widget { margin-top: 0 !important; }
-    /* 2. Spinge GIÙ la colonna destra (Slider + Servizi) */
-    .right-column-wrapper { margin-top: 2px; }
-}
-
-/* --- WIDGET LUXURY --- */
-
-.price-summary-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 25px;
-    margin-top: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Ombra profonda */
-    border: 1px solid #f0f0f0;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Header */
-.summary-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.summary-header h4 {
-    margin: 0;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888;
-    font-weight: 600;
-}
-.stay-duration {
-    background: #f8f9fa;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: #333;
-    font-weight: 600;
-}
-
-/* Lista Notti */
-.scroll-container {
-    max-height: 120px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-    padding-right: 5px;
-}
-.scroll-container::-webkit-scrollbar { width: 3px; }
-.scroll-container::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
-
-.nightly-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #555;
-    padding: 8px 0;
-    border-bottom: 1px dashed #eee;
-}
-.night-label { color: #666; }
-.night-price { font-weight: 500; color: #333; }
-
-/* Tassa Soggiorno */
-.tax-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    color: #666;
-    font-size: 0.95rem;
-}
-.tax-row i { margin-right: 8px; color: #aaa; }
-
-/* Divisore */
-.divider-solid {
-    border-top: 1px solid #e0e0e0;
-    margin: 10px 0 15px 0;
-}
-
-/* Totale Complessivo */
-.main-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    margin-bottom: 25px;
-}
-.main-total span:first-child { font-weight: 600; }
-.main-total span:last-child { font-size: 1.4rem; font-weight: 700; color: #1a1a1a; }
-
-/* Card Pagamenti */
-.payment-cards-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.pay-card {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    transition: transform 0.2s;
-}
-
-.pay-card:hover { transform: translateY(-2px); }
-
-/* Stile Caparra */
-.pay-card.deposit {
-    background: #fffcf0;
-    border-color: #e6dcc0;
-}
-.pay-card.deposit .pay-icon {
-    background: #d4af37; /* Oro */
-    color: white;
-}
-.pay-card.deposit .pay-amount { color: #b08d26; }
-
-/* Stile Saldo */
-.pay-card.balance {
-    background: #f7f9fc;
-    border-color: #e1e6ed;
-}
-.pay-card.balance .pay-icon {
-    background: #2c3e50; /* Blu scuro */
-    color: white;
-}
-.pay-card.balance .pay-amount { color: #2c3e50; }
-
-/* Elementi comuni card */
-.pay-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-.pay-info {
-    display: flex;
-    flex-direction: column;
-}
-.pay-title {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    opacity: 0.7;
-    margin-bottom: 2px;
-}
-.pay-amount {
-    font-size: 1.1rem;
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
-}
-.pay-sub {
-    font-size: 0.7rem;
-    color: #888;
-    margin-top: 2px;
-}
-
-/* Bottone Luxury */
-.btn-luxury {
-    width: 100%;
-    background: #111;
-    color: #fff;
-    border: none;
-    padding: 0;
-    height: 55px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.btn-luxury .btn-text {
-    padding-left: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-}
-
-.btn-luxury .btn-icon-box {
-    background: #d4af37; /* Oro */
-    height: 100%;
-    width: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: width 0.3s ease;
-}
-
-.btn-luxury:hover {
-    background: #000;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-.btn-luxury:hover .btn-icon-box {
-    width: 70px;
-}
-/* --- VARIABILI & RESET --- */
-:root {
-    --primary: #0A192F;
-    --accent: #C5A059;
-    --text: #2c2c2c;
-    --bg-body: #ffffff;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); color: var(--text); background-color: var(--bg-body); line-height: 1.7; overflow-x: hidden; }
-
-h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-img { width: 100%; height: 100%; object-fit: cover; }
-
-/* UTILITIES */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
-.section-padding { padding-top: 60px; padding-bottom: 60px; }
-.text-center { text-align: center; }
-.sub-title { display: block; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 10px; }
-h2.section-title { font-size: 3rem; margin-bottom: 40px !important; color: var(--primary); }
-
-.btn-gold-solid { background: var(--accent); color: white; padding: 12px 25px; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; border-radius: 2px; transition: 0.3s; display: inline-block; cursor: pointer; border: none; text-align: center; }
-.btn-gold-solid:hover { background: var(--primary); color: white; }
-
-/* NAVBAR */
-#navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 25px 50px; z-index: 9999; transition: all 0.4s ease; display: flex; justify-content: center; background: transparent; }
-#navbar.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); padding: 15px 50px; box-shadow: 0 4px 30px rgba(0,0,0,0.05); }
-.nav-container { width: 100%; max-width: 1400px; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; color: white; letter-spacing: 1px; display: flex; flex-direction: column; line-height: 1; }
-.sub-logo { font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 3px; margin-top: 5px; opacity: 0.8; text-transform: uppercase; }
-#navbar:not(.scrolled) .nav-links a, #navbar:not(.scrolled) .logo, #navbar:not(.scrolled) .hamburger { color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
-#navbar.scrolled .logo, #navbar.scrolled .nav-links a, #navbar.scrolled .hamburger { color: var(--primary) !important; text-shadow: none; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
-.nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; position: relative; }
-.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
-
-/* HERO */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
-.page-hero { height: 60vh; min-height: 400px; }
-.video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
-.hero-bg { width: 100%; height: 100%; object-fit: cover; animation: slowZoom 20s infinite alternate; }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)); z-index: -1; }
-.hero-content h1 { font-size: 4rem; line-height: 1.1; margin: 20px 0 40px; }
-.hero-subtitle { text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; color: var(--accent); display: block; }
-@keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
-
-/* --- SEZIONE CAMERE (HOME PAGE) --- */
-.room-row { margin-bottom: 60px; position: relative; }
-
-/* Stile comune per i contenitori slider (Home e Interni) */
-.slider-container, .room-slider { 
-    width: 100%; 
-    height: 450px; 
-    position: relative; 
-    border-radius: 8px; 
-    overflow: hidden; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    background-color: #f0f0f0; /* Fix Fantasma: sfondo grigio */
-}
-
-.slides-wrapper, .room-slider { width: 100%; height: 100%; position: relative; }
-
-.slide, .room-slide { 
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-    object-fit: cover; opacity: 0; transition: opacity 0.6s ease; z-index: 1; 
-}
-.slide.active, .room-slide.active { opacity: 1; z-index: 2; }
-
-/* Frecce Slider */
-.slider-btn, .slider-arrow { 
-    position: absolute; top: 50%; transform: translateY(-50%); 
-    background: rgba(0,0,0,0.4); color: white; border: none; 
-    width: 45px; height: 45px; border-radius: 50%; cursor: pointer; 
-    z-index: 10; display: flex; align-items: center; justify-content: center; 
-    transition: 0.3s;
-}
-.slider-btn:hover, .slider-arrow:hover { background: var(--accent); }
-.prev-btn, .prev { left: 20px; } .next-btn, .next { right: 20px; }
-
-/* Elementi SOLO Mobile (Overlay) */
-.mobile-room-title { 
-    display: block; position: absolute; top: 30px; left: 50%; transform: translateX(-50%); 
-    width: 100%; text-align: center; color: white; font-size: 2rem; z-index: 20; 
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin: 0; pointer-events: none; 
-}
-.room-overlay-btn { 
-    display: inline-block; position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); 
-    background: #fff; color: var(--primary); padding: 12px 30px; border-radius: 50px; 
-    font-size: 0.8rem; font-weight: 600; text-transform: uppercase; z-index: 20; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
-}
-
-/* Nascondiamo il testo laterale di default (per Mobile) */
-.room-text { display: none; }
-
-/* --- REGOLE DESKTOP HOME (Schermi > 900px) --- */
-@media (min-width: 901px) {
-    .room-row { 
-        display: flex !important; 
-        align-items: center; 
-        justify-content: space-between; 
-        gap: 60px; 
-        height: 500px; /* Altezza elegante */
-    }
-    .room-row.reverse { flex-direction: row-reverse; }
-
-    /* Slider al 60% */
-    .room-row .slider-container { width: 60% !important; height: 100% !important; }
-    
-    /* Testo al 40% (VISIBILE) */
-    .room-text { display: block !important; width: 40%; text-align: left; padding: 0 10px; }
-    .room-text h3 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
-    .description { color: #666; margin-bottom: 25px; font-weight: 300; font-size: 1rem; }
-    .features { display: flex; gap: 20px; margin-bottom: 30px; color: #888; }
-    .features i { color: var(--accent); margin-right: 5px; }
-    .price { font-size: 1.3rem; color: var(--primary); margin-bottom: 30px; font-family: var(--font-heading); }
-
-    /* Nascondiamo elementi mobile */
-    .mobile-room-title { display: none !important; }
-    .room-overlay-btn { display: none !important; }
-}
-
-/* --- PAGINE INTERNE (King / Deluxe) --- */
-.room-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.h2-internal { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px; display: inline-block; }
-
-/* Widget Prenotazione */
-.booking-widget { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 15px 40px rgba(10, 25, 47, 0.08); border: 1px solid #eee; margin-top: 0; }
-.input-group { margin-bottom: 20px; }
-.input-group label { display: block; font-size: 0.75rem; color: #888; margin-bottom: 5px; font-weight: 700; text-transform: uppercase; }
-.input-group input, .input-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); }
-
-/* Prezzi & Policy */
-.price-summary { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.price-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px; }
-.total-row { display: flex; justify-content: space-between; font-weight: 700; color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; }
-.divider { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
-
-.payment-block { padding: 15px; border-radius: 6px; margin-bottom: 10px; }
-.payment-block.highlight { background: #fdfbf7; border: 1px solid var(--accent); color: var(--primary); }
-.payment-block.highlight .payment-amount { font-size: 1.6rem; color: var(--accent); font-weight: 700; display: block; margin-top: 5px; }
-.payment-block.secondary { background: #f9f9f9; border: 1px solid #eee; color: #666; font-size: 0.9rem; }
-.payment-row { display: flex; justify-content: space-between; margin-top: 5px; }
-
-/* Servizi & Policy */
-.policy-box { background: #fdfbf7; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px; }
-.policy-item { display: flex; align-items: center; gap: 15px; }
-.policy-item i { color: var(--accent); font-size: 1.4rem; width: 30px; text-align: center; }
-
-.services-list { margin-top: 30px; background: #fdfdfd; padding: 25px; border-radius: 6px; border: 1px solid #eee; }
-.services-list ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.services-list li { font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 10px; }
-.services-list i { color: var(--accent); }
-
-/* FOOTER */
-footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: center; margin-top: 60px; }
-.footer-brand h2 { color: white; font-size: 2rem; margin-bottom: 10px; }
-.contact-link { display: block; margin: 10px 0; color: var(--accent); }
-.footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
-
-/* MEDIA QUERIES MOBILE (Generali) */
-@media (max-width: 900px) {
-    .section-padding { padding-top: 10px; padding-bottom: 16px; }
-    h2.section-title { font-size: 2rem; margin-bottom: 20px !important; }
-    
-    .nav-links { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(10, 25, 47, 0.98); transition: right 0.4s ease; z-index: 999; }
-    .nav-links.active { right: 0; }
-    .hamburger { display: block; position: relative; z-index: 1001; }
-    #navbar.scrolled .hamburger { color: var(--primary) !important; }
-
-    /* Fix Pagine Interne Mobile */
-    .room-detail-grid { grid-template-columns: 1fr; }
-    .detail-text { order: 1; }
-    .right-column-wrapper { order: 2; margin-top: 30px; }
-    .services-list ul { grid-template-columns: 1fr; }
-}

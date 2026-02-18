@@ -1,0 +1,114 @@
+/* ============================================================
+   MEDIA.CSS - GESTIONE RESPONSIVE (MOBILE & DESKTOP)
+   ============================================================ */
+
+/* --- MOBILE & TABLET (Sotto i 900px) --- */
+@media (max-width: 900px) {
+    
+    /* 1. NAVBAR MOBILE PULITA */
+    #navbar { 
+        padding: 20px 25px !important; /* Spazio normale */
+    }
+    
+    .nav-container {
+        width: 100%;
+        justify-content: space-between; /* Logo a Sx, Hamburger a Dx */
+    }
+
+    /* Logo Mobile */
+    .logo { font-size: 1.3rem !important; }
+    .sub-logo { font-size: 0.6rem !important; }
+
+    /* Hamburger (Icona Menu) */
+    .hamburger { 
+        display: block; 
+        position: relative; 
+        z-index: 1001; 
+        margin-left: 0 !important;
+        color: white !important; /* Bianco all'inizio */
+    }
+
+    /* 2. MENU A TENDINA (OVERLAY) */
+    .nav-links {
+        display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px;
+        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+        background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px);
+        transition: right 0.4s ease; z-index: 999;
+    }
+    .nav-links.active { right: 0; }
+    .nav-links a { color: white !important; font-size: 1.5rem; }
+
+    /* Stile Lingua nel Menu Mobile (In fondo) */
+    .nav-links .lang-item {
+        margin-top: 20px; 
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links .lang-item select {
+        color: white !important;
+        border: 1px solid white !important;
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    /* 3. HOME PAGE: Camere in colonna */
+    .section-padding { padding-top: 10px; padding-bottom: 16px; }
+    h2.section-title { font-size: 2rem; margin-bottom: 20px !important; }
+    .lead-text { margin-bottom: 20px !important; }
+    
+    .room-row { margin-bottom: 40px; gap: 0; display: block; }
+    .room-text { display: none !important; } /* Nasconde testo descrittivo laterale */
+    
+    /* Titoli e Bottoni sovrapposti alle foto */
+    .mobile-room-title {
+        display: block; position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+        width: 100%; text-align: center; color: white !important;
+        font-family: var(--font-heading); font-size: 2rem; z-index: 20;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.8); pointer-events: none; margin: 0; padding: 0 10px; line-height: 1.1;
+    }
+    .room-overlay-btn {
+        display: block; position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.95); color: var(--primary) !important;
+        padding: 12px 30px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+        text-transform: uppercase; z-index: 30; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none;
+    }
+
+    /* 4. PAGINE INTERNE */
+    .room-detail-grid { display: flex; flex-direction: column; gap: 30px; }
+    .detail-text { order: 1; } /* Prenota Ora prima */
+    .right-column-wrapper { order: 2; margin-top: 20px; } /* Foto dopo */
+    
+    .services-list ul { grid-template-columns: 1fr; }
+    .resources-grid, .gallery-grid { grid-template-columns: 1fr; gap: 30px; }
+
+    /* Slider Mobile */
+    .slider-container, .room-slider { height: 350px; margin-bottom: 20px; background-color: #eee; }
+    .slider-btn, .slider-arrow { width: 50px; height: 50px; background: rgba(0,0,0,0.4); opacity: 1; z-index: 25; outline: none; }
+}
+
+/* --- DESKTOP (Sopra i 901px) --- */
+@media (min-width: 901px) {
+    /* Home Page: Layout Fianco a Fianco 60/40 */
+    .room-row { display: flex !important; align-items: center; justify-content: space-between; gap: 60px; height: 500px; margin-bottom: 80px; }
+    .room-row.reverse { flex-direction: row-reverse; }
+    .room-row .slider-container { width: 60% !important; height: 100% !important; }
+    
+    /* Mostra il testo laterale e nascondi gli elementi overlay del mobile */
+    .room-text { display: block !important; width: 40%; text-align: left; padding: 0 10px; }
+    .mobile-room-title, .room-overlay-btn { display: none !important; }
+
+    /* Nascondi la voce lingua specifica del mobile (perché su PC è inline) */
+    .nav-links .lang-item { 
+        margin-top: 0; 
+        border-top: none; 
+        padding-top: 0; 
+        width: auto; 
+    }
+
+    /* Pagine Interne: Allineamento Widget & Foto */
+    .room-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .detail-text .booking-widget { margin-top: 0 !important; }
+    .right-column-wrapper { margin-top: 2px; }
+}

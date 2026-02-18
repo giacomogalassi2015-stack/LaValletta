@@ -1,6 +1,8 @@
-/* --- booking.js (Versione DEFINITIVA con Tassa Soggiorno) --- */
+/* ============================================================
+   BOOKING.JS - MULTI-CALENDAR + LUXURY WIDGET CALCULATION
+   ============================================================ */
 
-// Recupera le variabili globali
+// Recupera le variabili globali (Supabase & Proxy)
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const proxy = "https://api.codetabs.com/v1/proxy?quest=";
 let pricingRules = []; 
@@ -21,43 +23,50 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.error("❌ Errore Supabase:", err.message);
     }
 
-    // 2. SCARICA LE DATE OCCUPATE (Booking.com)
+    // 2. SCARICA TUTTI I CALENDARI (Booking + Manuale)
     let blockedDates = [];
+    const calendarUrls = window.CALENDAR_URLS; // Definito nell'HTML della camera
     
-    // Controlla se le variabili sono definite globalmente (window)
-    const icalLink = window.BOOKING_ICAL;
-    
-    if (icalLink && icalLink.startsWith('http')) {
-        console.log("⏳ Scarico calendario Booking per: " + window.ROOM_NAME);
-        blockedDates = await fetchBookingDates(icalLink);
+    if (calendarUrls && calendarUrls.length > 0) {
+        console.log(`⏳ Scarico ${calendarUrls.length} calendari per: ` + window.ROOM_NAME);
+        
+        // Esegue il fetch di tutti i link in parallelo
+        const promises = calendarUrls.map(url => fetchICalDates(url));
+        const results = await Promise.all(promises);
+        
+        // Unisce tutti i risultati in un unico array
+        blockedDates = results.flat();
+        console.log("🔒 Totale date chiuse unite:", blockedDates.length);
     } else {
-        console.warn("⚠️ Nessun link Booking trovato. (Se sei in Home è normale)");
+        console.warn("⚠️ Nessun link calendario trovato (Normale se sei in Home).");
     }
 
-    // 3. AVVIA IL CALENDARIO (Con prezzi e date chiuse)
+    // 3. AVVIA IL CALENDARIO (Con date unite)
     initCalendar(blockedDates);
 
-    // Gestione cambio ospiti (Ricalcola prezzo al volo)
+    // 4. GESTIONE CAMBIO OSPITI (Ricalcolo al volo)
     const guestsSelect = document.getElementById('guests');
     if(guestsSelect) {
         guestsSelect.addEventListener('change', function() {
             const dp = document.getElementById('date-picker')._flatpickr;
-            // Se ci sono date selezionate, ricalcola
+            // Se ci sono date già selezionate, ricalcola subito
             if (dp && dp.selectedDates.length === 2) {
-                // Recupera le date e formatta la stringa "dal... al..." per il ricalcolo
-                const dateStr = dp.input.value; 
-                calculateTotal(dp.selectedDates[0], dp.selectedDates[1], dateStr);
+                calculateTotal(dp.selectedDates[0], dp.selectedDates[1], dp.input.value);
             }
         });
     }
 });
 
-// --- FUNZIONE PER SCARICARE BOOKING (CORRETTA) ---
-async function fetchBookingDates(url) {
+// --- FUNZIONE UNICA PER SCARICARE UN ICAL ---
+async function fetchICalDates(url) {
+    if (!url) return [];
     try {
-        // Aggiungiamo un parametro random per evitare la cache del proxy/browser
+        // Cache buster per evitare che il browser ricordi i vecchi dati
         const cacheBuster = "&t=" + new Date().getTime();
         const response = await fetch(proxy + encodeURIComponent(url) + cacheBuster);
+        
+        if (!response.ok) throw new Error("Network response was not ok");
+        
         const text = await response.text();
         
         // Parsing con ical.js
@@ -65,22 +74,13 @@ async function fetchBookingDates(url) {
         const comp = new ICAL.Component(jcalData);
         const events = comp.getAllSubcomponents('vevent');
 
-        const blocked = events.map(vevent => {
+        const dates = events.map(vevent => {
             const ev = new ICAL.Event(vevent);
-            
-            // Gestione DTSTART (Data Inizio)
             let startDate = ev.startDate.toJSDate();
-            
-            // Gestione DTEND (Data Fine)
             let endDate = ev.endDate.toJSDate();
 
-            // FIX CRITICO: 
-            // 1. Booking usa DTEND esclusivo (giorno del check-out).
-            // 2. Flatpickr "disable" range include estremi.
-            // Quindi dobbiamo ridurre di 1 giorno la data fine per non bloccare il giorno del check-out
-            // (che è disponibile per un nuovo check-in).
-            
-            // Sottrai 1 giorno (24h) alla data di fine
+            // FIX: Booking e Teamup usano la data di fine come "esclusiva" (giorno del checkout).
+            // Flatpickr la considera "inclusiva". Togliamo 1 giorno alla fine per liberare il checkout.
             endDate.setDate(endDate.getDate() - 1);
 
             return {
@@ -89,17 +89,15 @@ async function fetchBookingDates(url) {
             };
         });
 
-        console.log("🔒 Date chiuse importate (Corrette):", blocked.length);
-        return blocked;
-
+        return dates;
     } catch (e) {
-        console.error("❌ Errore lettura calendario Booking:", e);
+        console.error("❌ Errore lettura calendario:", url, e);
         return [];
     }
 }
 
 // --- INIZIALIZZA CALENDARIO ---
-function initCalendar(blockedDatesFromBooking) {
+function initCalendar(blockedDatesCombined) {
     const dbMonths = pricingRules.map(rule => rule.mese);
     const hasData = dbMonths.length > 0;
 
@@ -109,14 +107,13 @@ function initCalendar(blockedDatesFromBooking) {
         dateFormat: "d/m/Y",
         locale: "it",
         disable: [
-            ...blockedDatesFromBooking, // 1. Blocca le date di Booking
-            function(date) {            // 2. Blocca i mesi non presenti nel listino
+            ...blockedDatesCombined, // Date occupate (Booking + Teamup)
+            function(date) {
                 const m = date.getMonth() + 1;
                 if (hasData) {
-                    return !dbMonths.includes(m);
+                    return !dbMonths.includes(m); // Blocca mesi non nel listino
                 } else {
-                    // Fallback se database offline: apre Maggio-Ottobre
-                    return (m < 5 || m > 10);
+                    return (m < 4 || m > 10); // Fallback (apre Aprile-Ottobre)
                 }
             }
         ],
@@ -127,12 +124,15 @@ function initCalendar(blockedDatesFromBooking) {
         }
     });
 }
+
+// --- CALCOLO PREZZI (Logica Luxury + Tassa) ---
 function calculateTotal(startDate, endDate, dateString) {
     const loading = document.getElementById('loading-prices');
     const summary = document.getElementById('price-summary');
+    
     if(loading) loading.style.display = 'block';
     if(summary) summary.style.display = 'none';
-
+    
     let currentDate = new Date(startDate.getTime());
     currentDate.setHours(0,0,0,0);
     let endDateTime = new Date(endDate.getTime());
@@ -140,100 +140,142 @@ function calculateTotal(startDate, endDate, dateString) {
     
     const diffTime = Math.abs(endDateTime - currentDate);
     const totalNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
     if (totalNights === 0) return;
 
     const guests = parseInt(document.getElementById('guests').value);
     const isSingleGuest = (guests === 1);
     
-    let totalRoomCost = 0; // Solo pernotto
-    let nightlyDetails = []; 
+    let totalRoomCost = 0; // Costo puro della camera (senza tassa)
+    let nightlyDetails = []; // Array per la lista notti
 
-    // 1. Calcolo Pernotti
+    // 1. Ciclo giorno per giorno
     let tempDate = new Date(currentDate.getTime());
     while (tempDate < endDateTime) {
-        const month = tempDate.getMonth() + 1;
-        const dayOfWeek = tempDate.getDay();
-        let dailyPrice = 165; 
+        const month = tempDate.getMonth() + 1; 
+        const dayOfWeek = tempDate.getDay(); 
+        
+        let dailyPrice = 165; // Prezzo base fallback
 
         const rule = pricingRules.find(r => r.mese == month);
+        
         if (rule) {
             dailyPrice = (typeof CURRENT_ROOM !== 'undefined' && CURRENT_ROOM === 'king') ? rule.prezzo_king : rule.prezzo_deluxe;
-            if ((dayOfWeek === 5 || dayOfWeek === 6) && rule.extra_weekend) dailyPrice += rule.extra_weekend;
-            if (isSingleGuest && rule.sconto_singolo) dailyPrice -= dailyPrice * (rule.sconto_singolo / 100);
+            
+            // Extra Weekend (Venerdì=5, Sabato=6)
+            if ((dayOfWeek === 5 || dayOfWeek === 6) && rule.extra_weekend) {
+                dailyPrice += rule.extra_weekend;
+            }
+            
+            // Sconto Singola
+            if (isSingleGuest && rule.sconto_singolo) {
+                dailyPrice -= dailyPrice * (rule.sconto_singolo / 100);
+            }
         }
         
         totalRoomCost += dailyPrice;
         nightlyDetails.push({ date: new Date(tempDate), price: dailyPrice });
+        
         tempDate.setDate(tempDate.getDate() + 1);
     }
 
+    // Supplemento Singola Notte (se applicabile)
     if (totalNights === 1) {
         const rule = pricingRules.find(r => r.mese == (startDate.getMonth() + 1));
         if(rule && rule.maggiorazione_singola) {
             let surcharge = totalRoomCost * (rule.maggiorazione_singola / 100);
             totalRoomCost += surcharge;
-            nightlyDetails[0].price += surcharge;
+            nightlyDetails[0].price += surcharge; // Aggiorna anche il dettaglio visivo
         }
     }
+
     totalRoomCost = Math.round(totalRoomCost);
 
-    // 2. Calcolo Tassa
+    // 2. Calcolo Tassa Soggiorno (max 3 notti)
     const nightsForTax = totalNights > 3 ? 3 : totalNights;
     const cityTax = 3.00 * guests * nightsForTax;
 
-    // 3. Totale "Visivo" (Pernotti + Tassa)
+    // 3. Totale "Visivo" (Pernotti + Tassa) - Questo è quello che paga il cliente in totale
     const grandTotal = totalRoomCost + cityTax;
 
     // 4. Caparra (20% del solo Pernotto)
     const deposit = Math.round(totalRoomCost * 0.20);
 
-    // 5. Saldo
+    // 5. Saldo in struttura (Totale - Caparra)
     const balanceDue = grandTotal - deposit;
 
+    // Aggiorna l'interfaccia grafica
     updateUI(grandTotal, totalRoomCost, cityTax, deposit, balanceDue, totalNights, dateString, guests, nightlyDetails);
 }
 
+// --- AGGIORNAMENTO GRAFICA (Widget Luxury) ---
 function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, dateString, guests, nightlyDetails) {
+    
+    // Nascondi caricamento e mostra risultati
     document.getElementById('loading-prices').style.display = 'none';
     document.getElementById('price-summary').style.display = 'block';
 
-    // Lista Notti
+    // 1. Popola la lista delle notti (Scrollable)
     const detailsContainer = document.getElementById('nightly-details-list');
-    detailsContainer.innerHTML = '';
-    nightlyDetails.forEach((n) => {
-        const dateFmt = n.date.toLocaleDateString('it-IT', {day:'numeric', month:'short'});
-        const row = document.createElement('div');
-        row.className = 'nightly-row';
-        row.innerHTML = `<span class="night-label">${dateFmt}</span><span class="night-price">€ ${Math.round(n.price)}</span>`;
-        detailsContainer.appendChild(row);
-    });
+    if (detailsContainer) {
+        detailsContainer.innerHTML = '';
+        nightlyDetails.forEach((n) => {
+            const dateFmt = n.date.toLocaleDateString('it-IT', {day:'numeric', month:'short'});
+            const row = document.createElement('div');
+            row.className = 'nightly-row';
+            row.innerHTML = `<span class="night-label">${dateFmt}</span><span class="night-price">€ ${Math.round(n.price)}</span>`;
+            detailsContainer.appendChild(row);
+        });
+    }
 
-    // Popolamento Valori
+    // 2. Popola i valori numerici nel Widget
     document.getElementById('total-nights').innerText = nights;
-    document.getElementById('city-tax-display').innerText = '€ ' + cityTax.toLocaleString('it-IT', {minimumFractionDigits: 2});
-    document.getElementById('grand-total-display').innerText = '€ ' + grandTotal.toLocaleString('it-IT', {minimumFractionDigits: 2});
     
-    document.getElementById('deposit-amount').innerText = '€ ' + deposit.toLocaleString('it-IT', {minimumFractionDigits: 2});
-    document.getElementById('balance-due').innerText = '€ ' + balanceDue.toLocaleString('it-IT', {minimumFractionDigits: 2});
+    // Tassa
+    const cityTaxEl = document.getElementById('city-tax-display');
+    if(cityTaxEl) cityTaxEl.innerText = '€ ' + cityTax.toLocaleString('it-IT', {minimumFractionDigits: 2});
+    
+    // Gran Totale (in alto)
+    const grandTotalEl = document.getElementById('grand-total-display');
+    if(grandTotalEl) grandTotalEl.innerText = '€ ' + grandTotal.toLocaleString('it-IT', {minimumFractionDigits: 2});
+    
+    // Caparra (Card Oro)
+    const depositEl = document.getElementById('deposit-amount');
+    if(depositEl) depositEl.innerText = '€ ' + deposit.toLocaleString('it-IT', {minimumFractionDigits: 2});
+    
+    // Saldo (Card Blu)
+    const balanceEl = document.getElementById('balance-due');
+    if(balanceEl) balanceEl.innerText = '€ ' + balanceDue.toLocaleString('it-IT', {minimumFractionDigits: 2});
 
-    // Bottone
+    // 3. Aggiorna il bottone "Richiedi"
     const btn = document.getElementById('btn-request');
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    
-    newBtn.onclick = function(e) {
-        e.preventDefault();
-        const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
-        let message = `Salve, vorrei prenotare la *${rName}*.\n\n` + 
-                      `📅 *Date:* ${dateString} (${nights} notti)\n` + 
-                      `👤 *Ospiti:* ${guests}\n\n` + 
-                      `💶 *Totale Soggiorno:* € ${grandTotal}\n` + 
-                      `(Pernotti €${roomCost} + Tassa €${cityTax})\n` + 
-                      `--------------------------------\n` + 
-                      `🔒 *CAPARRA (20%):* € ${deposit}\n` + 
-                      `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` + 
-                      `--------------------------------\n` + 
-                      `Attendo link per la caparra. Grazie!`;
-        window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
-    };
+    if (btn) {
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        
+        newBtn.onclick = function(e) {
+            e.preventDefault();
+            const contactMethod = document.getElementById('contact-method').value;
+            const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
+            
+            // Messaggio WhatsApp formattato
+            let message = `Salve, vorrei prenotare la *${rName}*.\n\n` + 
+                          `📅 *Date:* ${dateString} (${nights} notti)\n` + 
+                          `👤 *Ospiti:* ${guests}\n\n` + 
+                          `💶 *TOTALE SOGGIORNO:* € ${grandTotal}\n` + 
+                          `(Pernotti: €${roomCost} + Tassa: €${cityTax})\n` + 
+                          `--------------------------------\n` + 
+                          `🔒 *CAPARRA (20%):* € ${deposit}\n` + 
+                          `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` + 
+                          `--------------------------------\n` + 
+                          `Attendo il link per il versamento della caparra. Grazie!`;
+            
+            if (contactMethod === 'whatsapp') {
+                window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
+            } else {
+                const subject = `Richiesta Prenotazione: ${rName}`;
+                window.location.href = `mailto:info@cadellavalletta.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            }
+        };
+    }
 }

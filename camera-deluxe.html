@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King Deluxe | Ca' della Valletta</title>
     <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="media.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
@@ -64,10 +66,13 @@
             
             <div class="detail-text" data-aos="fade-right">
                 
-                <script>
-                    window.CURRENT_ROOM = 'deluxe'; 
-                    window.ROOM_NAME = 'King Deluxe';
-                    window.BOOKING_ICAL = 'https://ical.booking.com/v1/export?t=4b6f3e56-fab9-49ca-afc7-921cc4afbbe3'; 
+                <script>    
+    window.CURRENT_ROOM = 'deluxe'; 
+    window.ROOM_NAME = 'King Deluxe';
+    window.CALENDAR_URLS = [
+        'https://ical.booking.com/v1/export?t=4b6f3e56-fab9-49ca-afc7-921cc4afbbe3',
+        'https://ics.teamup.com/feed/ksp83j9i4iq83deosz/0.ics'
+    ]; 
                 </script>
 
                 <div class="booking-widget" id="preventivo-box">

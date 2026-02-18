@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King Room | Ca' della Valletta</title>
     <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="media.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
@@ -64,12 +66,15 @@
             
             <div class="detail-text" data-aos="fade-right">
                 
-                <script>
-                    window.CURRENT_ROOM = 'king'; 
-                    window.ROOM_NAME = 'King Room';
-                    window.BOOKING_ICAL = 'https://ical.booking.com/v1/export?t=f2eccee5-18cb-4a0e-b7ce-a5c08543a13c'; 
-                </script>
-
+               <script>
+    window.CURRENT_ROOM = 'king'; 
+    window.ROOM_NAME = 'King Room';
+    // ARRAY DI CALENDARI: Booking + Teamup (Manuale)
+    window.CALENDAR_URLS = [
+        'https://ical.booking.com/v1/export?t=f2eccee5-18cb-4a0e-b7ce-a5c08543a13c',  // Incolla qui l'iCal di Booking
+        'https://ics.teamup.com/feed/ksb6u6inopb4yrqt7s/0.ics'    // Incolla qui l'iCal di Teamup
+    ];
+</script>
                 <div class="booking-widget" id="preventivo-box">
                     <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota Ora</h3>
                     
