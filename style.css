@@ -1,11 +1,8 @@
-/* ============================================================
-   STYLE.CSS - FIX FOTO INTERNE + GRAFICA EXPERIENCE
-   ============================================================ */
+/* --- SOSTITUISCI L'INIZIO DEL TUO STYLE.CSS CON QUESTO --- */
 
-/* --- VARIABILI & RESET --- */
 :root {
-    --primary: #0A192F; /* Blu Notte Profondo */
-    --accent: #C5A059;  /* Oro Sabbia Elegante */
+    --primary: #0A192F;
+    --accent: #C5A059;
     --text: #2c2c2c;
     --text-light: #f4f4f4;
     --bg-body: #ffffff;
@@ -15,18 +12,24 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* FIX CRITICO: BLOCCA LO SPAZIO BIANCO LATERALE */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important; /* Taglia via menu e animazioni fuori schermo */
+    position: relative;
+    margin: 0;
+}
+
 html { scroll-behavior: smooth; }
 
-/* --- SOSTITUISCI IL BLOCCO BODY ESISTENTE CON QUESTO --- */
 body {
     font-family: var(--font-body);
     color: var(--text);
     background-color: var(--bg-body);
     line-height: 1.7;
-    overflow-x: hidden; /* <--- QUESTA RIGA RISOLVE LO SPAZIO BIANCO LATERALE */
-    width: 100%;       /* Assicura che il corpo non ecceda mai */
-    position: relative;
 }
+
 
 h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -70,61 +73,114 @@ h2.section-title {
 .bg-dark { background-color: var(--primary); color: white; }
 .text-light { color: white !important; }
 
-/* --- NAVBAR GLASSMORPHISM --- */
-#navbar {
-    position: fixed; top: 0; left: 0; width: 100%; padding: 25px 50px;
-    z-index: 9999; transition: all 0.4s ease; display: flex; justify-content: center;
-    background: transparent;
+/* --- NAVBAR --- */
+#navbar { 
+    position: fixed; top: 0; left: 0; width: 100%; padding: 20px 50px; 
+    z-index: 9999; transition: all 0.4s ease; display: flex; justify-content: center; 
+    background: transparent; 
+}
+#navbar.scrolled { 
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); 
+    padding: 15px 50px; box-shadow: 0 4px 30px rgba(0,0,0,0.05); 
 }
 
-#navbar.scrolled {
-    background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(12px);
-    padding: 15px 50px;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+.nav-container { 
+    width: 100%; max-width: 1400px; display: flex; justify-content: space-between; align-items: center; 
 }
 
-.nav-container { width: 100%; max-width: 1400px; display: flex; justify-content: space-between; align-items: center; }
-
-.logo {
-    font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; color: white;
-    letter-spacing: 1px; display: flex; flex-direction: column; line-height: 1;
+.logo { 
+    font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; color: white; 
+    letter-spacing: 1px; display: flex; flex-direction: column; line-height: 1; z-index: 1002;
 }
 .sub-logo { font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 3px; margin-top: 5px; opacity: 0.8; text-transform: uppercase; }
 
-/* Colori Navbar */
-#navbar:not(.scrolled) .nav-links a,
-#navbar:not(.scrolled) .logo,
-#navbar:not(.scrolled) .hamburger { color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
-#navbar.scrolled .logo, #navbar.scrolled .nav-links a, #navbar.scrolled .hamburger { color: var(--primary) !important; text-shadow: none; }
+/* Gruppo Lingua + Hamburger */
+.nav-extras { display: flex; align-items: center; gap: 15px; z-index: 1002; }
 
-.nav-links { display: flex; gap: 40px; }
+/* Stile Selettore Lingua */
+#language-selector {
+    background: transparent; border: 1px solid rgba(255,255,255,0.6); color: white;
+    padding: 5px 8px; border-radius: 4px; font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem; cursor: pointer; outline: none; text-transform: uppercase;
+}
+#language-selector option { color: #333; }
+
+/* Colori allo scroll */
+#navbar.scrolled .logo, 
+#navbar.scrolled .nav-links a, 
+#navbar.scrolled .hamburger,
+#navbar.scrolled #language-selector { 
+    color: var(--primary) !important; 
+    border-color: var(--primary); /* Bordo lingua scuro allo scroll */
+}
+#navbar:not(.scrolled) .nav-links a, 
+#navbar:not(.scrolled) .logo, 
+#navbar:not(.scrolled) .hamburger { color: white !important; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+.nav-links { display: flex; gap: 40px; list-style: none; }
 .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; position: relative; }
-.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
-.nav-links a:hover::after { width: 100%; }
 .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
-/* --- STILE SELETTORE LINGUA (Nuovo) --- */
-.lang-item select {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.5); /* Bordo sottile bianco iniziale */
-    color: inherit; /* Prende il colore del menu (bianco o blu) */
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    outline: none;
+/* --- COMPONENTI SLIDER (UNIFICATO HOME + INTERNE) --- */
+
+/* Contenitore Slider: Forza altezza e posizione per entrambi */
+.slider-container, 
+.room-slider { 
+    position: relative; 
+    width: 100%; 
+    height: 500px !important; /* FONDAMENTALE: Senza questo le foto spariscono */
+    overflow: hidden; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: #f0f0f0; 
+    margin-bottom: 20px;
 }
 
-.lang-item select option {
-    color: #333; /* Le opzioni dentro devono essere sempre scure */
+.slides-wrapper { width: 100%; height: 100%; position: relative; }
+
+/* Singola Slide (Immagine) */
+.slide, 
+.room-slide { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    object-fit: cover; 
+    opacity: 0; 
+    transition: opacity 0.6s ease-in-out; 
+    z-index: 1; 
 }
 
-/* Quando la barra scorre, cambia il bordo del selettore */
-#navbar.scrolled .lang-item select {
-    border: 1px solid var(--primary);
+/* Slide Attiva (Visibile) */
+.slide.active, 
+.room-slide.active { 
+    opacity: 1 !important; 
+    z-index: 2; 
 }
+
+/* Frecce Navigazione (Stile comune) */
+.slider-btn, 
+.slider-arrow { 
+    position: absolute; top: 50%; transform: translateY(-50%); 
+    background: rgba(0,0,0,0.4); color: white; border: none; 
+    width: 45px; height: 45px; border-radius: 50%; cursor: pointer; 
+    z-index: 10; display: flex; align-items: center; justify-content: center; 
+    transition: 0.3s;
+}
+.slider-btn:hover, .slider-arrow:hover { background: var(--accent); }
+.prev, .prev-btn { left: 20px; } 
+.next, .next-btn { right: 20px; }
+
+/* Bottone Galleria (Solo Interne) */
+.gallery-overlay-btn {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9); color: var(--primary);
+    padding: 10px 25px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    z-index: 20; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;
+    text-decoration: none;
+}
+.gallery-overlay-btn:hover { background: var(--primary); color: white; transform: translateX(-50%) translateY(-3px); }
+
 /* --- HERO --- */
 .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
 .page-hero { height: 60vh; min-height: 400px; }
@@ -143,27 +199,7 @@ h2.section-title {
 .btn-gold-solid { background: var(--accent); color: white; padding: 12px 25px; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; border-radius: 2px; transition: 0.3s; width: 100%; display: block; text-align: center; }
 .btn-gold-solid:hover { background: var(--primary); color: white; }
 
-/* --- SLIDER (Generale per Home) --- */
-.slider-container { 
-    position: relative; width: 100%; height: 500px; 
-    overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-}
-.slides-wrapper { width: 100%; height: 100%; position: relative; }
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease-in-out; z-index: 1; }
-.slide.active { opacity: 1; z-index: 2; }
 
-/* Frecce Slider */
-.slider-btn, .slider-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4); color: white; border: none;
-    width: 45px; height: 45px; border-radius: 50%;
-    font-size: 1.2rem; cursor: pointer; z-index: 10;
-    transition: background 0.3s, transform 0.2s;
-    display: flex; align-items: center; justify-content: center;
-}
-.slider-btn:hover, .slider-arrow:hover { background: var(--accent); transform: translateY(-50%) scale(1.1); }
-.prev, .prev-btn { left: 20px; }
-.next, .next-btn { right: 20px; }
 
 /* Bottone "Vedi Galleria" */
 .gallery-overlay-btn {
@@ -194,44 +230,6 @@ h2.section-title {
 .mobile-room-title { display: none; }
 .room-overlay-btn { display: none; }
 
-/* --- FIX FOTO INTERNE (King/Deluxe) - AGGIUNTA IMPORTANTE --- */
-/* Questo blocco assicura che lo slider nelle pagine interne abbia altezza e le foto siano visibili */
-
-.detail-gallery-wrapper {
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.detail-gallery-wrapper .room-slider { 
-    position: relative; 
-    width: 100%; 
-    height: 500px !important; /* Altezza forzata per evitare che sparisca */
-    overflow: hidden; 
-    border-radius: 8px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    background-color: #f0f0f0; /* Sfondo grigio di caricamento */
-}
-
-/* Stile delle slide interne */
-.detail-gallery-wrapper .room-slider .room-slide {
-    position: absolute; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%;
-    opacity: 0; 
-    transition: opacity 0.6s ease-in-out; 
-    z-index: 1;
-}
-
-.detail-gallery-wrapper .room-slider .room-slide.active { 
-    opacity: 1 !important; 
-    z-index: 2; 
-}
-
-.detail-gallery-wrapper .room-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* --- AREE COMUNI --- */
 .interior-overlay { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.5); color: white; padding: 10px 20px; border-radius: 4px; font-family: var(--font-heading); letter-spacing: 1px; }

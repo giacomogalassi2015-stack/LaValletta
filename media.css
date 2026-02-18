@@ -7,7 +7,7 @@
     
     /* 1. NAVBAR MOBILE PULITA */
     #navbar { 
-        padding: 20px 25px !important; /* Spazio normale */
+        padding: 15px 20px !important; /* Spazio ridotto ma sufficiente */
     }
     
     .nav-container {
@@ -16,8 +16,8 @@
     }
 
     /* Logo Mobile */
-    .logo { font-size: 1.3rem !important; }
-    .sub-logo { font-size: 0.6rem !important; }
+    .logo { font-size: 1.2rem !important;  }
+    .sub-logo { font-size: 0.5rem !important; letter-spacing: 1px !important; }
 
     /* Hamburger (Icona Menu) */
     .hamburger { 
@@ -51,6 +51,7 @@
         border: 1px solid white !important;
         font-size: 1rem;
         padding: 10px 20px;
+        background: transparent;
     }
 
     /* 3. HOME PAGE: Camere in colonna */
@@ -111,4 +112,38 @@
     .room-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .detail-text .booking-widget { margin-top: 0 !important; }
     .right-column-wrapper { margin-top: 2px; }
+}
+
+/* ============================================================
+   FIX FINALE COLORI MOBILE (LINK BIANCHI, ICONA NERA)
+   Incolla questo blocco alla FINE del file media.css
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    /* 1. I LINK DEL MENU: Sempre BIANCHI (dentro la tendina scura) */
+    /* Usiamo !important per vincere sulla regola dello scroll desktop */
+    .nav-links a,
+    #navbar.scrolled .nav-links a {
+        color: #ffffff !important;
+    }
+
+    /* 2. L'ICONA HAMBURGER: Cambia colore in base allo scroll */
+
+    /* Se NON hai scrollato (barra trasparente) -> Icona BIANCA */
+    #navbar:not(.scrolled) .hamburger {
+         color: #ffffff !important;
+    }
+
+    /* Se HAI scrollato (barra bianca) -> Icona SCURA (colore primario) */
+    #navbar.scrolled .hamburger {
+         color: var(--primary) !important; 
+    }
+
+    /* 3. (Opzionale) Anche la Lingua nel menu deve restare bianca */
+    .nav-links .lang-item select,
+    #navbar.scrolled .nav-links .lang-item select {
+        color: #ffffff !important;
+        border-color: rgba(255,255,255,0.5) !important;
+    }
 }
