@@ -198,8 +198,8 @@ function calculateTotal(startDate, endDate, dateString) {
     // 3. Totale "Visivo" (Pernotti + Tassa) - Questo è quello che paga il cliente in totale
     const grandTotal = totalRoomCost + cityTax;
 
-    // 4. Caparra (20% del solo Pernotto)
-    const deposit = Math.round(totalRoomCost * 0.20);
+    // 4. Caparra (40% del solo Pernotto)
+    const deposit = Math.round(totalRoomCost * 0.40);
 
     // 5. Saldo in struttura (Totale - Caparra)
     const balanceDue = grandTotal - deposit;
@@ -265,7 +265,7 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, da
                           `💶 *TOTALE SOGGIORNO:* € ${grandTotal}\n` + 
                           `(Pernotti: €${roomCost} + Tassa: €${cityTax})\n` + 
                           `--------------------------------\n` + 
-                          `🔒 *CAPARRA (20%):* € ${deposit}\n` + 
+                          `🔒 *CAPARRA (40%):* € ${deposit}\n` + 
                           `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` + 
                           `--------------------------------\n` + 
                           `Attendo il link per il versamento della caparra. Grazie!`;

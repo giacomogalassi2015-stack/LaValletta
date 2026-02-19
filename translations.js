@@ -19,13 +19,13 @@ const translations_king = {
         lbl_city_tax: "Tassa Soggiorno",
         lbl_grand_total: "TOTALE COMPLESSIVO",
         lbl_deposit_now: "DA VERSARE ORA",
-        lbl_deposit_sub: "Caparra confirmatoria (20%)",
-        lbl_balance_struct: "SALDO IN HOTEL",
+        lbl_deposit_sub: "Caparra confirmatoria (40%)",
+        lbl_balance_struct: "SALDO IN STRUTTURA",
         btn_request: "Richiedi disponibilità",
 
         // Dettagli & Policy
         sec_details_title: "Prenotazione & Dettagli",
-        txt_deposit_info: "La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.",
+        txt_deposit_info: "La prenotazione si intende confermata al versamento della <strong>caparra del 40%</strong> tramite link sicuro.",
         
         pol_hours_title: "Orari",
         pol_checkin: "Check-in: 14:00 - 20:00",
@@ -73,12 +73,12 @@ const translations_king = {
         lbl_city_tax: "City Tax",
         lbl_grand_total: "GRAND TOTAL",
         lbl_deposit_now: "DUE NOW",
-        lbl_deposit_sub: "Confirmation Deposit (20%)",
-        lbl_balance_struct: "BALANCE AT HOTEL",
+        lbl_deposit_sub: "Confirmation Deposit (40%)",
+        lbl_balance_struct: "BALANCE AT PROPERTY",
         btn_request: "Request Availability",
 
         sec_details_title: "Booking & Details",
-        txt_deposit_info: "The booking is confirmed upon payment of the <strong>20% deposit</strong> via secure link.",
+        txt_deposit_info: "The booking is confirmed upon payment of the <strong>40% deposit</strong> via secure link.",
         
         pol_hours_title: "Hours",
         pol_checkin: "Check-in: 14:00 - 20:00",
@@ -124,12 +124,12 @@ const translations_king = {
         lbl_city_tax: "Taxe de Séjour",
         lbl_grand_total: "TOTAL GÉNÉRAL",
         lbl_deposit_now: "À PAYER MAINTENANT",
-        lbl_deposit_sub: "Arrhes de confirmation (20%)",
-        lbl_balance_struct: "SOLDE À L'HÔTEL",
+        lbl_deposit_sub: "Arrhes de confirmation (40%)",
+        lbl_balance_struct: "SOLDE À L'ÉTABLISSEMENT",
         btn_request: "Demander disponibilité",
 
         sec_details_title: "Réservation & Détails",
-        txt_deposit_info: "La réservation est confirmée au versement des <strong>arrhes de 20%</strong> via lien sécurisé.",
+        txt_deposit_info: "La réservation est confirmée au versement des <strong>arrhes de 40%</strong> via lien sécurisé.",
         
         pol_hours_title: "Horaires",
         pol_checkin: "Arrivée : 14h00 - 20h00",
@@ -175,12 +175,12 @@ const translations_king = {
         lbl_city_tax: "Kurtaxe",
         lbl_grand_total: "GESAMTBETRAG",
         lbl_deposit_now: "JETZT FÄLLIG",
-        lbl_deposit_sub: "Anzahlung (20%)",
-        lbl_balance_struct: "RESTBETRAG IM HOTEL",
+        lbl_deposit_sub: "Anzahlung (40%)",
+        lbl_balance_struct: "RESTBETRAG IN DER UNTERKUNFT",
         btn_request: "Verfügbarkeit anfragen",
 
         sec_details_title: "Buchung & Details",
-        txt_deposit_info: "Die Buchung gilt als bestätigt nach Zahlung der <strong>20% Anzahlung</strong> über einen sicheren Link.",
+        txt_deposit_info: "Die Buchung gilt als bestätigt nach Zahlung der <strong>40% Anzahlung</strong> über einen sicheren Link.",
         
         pol_hours_title: "Zeiten",
         pol_checkin: "Check-in: 14:00 - 20:00",
@@ -226,12 +226,12 @@ const translations_king = {
         lbl_city_tax: "Tasa Turística",
         lbl_grand_total: "TOTAL GENERAL",
         lbl_deposit_now: "A PAGAR AHORA",
-        lbl_deposit_sub: "Depósito de confirmación (20%)",
-        lbl_balance_struct: "SALDO EN EL HOTEL",
+        lbl_deposit_sub: "Depósito de confirmación (40%)",
+        lbl_balance_struct: "SALDO EN EL ALOJAMIENTO",
         btn_request: "Solicitar disponibilidad",
 
         sec_details_title: "Reserva y Detalles",
-        txt_deposit_info: "La reserva se confirma tras el pago del <strong>depósito del 20%</strong> mediante enlace seguro.",
+        txt_deposit_info: "La reserva se confirma tras el pago del <strong>depósito del 40%</strong> mediante enlace seguro.",
         
         pol_hours_title: "Horarios",
         pol_checkin: "Check-in: 14:00 - 20:00",
