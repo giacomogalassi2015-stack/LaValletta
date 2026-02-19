@@ -91,19 +91,23 @@ function initCalendar(blockedDatesCombined) {
     const dbMonths = pricingRules.map(rule => rule.mese);
     const hasData = dbMonths.length > 0;
 
-    flatpickr("#date-picker", {
+let currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'it';
+    
+    let fpLocale = (currentLang === 'en') ? 'default' : currentLang;
+
+    window.myCalendarInstance = flatpickr("#date-picker", {
         mode: "range",
         minDate: "today",
         dateFormat: "d/m/Y",
-        locale: "it",
+        locale: fpLocale, 
         disable: [
-            ...blockedDatesCombined, // Date occupate 
+            ...blockedDatesCombined, 
             function(date) {
                 const m = date.getMonth() + 1;
                 if (hasData) {
-                    return !dbMonths.includes(m); // Blocca mesi non nel listino
+                    return !dbMonths.includes(m); 
                 } else {
-                    return (m < 4 || m > 10); // Fallback (apre Aprile-Ottobre)
+                    return (m < 4 || m > 10); 
                 }
             }
         ],
