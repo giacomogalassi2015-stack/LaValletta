@@ -1,11 +1,7 @@
-/* ============================================================
-   SCRIPT.JS - VERSIONE BLINDATA
-   ============================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. INIZIALIZZAZIONE ANIMAZIONI (AOS) --- */
-    // Avviamo le animazioni solo quando il sito è pronto
+   
     if (typeof AOS !== 'undefined') {
         AOS.init({
             once: true, 
@@ -18,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
 
     function handleScroll() {
-        if (!navbar) return; // Protezione se la navbar non viene trovata
+        if (!navbar) return; 
         
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -27,11 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Ascolta lo scroll
     window.addEventListener('scroll', handleScroll);
     
-    // ESEGUE SUBITO LA FUNZIONE: 
-    // Fondamentale per far apparire la barra corretta appena si apre il sito
     handleScroll();
 
 
@@ -42,31 +35,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            // Apre/Chiude il menu
+        
             navLinks.classList.toggle('active');
             
-            // Gestione Icona (Barre <-> X)
             const icon = hamburger.querySelector('i');
             if (icon) {
                 if (navLinks.classList.contains('active')) {
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-times');
-                    body.style.overflow = 'hidden'; // Blocca lo scroll del sito quando il menu è aperto
+                    body.style.overflow = 'hidden'; 
                 } else {
                     icon.classList.remove('fa-times');
                     icon.classList.add('fa-bars');
-                    body.style.overflow = 'auto'; // Riattiva lo scroll
+                    body.style.overflow = 'auto'; 
                 }
             }
         });
 
-        // Chiude il menu quando si clicca su un link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 body.style.overflow = 'auto';
                 
-                // Resetta l'icona
                 const icon = hamburger.querySelector('i');
                 if(icon) {
                     icon.classList.remove('fa-times');
@@ -77,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* --- 4. SLIDER HOME PAGE (Manuale con Frecce) --- */
+    /* --- 4. SLIDER HOME PAGE  --- */
     const homeSliders = document.querySelectorAll('.slider-container');
 
     homeSliders.forEach(slider => {
@@ -86,25 +76,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = slider.querySelector('.prev-btn');
         let currentSlideIdx = 0; 
 
-        // Se non ci sono slide in questo contenitore, passa al prossimo
         if (slides.length === 0) return;
 
         function showSlide(index) {
-            // Rimuove la classe active da tutte le slide
+            
             slides.forEach(slide => slide.classList.remove('active'));
             
-            // Calcola l'indice corretto (loop infinito)
             if (index >= slides.length) currentSlideIdx = 0;
             else if (index < 0) currentSlideIdx = slides.length - 1;
             else currentSlideIdx = index;
             
-            // Attiva la slide giusta
             slides[currentSlideIdx].classList.add('active');
         }
 
         if(nextBtn) {
             nextBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Evita che la pagina salti in alto
+                e.preventDefault(); 
                 showSlide(currentSlideIdx + 1);
             });
         }
@@ -118,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* --- 5. SLIDER DETTAGLIO CAMERA (Automatico 5s) --- */
-    // Logica specifica per le pagine interne (King/Deluxe)
     const roomSlides = document.querySelectorAll(".room-slide");
     
     if (roomSlides.length > 0) {
@@ -137,16 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
             showRoomSlides(roomSlideIndex += 1);
         }
 
-        // Rendiamo questa funzione disponibile globalmente per le frecce HTML (onclick="...")
         window.changeRoomSlide = function(n) {
-            clearInterval(roomInterval); // Ferma il timer automatico se l'utente clicca
-            roomInterval = setInterval(nextRoomSlide, 5000); // Riavvia il timer
+            clearInterval(roomInterval); 
+            roomInterval = setInterval(nextRoomSlide, 5000); 
             showRoomSlides(roomSlideIndex += n);
         };
 
-        // Avvio iniziale
         showRoomSlides(roomSlideIndex);
         roomInterval = setInterval(nextRoomSlide, 5000);
     }
 
-}); // FINE DOMContentLoaded
+}); 

@@ -1,24 +1,17 @@
-/* ============================================================
-   TRANSLATIONS-PRIVACY.JS - PRIVACY POLICY MULTILINGUA
-   ============================================================ */
-
 const privacyTexts = {
     it: {
         priv_main_title: "Informativa Privacy",
         priv_update: "Informativa sul trattamento dei dati personali. In vigore dal 28/01/2026",
         
-        // PREMESSA
         priv_premise_title: "PREMESSA",
         priv_premise_text: "La presente informativa tiene conto di quanto indicato dal Regolamento (UE) 2016/679 del Parlamento europeo e del Consiglio del 27 aprile 2016 (GDPR) e dal Codice della Privacy (D. Lgs 30 giugno 2003 n. 196). Il documento è stato redatto anche in base alle Linee Guida del Garante Privacy (soprattutto le Linee Guida di contrasto allo spam emesse dal Garante Privacy il 4 luglio 2013).",
         priv_owner: "<strong>Titolare del Trattamento:</strong> Giacomo Galassi <br> <strong>Sito al quale si riferisce la presente privacy policy:</strong> www.cadellavalletta.it (Sito).",
         priv_dpo: "Il Titolare del Trattamento non ha nominato un DPO (Data Protection Officer). Pertanto, Lei può inviare qualsiasi richiesta di informazioni direttamente al Titolare del Trattamento.",
 
-        // INFO GENERALI
         priv_gen_title: "INFORMAZIONI GENERALI",
         priv_gen_intro: "Il presente documento descrive come il Titolare del Trattamento tratta i Suoi dati personali conferiti sul Sito.",
         priv_gen_desc: "Di seguito vengono descritti i principali trattamenti dei Suoi dati personali. Viene in particolare spiegata la base giuridica del trattamento, se il conferimento è obbligatorio e le conseguenze del mancato conferimento di dati personali. Per descrivere al meglio i Suoi diritti, qualora necessario, abbiamo specificato se e quando un determinato trattamento di dati personali non viene effettuato.",
 
-        // SEZIONI SPECIFICHE
         priv_reg_title: "Registrazione sul Sito",
         priv_reg_text: "Il Sito non offre la possibilità di registrazione. Pertanto, il Titolare del Trattamento non tratta i Suoi dati personali per questa finalità.",
 
@@ -55,7 +48,6 @@ const privacyTexts = {
         priv_comm_title: "Comunicazione dei dati personali",
         priv_comm_text: "Nell'ambito della propria ordinaria attività, il Titolare del Trattamento può comunicare i Suoi dati personali a determinate categorie di soggetti (es. consulenti fiscali, autorità per obblighi di legge come Alloggiati Web, ecc.).",
 
-        // INFORMATIVA SPECIFICA (ARTICOLI)
         priv_spec_title: "INFORMATIVA PRIVACY SPECIFICA",
         
         priv_art1_title: "Art. 1 Modalità di trattamento",
@@ -323,62 +315,50 @@ const privacyTexts = {
         priv_art6_text: "El Responsable del Tratamiento se reserva el derecho de realizar modificaciones a esta política en cualquier momento, dando la debida publicidad a los usuarios del Sitio."
     }
 };
-/* ============================================================
-   TRANSLATIONS-PRIVACY.JS - TERMINI E CONDIZIONI MULTILINGUA
-   ============================================================ */
 
 const legalTexts = {
     it: {
         term_title: "Termini e Condizioni",
         term_update: "Ultimo aggiornamento: 28/01/2026",
         
-        // 1. Premessa
         term_1_title: "1. Premessa e Dati della Struttura",
         term_1_text: "I presenti Termini e Condizioni disciplinano il contratto di soggiorno turistico presso la struttura ricettiva extra-alberghiera (Affittacamere) denominata <strong>\"Ca' della Valletta\"</strong>, gestita da <strong>Giacomo Galassi</strong> (di seguito \"Gestore\" o \"Struttura\"), con sede legale in Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Codici Identificativi:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.",
         term_1_accept: "La prenotazione del soggiorno è personale e non cedibile e implica l'accettazione integrale e senza riserve dei presenti termini da parte del Cliente.",
 
-        // 2. Prenotazione
         term_2_title: "2. Prenotazione e Pagamento",
         term_2_1: "<strong>2.1 Procedura:</strong> La richiesta di prenotazione effettuata tramite il sito web o contatto diretto è soggetta a conferma di disponibilità da parte della Struttura.",
         term_2_2: "<strong>2.2 Caparra Confirmatoria:</strong> Per rendere la prenotazione definitiva e vincolante, è richiesto il versamento di una somma pari al <strong>40% dell'importo totale</strong> del soggiorno a titolo di <strong>Caparra Confirmatoria</strong>, ai sensi dell'art. 1385 del Codice Civile.",
         term_2_3: "<strong>2.3 Saldo:</strong> Il saldo del soggiorno (il restante 60%) dovrà essere corrisposto all'arrivo in struttura (Check-in) tramite contanti (entro i limiti di legge), carta di credito o bancomat.",
         term_2_4: "<strong>2.4 Tassa di Soggiorno:</strong> Le tariffe non includono l'Imposta di Soggiorno del Comune di Riomaggiore, pari a <strong>€ 3,00 per persona a notte</strong> (per un massimo di 3 notti consecutive, salvo modifiche del regolamento comunale). Tale importo dovrà essere saldato in loco.",
 
-        // 3. Cancellazione
         term_3_title: "3. Politica di Cancellazione e Recesso",
         term_3_intro: "In deroga alle norme generali, si applicano le seguenti condizioni di cancellazione:",
         term_3_free: "<strong>Cancellazione Gratuita:</strong> È possibile cancellare la prenotazione senza penali fino a <strong>14 giorni prima</strong> della data di arrivo prevista. In tal caso, la Caparra Confirmatoria versata verrà interamente restituita (al netto di eventuali spese bancarie di storno).",
         term_3_late: "<strong>Cancellazione Tardiva:</strong> Per cancellazioni effettuate nei <strong>14 giorni precedenti</strong> la data di arrivo, la Caparra Confirmatoria verrà trattenuta interamente a titolo di indennizzo (art. 1385 c.c.).",
         term_3_noshow: "<strong>No-Show (Mancato Arrivo) o Partenza Anticipata:</strong> In caso di mancata presentazione senza preavviso o di interruzione anticipata del soggiorno per volontà dell'ospite, sarà dovuto il pagamento dell'<strong>intero importo</strong> del soggiorno prenotato (100%).",
 
-        // 4. Check-in (MODIFICATO CON CLAUSOLA RIGIDA)
         term_4_title: "4. Check-in e Registrazione (Obblighi di Legge)",
         term_4_1: "<strong>4.1 Orari:</strong> Il Check-in è previsto dalle ore <strong>14:00 alle 20:00</strong>. Eventuali arrivi fuori orario devono essere tassativamente concordati in anticipo con la direzione. <strong>In assenza di accordo preventivo, non sarà possibile accedere alla struttura dopo l'orario stabilito e la prenotazione si intenderà persa (No-Show).</strong> Il Check-out deve avvenire entro le ore <strong>10:30</strong> del giorno di partenza.",
         term_4_2: "<strong>4.2 Documenti (TULPS):</strong> Ai sensi dell'art. 109 del T.U.L.P.S., al momento dell'arrivo è <strong>obbligatorio</strong> esibire un documento di identità valido (Passaporto o Carta d'Identità) per ciascun ospite (inclusi i minori) per la registrazione al portale \"Alloggiati Web\" della Polizia di Stato. In mancanza di un documento valido, l'accesso alla struttura sarà negato e la prenotazione sarà considerata come No-Show.",
         term_4_3: "<strong>4.3 Ospiti non registrati:</strong> Per motivi di pubblica sicurezza, è severamente vietato far accedere in camera o nelle aree comuni persone non registrate al check-in e non autorizzate dal Gestore.",
 
-        // 5. Danni
         term_5_title: "5. Responsabilità e Danni",
         term_5_1: "<strong>5.1 Danni alla Struttura:</strong> L'ospite è responsabile della custodia della camera, delle chiavi e degli arredi. Eventuali danni causati a mobili, corredi o impianti dovranno essere risarciti immediatamente prima della partenza.",
         term_5_2: "<strong>5.2 Oggetti di Valore:</strong> Il Gestore non risponde, ai sensi dell'art. 1785 c.c., dello smarrimento o sottrazione di oggetti di valore o denaro lasciati incustoditi nelle camere o nelle aree comuni.",
         term_5_3: "<strong>5.3 Smarrimento Chiavi:</strong> Lo smarrimento delle chiavi della camera comporterà un addebito di € 50,00 per la sostituzione della serratura.",
 
-        // 6. Regole
         term_6_title: "6. Regole di Comportamento",
         term_6_smoke: "<strong>Fumo:</strong> È severamente <strong>vietato fumare</strong> all'interno delle camere e in tutti gli ambienti chiusi della struttura.",
         term_6_quiet: "<strong>Silenzio:</strong> Si prega di rispettare la quiete degli altri ospiti e del vicinato, in particolare nelle ore notturne (dalle 22:00 alle 08:00).",
         term_6_eco: "<strong>Ambiente:</strong> Si invitano gli ospiti a spegnere luci e aria condizionata quando non presenti in camera, nel rispetto dell'ambiente.",
         term_6_pets: "<strong>Animali:</strong> Non sono ammessi animali domestici, salvo specifica autorizzazione scritta del Gestore.",
 
-        // 7. Forza Maggiore
         term_7_title: "7. Cause di Forza Maggiore",
         term_7_text: "Il Gestore non sarà responsabile per disservizi o cancellazioni dovuti a cause di forza maggiore (es. eventi atmosferici estremi, alluvioni, scioperi dei trasporti pubblici, interruzioni temporanee di elettricità o acqua da parte dei fornitori pubblici) che impediscano il regolare soggiorno.",
 
-        // 8. Foro
         term_8_title: "8. Foro Competente",
         term_8_text: "Per qualsiasi controversia derivante dall'interpretazione o esecuzione del presente contratto, sarà competente in via esclusiva il <strong>Foro di La Spezia</strong>.",
 
-        // 9. Lingua
         term_9_title: "9. Clausola Linguistica",
         term_9_text: "I presenti Termini e Condizioni sono redatti in lingua italiana. Eventuali versioni tradotte in altre lingue sono fornite a mero scopo informativo e di cortesia. <strong>In caso di discrepanze, incongruenze o differenze di interpretazione tra la versione italiana e qualsiasi versione tradotta, farà fede e prevarrà esclusivamente il testo in lingua italiana.</strong>"
     },
@@ -532,21 +512,15 @@ const legalTexts = {
     }
 };
 
-/* ============================================================
-   TRANSLATIONS-COOKIE.JS - COOKIE POLICY MULTILINGUA
-   ============================================================ */
-
 const cookieTexts = {
     it: {
         cookie_title: "Cookie Policy",
         cookie_update: "In vigore dal 28/01/2026",
         
-        // Sezione 1
         cookie_s1_title: "1. Cosa sono i Cookie",
         cookie_s1_text1: "I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere ritrasmessi agli stessi siti in occasione di visite successive. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che si sta visitando, sia da terze parti.",
         cookie_s1_text2: "Di seguito troverai tutte le informazioni sui cookie installati attraverso questo sito e le indicazioni necessarie su come gestire le tue preferenze riguardo ad essi.",
 
-        // Sezione 2
         cookie_s2_title: "2. Cookie utilizzati da questo sito",
         cookie_s2_owner: "Il titolare del trattamento è <strong>Giacomo Galassi</strong>, proprietario del sito <strong>www.cadellavalletta.it</strong>.",
         
@@ -664,7 +638,6 @@ const cookieTexts = {
     }
 };
 
-// AUTO-INTEGRAZIONE (Copia questo blocco per unire al dizionario principale)
 if (typeof window.translations === 'undefined') {
     window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
 }
@@ -678,7 +651,7 @@ if (typeof cookieTexts !== 'undefined') {
         }
     }
 }
-// INTEGRAZIONE AUTOMATICA CON IL DIZIONARIO PRINCIPALE
+
 if (typeof window.translations === 'undefined') {
     window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
 }
@@ -696,8 +669,6 @@ function mergeLegalTexts(sourceDict) {
 }
 
 mergeLegalTexts(legalTexts);
-// INTEGRAZIONE AUTOMATICA CON IL DIZIONARIO PRINCIPALE
-// Questo blocco unisce i testi della privacy al file translations.js principale
 if (typeof translations !== 'undefined') {
     for (const lang in privacyTexts) {
         if (translations[lang]) {
@@ -705,6 +676,5 @@ if (typeof translations !== 'undefined') {
         }
     }
 } else {
-    // Se translations.js non è ancora caricato, crea una variabile temporanea
     window.translations = privacyTexts;
 }

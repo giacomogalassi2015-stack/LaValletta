@@ -1,15 +1,11 @@
-/* ============================================================
-   BOOKING.JS - MULTI-CALENDAR + LUXURY WIDGET CALCULATION
-   ============================================================ */
-
-// Recupera le variabili globali (Supabase & Proxy)
+// Recupera le variabili globali 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const proxy = "https://api.codetabs.com/v1/proxy?quest=";
 let pricingRules = []; 
 
 document.addEventListener('DOMContentLoaded', async function() {
     
-    // 1. SCARICA IL LISTINO PREZZI (Supabase)
+    // 1. SCARICA IL LISTINO PREZZI 
     try {
         const { data, error } = await client
             .from('listino_prezzi')
@@ -23,33 +19,30 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.error("❌ Errore Supabase:", err.message);
     }
 
-    // 2. SCARICA TUTTI I CALENDARI (Booking + Manuale)
+    // 2. SCARICA TUTTI I CALENDARI 
     let blockedDates = [];
-    const calendarUrls = window.CALENDAR_URLS; // Definito nell'HTML della camera
+    const calendarUrls = window.CALENDAR_URLS; 
     
     if (calendarUrls && calendarUrls.length > 0) {
         console.log(`⏳ Scarico ${calendarUrls.length} calendari per: ` + window.ROOM_NAME);
         
-        // Esegue il fetch di tutti i link in parallelo
         const promises = calendarUrls.map(url => fetchICalDates(url));
         const results = await Promise.all(promises);
         
-        // Unisce tutti i risultati in un unico array
         blockedDates = results.flat();
         console.log("🔒 Totale date chiuse unite:", blockedDates.length);
     } else {
         console.warn("⚠️ Nessun link calendario trovato (Normale se sei in Home).");
     }
 
-    // 3. AVVIA IL CALENDARIO (Con date unite)
+    // 3. AVVIA IL CALENDARIO 
     initCalendar(blockedDates);
 
-    // 4. GESTIONE CAMBIO OSPITI (Ricalcolo al volo)
+    // 4. GESTIONE CAMBIO OSPITI 
     const guestsSelect = document.getElementById('guests');
     if(guestsSelect) {
         guestsSelect.addEventListener('change', function() {
             const dp = document.getElementById('date-picker')._flatpickr;
-            // Se ci sono date già selezionate, ricalcola subito
             if (dp && dp.selectedDates.length === 2) {
                 calculateTotal(dp.selectedDates[0], dp.selectedDates[1], dp.input.value);
             }
@@ -61,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 async function fetchICalDates(url) {
     if (!url) return [];
     try {
-        // Cache buster per evitare che il browser ricordi i vecchi dati
+      
         const cacheBuster = "&t=" + new Date().getTime();
         const response = await fetch(proxy + encodeURIComponent(url) + cacheBuster);
         
@@ -69,7 +62,6 @@ async function fetchICalDates(url) {
         
         const text = await response.text();
         
-        // Parsing con ical.js
         const jcalData = ICAL.parse(text);
         const comp = new ICAL.Component(jcalData);
         const events = comp.getAllSubcomponents('vevent');
@@ -79,8 +71,6 @@ async function fetchICalDates(url) {
             let startDate = ev.startDate.toJSDate();
             let endDate = ev.endDate.toJSDate();
 
-            // FIX: Booking e Teamup usano la data di fine come "esclusiva" (giorno del checkout).
-            // Flatpickr la considera "inclusiva". Togliamo 1 giorno alla fine per liberare il checkout.
             endDate.setDate(endDate.getDate() - 1);
 
             return {
@@ -107,7 +97,7 @@ function initCalendar(blockedDatesCombined) {
         dateFormat: "d/m/Y",
         locale: "it",
         disable: [
-            ...blockedDatesCombined, // Date occupate (Booking + Teamup)
+            ...blockedDatesCombined, // Date occupate 
             function(date) {
                 const m = date.getMonth() + 1;
                 if (hasData) {
@@ -125,7 +115,7 @@ function initCalendar(blockedDatesCombined) {
     });
 }
 
-// --- CALCOLO PREZZI (Logica Luxury + Tassa) ---
+// --- CALCOLO PREZZI  ---
 function calculateTotal(startDate, endDate, dateString) {
     const loading = document.getElementById('loading-prices');
     const summary = document.getElementById('price-summary');
@@ -147,7 +137,7 @@ function calculateTotal(startDate, endDate, dateString) {
     const isSingleGuest = (guests === 1);
     
     let totalRoomCost = 0; // Costo puro della camera (senza tassa)
-    let nightlyDetails = []; // Array per la lista notti
+    let nightlyDetails = []; 
 
     // 1. Ciclo giorno per giorno
     let tempDate = new Date(currentDate.getTime());
@@ -185,7 +175,7 @@ function calculateTotal(startDate, endDate, dateString) {
         if(rule && rule.maggiorazione_singola) {
             let surcharge = totalRoomCost * (rule.maggiorazione_singola / 100);
             totalRoomCost += surcharge;
-            nightlyDetails[0].price += surcharge; // Aggiorna anche il dettaglio visivo
+            nightlyDetails[0].price += surcharge; 
         }
     }
 
@@ -208,7 +198,7 @@ function calculateTotal(startDate, endDate, dateString) {
     updateUI(grandTotal, totalRoomCost, cityTax, deposit, balanceDue, totalNights, dateString, guests, nightlyDetails);
 }
 
-// --- AGGIORNAMENTO GRAFICA (Widget Luxury) ---
+// --- AGGIORNAMENTO GRAFICA  ---
 function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, dateString, guests, nightlyDetails) {
     
     // Nascondi caricamento e mostra risultati

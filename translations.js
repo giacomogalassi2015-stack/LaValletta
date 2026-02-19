@@ -1,12 +1,8 @@
-/* --- AGGIUNGI QUESTE CHIAVI A TRANSLATIONS.JS --- */
-
 const translations_king = {
     it: {
-        // Hero
         king_hero_sub: "Intimità & Storia",
         king_hero_title: "King Room",
 
-        // Widget Prenotazione (se non già presenti)
         book_title: "Prenota Ora",
         lbl_guests: "Numero Ospiti",
         opt_2guests: "2 Ospiti",
@@ -23,7 +19,6 @@ const translations_king = {
         lbl_balance_struct: "SALDO IN STRUTTURA",
         btn_request: "Richiedi disponibilità",
 
-        // Dettagli & Policy
         sec_details_title: "Prenotazione & Dettagli",
         txt_deposit_info: "La prenotazione si intende confermata al versamento della <strong>caparra del 40%</strong> tramite link sicuro.",
         
@@ -41,7 +36,6 @@ const translations_king = {
         txt_cancellation: "<strong>Cancellazione:</strong> Gratuita fino a 14 giorni dall'arrivo.",
         txt_terrace: "<strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.",
 
-        // Galleria & Servizi
         gal_btn: "Vedi Galleria",
         sec_services_title: "Servizi Inclusi",
         
@@ -54,7 +48,6 @@ const translations_king = {
         srv_kettle: "Bollitore Tè & Caffè",
         srv_hairdryer: "Asciugacapelli",
         
-        // Footer (se non già presente)
         footer_loc: "Riomaggiore, Cinque Terre"
     },
     en: {
@@ -263,14 +256,10 @@ const translations_king = {
     }
 };
 
-
-/* --- AGGIUNGI QUESTE CHIAVI PER LA CAMERA DELUXE --- */
-
 const translations_deluxe = {
     it: {
         deluxe_hero_sub: "Eleganza & Relax",
         deluxe_hero_title: "Camera Deluxe",
-        // Nota: I servizi e le policy usano già le chiavi comuni (srv_*, pol_*)
     },
     en: {
         deluxe_hero_sub: "Elegance & Relax",
@@ -289,27 +278,23 @@ const translations_deluxe = {
         deluxe_hero_title: "Habitación Deluxe",
     }
 };
-/* --- AGGIUNGI QUESTE CHIAVI PER LA HOME PAGE --- */
 
 const translations_home = {
     it: {
-        // Hero
+ 
         hero_sub: "Benvenuti a Riomaggiore",
         hero_title: "Un rifugio sospeso<br>tra cielo e mare",
         hero_cta: "Scopri le Camere",
 
-        // Sezione Camere
         sec_rooms_title: "Le Nostre Camere",
         room_king_title: "King Room",
         room_deluxe_title: "King Deluxe Room",
         btn_info_book: "Info & Prenota",
         btn_discover: "Scopri la Camera",
 
-        // Aree Comuni
         sec_common_title: "Aree Comuni",
         btn_view_gallery: "Vedi Galleria",
 
-        // Experience (Guest Experience)
         sec_exp_title: "Guest Experience",
         sec_exp_desc: "Tutto ciò che ti serve per vivere le Cinque Terre, a portata di click.",
         
@@ -328,7 +313,6 @@ const translations_home = {
         link_park: "Parco Nazionale",
         link_ferry: "Traghetti",
 
-        // Footer (Generico)
         footer_loc: "Riomaggiore, Cinque Terre",
         footer_rights: "&copy; 2026 Ca' della Valletta. Tutti i diritti riservati."
     },
@@ -473,7 +457,6 @@ const translations_home = {
         footer_rights: "&copy; 2026 Ca' della Valletta. Todos los derechos reservados."
     }
 };
-/* --- AGGIUNGI QUESTE CHIAVI PER LA GALLERIA --- */
 
 const translations_gallery = {
     it: {
@@ -503,17 +486,14 @@ const translations_gallery = {
     }
 };
 
-// 1. Inizializza l'oggetto principale se non esiste (sicurezza)
 if (typeof window.translations === 'undefined') {
     window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
 }
 
-// 2. Funzione helper per unire i dizionari senza rompere nulla
 function mergeDictionary(sourceDict) {
     if (typeof sourceDict !== 'undefined') {
         for (const lang in sourceDict) {
-            // Se la lingua esiste nel principale, aggiungi le chiavi.
-            // Se non esiste, crea la nuova lingua.
+           
             if (window.translations[lang]) {
                 Object.assign(window.translations[lang], sourceDict[lang]);
             } else {
@@ -523,25 +503,16 @@ function mergeDictionary(sourceDict) {
     }
 }
 
-// 3. Esegui l'unione di TUTTI i pezzi (se esistono)
-// L'ordine qui sotto determina chi "vince" in caso di chiavi duplicate (l'ultimo vince)
-
-// Unisci Home Page
 if (typeof translations_home !== 'undefined') mergeDictionary(translations_home);
 
-// Unisci King Room
 if (typeof translations_king !== 'undefined') mergeDictionary(translations_king);
 
-// Unisci Deluxe Room
 if (typeof translations_deluxe !== 'undefined') mergeDictionary(translations_deluxe);
 
-// Unisci Servizi Extra Deluxe (se li hai separati)
 if (typeof translations_deluxe_services !== 'undefined') mergeDictionary(translations_deluxe_services);
 
-// Unisci Galleria (QUESTO MANCAVA NEL TUO SECONDO BLOCCO)
 if (typeof translations_gallery !== 'undefined') mergeDictionary(translations_gallery);
 
-// Unisci Privacy/Legal (se presenti in questo file o caricati prima)
 if (typeof privacyTexts !== 'undefined') mergeDictionary(privacyTexts);
 if (typeof legalTexts !== 'undefined') mergeDictionary(legalTexts);
 
