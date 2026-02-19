@@ -185,7 +185,7 @@ h2.section-title {
 .video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
 .hero-bg { width: 100%; height: 100%; object-fit: cover; animation: slowZoom 20s infinite alternate; }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%); z-index: -1; }
-.hero-content h1 { font-size: 4rem; line-height: 1.1; margin: 20px 0 40px; }
+.hero-content h1 { font-size: 3rem; line-height: 1.1; margin: 20px 0 40px; }
 .hero-subtitle { text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; color: var(--accent); display: block; }
 @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
 
