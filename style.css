@@ -328,3 +328,77 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
 .footer-info { margin: 40px 0; font-size: 1.1rem; }
 .contact-link { display: block; margin: 10px 0; color: var(--accent); }
 .footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
+
+.booking-trust-badge {
+    margin-top: 30px;
+    padding: 15px;
+    background: #f9f9f9; /* Sfondo leggerissimo per dare importanza */
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.booking-trust-badge:hover {
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+.trust-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    gap: 15px;
+}
+
+/* Il quadratino blu col voto */
+.rating-box {
+    background-color: #003580; /* Blu Booking */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 8px 8px 8px 0; /* Design a fumetto */
+    min-width: 45px;
+    text-align: center;
+}
+
+.trust-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2px;
+}
+
+.trust-top img {
+    height: 14px;
+    width: auto;
+}
+
+/* Le stelline oro */
+.stars {
+    color: #febb02; /* Giallo stelle Booking */
+    font-size: 0.7rem;
+}
+
+.trust-text p {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #444;
+    letter-spacing: 0.2px;
+}
+
+/* Ottimizzazione mobile */
+@media (max-width: 768px) {
+    .booking-trust-badge {
+        max-width: 280px;
+        margin: 20px auto;
+    }
+}

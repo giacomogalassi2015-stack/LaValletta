@@ -48,7 +48,7 @@ const translations_king = {
         srv_soundproof: "Insonorizzazione",
         srv_kettle: "Bollitore Tè & Caffè",
         srv_hairdryer: "Asciugacapelli",
-        
+        booking_rating_text: "Eccellente punteggio su Booking.com",
         footer_loc: "Riomaggiore, Cinque Terre"
     },
     en: {
@@ -99,7 +99,7 @@ const translations_king = {
         srv_soundproof: "Soundproofing",
         srv_kettle: "Tea & Coffee Kettle",
         srv_hairdryer: "Hairdryer",
-        
+        booking_rating_text: "Excellent rating on Booking.com",
         footer_loc: "Riomaggiore, Cinque Terre"
     },
     fr: {
@@ -150,7 +150,7 @@ const translations_king = {
         srv_soundproof: "Insonorisation",
         srv_kettle: "Bouilloire Thé & Café",
         srv_hairdryer: "Sèche-cheveux",
-        
+        booking_rating_text: "Score excellent sur Booking.com",
         footer_loc: "Riomaggiore, Cinque Terre"
     },
     de: {
@@ -201,7 +201,7 @@ const translations_king = {
         srv_soundproof: "Schallisolierung",
         srv_kettle: "Wasserkocher Tee & Kaffee",
         srv_hairdryer: "Haartrockner",
-        
+        booking_rating_text: "Hervorragende Bewertung auf Booking.com",
         footer_loc: "Riomaggiore, Cinque Terre"
     },
     es: {
@@ -252,7 +252,7 @@ const translations_king = {
         srv_soundproof: "Insonorización",
         srv_kettle: "Hervidor Té y Café",
         srv_hairdryer: "Secador de pelo",
-        
+        booking_rating_text: "Excelente puntuación en Booking.com",
         footer_loc: "Riomaggiore, Cinque Terre"
     }
 };
@@ -529,7 +529,28 @@ const translations_nav = {
         nav_contact: "Contacto"
     }
 };
-
+const translations = {
+    it: {
+        // ... altre traduzioni ...
+        booking_rating_text: "Eccellente punteggio su Booking.com",
+    },
+    en: {
+        // ... altre traduzioni ...
+        booking_rating_text: "Excellent rating on Booking.com",
+    },
+    fr: {
+        // ... altre traduzioni ...
+        booking_rating_text: "Score excellent sulla Booking.com",
+    },
+    de: {
+        // ... altre traduzioni ...
+        booking_rating_text: "Hervorragende Bewertung auf Booking.com",
+    },
+    es: {
+        // ... altre traduzioni ...
+        booking_rating_text: "Excelente puntuación en Booking.com",
+    }
+};
 if (typeof window.translations === 'undefined') {
     window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
 }
