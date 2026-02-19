@@ -1,5 +1,6 @@
 const translations_king = {
     it: {
+        
         king_hero_sub: "Intimità & Storia",
         king_hero_title: "King Room",
 
@@ -486,6 +487,49 @@ const translations_gallery = {
     }
 };
 
+const translations_nav = {
+    it: {
+        nav_home: "Home",
+        nav_king: "Camera King",
+        nav_deluxe: "Camera Deluxe",
+        nav_gallery: "Galleria",
+        nav_experience: "Experience",
+        nav_contact: "Contatti"
+    },
+    en: {
+        nav_home: "Home",
+        nav_king: "King Room",
+        nav_deluxe: "Deluxe Room",
+        nav_gallery: "Gallery",
+        nav_experience: "Experience",
+        nav_contact: "Contact"
+    },
+    fr: {
+        nav_home: "Accueil",
+        nav_king: "Chambre King",
+        nav_deluxe: "Chambre Deluxe",
+        nav_gallery: "Galerie",
+        nav_experience: "Expérience",
+        nav_contact: "Contact"
+    },
+    de: {
+        nav_home: "Startseite",
+        nav_king: "King Zimmer",
+        nav_deluxe: "Deluxe Zimmer",
+        nav_gallery: "Galerie",
+        nav_experience: "Erlebnis",
+        nav_contact: "Kontakt"
+    },
+    es: {
+        nav_home: "Inicio",
+        nav_king: "Habitación King",
+        nav_deluxe: "Habitación Deluxe",
+        nav_gallery: "Galería",
+        nav_experience: "Experiencia",
+        nav_contact: "Contacto"
+    }
+};
+
 if (typeof window.translations === 'undefined') {
     window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
 }
@@ -512,6 +556,8 @@ if (typeof translations_deluxe !== 'undefined') mergeDictionary(translations_del
 if (typeof translations_deluxe_services !== 'undefined') mergeDictionary(translations_deluxe_services);
 
 if (typeof translations_gallery !== 'undefined') mergeDictionary(translations_gallery);
+
+if (typeof translations_nav !== 'undefined') mergeDictionary(translations_nav);
 
 if (typeof privacyTexts !== 'undefined') mergeDictionary(privacyTexts);
 if (typeof legalTexts !== 'undefined') mergeDictionary(legalTexts);
