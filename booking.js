@@ -236,8 +236,7 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, da
     // Saldo (Card Blu)
     const balanceEl = document.getElementById('balance-due');
     if(balanceEl) balanceEl.innerText = '€ ' + balanceDue.toLocaleString('it-IT', {minimumFractionDigits: 2});
-
-    // 3. Aggiorna il bottone "Richiedi"
+// 3. Aggiorna il bottone "Richiedi"
     const btn = document.getElementById('btn-request');
     if (btn) {
         const newBtn = btn.cloneNode(true);
@@ -248,23 +247,26 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, da
             const contactMethod = document.getElementById('contact-method').value;
             const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
             
-            // Messaggio WhatsApp formattato
-            let message = `Salve, vorrei prenotare la *${rName}*.\n\n` + 
-                          `📅 *Date:* ${dateString} (${nights} notti)\n` + 
-                          `👤 *Ospiti:* ${guests}\n\n` + 
-                          `💶 *TOTALE SOGGIORNO:* € ${grandTotal}\n` + 
-                          `(Pernotti: €${roomCost} + Tassa: €${cityTax})\n` + 
-                          `--------------------------------\n` + 
-                          `🔒 *CAPARRA (40%):* € ${deposit}\n` + 
-                          `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` + 
-                          `--------------------------------\n` + 
+            // Messaggio formattato uguale per entrambi i metodi
+            let message = `Salve, vorrei prenotare la *${rName}*.\n\n` +
+                          `📅 *Date:* ${dateString} (${nights} notti)\n` +
+                          `👤 *Ospiti:* ${guests}\n\n` +
+                          `💶 *TOTALE SOGGIORNO:* € ${grandTotal}\n` +
+                          `(Pernotti: €${roomCost} + Tassa: €${cityTax})\n` +
+                          `--------------------------------\n` +
+                          `🔒 *CAPARRA (40%):* € ${deposit}\n` +
+                          `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` +
+                          `--------------------------------\n` +
                           `Attendo il link per il versamento della caparra. Grazie!`;
             
             if (contactMethod === 'whatsapp') {
+                // Logica WhatsApp
                 window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
             } else {
-                const subject = `Richiesta Prenotazione: ${rName}`;
-                window.location.href = `mailto:info@cadellavalletta.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+                // Logica Mail che genera il modulo precompilato speculare a WhatsApp
+                const subject = `Richiesta Prenotazione: ${rName} - ${dateString}`;
+                const mailtoUrl = `mailto:info@cadellavalletta.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+                window.location.href = mailtoUrl;
             }
         };
     }

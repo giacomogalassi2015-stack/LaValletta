@@ -309,11 +309,17 @@ h2.section-title {
 .tooltip-text::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: #333 transparent transparent transparent; }
 .tooltip-container:hover .tooltip-text { visibility: visible; opacity: 1; }
 
-.policy-box { background: #fdfbf7; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 15px; }
-.policy-item { display: flex; align-items: center; gap: 15px; }
-.policy-item i { color: var(--accent); font-size: 1.4rem; width: 30px; text-align: center; }
-.policy-item span { font-size: 0.95rem; color: var(--primary); line-height: 1.4; }
-.policy-item strong { display: block; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; color: var(--accent); }
+.policy-box { background: #fdfbf7; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; }
+
+.policy-item { display: flex; align-items: flex-start; gap: 15px; }
+
+/* Ridotto a 18px per seguire il testo che ora è più in alto */
+.policy-item i { color: var(--accent); font-size: 1.4rem; width: 30px; text-align: center; margin-top: 18px; }
+
+.policy-item span { font-size: 0.95rem; color: var(--primary); line-height: 1.5; }
+
+/* RIMOSSO "display: block;" e "margin-bottom". Ora sfrutta il <br> del tuo HTML in modo naturale */
+.policy-item strong { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; color: var(--accent); }
 
 /* --- SERVIZI --- */
 .services-list { margin-top: 30px; background: #fdfdfd; padding: 25px; border-radius: 6px; border: 1px solid #eee; }
