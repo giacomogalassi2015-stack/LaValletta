@@ -323,7 +323,379 @@ const privacyTexts = {
         priv_art6_text: "El Responsable del Tratamiento se reserva el derecho de realizar modificaciones a esta política en cualquier momento, dando la debida publicidad a los usuarios del Sitio."
     }
 };
+/* ============================================================
+   TRANSLATIONS-PRIVACY.JS - TERMINI E CONDIZIONI MULTILINGUA
+   ============================================================ */
 
+const legalTexts = {
+    it: {
+        term_title: "Termini e Condizioni",
+        term_update: "Ultimo aggiornamento: 28/01/2026",
+        
+        // 1. Premessa
+        term_1_title: "1. Premessa e Dati della Struttura",
+        term_1_text: "I presenti Termini e Condizioni disciplinano il contratto di soggiorno turistico presso la struttura ricettiva extra-alberghiera (Affittacamere) denominata <strong>\"Ca' della Valletta\"</strong>, gestita da <strong>Giacomo Galassi</strong> (di seguito \"Gestore\" o \"Struttura\"), con sede legale in Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Codici Identificativi:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.",
+        term_1_accept: "La prenotazione del soggiorno è personale e non cedibile e implica l'accettazione integrale e senza riserve dei presenti termini da parte del Cliente.",
+
+        // 2. Prenotazione
+        term_2_title: "2. Prenotazione e Pagamento",
+        term_2_1: "<strong>2.1 Procedura:</strong> La richiesta di prenotazione effettuata tramite il sito web o contatto diretto è soggetta a conferma di disponibilità da parte della Struttura.",
+        term_2_2: "<strong>2.2 Caparra Confirmatoria:</strong> Per rendere la prenotazione definitiva e vincolante, è richiesto il versamento di una somma pari al <strong>20% dell'importo totale</strong> del soggiorno a titolo di <strong>Caparra Confirmatoria</strong>, ai sensi dell'art. 1385 del Codice Civile.",
+        term_2_3: "<strong>2.3 Saldo:</strong> Il saldo del soggiorno (il restante 80%) dovrà essere corrisposto all'arrivo in struttura (Check-in) tramite contanti (entro i limiti di legge), carta di credito o bancomat.",
+        term_2_4: "<strong>2.4 Tassa di Soggiorno:</strong> Le tariffe non includono l'Imposta di Soggiorno del Comune di Riomaggiore, pari a <strong>€ 3,00 per persona a notte</strong> (per un massimo di 3 notti consecutive, salvo modifiche del regolamento comunale). Tale importo dovrà essere saldato in loco.",
+
+        // 3. Cancellazione
+        term_3_title: "3. Politica di Cancellazione e Recesso",
+        term_3_intro: "In deroga alle norme generali, si applicano le seguenti condizioni di cancellazione:",
+        term_3_free: "<strong>Cancellazione Gratuita:</strong> È possibile cancellare la prenotazione senza penali fino a <strong>14 giorni prima</strong> della data di arrivo prevista. In tal caso, la Caparra Confirmatoria versata verrà interamente restituita (al netto di eventuali spese bancarie di storno).",
+        term_3_late: "<strong>Cancellazione Tardiva:</strong> Per cancellazioni effettuate nei <strong>14 giorni precedenti</strong> la data di arrivo, la Caparra Confirmatoria verrà trattenuta interamente a titolo di indennizzo (art. 1385 c.c.).",
+        term_3_noshow: "<strong>No-Show (Mancato Arrivo) o Partenza Anticipata:</strong> In caso di mancata presentazione senza preavviso o di interruzione anticipata del soggiorno per volontà dell'ospite, sarà dovuto il pagamento dell'<strong>intero importo</strong> del soggiorno prenotato (100%).",
+
+        // 4. Check-in (MODIFICATO CON CLAUSOLA RIGIDA)
+        term_4_title: "4. Check-in e Registrazione (Obblighi di Legge)",
+        term_4_1: "<strong>4.1 Orari:</strong> Il Check-in è previsto dalle ore <strong>14:00 alle 20:00</strong>. Eventuali arrivi fuori orario devono essere tassativamente concordati in anticipo con la direzione. <strong>In assenza di accordo preventivo, non sarà possibile accedere alla struttura dopo l'orario stabilito e la prenotazione si intenderà persa (No-Show).</strong> Il Check-out deve avvenire entro le ore <strong>10:30</strong> del giorno di partenza.",
+        term_4_2: "<strong>4.2 Documenti (TULPS):</strong> Ai sensi dell'art. 109 del T.U.L.P.S., al momento dell'arrivo è <strong>obbligatorio</strong> esibire un documento di identità valido (Passaporto o Carta d'Identità) per ciascun ospite (inclusi i minori) per la registrazione al portale \"Alloggiati Web\" della Polizia di Stato. In mancanza di un documento valido, l'accesso alla struttura sarà negato e la prenotazione sarà considerata come No-Show.",
+        term_4_3: "<strong>4.3 Ospiti non registrati:</strong> Per motivi di pubblica sicurezza, è severamente vietato far accedere in camera o nelle aree comuni persone non registrate al check-in e non autorizzate dal Gestore.",
+
+        // 5. Danni
+        term_5_title: "5. Responsabilità e Danni",
+        term_5_1: "<strong>5.1 Danni alla Struttura:</strong> L'ospite è responsabile della custodia della camera, delle chiavi e degli arredi. Eventuali danni causati a mobili, corredi o impianti dovranno essere risarciti immediatamente prima della partenza.",
+        term_5_2: "<strong>5.2 Oggetti di Valore:</strong> Il Gestore non risponde, ai sensi dell'art. 1785 c.c., dello smarrimento o sottrazione di oggetti di valore o denaro lasciati incustoditi nelle camere o nelle aree comuni.",
+        term_5_3: "<strong>5.3 Smarrimento Chiavi:</strong> Lo smarrimento delle chiavi della camera comporterà un addebito di € 50,00 per la sostituzione della serratura.",
+
+        // 6. Regole
+        term_6_title: "6. Regole di Comportamento",
+        term_6_smoke: "<strong>Fumo:</strong> È severamente <strong>vietato fumare</strong> all'interno delle camere e in tutti gli ambienti chiusi della struttura.",
+        term_6_quiet: "<strong>Silenzio:</strong> Si prega di rispettare la quiete degli altri ospiti e del vicinato, in particolare nelle ore notturne (dalle 22:00 alle 08:00).",
+        term_6_eco: "<strong>Ambiente:</strong> Si invitano gli ospiti a spegnere luci e aria condizionata quando non presenti in camera, nel rispetto dell'ambiente.",
+        term_6_pets: "<strong>Animali:</strong> Non sono ammessi animali domestici, salvo specifica autorizzazione scritta del Gestore.",
+
+        // 7. Forza Maggiore
+        term_7_title: "7. Cause di Forza Maggiore",
+        term_7_text: "Il Gestore non sarà responsabile per disservizi o cancellazioni dovuti a cause di forza maggiore (es. eventi atmosferici estremi, alluvioni, scioperi dei trasporti pubblici, interruzioni temporanee di elettricità o acqua da parte dei fornitori pubblici) che impediscano il regolare soggiorno.",
+
+        // 8. Foro
+        term_8_title: "8. Foro Competente",
+        term_8_text: "Per qualsiasi controversia derivante dall'interpretazione o esecuzione del presente contratto, sarà competente in via esclusiva il <strong>Foro di La Spezia</strong>.",
+
+        // 9. Lingua
+        term_9_title: "9. Clausola Linguistica",
+        term_9_text: "I presenti Termini e Condizioni sono redatti in lingua italiana. Eventuali versioni tradotte in altre lingue sono fornite a mero scopo informativo e di cortesia. <strong>In caso di discrepanze, incongruenze o differenze di interpretazione tra la versione italiana e qualsiasi versione tradotta, farà fede e prevarrà esclusivamente il testo in lingua italiana.</strong>"
+    },
+
+    en: {
+        term_title: "Terms and Conditions",
+        term_update: "Last updated: 28/01/2026",
+        term_1_title: "1. Introduction and Structure Details",
+        term_1_text: "These Terms and Conditions govern the tourist accommodation contract at the non-hotel facility (Guest House) named <strong>\"Ca' della Valletta\"</strong>, managed by <strong>Giacomo Galassi</strong> (hereinafter \"Manager\" or \"Structure\"), with registered office at Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Identification Codes:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.",
+        term_1_accept: "The booking is personal and non-transferable and implies full and unreserved acceptance of these terms by the Customer.",
+        term_2_title: "2. Booking and Payment",
+        term_2_1: "<strong>2.1 Procedure:</strong> Booking requests made via the website or direct contact are subject to confirmation of availability by the Structure.",
+        term_2_2: "<strong>2.2 Confirmatory Deposit:</strong> To make the booking definitive and binding, a payment of <strong>20% of the total amount</strong> of the stay is required as a <strong>Confirmatory Deposit</strong>, pursuant to Art. 1385 of the Civil Code.",
+        term_2_3: "<strong>2.3 Balance:</strong> The balance of the stay (the remaining 80%) must be paid upon arrival at the facility (Check-in) via cash (within legal limits), credit card, or debit card.",
+        term_2_4: "<strong>2.4 Tourist Tax:</strong> Rates do not include the Tourist Tax of the Municipality of Riomaggiore, amounting to <strong>€ 3.00 per person per night</strong> (for a maximum of 3 consecutive nights, subject to changes in municipal regulations). This amount must be paid on site.",
+        term_3_title: "3. Cancellation and Withdrawal Policy",
+        term_3_intro: "By way of derogation from general rules, the following cancellation conditions apply:",
+        term_3_free: "<strong>Free Cancellation:</strong> It is possible to cancel the booking without penalty up to <strong>14 days before</strong> the expected arrival date. In this case, the paid Confirmatory Deposit will be fully refunded (net of any bank cancellation fees).",
+        term_3_late: "<strong>Late Cancellation:</strong> For cancellations made within the <strong>14 days prior</strong> to the arrival date, the Confirmatory Deposit will be retained entirely as compensation (Art. 1385 Civil Code).",
+        term_3_noshow: "<strong>No-Show or Early Departure:</strong> In case of failure to show up without notice or early interruption of the stay by the guest's will, payment of the <strong>entire amount</strong> of the booked stay (100%) will be due.",
+        term_4_title: "4. Check-in and Registration (Legal Obligations)",
+        term_4_1: "<strong>4.1 Hours:</strong> Check-in is scheduled from <strong>14:00 to 20:00</strong>. Any arrivals outside these hours must be strictly agreed upon in advance with the management. <strong>In the absence of a prior agreement, access to the facility will not be possible after the established time and the booking will be considered lost (No-Show).</strong> Check-out must take place by <strong>10:30</strong>.",
+        term_4_2: "<strong>4.2 Documents (TULPS):</strong> Pursuant to Art. 109 of the T.U.L.P.S., upon arrival it is <strong>mandatory</strong> to exhibit a valid identity document (Passport or ID Card) for each guest (including minors) for registration on the State Police \"Alloggiati Web\" portal. Failing a valid document, access to the structure will be denied and the booking considered as a No-Show.",
+        term_4_3: "<strong>4.3 Unregistered Guests:</strong> For public safety reasons, it is strictly forbidden to allow persons not registered at check-in and not authorized by the Manager into the room or common areas.",
+        term_5_title: "5. Liability and Damages",
+        term_5_1: "<strong>5.1 Damage to Structure:</strong> The guest is responsible for the custody of the room, keys, and furnishings. Any damage caused to furniture, supplies, or systems must be compensated immediately before departure.",
+        term_5_2: "<strong>5.2 Valuables:</strong> The Manager is not liable, pursuant to Art. 1785 of the Civil Code, for the loss or theft of valuables or money left unattended in the rooms or common areas.",
+        term_5_3: "<strong>5.3 Lost Keys:</strong> Loss of room keys will result in a charge of € 50.00 for lock replacement.",
+        term_6_title: "6. Rules of Conduct",
+        term_6_smoke: "<strong>Smoking:</strong> Smoking is strictly <strong>forbidden</strong> inside the rooms and in all enclosed areas of the facility.",
+        term_6_quiet: "<strong>Silence:</strong> Please respect the quiet of other guests and the neighborhood, particularly during night hours (from 22:00 to 08:00).",
+        term_6_eco: "<strong>Environment:</strong> Guests are invited to turn off lights and air conditioning when not in the room, out of respect for the environment.",
+        term_6_pets: "<strong>Pets:</strong> Pets are not allowed, unless specifically authorized in writing by the Manager.",
+        term_7_title: "7. Force Majeure",
+        term_7_text: "The Manager will not be liable for disruptions or cancellations due to force majeure causes (e.g., extreme weather events, floods, public transport strikes, temporary electricity or water interruptions by public providers) preventing the regular stay.",
+        term_8_title: "8. Competent Court",
+        term_8_text: "For any dispute arising from the interpretation or execution of this contract, the <strong>Court of La Spezia</strong> shall have exclusive jurisdiction.",
+        term_9_title: "9. Language Clause",
+        term_9_text: "These Terms and Conditions are drafted in Italian. Any versions translated into other languages are provided for informational and courtesy purposes only. <strong>In case of discrepancies, inconsistencies, or differences of interpretation between the Italian version and any translated version, the Italian text shall exclusively prevail.</strong>"
+    },
+    
+    fr: {
+        term_title: "Conditions Générales",
+        term_update: "Dernière mise à jour: 28/01/2026",
+        term_1_title: "1. Introduction et Données de la Structure",
+        term_1_text: "Les présentes Conditions Générales régissent le contrat de séjour touristique auprès de la structure d'hébergement extra-hôtelière (Chambres d'hôtes) nommée <strong>\"Ca' della Valletta\"</strong>, gérée par <strong>Giacomo Galassi</strong> (ci-après \"Gérant\" ou \"Structure\"), dont le siège social est situé Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Codes d'identification:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.",
+        term_1_accept: "La réservation du séjour est personnelle et incessible et implique l'acceptation intégrale et sans réserve des présentes conditions par le Client.",
+        term_2_title: "2. Réservation et Paiement",
+        term_2_1: "<strong>2.1 Procédure:</strong> La demande de réservation effectuée via le site web ou par contact direct est soumise à confirmation de disponibilité par la Structure.",
+        term_2_2: "<strong>2.2 Arrhes (Caparra Confirmatoria):</strong> Pour rendre la réservation définitive et contraignante, le versement d'une somme égale à <strong>20% du montant total</strong> du séjour est requis à titre d'<strong>Arrhes</strong>, conformément à l'art. 1385 du Code Civil italien.",
+        term_2_3: "<strong>2.3 Solde:</strong> Le solde du séjour (les 80% restants) devra être réglé à l'arrivée à la structure (Check-in) en espèces (dans les limites légales), par carte de crédit ou carte de débit.",
+        term_2_4: "<strong>2.4 Taxe de Séjour:</strong> Les tarifs n'incluent pas la Taxe de Séjour de la Commune de Riomaggiore, s'élevant à <strong>3,00 € par personne et par nuit</strong> (pour un maximum de 3 nuits consécutives). Ce montant devra être réglé sur place.",
+        term_3_title: "3. Politique d'Annulation et de Rétractation",
+        term_3_intro: "Par dérogation aux règles générales, les conditions d'annulation suivantes s'appliquent:",
+        term_3_free: "<strong>Annulation Gratuite:</strong> Il est possible d'annuler la réservation sans pénalité jusqu'à <strong>14 jours avant</strong> la date d'arrivée prévue. Dans ce cas, les Arrhes versées seront entièrement remboursées (nettes des éventuels frais bancaires d'annulation).",
+        term_3_late: "<strong>Annulation Tardive:</strong> Pour les annulations effectuées dans les <strong>14 jours précédant</strong> la date d'arrivée, les Arrhes seront entièrement retenues à titre d'indemnisation (art. 1385 C.C.).",
+        term_3_noshow: "<strong>Non-Présentation (No-Show) ou Départ Anticipé:</strong> En cas de non-présentation sans préavis ou d'interruption anticipée du séjour par la volonté de l'invité, le paiement de la <strong>totalité du montant</strong> du séjour réservé (100%) sera dû.",
+        term_4_title: "4. Check-in et Enregistrement (Obligations Légales)",
+        term_4_1: "<strong>4.1 Horaires:</strong> Le Check-in est prévu de <strong>14h00 à 20h00</strong>. Toute arrivée en dehors de ces horaires doit être impérativement convenue à l'avance avec la direction. <strong>En l'absence d'accord préalable, l'accès à la structure ne sera pas possible après l'heure établie et la réservation sera considérée comme perdue (No-Show).</strong> Le Check-out doit avoir lieu avant <strong>10h30</strong>.",
+        term_4_2: "<strong>4.2 Documents (TULPS):</strong> Conformément à l'art. 109 du T.U.L.P.S., à l'arrivée, il est <strong>obligatoire</strong> de présenter une pièce d'identité valide (Passeport ou Carte d'Identité) pour chaque invité (y compris les mineurs) pour l'enregistrement sur le portail \"Alloggiati Web\". À défaut de document valide, l'accès à la structure sera refusé et la réservation considérée comme No-Show.",
+        term_4_3: "<strong>4.3 Invités non enregistrés:</strong> Pour des raisons de sécurité publique, il est strictement interdit de faire entrer dans la chambre ou les parties communes des personnes non enregistrées au check-in et non autorisées par le Gérant.",
+        term_5_title: "5. Responsabilité et Dommages",
+        term_5_1: "<strong>5.1 Dommages à la Structure:</strong> L'invité est responsable de la garde de la chambre, des clés et du mobilier. Tout dommage causé aux meubles, fournitures ou installations devra être indemnisé immédiatement avant le départ.",
+        term_5_2: "<strong>5.2 Objets de Valeur:</strong> Le Gérant ne répond pas, conformément à l'art. 1785 du Code Civil, de la perte ou du vol d'objets de valeur ou d'argent laissés sans surveillance dans les chambres ou les parties communes.",
+        term_5_3: "<strong>5.3 Perte de Clés:</strong> La perte des clés de la chambre entraînera une facturation de 50,00 € pour le remplacement de la serrure.",
+        term_6_title: "6. Règles de Conduite",
+        term_6_smoke: "<strong>Fumer:</strong> Il est strictement <strong>interdit de fumer</strong> à l'intérieur des chambres et dans tous les espaces fermés de la structure.",
+        term_6_quiet: "<strong>Silence:</strong> Veuillez respecter la tranquillité des autres invités et du voisinage, en particulier pendant les heures nocturnes (de 22h00 à 08h00).",
+        term_6_eco: "<strong>Environnement:</strong> Les invités sont priés d'éteindre les lumières et la climatisation lorsqu'ils ne sont pas dans la chambre, dans le respect de l'environnement.",
+        term_6_pets: "<strong>Animaux:</strong> Les animaux domestiques ne sont pas admis, sauf autorisation écrite spécifique du Gérant.",
+        term_7_title: "7. Force Majeure",
+        term_7_text: "Le Gérant ne sera pas responsable des dysfonctionnements ou annulations dus à des cas de force majeure (ex. événements météorologiques extrêmes, inondations, grèves des transports publics, interruptions temporaires d'électricité ou d'eau par les fournisseurs publics) empêchant le séjour régulier.",
+        term_8_title: "8. Tribunal Compétent",
+        term_8_text: "Pour tout litige découlant de l'interprétation ou de l'exécution du présent contrat, le <strong>Tribunal de La Spezia</strong> sera seul compétent.",
+        term_9_title: "9. Clause Linguistique",
+        term_9_text: "Les présentes Conditions Générales sont rédigées en langue italienne. Toute version traduite dans d'autres langues est fournie à titre purement informatif et de courtoisie. <strong>En cas de divergences, incohérences ou différences d'interprétation entre la version italienne et toute version traduite, le texte en langue italienne fera foi et prévaudra exclusivement.</strong>"
+    },
+
+    de: {
+        term_title: "Allgemeine Geschäftsbedingungen",
+        term_update: "Letzte Aktualisierung: 28/01/2026",
+        term_1_title: "1. Vorwort und Strukturdaten",
+        term_1_text: "Diese Allgemeinen Geschäftsbedingungen regeln den touristischen Beherbergungsvertrag in der nicht-hotelmäßigen Unterkunft (Gästehaus) namens <strong>\"Ca' della Valletta\"</strong>, verwaltet von <strong>Giacomo Galassi</strong> (im Folgenden \"Betreiber\" oder \"Struktur\"), mit rechtlichem Sitz in Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Identifikationscodes:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.",
+        term_1_accept: "Die Buchung des Aufenthalts ist persönlich und nicht übertragbar und impliziert die vollständige und vorbehaltlose Annahme dieser Bedingungen durch den Kunden.",
+        term_2_title: "2. Buchung und Zahlung",
+        term_2_1: "<strong>2.1 Verfahren:</strong> Buchungsanfragen über die Website oder direkten Kontakt unterliegen der Verfügbarkeitsbestätigung durch die Struktur.",
+        term_2_2: "<strong>2.2 Angeld (Caparra Confirmatoria):</strong> Um die Buchung definitiv und verbindlich zu machen, ist die Zahlung einer Summe in Höhe von <strong>20% des Gesamtbetrags</strong> des Aufenthalts als <strong>Angeld</strong> gemäß Art. 1385 des Zivilgesetzbuches erforderlich.",
+        term_2_3: "<strong>2.3 Restzahlung:</strong> Der Restbetrag des Aufenthalts (die verbleibenden 80%) muss bei der Ankunft in der Struktur (Check-in) bar (innerhalb der gesetzlichen Grenzen), per Kreditkarte oder Debitkarte bezahlt werden.",
+        term_2_4: "<strong>2.4 Kurtaxe:</strong> Die Preise beinhalten nicht die Kurtaxe der Gemeinde Riomaggiore in Höhe von <strong>3,00 € pro Person und Nacht</strong> (für maximal 3 aufeinanderfolgende Nächte). Dieser Betrag muss vor Ort beglichen werden.",
+        term_3_title: "3. Stornierungs- und Rücktrittsbedingungen",
+        term_3_intro: "Abweichend von den allgemeinen Regeln gelten folgende Stornierungsbedingungen:",
+        term_3_free: "<strong>Kostenlose Stornierung:</strong> Es ist möglich, die Buchung ohne Strafe bis <strong>14 Tage vor</strong> dem geplanten Ankunftsdatum zu stornieren. In diesem Fall wird das gezahlte Angeld vollständig zurückerstattet (abzüglich eventueller Bankstornogebühren).",
+        term_3_late: "<strong>Späte Stornierung:</strong> Bei Stornierungen innerhalb der <strong>14 Tage vor</strong> dem Ankunftsdatum wird das Angeld vollständig als Entschädigung einbehalten (Art. 1385 ZGB).",
+        term_3_noshow: "<strong>No-Show (Nichterscheinen) oder vorzeitige Abreise:</strong> Im Falle des Nichterscheinens ohne Vorankündigung oder des vorzeitigen Abbruchs des Aufenthalts durch den Gast wird die Zahlung des <strong>gesamten Betrags</strong> des gebuchten Aufenthalts (100%) fällig.",
+        term_4_title: "4. Check-in und Registrierung (Gesetzliche Verpflichtungen)",
+        term_4_1: "<strong>4.1 Zeiten:</strong> Der Check-in ist von <strong>14:00 bis 20:00 Uhr</strong> vorgesehen. Ankünfte außerhalb dieser Zeiten müssen zwingend im Voraus mit der Leitung vereinbart werden. <strong>Ohne vorherige Absprache ist der Zutritt zur Struktur nach der festgelegten Zeit nicht möglich und die Buchung gilt als verfallen (No-Show).</strong> Der Check-out muss bis <strong>10:30 Uhr</strong> erfolgen.",
+        term_4_2: "<strong>4.2 Dokumente (TULPS):</strong> Gemäß Art. 109 des T.U.L.P.S. ist es bei der Ankunft <strong>obligatorisch</strong>, ein gültiges Ausweisdokument (Reisepass oder Personalausweis) für jeden Gast (einschließlich Minderjähriger) zur Registrierung im Portal \"Alloggiati Web\" vorzulegen. Ohne gültiges Dokument wird der Zugang zur Struktur verweigert und die Buchung als No-Show betrachtet.",
+        term_4_3: "<strong>4.3 Nicht registrierte Gäste:</strong> Aus Gründen der öffentlichen Sicherheit ist es strengstens verboten, Personen, die nicht beim Check-in registriert und vom Betreiber autorisiert wurden, den Zutritt zum Zimmer oder zu den Gemeinschaftsbereichen zu gestatten.",
+        term_5_title: "5. Haftung und Schäden",
+        term_5_1: "<strong>5.1 Schäden an der Struktur:</strong> Der Gast ist verantwortlich für die Obhut des Zimmers, der Schlüssel und der Einrichtung. Eventuelle Schäden an Möbeln, Ausstattung oder Anlagen müssen unmittelbar vor der Abreise entschädigt werden.",
+        term_5_2: "<strong>5.2 Wertsachen:</strong> Der Betreiber haftet gemäß Art. 1785 des Zivilgesetzbuches nicht für den Verlust oder Diebstahl von Wertsachen oder Geld, die unbeaufsichtigt in den Zimmern oder Gemeinschaftsbereichen gelassen wurden.",
+        term_5_3: "<strong>5.3 Schlüsselverlust:</strong> Der Verlust der Zimmerschlüssel führt zu einer Gebühr von 50,00 € für den Austausch des Schlosses.",
+        term_6_title: "6. Verhaltensregeln",
+        term_6_smoke: "<strong>Rauchen:</strong> Das Rauchen ist in den Zimmern und in allen geschlossenen Bereichen der Struktur strengstens <strong>verboten</strong>.",
+        term_6_quiet: "<strong>Ruhe:</strong> Bitte respektieren Sie die Ruhe der anderen Gäste und der Nachbarschaft, insbesondere während der Nachtstunden (von 22:00 bis 08:00 Uhr).",
+        term_6_eco: "<strong>Umwelt:</strong> Die Gäste werden gebeten, Licht und Klimaanlage auszuschalten, wenn sie sich nicht im Zimmer befinden, aus Respekt vor der Umwelt.",
+        term_6_pets: "<strong>Haustiere:</strong> Haustiere sind nicht erlaubt, es sei denn, es liegt eine spezifische schriftliche Genehmigung des Betreibers vor.",
+        term_7_title: "7. Höhere Gewalt",
+        term_7_text: "Der Betreiber haftet nicht für Störungen oder Stornierungen aufgrund höherer Gewalt (z.B. extreme Wetterereignisse, Überschwemmungen, Streiks im öffentlichen Verkehr, vorübergehende Unterbrechungen von Strom oder Wasser durch öffentliche Versorger), die den regulären Aufenthalt verhindern.",
+        term_8_title: "8. Zuständiges Gericht",
+        term_8_text: "Für jegliche Streitigkeiten, die sich aus der Auslegung oder Ausführung dieses Vertrags ergeben, ist ausschließlich das <strong>Gericht von La Spezia</strong> zuständig.",
+        term_9_title: "9. Sprachklausel",
+        term_9_text: "Diese Allgemeinen Geschäftsbedingungen sind in italienischer Sprache verfasst. Eventuelle Übersetzungen in andere Sprachen werden nur zu Informations- und Höflichkeitszwecken zur Verfügung gestellt. <strong>Im Falle von Abweichungen, Inkonsistenzen oder Auslegungsunterschieden zwischen der italienischen Version und einer übersetzten Version ist ausschließlich der italienische Text maßgebend und vorrangig.</strong>"
+    },
+
+    es: {
+        term_title: "Términos y Condiciones",
+        term_update: "Última actualización: 28/01/2026",
+        term_1_title: "1. Introducción y Datos de la Estructura",
+        term_1_text: "Estos Términos y Condiciones rigen el contrato de alojamiento turístico en la estructura extra-hotelera (Casa de Huéspedes) denominada <strong>\"Ca' della Valletta\"</strong>, gestionada por <strong>Giacomo Galassi</strong> (en adelante \"Gestor\" o \"Estructura\"), con domicilio legal en Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Códigos de Identificación:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.",
+        term_1_accept: "La reserva de la estancia es personal e intransferible e implica la aceptación plena y sin reservas de estos términos por parte del Cliente.",
+        term_2_title: "2. Reserva y Pago",
+        term_2_1: "<strong>2.1 Procedimiento:</strong> La solicitud de reserva realizada a través del sitio web o contacto directo está sujeta a confirmación de disponibilidad por parte de la Estructura.",
+        term_2_2: "<strong>2.2 Señal Confirmatoria (Caparra):</strong> Para hacer la reserva definitiva y vinculante, se requiere el pago de una suma igual al <strong>20% del importe total</strong> de la estancia en concepto de <strong>Señal Confirmatoria</strong>, de conformidad con el art. 1385 del Código Civil.",
+        term_2_3: "<strong>2.3 Saldo:</strong> El saldo de la estancia (el 80% restante) deberá abonarse a la llegada a la estructura (Check-in) en efectivo (dentro de los límites legales), tarjeta de crédito o tarjeta de débito.",
+        term_2_4: "<strong>2.4 Tasa Turística:</strong> Las tarifas no incluyen la Tasa Turística del Municipio de Riomaggiore, que asciende a <strong>€ 3,00 por persona y noche</strong> (por un máximo de 3 noches consecutivas). Este importe deberá abonarse en el lugar.",
+        term_3_title: "3. Política de Cancelación y Desistimiento",
+        term_3_intro: "A modo de excepción a las normas generales, se aplican las siguientes condiciones de cancelación:",
+        term_3_free: "<strong>Cancelación Gratuita:</strong> Es posible cancelar la reserva sin penalización hasta <strong>14 días antes</strong> de la fecha de llegada prevista. En tal caso, la Señal Confirmatoria abonada será totalmente reembolsada (neta de posibles gastos bancarios de cancelación).",
+        term_3_late: "<strong>Cancelación Tardía:</strong> Para cancelaciones realizadas dentro de los <strong>14 días anteriores</strong> a la fecha de llegada, la Señal Confirmatoria será retenida íntegramente como indemnización (art. 1385 C.C.).",
+        term_3_noshow: "<strong>No-Show (No Presentación) o Salida Anticipada:</strong> En caso de no presentación sin previo aviso o de interrupción anticipada de la estancia por voluntad del huésped, se deberá el pago del <strong>importe total</strong> de la estancia reservada (100%).",
+        term_4_title: "4. Check-in y Registro (Obligaciones Legales)",
+        term_4_1: "<strong>4.1 Horarios:</strong> El Check-in está previsto de <strong>14:00 a 20:00</strong>. Cualquier llegada fuera de este horario debe ser imperativamente acordada con antelación con la dirección. <strong>A falta de acuerdo previo, no será posible acceder a la estructura después de la hora establecida y la reserva se considerará perdida (No-Show).</strong> El Check-out debe realizarse antes de las <strong>10:30</strong>.",
+        term_4_2: "<strong>4.2 Documentos (TULPS):</strong> De conformidad con el art. 109 del T.U.L.P.S., a la llegada es <strong>obligatorio</strong> exhibir un documento de identidad válido (Pasaporte o DNI) para cada huésped (incluidos los menores) para el registro en el portal \"Alloggiati Web\". A falta de un documento válido, se denegará el acceso a la estructura y la reserva se considerará como No-Show.",
+        term_4_3: "<strong>4.3 Huéspedes no registrados:</strong> Por razones de seguridad pública, está estrictamente prohibido permitir el acceso a la habitación o a las zonas comunes a personas no registradas en el check-in y no autorizadas por el Gestor.",
+        term_5_title: "5. Responsabilidad y Daños",
+        term_5_1: "<strong>5.1 Daños a la Estructura:</strong> El huésped es responsable de la custodia de la habitación, las llaves y el mobiliario. Cualquier daño causado a muebles, suministros o instalaciones deberá ser indemnizado inmediatamente antes de la salida.",
+        term_5_2: "<strong>5.2 Objetos de Valor:</strong> El Gestor no responde, de conformidad con el art. 1785 del Código Civil, por la pérdida o robo de objetos de valor o dinero dejados sin vigilancia en las habitaciones o zonas comunes.",
+        term_5_3: "<strong>5.3 Pérdida de Llaves:</strong> La pérdida de las llaves de la habitación conllevará un cargo de € 50,00 para la sustitución de la cerradura.",
+        term_6_title: "6. Reglas de Conducta",
+        term_6_smoke: "<strong>Fumar:</strong> Está estrictamente <strong>prohibido fumar</strong> dentro de las habitaciones y en todas las zonas cerradas de la estructura.",
+        term_6_quiet: "<strong>Silencio:</strong> Se ruega respetar la tranquilidad de los otros huéspedes y del vecindario, especialmente durante las horas nocturnas (de 22:00 a 08:00).",
+        term_6_eco: "<strong>Medio Ambiente:</strong> Se invita a los huéspedes a apagar las luces y el aire acondicionado cuando no estén en la habitación, por respeto al medio ambiente.",
+        term_6_pets: "<strong>Mascotas:</strong> No se admiten mascotas, salvo autorización específica por escrito del Gestor.",
+        term_7_title: "7. Fuerza Mayor",
+        term_7_text: "El Gestor no será responsable por disfunciones o cancelaciones debidas a causas de fuerza mayor (ej. eventos meteorológicos extremos, inundaciones, huelgas de transporte público, interrupciones temporales de electricidad o agua por proveedores públicos) que impidan la estancia regular.",
+        term_8_title: "8. Tribunal Competente",
+        term_8_text: "Para cualquier disputa derivada de la interpretación o ejecución del presente contrato, será competente exclusivamente el <strong>Tribunal de La Spezia</strong>.",
+        term_9_title: "9. Cláusula Lingüística",
+        term_9_text: "Estos Términos y Condiciones están redactados en lengua italiana. Cualquier versión traducida a otros idiomas se proporciona únicamente con fines informativos y de cortesía. <strong>En caso de discrepancias, inconsistencias o diferencias de interpretación entre la versión italiana y cualquier versión traducida, prevalecerá exclusivamente el texto en lengua italiana.</strong>"
+    }
+};
+
+/* ============================================================
+   TRANSLATIONS-COOKIE.JS - COOKIE POLICY MULTILINGUA
+   ============================================================ */
+
+const cookieTexts = {
+    it: {
+        cookie_title: "Cookie Policy",
+        cookie_update: "In vigore dal 28/01/2026",
+        
+        // Sezione 1
+        cookie_s1_title: "1. Cosa sono i Cookie",
+        cookie_s1_text1: "I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere ritrasmessi agli stessi siti in occasione di visite successive. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che si sta visitando, sia da terze parti.",
+        cookie_s1_text2: "Di seguito troverai tutte le informazioni sui cookie installati attraverso questo sito e le indicazioni necessarie su come gestire le tue preferenze riguardo ad essi.",
+
+        // Sezione 2
+        cookie_s2_title: "2. Cookie utilizzati da questo sito",
+        cookie_s2_owner: "Il titolare del trattamento è <strong>Giacomo Galassi</strong>, proprietario del sito <strong>www.cadellavalletta.it</strong>.",
+        
+        cookie_s2a_title: "A. Cookie Tecnici (Non richiedono consenso)",
+        cookie_s2a_text: "Questi cookie sono essenziali per il corretto funzionamento del sito. Includono:",
+        cookie_s2a_li1: "Cookie di navigazione o di sessione (per garantire la normale navigazione e fruizione del sito web).",
+        cookie_s2a_li2: "Cookie di funzionalità (permettono all'utente la navigazione in funzione di criteri selezionati, come la lingua, al fine di migliorare il servizio reso).",
+
+        cookie_s2b_title: "B. Cookie di Terze Parti",
+        cookie_s2b_text: "Attraverso questo sito vengono installati anche cookie gestiti da terze parti. Di seguito i dettagli:",
+        cookie_s2b_li1: "<strong>Google Fonts:</strong> Utilizzato per i caratteri tipografici. (Privacy Policy: Google).",
+        cookie_s2b_li2: "<strong>Google Maps:</strong> Utilizzato per mostrare la mappa della struttura. Può installare cookie di profilazione o statistica. (Privacy Policy: Google).",
+        cookie_s2b_li3: "<strong>Supabase:</strong> Utilizzato per la gestione dinamica dei prezzi e del calendario. Utilizza cookie tecnici per gestire le sessioni sicure.",
+
+        // Sezione 3
+        cookie_s3_title: "3. Gestione delle preferenze sui cookie",
+        cookie_s3_text1: "Al primo accesso, tramite il banner, l'utente può acconsentire all'uso dei cookie. Inoltre, è possibile gestire le preferenze direttamente tramite il browser.",
+        cookie_s3_text2: "Se non conosci il tipo e la versione di browser che stai utilizzando, clicca su \"Aiuto\" nella finestra del browser in alto, da cui potrai accedere a tutte le informazioni necessarie. Se invece conosci il tuo browser, clicca su quello che stai utilizzando per accedere alla pagina di gestione dei cookie:",
+        
+        // Sezione 4
+        cookie_s4_title: "4. Diritti dell'interessato",
+        cookie_s4_text: "In ogni momento potrai esercitare i tuoi diritti nei confronti del Titolare del trattamento, ai sensi del Regolamento UE 2016/679 (GDPR). Per maggiori informazioni sui tuoi diritti e su come vengono trattati i tuoi dati, ti invitiamo a consultare la nostra <a href='privacy.html' style='text-decoration: underline;'>Privacy Policy</a>."
+    },
+    en: {
+        cookie_title: "Cookie Policy",
+        cookie_update: "Effective from 28/01/2026",
+        cookie_s1_title: "1. What are Cookies",
+        cookie_s1_text1: "Cookies are small text files that sites visited by users send to their terminals, where they are stored to be re-transmitted to the same sites on subsequent visits. Cookies are used for various purposes, have different characteristics, and can be used both by the owner of the site you are visiting and by third parties.",
+        cookie_s1_text2: "Below you will find all the information on cookies installed through this site and the necessary instructions on how to manage your preferences regarding them.",
+        cookie_s2_title: "2. Cookies used by this site",
+        cookie_s2_owner: "The data controller is <strong>Giacomo Galassi</strong>, owner of the site <strong>www.cadellavalletta.it</strong>.",
+        cookie_s2a_title: "A. Technical Cookies (Do not require consent)",
+        cookie_s2a_text: "These cookies are essential for the proper functioning of the site. They include:",
+        cookie_s2a_li1: "Navigation or session cookies (to guarantee normal navigation and use of the website).",
+        cookie_s2a_li2: "Functionality cookies (allow the user to navigate according to selected criteria, such as language, in order to improve the service provided).",
+        cookie_s2b_title: "B. Third Party Cookies",
+        cookie_s2b_text: "Cookies managed by third parties are also installed through this site. Details below:",
+        cookie_s2b_li1: "<strong>Google Fonts:</strong> Used for typefaces. (Privacy Policy: Google).",
+        cookie_s2b_li2: "<strong>Google Maps:</strong> Used to show the map of the facility. May install profiling or statistical cookies. (Privacy Policy: Google).",
+        cookie_s2b_li3: "<strong>Supabase:</strong> Used for dynamic price and calendar management. Uses technical cookies to manage secure sessions.",
+        cookie_s3_title: "3. Management of cookie preferences",
+        cookie_s3_text1: "Upon first access, via the banner, the user can consent to the use of cookies. Furthermore, it is possible to manage preferences directly through the browser.",
+        cookie_s3_text2: "If you do not know the type and version of the browser you are using, click on \"Help\" in the browser window at the top, from which you can access all the necessary information. If you know your browser, click on the one you are using to access the cookie management page:",
+        cookie_s4_title: "4. Rights of the data subject",
+        cookie_s4_text: "At any time you may exercise your rights towards the Data Controller, pursuant to EU Regulation 2016/679 (GDPR). For more information on your rights and how your data is processed, we invite you to consult our <a href='privacy.html' style='text-decoration: underline;'>Privacy Policy</a>."
+    },
+    fr: {
+        cookie_title: "Politique de Cookies",
+        cookie_update: "En vigueur à partir du 28/01/2026",
+        cookie_s1_title: "1. Que sont les cookies",
+        cookie_s1_text1: "Les cookies sont de petits fichiers texte que les sites visités par les utilisateurs envoient à leurs terminaux, où ils sont stockés pour être retransmis aux mêmes sites lors de visites ultérieures. Les cookies sont utilisés à diverses fins, ont des caractéristiques différentes et peuvent être utilisés à la fois par le propriétaire du site que vous visitez et par des tiers.",
+        cookie_s1_text2: "Vous trouverez ci-dessous toutes les informations sur les cookies installés via ce site et les instructions nécessaires sur la façon de gérer vos préférences les concernant.",
+        cookie_s2_title: "2. Cookies utilisés par ce site",
+        cookie_s2_owner: "Le responsable du traitement est <strong>Giacomo Galassi</strong>, propriétaire du site <strong>www.cadellavalletta.it</strong>.",
+        cookie_s2a_title: "A. Cookies Techniques (Ne nécessitent pas de consentement)",
+        cookie_s2a_text: "Ces cookies sont essentiels au bon fonctionnement du site. Ils comprennent :",
+        cookie_s2a_li1: "Cookies de navigation ou de session (pour garantir la navigation et l'utilisation normales du site web).",
+        cookie_s2a_li2: "Cookies de fonctionnalité (permettent à l'utilisateur de naviguer en fonction de critères sélectionnés, comme la langue, afin d'améliorer le service fourni).",
+        cookie_s2b_title: "B. Cookies Tiers",
+        cookie_s2b_text: "Des cookies gérés par des tiers sont également installés via ce site. Détails ci-dessous :",
+        cookie_s2b_li1: "<strong>Google Fonts :</strong> Utilisé pour les polices de caractères. (Politique de confidentialité : Google).",
+        cookie_s2b_li2: "<strong>Google Maps :</strong> Utilisé pour afficher la carte de la structure. Peut installer des cookies de profilage ou statistiques. (Politique de confidentialité : Google).",
+        cookie_s2b_li3: "<strong>Supabase :</strong> Utilisé pour la gestion dynamique des prix et du calendrier. Utilise des cookies techniques pour gérer les sessions sécurisées.",
+        cookie_s3_title: "3. Gestion des préférences sur les cookies",
+        cookie_s3_text1: "Lors du premier accès, via la bannière, l'utilisateur peut consentir à l'utilisation de cookies. De plus, il est possible de gérer les préférences directement via le navigateur.",
+        cookie_s3_text2: "Si vous ne connaissez pas le type et la version du navigateur que vous utilisez, cliquez sur \"Aide\" dans la fenêtre du navigateur en haut, d'où vous pourrez accéder à toutes les informations nécessaires. Si vous connaissez votre navigateur, cliquez sur celui que vous utilisez pour accéder à la page de gestion des cookies :",
+        cookie_s4_title: "4. Droits de la personne concernée",
+        cookie_s4_text: "À tout moment, vous pourrez exercer vos droits auprès du Responsable du traitement, conformément au Règlement UE 2016/679 (RGPD). Pour plus d'informations sur vos droits et sur la manière dont vos données sont traitées, nous vous invitons à consulter notre <a href='privacy.html' style='text-decoration: underline;'>Politique de Confidentialité</a>."
+    },
+    de: {
+        cookie_title: "Cookie-Richtlinie",
+        cookie_update: "Gültig ab 28.01.2026",
+        cookie_s1_title: "1. Was sind Cookies",
+        cookie_s1_text1: "Cookies sind kleine Textdateien, die von den Nutzern besuchte Websites an ihre Endgeräte senden, wo sie gespeichert werden, um bei späteren Besuchen an dieselben Websites zurückgesendet zu werden. Cookies werden für verschiedene Zwecke verwendet, haben unterschiedliche Eigenschaften und können sowohl vom Eigentümer der besuchten Website als auch von Dritten verwendet werden.",
+        cookie_s1_text2: "Nachfolgend finden Sie alle Informationen zu den über diese Website installierten Cookies sowie die notwendigen Anweisungen, wie Sie Ihre Präferenzen diesbezüglich verwalten können.",
+        cookie_s2_title: "2. Von dieser Website verwendete Cookies",
+        cookie_s2_owner: "Der Verantwortliche für die Datenverarbeitung ist <strong>Giacomo Galassi</strong>, Eigentümer der Website <strong>www.cadellavalletta.it</strong>.",
+        cookie_s2a_title: "A. Technische Cookies (Erfordern keine Zustimmung)",
+        cookie_s2a_text: "Diese Cookies sind für das ordnungsgemäße Funktionieren der Website unerlässlich. Dazu gehören:",
+        cookie_s2a_li1: "Navigations- oder Sitzungscookies (um die normale Navigation und Nutzung der Website zu gewährleisten).",
+        cookie_s2a_li2: "Funktionscookies (ermöglichen dem Benutzer die Navigation nach ausgewählten Kriterien, wie z.B. der Sprache, um den angebotenen Service zu verbessern).",
+        cookie_s2b_title: "B. Drittanbieter-Cookies",
+        cookie_s2b_text: "Über diese Website werden auch von Dritten verwaltete Cookies installiert. Details unten:",
+        cookie_s2b_li1: "<strong>Google Fonts:</strong> Wird für Schriftarten verwendet. (Datenschutzerklärung: Google).",
+        cookie_s2b_li2: "<strong>Google Maps:</strong> Wird verwendet, um die Karte der Struktur anzuzeigen. Kann Profiling- oder Statistik-Cookies installieren. (Datenschutzerklärung: Google).",
+        cookie_s2b_li3: "<strong>Supabase:</strong> Wird für die dynamische Preis- und Kalenderverwaltung verwendet. Verwendet technische Cookies zur Verwaltung sicherer Sitzungen.",
+        cookie_s3_title: "3. Verwaltung der Cookie-Präferenzen",
+        cookie_s3_text1: "Beim ersten Zugriff kann der Benutzer über das Banner der Verwendung von Cookies zustimmen. Darüber hinaus ist es möglich, die Präferenzen direkt über den Browser zu verwalten.",
+        cookie_s3_text2: "Wenn Sie den Typ und die Version des von Ihnen verwendeten Browsers nicht kennen, klicken Sie oben im Browserfenster auf \"Hilfe\", von wo aus Sie auf alle notwendigen Informationen zugreifen können. Wenn Sie Ihren Browser kennen, klicken Sie auf den, den Sie verwenden, um zur Cookie-Verwaltungsseite zu gelangen:",
+        cookie_s4_title: "4. Rechte der betroffenen Person",
+        cookie_s4_text: "Sie können jederzeit Ihre Rechte gegenüber dem Verantwortlichen der Datenverarbeitung gemäß der EU-Verordnung 2016/679 (DSGVO) ausüben. Für weitere Informationen zu Ihren Rechten und zur Verarbeitung Ihrer Daten laden wir Sie ein, unsere <a href='privacy.html' style='text-decoration: underline;'>Datenschutzerklärung</a> zu konsultieren."
+    },
+    es: {
+        cookie_title: "Política de Cookies",
+        cookie_update: "Vigente desde el 28/01/2026",
+        cookie_s1_title: "1. Qué son las Cookies",
+        cookie_s1_text1: "Las cookies son pequeños archivos de texto que los sitios visitados por los usuarios envían a sus terminales, donde se almacenan para ser retransmitidos a los mismos sitios en visitas posteriores. Las cookies se utilizan para diferentes fines, tienen características diferentes y pueden ser utilizadas tanto por el titular del sitio que se está visitando como por terceros.",
+        cookie_s1_text2: "A continuación encontrará toda la información sobre las cookies instaladas a través de este sitio y las indicaciones necesarias sobre cómo gestionar sus preferencias al respecto.",
+        cookie_s2_title: "2. Cookies utilizadas por este sitio",
+        cookie_s2_owner: "El titular del tratamiento es <strong>Giacomo Galassi</strong>, propietario del sitio <strong>www.cadellavalletta.it</strong>.",
+        cookie_s2a_title: "A. Cookies Técnicas (No requieren consentimiento)",
+        cookie_s2a_text: "Estas cookies son esenciales para el correcto funcionamiento del sitio. Incluyen:",
+        cookie_s2a_li1: "Cookies de navegación o de sesión (para garantizar la navegación y uso normal del sitio web).",
+        cookie_s2a_li2: "Cookies de funcionalidad (permiten al usuario la navegación en función de criterios seleccionados, como el idioma, con el fin de mejorar el servicio prestado).",
+        cookie_s2b_title: "B. Cookies de Terceros",
+        cookie_s2b_text: "A través de este sitio también se instalan cookies gestionadas por terceros. Detalles a continuación:",
+        cookie_s2b_li1: "<strong>Google Fonts:</strong> Utilizado para las fuentes tipográficas. (Política de Privacidad: Google).",
+        cookie_s2b_li2: "<strong>Google Maps:</strong> Utilizado para mostrar el mapa de la estructura. Puede instalar cookies de perfilado o estadísticas. (Política de Privacidad: Google).",
+        cookie_s2b_li3: "<strong>Supabase:</strong> Utilizado para la gestión dinámica de precios y calendario. Utiliza cookies técnicas para gestionar sesiones seguras.",
+        cookie_s3_title: "3. Gestión de preferencias sobre cookies",
+        cookie_s3_text1: "En el primer acceso, a través del banner, el usuario puede dar su consentimiento al uso de cookies. Además, es posible gestionar las preferencias directamente a través del navegador.",
+        cookie_s3_text2: "Si no conoce el tipo y la versión del navegador que está utilizando, haga clic en \"Ayuda\" en la ventana del navegador en la parte superior, desde donde podrá acceder a toda la información necesaria. Si conoce su navegador, haga clic en el que está utilizando para acceder a la página de gestión de cookies:",
+        cookie_s4_title: "4. Derechos del interesado",
+        cookie_s4_text: "En cualquier momento podrá ejercer sus derechos frente al Titular del tratamiento, de conformidad con el Reglamento UE 2016/679 (GDPR). Para más información sobre sus derechos y sobre cómo se tratan sus datos, le invitamos a consultar nuestra <a href='privacy.html' style='text-decoration: underline;'>Política de Privacidad</a>."
+    }
+};
+
+// AUTO-INTEGRAZIONE (Copia questo blocco per unire al dizionario principale)
+if (typeof window.translations === 'undefined') {
+    window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
+}
+
+if (typeof cookieTexts !== 'undefined') {
+    for (const lang in cookieTexts) {
+        if (window.translations[lang]) {
+            Object.assign(window.translations[lang], cookieTexts[lang]);
+        } else {
+            window.translations[lang] = cookieTexts[lang];
+        }
+    }
+}
+// INTEGRAZIONE AUTOMATICA CON IL DIZIONARIO PRINCIPALE
+if (typeof window.translations === 'undefined') {
+    window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
+}
+
+function mergeLegalTexts(sourceDict) {
+    if (typeof sourceDict !== 'undefined') {
+        for (const lang in sourceDict) {
+            if (window.translations[lang]) {
+                Object.assign(window.translations[lang], sourceDict[lang]);
+            } else {
+                window.translations[lang] = sourceDict[lang];
+            }
+        }
+    }
+}
+
+mergeLegalTexts(legalTexts);
 // INTEGRAZIONE AUTOMATICA CON IL DIZIONARIO PRINCIPALE
 // Questo blocco unisce i testi della privacy al file translations.js principale
 if (typeof translations !== 'undefined') {

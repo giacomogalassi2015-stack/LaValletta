@@ -10,74 +10,80 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <nav id="navbar" class="scrolled">
+    <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
                 Ca' della Valletta
                 <span class="sub-logo">CINQUE TERRE</span>
             </div>
+
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="camera-king.html">Camera King</a></li>
-                <li><a href="camera-deluxe.html">Camera Deluxe</a></li>
-                <li><a href="galleria.html">Galleria</a></li>
-                <li><a href="index.html#territorio">Experience</a></li>
-                <li><a href="#contatti">Contatti</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
+                <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
+                <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
+                <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
             </ul>
-             <div class="nav-extras">
-            <select id="language-selector">
-                <option value="it">🇮🇹 IT</option>
-                <option value="en">🇬🇧 EN</option>
-                <option value="fr">🇫🇷 FR</option>
-                <option value="de">🇩🇪 DE</option>
-                <option value="es">🇪🇸 ES</option>
-            </select>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+
+            <div class="nav-extras">
+                <select id="language-selector" name="language" aria-label="Seleziona la lingua">
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="zh">🇨🇳 CN</option>
+                </select>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="container section-padding" style="margin-top: 100px;">
-        <h1 class="section-title text-center">Cookie Policy</h1>
-        <p class="text-center" style="margin-bottom: 40px; color: #666;">In vigore dal 28/01/2026</p>
+        <h1 class="section-title text-center" data-i18n="cookie_title"></h1>
+        <p class="text-center" style="margin-bottom: 40px; color: #666;" data-i18n="cookie_update"></p>
         
         <div class="lead-text" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
             
-            <h3>1. Cosa sono i Cookie</h3>
-            <p>I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere ritrasmessi agli stessi siti in occasione di visite successive. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che si sta visitando, sia da terze parti.</p>
-            <p>Di seguito troverai tutte le informazioni sui cookie installati attraverso questo sito e le indicazioni necessarie su come gestire le tue preferenze riguardo ad essi.</p>
+            <h3 data-i18n="cookie_s1_title"></h3>
+            <p data-i18n="cookie_s1_text1"></p>
+            <p data-i18n="cookie_s1_text2"></p>
 
             <hr class="divider">
 
-            <h3>2. Cookie utilizzati da questo sito</h3>
-            <p>Il titolare del trattamento è <strong>Giacomo Galassi</strong>, proprietario del sito <strong>www.cadellavalletta.it</strong>.</p>
+            <h3 data-i18n="cookie_s2_title"></h3>
+            <p data-i18n="cookie_s2_owner"></p>
 
-            <h4>A. Cookie Tecnici (Non richiedono consenso)</h4>
-            <p>Questi cookie sono essenziali per il corretto funzionamento del sito. Includono:</p>
+            <h4 data-i18n="cookie_s2a_title"></h4>
+            <p data-i18n="cookie_s2a_text"></p>
             <ul>
-                <li>Cookie di navigazione o di sessione (per garantire la normale navigazione e fruizione del sito web).</li>
-                <li>Cookie di funzionalità (permettono all'utente la navigazione in funzione di criteri selezionati, come la lingua, al fine di migliorare il servizio reso).</li>
+                <li data-i18n="cookie_s2a_li1"></li>
+                <li data-i18n="cookie_s2a_li2"></li>
             </ul>
 
-            <h4>B. Cookie di Terze Parti</h4>
-            <p>Attraverso questo sito vengono installati anche cookie gestiti da terze parti. Di seguito i dettagli:</p>
+            <h4 data-i18n="cookie_s2b_title"></h4>
+            <p data-i18n="cookie_s2b_text"></p>
             <ul>
-                <li><strong>Google Fonts:</strong> Utilizzato per i caratteri tipografici. (Privacy Policy: Google).</li>
-                <li><strong>Google Maps:</strong> Utilizzato per mostrare la mappa della struttura. Può installare cookie di profilazione o statistica. (Privacy Policy: Google).</li>
-                <li><strong>Supabase:</strong> Utilizzato per la gestione dinamica dei prezzi e del calendario. Utilizza cookie tecnici per gestire le sessioni sicure.</li>
+                <li data-i18n="cookie_s2b_li1"></li>
+                <li data-i18n="cookie_s2b_li2"></li>
+                <li data-i18n="cookie_s2b_li3"></li>
             </ul>
 
             <hr class="divider">
 
-            <h3>3. Gestione delle preferenze sui cookie</h3>
-            <p>Al primo accesso, tramite il banner, l'utente può acconsentire all'uso dei cookie. Inoltre, è possibile gestire le preferenze direttamente tramite il browser.</p>
-            <p>Se non conosci il tipo e la versione di browser che stai utilizzando, clicca su "Aiuto" nella finestra del browser in alto, da cui potrai accedere a tutte le informazioni necessarie. Se invece conosci il tuo browser, clicca su quello che stai utilizzando per accedere alla pagina di gestione dei cookie:</p>
+            <h3 data-i18n="cookie_s3_title"></h3>
+            <p data-i18n="cookie_s3_text1"></p>
+            <p data-i18n="cookie_s3_text2"></p>
+            
             <ul>
                 <li><a href="https://support.google.com/chrome/answer/95647?hl=it" target="_blank" style="text-decoration: underline;">Google Chrome</a></li>
                 <li><a href="https://support.mozilla.org/it/kb/Gestione%20dei%20cookie" target="_blank" style="text-decoration: underline;">Mozilla Firefox</a></li>
@@ -87,8 +93,8 @@
 
             <hr class="divider">
 
-            <h3>4. Diritti dell'interessato</h3>
-            <p>In ogni momento potrai esercitare i tuoi diritti nei confronti del Titolare del trattamento, ai sensi del Regolamento UE 2016/679 (GDPR). Per maggiori informazioni sui tuoi diritti e su come vengono trattati i tuoi dati, ti invitiamo a consultare la nostra <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a>.</p>
+            <h3 data-i18n="cookie_s4_title"></h3>
+            <p data-i18n="cookie_s4_text"></p>
 
         </div>
     </div>
@@ -97,7 +103,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
+                <p data-i18n="footer_loc">Riomaggiore, Cinque Terre</p>
             </div>
             <div class="footer-info">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
@@ -108,7 +114,7 @@
                 <p>
                     <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
                     Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-                    P.IVA: [INSERISCI P.IVA] | C.F.: [INSERISCI C.F.]
+                    P.IVA: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
                     CIR: 011024-AFF-0196 <br> 
@@ -116,16 +122,17 @@
                 </p>
                 <p style="margin-top: 15px; font-size: 0.75rem;">
                     <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> |
+                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
                     <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
                 </p>
+                <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script src="translations.js"></script>
-    <script src="language-manager.js"></script>
+    <script src="translations-cookie.js"></script> <script src="language-manager.js"></script>
 
 </body>
 </html>
