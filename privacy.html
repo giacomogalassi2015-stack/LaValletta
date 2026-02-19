@@ -10,33 +10,37 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <nav id="navbar" class="scrolled"> <div class="nav-container">
+    <nav id="navbar">
+        <div class="nav-container">
             <div class="logo">
                 Ca' della Valletta
                 <span class="sub-logo">CINQUE TERRE</span>
             </div>
+
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="camera-king.html">Camera King</a></li>
-                <li><a href="camera-deluxe.html">Camera Deluxe</a></li>
-                <li><a href="galleria.html">Galleria</a></li>
-                <li><a href="index.html#territorio">Experience</a></li>
-                <li><a href="#contatti">Contatti</a></li>
-            
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
+                <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
+                <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
+                <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
+                
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Seleziona la lingua">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
-             <div class="nav-extras">
-            <select id="language-selector">
-                <option value="it">🇮🇹 IT</option>
-                <option value="en">🇬🇧 EN</option>
-                <option value="fr">🇫🇷 FR</option>
-                <option value="de">🇩🇪 DE</option>
-                <option value="es">🇪🇸 ES</option>
-            </select>
+
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
@@ -44,97 +48,95 @@
     </nav>
 
     <div class="container section-padding" style="margin-top: 100px;">
-        <h1 class="section-title text-center">Informativa Privacy</h1>
         
-        <div class="lead-text" style="font-size: 0.95rem; text-align: justify;">
+        <h1 class="section-title text-center" data-i18n="priv_main_title">Informativa Privacy</h1>
+        
+        <div class="lead-text" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
             
-            <p><strong>Informativa sul trattamento dei dati personali. In vigore dal 28/01/2026</strong></p>
+            <p><strong data-i18n="priv_update"></strong></p>
 
-            <h3>PREMESSA</h3>
-            <p>La presente informativa tiene conto di quanto indicato dal Regolamento (UE) 2016/679 del Parlamento europeo e del Consiglio del 27 aprile 2016 (GDPR) e dal Codice della Privacy (D. Lgs 30 giugno 2003 n. 196). Il documento è stato redatto anche in base alle Linee Guida del Garante Privacy (soprattutto le Linee Guida di contrasto allo spam emesse dal Garante Privacy il 4 luglio 2013).</p>
-            
-            <p><strong>Titolare del Trattamento:</strong> Giacomo Galassi <br>
-            <strong>Sito al quale si riferisce la presente privacy policy:</strong> www.cadellavalletta.it (Sito).</p>
-
-            <p>Il Titolare del Trattamento non ha nominato un DPO (Data Protection Officer). Pertanto, Lei può inviare qualsiasi richiesta di informazioni direttamente al Titolare del Trattamento.</p>
+            <h3 data-i18n="priv_premise_title"></h3>
+            <p data-i18n="priv_premise_text"></p>
+            <p data-i18n="priv_owner"></p>
+            <p data-i18n="priv_dpo"></p>
 
             <hr class="divider">
 
-            <h3>INFORMAZIONI GENERALI</h3>
-            <p>Il presente documento descrive come il Titolare del Trattamento tratta i Suoi dati personali conferiti sul Sito.</p>
-            <p>Di seguito vengono descritti i principali trattamenti dei Suoi dati personali. Viene in particolare spiegata la base giuridica del trattamento, se il conferimento è obbligatorio e le conseguenze del mancato conferimento di dati personali. Per descrivere al meglio i Suoi diritti, qualora necessario, abbiamo specificato se e quando un determinato trattamento di dati personali non viene effettuato.</p>
+            <h3 data-i18n="priv_gen_title"></h3>
+            <p data-i18n="priv_gen_intro"></p>
+            <p data-i18n="priv_gen_desc"></p>
 
-            <h4>Registrazione sul Sito</h4>
-            <p>Il Sito non offre la possibilità di registrazione. Pertanto, il Titolare del Trattamento non tratta i Suoi dati personali per questa finalità.</p>
+            <h4 data-i18n="priv_reg_title"></h4>
+            <p data-i18n="priv_reg_text"></p>
 
-            <h4>Acquisti sul Sito</h4>
-            <p>Sul Sito non è possibile effettuare acquisti diretti (checkout e-commerce). Pertanto, i Suoi dati personali non saranno trattati per questa finalità specifica di vendita online automatizzata. Il Titolare del Trattamento non tratta i dati dell'utente per inviare email di "reminder" di acquisto di prodotti e/o servizi del Titolare stesso. Il Titolare non offre prodotti o servizi vietati ai minori di 18 anni.</p>
+            <h4 data-i18n="priv_shop_title"></h4>
+            <p data-i18n="priv_shop_text"></p>
 
-            <h4>Rispondere alle Sue richieste</h4>
-            <p>I Suoi dati verranno trattati per rispondere alle Sue richieste di informazioni (es. modulo contatti o prenotazione via email/WhatsApp). Il conferimento è facoltativo, ma il Suo rifiuto comporterà l’impossibilità per il Titolare del Trattamento di rispondere alle Sue domande. La base giuridica del trattamento è il legittimo interesse del Titolare del Trattamento a dare seguito alle richieste dell’utente.</p>
+            <h4 data-i18n="priv_req_title"></h4>
+            <p data-i18n="priv_req_text"></p>
 
-            <h4>Marketing generico</h4>
-            <p>Il Titolare del Trattamento non Le invierà materiale pubblicitario e/o newsletter relativo a prodotti propri o di terzi senza consenso esplicito. Utilizziamo servizi di Google, come Google Ads e Google Analytics, per personalizzare gli annunci pubblicitari e migliorare l’esperienza utente. Ciò include la raccolta di dati personali e cookie, utilizzati per mostrarti annunci in linea con le tue preferenze. Al momento del consenso, ti verrà chiesto di autorizzare l'uso di questi dati.</p>
+            <h4 data-i18n="priv_mkt_title"></h4>
+            <p data-i18n="priv_mkt_text"></p>
 
-            <h4>Profilazione</h4>
-            <p>Il Titolare del Trattamento non effettua "profilazione" con i Suoi dati personali. Pertanto, non Le invierà materiale pubblicitario e/o newsletter relativi a prodotti propri o di terzi di Suo specifico interesse.</p>
+            <h4 data-i18n="priv_prof_title"></h4>
+            <p data-i18n="priv_prof_text"></p>
 
-            <h4>Cessione dei dati</h4>
-            <p>Il Titolare del Trattamento non cede a terzi i Suoi dati personali.</p>
+            <h4 data-i18n="priv_trans_title"></h4>
+            <p data-i18n="priv_trans_text"></p>
 
-            <h4>Geolocalizzazione</h4>
-            <p>In caso di accesso al Sito Lei potrà ricevere una notifica sul Suo dispositivo che Le darà la possibilità di consentire o meno la individuazione del dispositivo medesimo. Lei potrà liberamente consentire o rifiutare tale impostazione. La base giuridica del trattamento consiste nel legittimo interesse del Titolare del Trattamento a fornire servizi pertinenti alla posizione dell’utente.</p>
+            <h4 data-i18n="priv_geo_title"></h4>
+            <p data-i18n="priv_geo_text"></p>
 
-            <h4>Curriculum Vitae</h4>
-            <p>Tramite il Sito non è possibile inviare curriculum vitae. Pertanto, i Suoi dati non verranno trattati per queste finalità.</p>
+            <h4 data-i18n="priv_cv_title"></h4>
+            <p data-i18n="priv_cv_text"></p>
 
-            <h4>Prenotazione appuntamenti</h4>
-            <p>Sul Sito non sono attivi sistemi terzi automatizzati di prenotazione appuntamenti. Pertanto, i Suoi dati non verranno trattati per questa finalità specifica.</p>
+            <h4 data-i18n="priv_book_title"></h4>
+            <p data-i18n="priv_book_text"></p>
 
-            <h4>Fotografie e video</h4>
-            <p>Il Titolare del Trattamento non chiede la pubblicazione di fotografie e/o video Lei ritraenti. Pertanto, i Suoi dati non verranno trattati per queste finalità.</p>
+            <h4 data-i18n="priv_photo_title"></h4>
+            <p data-i18n="priv_photo_text"></p>
 
-            <h4>Web scraping</h4>
-            <p>L'uso di qualsiasi processo automatizzato o sistema per accedere, acquisire, copiare o monitorare qualsiasi parte del nostro sito web (web scraping) è espressamente vietato.</p>
+            <h4 data-i18n="priv_scrap_title"></h4>
+            <p data-i18n="priv_scrap_text"></p>
 
-            <h4>Comunicazione dei dati personali</h4>
-            <p>Nell'ambito della propria ordinaria attività, il Titolare del Trattamento può comunicare i Suoi dati personali a determinate categorie di soggetti (es. consulenti fiscali, autorità per obblighi di legge come Alloggiati Web, ecc.).</p>
+            <h4 data-i18n="priv_comm_title"></h4>
+            <p data-i18n="priv_comm_text"></p>
 
             <hr class="divider">
 
-            <h3>INFORMATIVA PRIVACY SPECIFICA</h3>
+            <h3 data-i18n="priv_spec_title"></h3>
 
-            <h4>Art. 1 Modalità di trattamento</h4>
-            <p>1.1 Il trattamento dei Suoi dati personali sarà principalmente effettuato con l’ausilio di mezzi elettronici o comunque automatizzati, secondo le modalità e con gli strumenti idonei a garantirne la sicurezza e la riservatezza.</p>
-            <p>1.2 Le informazioni acquisite e le modalità del trattamento saranno pertinenti e non eccedenti rispetto alla tipologia dei servizi resi.</p>
-            <p>1.3 Tramite il Sito non vengono trattati "dati particolari" (dati sensibili).</p>
-            <p>1.4 Tramite il Sito non vengono trattati dati giudiziari.</p>
+            <h4 data-i18n="priv_art1_title"></h4>
+            <p data-i18n="priv_art1_1"></p>
+            <p data-i18n="priv_art1_2"></p>
+            <p data-i18n="priv_art1_3"></p>
+            <p data-i18n="priv_art1_4"></p>
 
-            <h4>Art. 2 Comunicazione dei dati personali</h4>
-            <p>Il Titolare del Trattamento può comunicare i Suoi dati personali a categorie determinate di soggetti:</p>
+            <h4 data-i18n="priv_art2_title"></h4>
+            <p data-i18n="priv_art2_intro"></p>
             <ul>
-                <li>Pubbliche Autorità (in forza di provvedimenti normativi o amministrativi).</li>
-                <li>Soggetti pubblici e/o privati (studi di consulenza legale, amministrativa e fiscale) per adempimento obblighi di legge.</li>
+                <li data-i18n="priv_art2_li1"></li>
+                <li data-i18n="priv_art2_li2"></li>
             </ul>
-            <p>Il Titolare del Trattamento non si avvale di piattaforme CRM per invio massivo, né cede dati a corrieri o istituti bancari per pagamenti diretti sul sito (in quanto non presenti).</p>
+            <p data-i18n="priv_art2_outro"></p>
 
-            <h4>Art. 3 Conservazione dei dati personali</h4>
-            <p>I Suoi dati personali saranno conservati per il solo tempo necessario a garantire la corretta prestazione dei servizi offerti tramite il Sito e per il tempo richiesto da normative specifiche (es. obblighi fiscali).</p>
+            <h4 data-i18n="priv_art3_title"></h4>
+            <p data-i18n="priv_art3_text"></p>
 
-            <h4>Art. 4 Trasferimento dei dati personali</h4>
-            <p>Il Titolare del Trattamento ha sede presso un Paese che presenta un adeguato livello di sicurezza dal punto di vista normativo. Qualora il trasferimento dei Suoi dati personali avvenga in un Paese extra-UE, ciò avverrà in conformità alle decisioni di adeguatezza della Commissione Europea.</p>
+            <h4 data-i18n="priv_art4_title"></h4>
+            <p data-i18n="priv_art4_text"></p>
 
-            <h4>Art. 5. Diritti dell'interessato</h4>
-            <p>Il Titolare del Trattamento La informa che Lei ha diritto di:</p>
+            <h4 data-i18n="priv_art5_title"></h4>
+            <p data-i18n="priv_art5_intro"></p>
             <ul>
-                <li>Chiedere l’accesso, la rettifica o la cancellazione dei Suoi dati personali.</li>
-                <li>Revocare il consenso in qualsiasi momento.</li>
-                <li>Proporre reclamo a un’autorità di controllo.</li>
+                <li data-i18n="priv_art5_li1"></li>
+                <li data-i18n="priv_art5_li2"></li>
+                <li data-i18n="priv_art5_li3"></li>
             </ul>
-            <p>I diritti di cui sopra potranno essere esercitati con richiesta rivolta senza formalità ai contatti del Titolare.</p>
+            <p data-i18n="priv_art5_outro"></p>
 
-            <h4>Art. 6. Modifiche e Miscellanea</h4>
-            <p>Il Titolare del Trattamento si riserva il diritto di apportare modifiche alla presente informativa in qualsiasi momento, dandone idonea pubblicità agli utenti del Sito.</p>
+            <h4 data-i18n="priv_art6_title"></h4>
+            <p data-i18n="priv_art6_text"></p>
 
         </div>
     </div>
@@ -143,7 +145,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
+                <p data-i18n="footer_loc">Riomaggiore, Cinque Terre</p>
             </div>
             <div class="footer-info">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
@@ -154,7 +156,7 @@
                 <p>
                     <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
                     Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-                    P.IVA: [INSERISCI P.IVA] | C.F.: [INSERISCI C.F.]
+                    P.IVA: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
                     CIR: 011024-AFF-0196 <br> 
@@ -162,15 +164,19 @@
                 </p>
                 <p style="margin-top: 15px; font-size: 0.75rem;">
                     <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a>
+                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
+                    <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
                 </p>
+                <p style="margin-top: 10px;">&copy; 2024 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="translations.js"></script>
+    
+    <script src="translations-privacy.js"></script> 
+
     <script src="language-manager.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

@@ -75,84 +75,86 @@
                 </script>
 
                 <div class="booking-widget" id="preventivo-box">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota Ora</h3>
-                    
-                    <div class="input-group">
-                        <label><i class="fas fa-users"></i> <span data-i18n="lbl_guests">Numero Ospiti</span></label>
-                        <select id="guests">
-                            <option value="2" data-i18n="opt_2guests">2 Ospiti</option>
-                            <option value="1" data-i18n="opt_1guest">1 Ospite</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label><i class="fas fa-calendar-alt"></i> <span data-i18n="lbl_dates">Date Soggiorno</span></label>
-                        <input type="text" id="date-picker" placeholder="Seleziona date" data-i18n="ph_dates">
-                    </div>
-
-                    <div class="input-group">
-                        <label><i class="fas fa-comments"></i> <span data-i18n="lbl_contact">Contatto preferito</span></label>
-                        <select id="contact-method">
-                            <option value="whatsapp">WhatsApp</option>
-                            <option value="email">Email</option>
-                        </select>
-                    </div>
-
-                    <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
-                        <i class="fas fa-spinner fa-spin"></i> Calcolo...
-                    </div>
-
-                  <div id="price-summary" style="display:none;" class="price-summary-card">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota Ora</h3>
     
-    <div class="summary-header">
-        <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
-        <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
+    <div class="input-group">
+        <label for="guests"><i class="fas fa-users"></i> <span data-i18n="lbl_guests">Numero Ospiti</span></label>
+        <select id="guests" name="guests" aria-label="Seleziona numero ospiti">
+            <option value="2" data-i18n="opt_2guests">2 Ospiti</option>
+            <option value="1" data-i18n="opt_1guest">1 Ospite</option>
+        </select>
     </div>
 
-    <div class="scroll-container">
-        <div id="nightly-details-list" class="nightly-list">
-            </div>
+    <div class="input-group">
+        <label for="date-picker"><i class="fas fa-calendar-alt"></i> <span data-i18n="lbl_dates">Date Soggiorno</span></label>
+        <input type="text" id="date-picker" name="dates" placeholder="Seleziona date" data-i18n="ph_dates" aria-label="Seleziona date soggiorno">
     </div>
 
-    <div class="summary-row tax-row">
-        <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
-        <span id="city-tax-display">€ 0</span>
+    <div class="input-group">
+        <label for="contact-method"><i class="fas fa-comments"></i> <span data-i18n="lbl_contact">Contatto preferito</span></label>
+        <select id="contact-method" name="contact" aria-label="Seleziona metodo contatto">
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Email</option>
+        </select>
     </div>
 
-    <div class="divider-solid"></div>
-
-    <div class="summary-row total-row main-total">
-        <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
-        <span id="grand-total-display">€ 0</span>
+    <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
+        <i class="fas fa-spinner fa-spin"></i> Calcolo...
     </div>
 
-    <div class="payment-cards-container">
+    <div id="price-summary" style="display:none;" class="price-summary-card">
         
-        <div class="pay-card deposit">
-            <div class="pay-icon"><i class="fas fa-lock"></i></div>
-            <div class="pay-info">
-                <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
-                <span class="pay-amount" id="deposit-amount">€ 0</span>
-                <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (20%)</span>
+        <div class="summary-header">
+            <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
+            <span class="stay-duration">
+                <i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span>
+            </span>
+        </div>
+
+        <div class="scroll-container">
+            <div id="nightly-details-list" class="nightly-list">
+                </div>
+        </div>
+
+        <div class="summary-row tax-row">
+            <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
+            <span id="city-tax-display">€ 0</span>
+        </div>
+
+        <div class="divider-solid"></div>
+
+        <div class="summary-row total-row main-total">
+            <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
+            <span id="grand-total-display">€ 0</span>
+        </div>
+
+        <div class="payment-cards-container">
+            
+            <div class="pay-card deposit">
+                <div class="pay-icon"><i class="fas fa-lock"></i></div>
+                <div class="pay-info">
+                    <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
+                    <span class="pay-amount" id="deposit-amount">€ 0</span>
+                    <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (20%)</span>
+                </div>
             </div>
-        </div>
 
-        <div class="pay-card balance">
-            <div class="pay-icon"><i class="fas fa-wallet"></i></div>
-            <div class="pay-info">
-                <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
-                <span class="pay-amount" id="balance-due">€ 0</span>
+            <div class="pay-card balance">
+                <div class="pay-icon"><i class="fas fa-wallet"></i></div>
+                <div class="pay-info">
+                    <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
+                    <span class="pay-amount" id="balance-due">€ 0</span>
                 </div>
+            </div>
+
         </div>
 
+        <button id="btn-request" class="btn-luxury">
+            <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
+            <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
+        </button>
     </div>
-
-    <button id="btn-request" class="btn-luxury">
-        <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
-        <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
-    </button>
 </div>
-                </div>
 
                 <h2 class="h2-internal" data-i18n="sec_details_title">Prenotazione & Dettagli</h2>
                 

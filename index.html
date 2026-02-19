@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ca' della Valletta | Luxury Cinque Terre</title>
+    
     <link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="media.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
 </head>
 <body>
 
-   <nav id="navbar">
+ <nav id="navbar">
     <div class="nav-container">
         <div class="logo">
             Ca' della Valletta
@@ -26,21 +26,22 @@
         </div>
 
         <ul class="nav-links">
-            <li><a href="index.html#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
             <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
             <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
             <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
             <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
             <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
-        </ul>
+            </ul>
 
         <div class="nav-extras">
-            <select id="language-selector">
+            <select id="language-selector" name="language" aria-label="Seleziona la lingua">
                 <option value="it">🇮🇹 IT</option>
                 <option value="en">🇬🇧 EN</option>
                 <option value="fr">🇫🇷 FR</option>
                 <option value="de">🇩🇪 DE</option>
                 <option value="es">🇪🇸 ES</option>
+                <option value="zh">🇨🇳 CN</option>
             </select>
             
             <div class="hamburger">
@@ -57,21 +58,19 @@
         <div class="hero-overlay"></div>
         
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
-            <span class="hero-subtitle" data-i18n="hero_sub">Benvenuti a Riomaggiore</span>
-            <h1 data-i18n="hero_title">Un rifugio sospeso<br>tra cielo e mare</h1>
-            <a href="#camere" class="btn-outline" style="margin-top: 30px;" data-i18n="hero_cta">Scopri le Camere</a>
+            <span class="hero-subtitle" data-i18n="hero_sub"></span>
+            <h1 data-i18n="hero_title"></h1>
+            <a href="#camere" class="btn-outline" style="margin-top: 30px;" data-i18n="hero_cta"></a>
         </div>
     </header>
 
   <section id="camere" class="section-padding">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
-         
-            <h2 class="section-title">Le Nostre Camere</h2>
+            <h2 class="section-title" data-i18n="sec_rooms_title"></h2>
         </div>
 
         <div class="room-row">
-            
             <div class="slider-container" data-aos="fade-right">
                 <div class="slides-wrapper">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="King Room" class="slide active">
@@ -81,20 +80,17 @@
                 <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                 <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 
-                <h3 class="mobile-room-title">King Room</h3>
-                <a href="camera-king.html" class="room-overlay-btn">Info & Prenota</a>
+                <h3 class="mobile-room-title" data-i18n="room_king_title"></h3>
+                <a href="camera-king.html" class="room-overlay-btn" data-i18n="btn_info_book"></a>
             </div>
 
             <div class="room-text" data-aos="fade-left">
-                <h3>King Room</h3>
-                
-                <a href="camera-king.html" class="btn-gold-solid">Scopri la Camera</a>
+                <h3 data-i18n="room_king_title"></h3>
+                <a href="camera-king.html" class="btn-gold-solid" data-i18n="btn_discover"></a>
             </div>
-
         </div>
 
         <div class="room-row reverse">
-            
             <div class="slider-container" data-aos="fade-left">
                 <div class="slides-wrapper">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="Deluxe Room" class="slide active">
@@ -104,35 +100,33 @@
                 <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                 <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 
-                <h3 class="mobile-room-title">King Deluxe</h3>
-                <a href="camera-deluxe.html" class="room-overlay-btn">Info & Prenota</a>
+                <h3 class="mobile-room-title" data-i18n="room_deluxe_title"></h3>
+                <a href="camera-deluxe.html" class="room-overlay-btn" data-i18n="btn_info_book"></a>
             </div>
 
             <div class="room-text" data-aos="fade-right">
-                <h3>King Deluxe Room</h3>
-                
-                <a href="camera-deluxe.html" class="btn-gold-solid">Scopri la Camera</a>
+                <h3 data-i18n="room_deluxe_title"></h3>
+                <a href="camera-deluxe.html" class="btn-gold-solid" data-i18n="btn_discover"></a>
             </div>
-
         </div>
     </div>
 </section>
 
     <section id="interni" class="interiors section-padding">
         <div class="container small-container"> 
-            <h2 class="section-title text-center" data-aos="fade-up" data-i18n="sec_common_title">Aree Comuni</h2>
+            <h2 class="section-title text-center" data-aos="fade-up" data-i18n="sec_common_title"></h2>
             
             <div class="room-img slider-container" data-aos="fade-up" style="height: 500px; border-radius: 8px;">
                 <div class="slides-wrapper">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Dettaglio" class="slide active">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Dettaglio" class="slide">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771461197/terrazza_jvagve.jpg" alt="Dettaglio" class="slide active">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771461207/ingresso_bfueoj.jpg" alt="Dettaglio" class="slide">
                 </div>
                 
                 <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                 <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 
                 <a href="galleria.html" class="gallery-overlay-btn">
-                    <i class="fas fa-th"></i> <span data-i18n="btn_view_gallery">Vedi Galleria</span>
+                    <i class="fas fa-th"></i> <span data-i18n="btn_view_gallery"></span>
                 </a>
             </div>
         </div>
@@ -140,39 +134,39 @@
 
     <section id="territorio" class="experience section-padding bg-dark">
         <div class="container">
-            <h2 class="section-title text-center text-light" data-aos="fade-up" data-i18n="sec_exp_title">Guest Experience</h2>
-            <p class="text-center text-light" style="margin-bottom: 50px; opacity: 0.8;" data-i18n="sec_exp_desc">Tutto ciò che ti serve per vivere le Cinque Terre, a portata di click.</p>
+            <h2 class="section-title text-center text-light" data-aos="fade-up" data-i18n="sec_exp_title"></h2>
+            <p class="text-center text-light" style="margin-bottom: 50px; opacity: 0.8;" data-i18n="sec_exp_desc"></p>
             
             <div class="resources-grid">
                 
                 <div class="resource-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="card-icon">
                         <i class="fas fa-gem"></i> </div>
-                    <h3 data-i18n="card_services_title">Servizi Esclusivi</h3>
-                    <p data-i18n="card_services_desc">Transfer privati, gite in barca al tramonto o prenotazioni speciali. Chiedici di più.</p>
-                    <a href="https://wa.me/393489617894" target="_blank" class="btn-text-gold" data-i18n="btn_whatsapp">Scrivici su WhatsApp &rarr;</a>
+                    <h3 data-i18n="card_services_title"></h3>
+                    <p data-i18n="card_services_desc"></p>
+                    <a href="https://wa.me/393489617894" target="_blank" class="btn-text-gold" data-i18n="btn_whatsapp"></a>
                 </div>
 
                 <div class="resource-card highlight" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 data-i18n="card_guide_title">La Nostra Guida</h3>
-                    <p data-i18n="card_guide_desc">Scopri i segreti locali, i migliori ristoranti e i sentieri nascosti con la nostra Web App esclusiva.</p>
-                    <a href="https://five2go.it" target="_blank" class="btn-gold-solid" data-i18n="btn_guide">Apri Five2Go.it</a>
+                    <h3 data-i18n="card_guide_title"></h3>
+                    <p data-i18n="card_guide_desc"></p>
+                    <a href="https://five2go.it" target="_blank" class="btn-gold-solid" data-i18n="btn_guide"></a>
                 </div>
 
                 <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-icon">
                         <i class="fas fa-info-circle"></i>
                     </div>
-                    <h3 data-i18n="card_links_title">Link Ufficiali</h3>
-                    <p data-i18n="card_links_desc">Muoversi e organizzarsi:</p>
+                    <h3 data-i18n="card_links_title"></h3>
+                    <p data-i18n="card_links_desc"></p>
                     <ul class="useful-links">
-                        <li><a href="https://www.trenitalia.com" target="_blank"><i class="fas fa-train"></i> <span data-i18n="link_train">Trenitalia Orari</span></a></li>
-                        <li><a href="https://www.atcesercizio.it" target="_blank"><i class="fas fa-bus"></i> <span data-i18n="link_bus">Bus ATC La Spezia</span></a></li>
-                        <li><a href="http://www.parconazionale5terre.it" target="_blank"><i class="fas fa-leaf"></i> <span data-i18n="link_park">Parco Nazionale</span></a></li>
-                        <li><a href="https://www.traghettiportofino.it" target="_blank"><i class="fas fa-ship"></i> <span data-i18n="link_ferry">Traghetti</span></a></li>
+                        <li><a href="https://www.trenitalia.com" target="_blank"><i class="fas fa-train"></i> <span data-i18n="link_train"></span></a></li>
+                        <li><a href="https://www.atcesercizio.it" target="_blank"><i class="fas fa-bus"></i> <span data-i18n="link_bus"></span></a></li>
+                        <li><a href="http://www.parconazionale5terre.it" target="_blank"><i class="fas fa-leaf"></i> <span data-i18n="link_park"></span></a></li>
+                        <li><a href="https://www.traghettiportofino.it" target="_blank"><i class="fas fa-ship"></i> <span data-i18n="link_ferry"></span></a></li>
                     </ul>
                 </div>
 
@@ -184,36 +178,42 @@
         <div class="container footer-content">
             <div class="footer-brand" data-aos="fade-up">
                 <h2>Ca' della Valletta</h2>
-                <p data-i18n="footer_loc">Riomaggiore, Cinque Terre</p>
+                <p data-i18n="footer_loc"></p>
             </div>
             <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
                 <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
                 <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
-            </div><div class="footer-legal">
-    <p>
-        <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
-        Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-        P.IVA: IT01444610453<br>
-        </p>
-    <p style="margin-top: 10px; font-weight: bold;">
-        CIR: 011024-AFF-0196 <br> 
-        CIN: IT011024B4MTWJF09S
-    </p>
-    <p style="margin-top: 15px; font-size: 0.75rem;">
-        <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
-        <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
-          <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
-    </p>
-    <p style="margin-top: 10px;">&copy; 2024 Ca' della Valletta. Tutti i diritti riservati.</p>
-</div>
+            </div>
+            <div class="footer-legal">
+                <p>
+                    <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
+                    Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
+                    P.IVA: IT01444610453<br>
+                </p>
+                <p style="margin-top: 10px; font-weight: bold;">
+                    CIR: 011024-AFF-0196 <br> 
+                    CIN: IT011024B4MTWJF09S
+                </p>
+                <p style="margin-top: 15px; font-size: 0.75rem;">
+                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
+                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
+                    <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
+                </p>
+                <p style="margin-top: 10px;" data-i18n="footer_rights"></p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    
     <script src="translations.js"></script>
     <script src="language-manager.js"></script>
+    
+    <script>
+        AOS.init();
+    </script>
     
 </body>
 </html>

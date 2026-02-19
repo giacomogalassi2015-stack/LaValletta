@@ -1,40 +1,12 @@
-const translations = {
+/* --- AGGIUNGI QUESTE CHIAVI A TRANSLATIONS.JS --- */
+
+const translations_king = {
     it: {
-        // NAVIGAZIONE & FOOTER
-        nav_home: "Home",
-        nav_king: "Camera King",
-        nav_deluxe: "Camera Deluxe",
-        nav_gallery: "Galleria",
-        nav_experience: "Experience",
-        nav_contact: "Contatti",
-        footer_loc: "Riomaggiore, Cinque Terre",
+        // Hero
+        king_hero_sub: "Intimità & Storia",
+        king_hero_title: "King Room",
 
-        // HOME PAGE
-        hero_sub: "Benvenuti a Riomaggiore",
-        hero_title: "Un rifugio sospeso<br>tra cielo e mare",
-        hero_cta: "Scopri le Camere",
-        sec_rooms_title: "Le camere",
-        room_king_title: "King Room",
-        room_deluxe_title: "King Deluxe Room",
-        btn_info_book: "Info & Prenota",
-        sec_common_title: "Aree Comuni",
-        btn_view_gallery: "Vedi Galleria",
-        sec_exp_title: "Guest Experience",
-        sec_exp_desc: "Tutto ciò che ti serve per vivere le Cinque Terre, a portata di click.",
-        card_services_title: "Servizi Esclusivi",
-        card_services_desc: "Transfer privati, gite in barca al tramonto o prenotazioni speciali. Chiedici di più.",
-        btn_whatsapp: "Scrivici su WhatsApp →",
-        card_guide_title: "La Nostra Guida",
-        card_guide_desc: "Scopri i segreti locali, i migliori ristoranti e i sentieri nascosti con la nostra Web App esclusiva.",
-        btn_guide: "Apri Five2Go.it",
-        card_links_title: "Link Ufficiali",
-        card_links_desc: "Muoversi e organizzarsi:",
-        link_train: "Trenitalia Orari",
-        link_bus: "Bus ATC La Spezia",
-        link_park: "Parco Nazionale",
-        link_ferry: "Traghetti",
-
-      // WIDGET PRENOTAZIONE
+        // Widget Prenotazione (se non già presenti)
         book_title: "Prenota Ora",
         lbl_guests: "Numero Ospiti",
         opt_2guests: "2 Ospiti",
@@ -42,8 +14,6 @@ const translations = {
         lbl_dates: "Date Soggiorno",
         ph_dates: "Seleziona date",
         lbl_contact: "Contatto preferito",
-        
-        // Nuovi tag Luxury 2.0
         lbl_your_stay: "Dettaglio Costi",
         lbl_nights: "Notti",
         lbl_city_tax: "Tassa Soggiorno",
@@ -53,367 +23,526 @@ const translations = {
         lbl_balance_struct: "SALDO IN HOTEL",
         btn_request: "Richiedi disponibilità",
 
-        // POLICY E DETTAGLI
+        // Dettagli & Policy
         sec_details_title: "Prenotazione & Dettagli",
-        txt_deposit_info: "La prenotazione si intende confermata al versamento della caparra del 20% tramite link sicuro.",
+        txt_deposit_info: "La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.",
+        
         pol_hours_title: "Orari",
-        pol_checkin: "Check-in: 14:00 - 00:00",
-        pol_checkout: "Check-out: entro le 11:00",
+        pol_checkin: "Check-in: 14:00 - 20:00",
+        pol_checkout: "Check-out: entro le 10:30",
+        
         pol_bed_title: "Disposizione Notte",
         pol_bed_desc: "Letti matrimoniali non divisibili. No culle o letti extra.",
+        
         pol_rules_title: "Regole Struttura",
         pol_rules_desc: "Camere non fumatori. No parcheggio privato.",
-        txt_comfort: "Comfort: Ambienti climatizzati e insonorizzati.",
-        txt_cancellation: "Cancellazione: Gratuita fino a 30 giorni dall'arrivo.",
-        txt_terrace: "Terrazza: Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.",
 
-        // SERVIZI GENERALI E SPECIFICI
+        txt_comfort: "<strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.",
+        txt_cancellation: "<strong>Cancellazione:</strong> Gratuita fino a 14 giorni dall'arrivo.",
+        txt_terrace: "<strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.",
+
+        // Galleria & Servizi
+        gal_btn: "Vedi Galleria",
         sec_services_title: "Servizi Inclusi",
-        srv_wifi: "WiFi Gratuito",
-        srv_ac: "Aria Condizionata",
-        srv_kettle: "Bollitore Tè & Caffè",
-        srv_hairdryer: "Asciugacapelli",
         
-        // DELUXE SPECIFICHE
-        deluxe_hero_sub: "Spazio & Design",
-        deluxe_hero_title: "King Deluxe Room",
-        srv_space: "Metratura Ampia",
-        srv_tv: "Smart TV 50\" 4K",
-        srv_minibar: "Minibar Premium",
-        srv_relax: "Area Relax / Lettura",
-
-        // KING SPECIFICHE
-        king_hero_sub: "Intimità & Storia",
-        king_hero_title: "King Room",
+        srv_ac: "Aria Condizionata",
+        srv_wifi: "WiFi Gratuito",
         srv_linen: "Biancheria Completa",
         srv_soap: "Set Cortesia",
         srv_solarium: "Terrazza Solarium",
         srv_soundproof: "Insonorizzazione",
-        gal_btn: "Vedi Galleria"
+        srv_kettle: "Bollitore Tè & Caffè",
+        srv_hairdryer: "Asciugacapelli",
+        
+        // Footer (se non già presente)
+        footer_loc: "Riomaggiore, Cinque Terre"
     },
-
     en: {
-        nav_home: "Home",
-        nav_king: "King Room",
-        nav_deluxe: "Deluxe Room",
-        nav_gallery: "Gallery",
-        nav_experience: "Experience",
-        nav_contact: "Contact",
-        footer_loc: "Riomaggiore, Cinque Terre",
-        hero_sub: "Welcome to Riomaggiore",
-        hero_title: "A refuge suspended<br>between sky and sea",
-        hero_cta: "Discover Rooms",
-        sec_rooms_title: "The Rooms",
-        room_king_title: "King Room",
-        room_deluxe_title: "King Deluxe Room",
-        btn_info_book: "Info & Book",
-        sec_common_title: "Common Areas",
-        btn_view_gallery: "View Gallery",
-        sec_exp_title: "Guest Experience",
-        sec_exp_desc: "Everything you need to experience Cinque Terre, just a click away.",
-        card_services_title: "Exclusive Services",
-        card_services_desc: "Private transfers, sunset boat tours, or special reservations. Ask us more.",
-        btn_whatsapp: "Chat on WhatsApp →",
-        card_guide_title: "Our Guide",
-        card_guide_desc: "Discover local secrets, best restaurants, and hidden trails with our exclusive Web App.",
-        btn_guide: "Open Five2Go.it",
-        card_links_title: "Official Links",
-        card_links_desc: "Getting around & planning:",
-        link_train: "Trenitalia Schedule",
-        link_bus: "Bus ATC La Spezia",
-        link_park: "National Park",
-        link_ferry: "Ferries",
-        // WIDGET PRENOTAZIONE
+        king_hero_sub: "Intimacy & History",
+        king_hero_title: "King Room",
+
         book_title: "Book Now",
-        lbl_guests: "Guests",
+        lbl_guests: "Number of Guests",
         opt_2guests: "2 Guests",
         opt_1guest: "1 Guest",
         lbl_dates: "Stay Dates",
         ph_dates: "Select dates",
         lbl_contact: "Preferred Contact",
-        
-        // Nuovi tag Luxury 2.0
-        lbl_your_stay: "Cost Breakdown",
+        lbl_your_stay: "Cost Details",
         lbl_nights: "Nights",
         lbl_city_tax: "City Tax",
         lbl_grand_total: "GRAND TOTAL",
-        lbl_deposit_now: "PAY NOW",
-        lbl_deposit_sub: "Confirming deposit (20%)",
+        lbl_deposit_now: "DUE NOW",
+        lbl_deposit_sub: "Confirmation Deposit (20%)",
         lbl_balance_struct: "BALANCE AT HOTEL",
         btn_request: "Request Availability",
+
         sec_details_title: "Booking & Details",
-        txt_deposit_info: "Reservation is confirmed upon payment of the 20% deposit via secure link.",
+        txt_deposit_info: "The booking is confirmed upon payment of the <strong>20% deposit</strong> via secure link.",
+        
         pol_hours_title: "Hours",
-        pol_checkin: "Check-in: 2:00 PM - 12:00 AM",
-        pol_checkout: "Check-out: by 11:00 AM",
-        pol_bed_title: "Bedding",
-        pol_bed_desc: "Double beds cannot be split. No cribs or extra beds.",
+        pol_checkin: "Check-in: 14:00 - 20:00",
+        pol_checkout: "Check-out: by 10:30",
+        
+        pol_bed_title: "Sleeping Arrangement",
+        pol_bed_desc: "Non-divisible double beds. No cribs or extra beds.",
+        
         pol_rules_title: "House Rules",
         pol_rules_desc: "Non-smoking rooms. No private parking.",
-        txt_comfort: "Comfort: Air-conditioned and soundproofed.",
-        txt_cancellation: "Cancellation: Free up to 30 days before arrival.",
-        txt_terrace: "Terrace: Access to shared terrace for all guests.",
-        sec_services_title: "Included Amenities",
-        srv_wifi: "Free Wi-Fi",
+
+        txt_comfort: "<strong>Comfort:</strong> Air-conditioned and soundproofed rooms.",
+        txt_cancellation: "<strong>Cancellation:</strong> Free up to 14 days before arrival.",
+        txt_terrace: "<strong>Terrace:</strong> Access to the common terrace, shared among guests.",
+
+        gal_btn: "View Gallery",
+        sec_services_title: "Included Services",
+        
         srv_ac: "Air Conditioning",
-        srv_kettle: "Tea & Coffee Kettle",
-        srv_hairdryer: "Hairdryer",
-        deluxe_hero_sub: "Space & Design",
-        deluxe_hero_title: "King Deluxe Room",
-        srv_space: "Spacious Area",
-        srv_tv: "Smart TV 50\" 4K",
-        srv_minibar: "Premium Minibar",
-        srv_relax: "Relax / Reading Area",
-        king_hero_sub: "Intimacy & History",
-        king_hero_title: "King Room",
+        srv_wifi: "Free WiFi",
         srv_linen: "Full Linens",
-        srv_soap: "Toiletries Set",
+        srv_soap: "Toiletries",
         srv_solarium: "Solarium Terrace",
         srv_soundproof: "Soundproofing",
-        gal_btn: "View Gallery"
-    },
-
-    fr: {
-        nav_home: "Accueil",
-        nav_king: "Chambre King",
-        nav_deluxe: "Chambre Deluxe",
-        nav_gallery: "Galerie",
-        nav_experience: "Expérience",
-        nav_contact: "Contact",
-        footer_loc: "Riomaggiore, Cinque Terre",
-        hero_sub: "Bienvenue à Riomaggiore",
-        hero_title: "Un refuge suspendu<br>entre ciel et mer",
-        hero_cta: "Découvrir les Chambres",
-        sec_rooms_title: "Les Chambres",
-        room_king_title: "Chambre King",
-        room_deluxe_title: "Chambre King Deluxe",
-        btn_info_book: "Info & Réserver",
-        sec_common_title: "Espaces Communs",
-        btn_view_gallery: "Voir la Galerie",
-        sec_exp_title: "Expérience Client",
-        sec_exp_desc: "Tout ce dont vous avez besoin pour vivre les Cinque Terre.",
-        card_services_title: "Services Exclusifs",
-        card_services_desc: "Transferts privés, tours en bateau. Demandez-nous.",
-        btn_whatsapp: "Écrivez-nous sur WhatsApp →",
-        card_guide_title: "Notre Guide",
-        card_guide_desc: "Découvrez les secrets locaux avec notre Web App.",
-        btn_guide: "Ouvrir Five2Go.it",
-        card_links_title: "Liens Officiels",
-        card_links_desc: "Se déplacer et s'organiser:",
-        link_train: "Horaires Trenitalia",
-        link_bus: "Bus ATC La Spezia",
-        link_park: "Parc National",
-        link_ferry: "Ferries",
-        // WIDGET PRENOTAZIONE
-        book_title: "Réserver",
-        lbl_guests: "Voyageurs",
-        opt_2guests: "2 Voyageurs",
-        opt_1guest: "1 Voyageur",
-        lbl_dates: "Dates du séjour",
-        ph_dates: "Sélectionner dates",
-        lbl_contact: "Contact préféré",
+        srv_kettle: "Tea & Coffee Kettle",
+        srv_hairdryer: "Hairdryer",
         
-        // Nuovi tag Luxury 2.0
-        lbl_your_stay: "Détail des coûts",
-        lbl_nights: "Nuits",
-        lbl_city_tax: "Taxe de séjour",
-        lbl_grand_total: "TOTAL GÉNÉRAL",
-        lbl_deposit_now: "À PAYER MAINTENANT",
-        lbl_deposit_sub: "Acompte de confirmation (20%)",
-        lbl_balance_struct: "SOLDE À L'HÔTEL",
-        btn_request: "Demander disponibilité",
-        sec_details_title: "Réservation & Détails",
-        txt_deposit_info: "La réservation est confirmée au paiement de l'acompte de 20%.",
-        pol_hours_title: "Horaires",
-        pol_checkin: "Arrivée: 14h00 - 00h00",
-        pol_checkout: "Départ: avant 11h00",
-        pol_bed_title: "Couchage",
-        pol_bed_desc: "Lits doubles non séparables. Pas de lits bébé/extra.",
-        pol_rules_title: "Règlement",
-        pol_rules_desc: "Chambres non-fumeurs. Pas de parking privé.",
-        txt_comfort: "Confort: Climatisé et insonorisé.",
-        txt_cancellation: "Annulation: Gratuite jusqu'à 30 jours avant l'arrivée.",
-        txt_terrace: "Terrasse: Accès à la terrasse commune partagée.",
-        sec_services_title: "Services Inclus",
-        srv_wifi: "Wi-Fi Gratuit",
-        srv_ac: "Climatisation",
-        srv_kettle: "Bouilloire Thé & Café",
-        srv_hairdryer: "Sèche-cheveux",
-        deluxe_hero_sub: "Espace & Design",
-        deluxe_hero_title: "Chambre King Deluxe",
-        srv_space: "Grand Espace",
-        srv_tv: "Smart TV 50\" 4K",
-        srv_minibar: "Minibar Premium",
-        srv_relax: "Espace Détente",
+        footer_loc: "Riomaggiore, Cinque Terre"
+    },
+    fr: {
         king_hero_sub: "Intimité & Histoire",
         king_hero_title: "Chambre King",
+
+        book_title: "Réserver",
+        lbl_guests: "Nombre d'Invités",
+        opt_2guests: "2 Invités",
+        opt_1guest: "1 Invité",
+        lbl_dates: "Dates du Séjour",
+        ph_dates: "Sélectionner dates",
+        lbl_contact: "Contact préféré",
+        lbl_your_stay: "Détails des Coûts",
+        lbl_nights: "Nuits",
+        lbl_city_tax: "Taxe de Séjour",
+        lbl_grand_total: "TOTAL GÉNÉRAL",
+        lbl_deposit_now: "À PAYER MAINTENANT",
+        lbl_deposit_sub: "Arrhes de confirmation (20%)",
+        lbl_balance_struct: "SOLDE À L'HÔTEL",
+        btn_request: "Demander disponibilité",
+
+        sec_details_title: "Réservation & Détails",
+        txt_deposit_info: "La réservation est confirmée au versement des <strong>arrhes de 20%</strong> via lien sécurisé.",
+        
+        pol_hours_title: "Horaires",
+        pol_checkin: "Arrivée : 14h00 - 20h00",
+        pol_checkout: "Départ : avant 10h30",
+        
+        pol_bed_title: "Disposition Nuit",
+        pol_bed_desc: "Lits doubles non séparables. Pas de lits bébé ou lits d'appoint.",
+        
+        pol_rules_title: "Règles de la Maison",
+        pol_rules_desc: "Chambres non-fumeurs. Pas de parking privé.",
+
+        txt_comfort: "<strong>Confort :</strong> Chambres climatisées et insonorisées.",
+        txt_cancellation: "<strong>Annulation :</strong> Gratuite jusqu'à 14 jours avant l'arrivée.",
+        txt_terrace: "<strong>Terrasse :</strong> Accès à la terrasse commune, partagée entre les invités.",
+
+        gal_btn: "Voir Galerie",
+        sec_services_title: "Services Inclus",
+        
+        srv_ac: "Climatisation",
+        srv_wifi: "WiFi Gratuit",
         srv_linen: "Linge Complet",
-        srv_soap: "Produits de Toilette",
+        srv_soap: "Set de Courtoisie",
         srv_solarium: "Terrasse Solarium",
         srv_soundproof: "Insonorisation",
-        gal_btn: "Voir Galerie"
+        srv_kettle: "Bouilloire Thé & Café",
+        srv_hairdryer: "Sèche-cheveux",
+        
+        footer_loc: "Riomaggiore, Cinque Terre"
     },
-
     de: {
-        nav_home: "Startseite",
-        nav_king: "King Zimmer",
-        nav_deluxe: "Deluxe Zimmer",
-        nav_gallery: "Galerie",
-        nav_experience: "Erlebnis",
-        nav_contact: "Kontakt",
-        footer_loc: "Riomaggiore, Cinque Terre",
-        hero_sub: "Willkommen in Riomaggiore",
-        hero_title: "Ein Zufluchtsort zwischen<br>Himmel und Meer",
-        hero_cta: "Zimmer Entdecken",
-        sec_rooms_title: "Die Zimmer",
-        room_king_title: "King Zimmer",
-        room_deluxe_title: "King Deluxe Zimmer",
-        btn_info_book: "Info & Buchen",
-        sec_common_title: "Gemeinschaftsbereiche",
-        btn_view_gallery: "Galerie Ansehen",
-        sec_exp_title: "Gästeerlebnis",
-        sec_exp_desc: "Alles, was Sie für die Cinque Terre brauchen.",
-        card_services_title: "Exklusive Services",
-        card_services_desc: "Privattransfers, Bootstouren. Fragen Sie uns.",
-        btn_whatsapp: "WhatsApp Chat →",
-        card_guide_title: "Unser Guide",
-        card_guide_desc: "Entdecken Sie lokale Geheimnisse mit unserer Web App.",
-        btn_guide: "Five2Go.it Öffnen",
-        card_links_title: "Offizielle Links",
-        card_links_desc: "Unterwegs & Planung:",
-        link_train: "Trenitalia Fahrplan",
-        link_bus: "Bus ATC La Spezia",
-        link_park: "Nationalpark",
-        link_ferry: "Fähren",
-       // WIDGET PRENOTAZIONE
+        king_hero_sub: "Intimität & Geschichte",
+        king_hero_title: "King Zimmer",
+
         book_title: "Jetzt Buchen",
-        lbl_guests: "Gäste",
+        lbl_guests: "Anzahl Gäste",
         opt_2guests: "2 Gäste",
         opt_1guest: "1 Gast",
         lbl_dates: "Reisedaten",
         ph_dates: "Daten auswählen",
-        lbl_contact: "Kontakt",
-        
-        // Nuovi tag Luxury 2.0
+        lbl_contact: "Bevorzugter Kontakt",
         lbl_your_stay: "Kostenübersicht",
         lbl_nights: "Nächte",
         lbl_city_tax: "Kurtaxe",
         lbl_grand_total: "GESAMTBETRAG",
-        lbl_deposit_now: "JETZT ZAHLEN",
-        lbl_deposit_sub: "Bestätigungsanzahlung (20%)",
+        lbl_deposit_now: "JETZT FÄLLIG",
+        lbl_deposit_sub: "Anzahlung (20%)",
         lbl_balance_struct: "RESTBETRAG IM HOTEL",
         btn_request: "Verfügbarkeit anfragen",
+
         sec_details_title: "Buchung & Details",
-        txt_deposit_info: "Die Reservierung ist nach Zahlung der 20% Anzahlung bestätigt.",
+        txt_deposit_info: "Die Buchung gilt als bestätigt nach Zahlung der <strong>20% Anzahlung</strong> über einen sicheren Link.",
+        
         pol_hours_title: "Zeiten",
-        pol_checkin: "Check-in: 14:00 - 00:00",
-        pol_checkout: "Check-out: bis 11:00",
-        pol_bed_title: "Betten",
-        pol_bed_desc: "Doppelbetten nicht trennbar. Keine Zustellbetten.",
+        pol_checkin: "Check-in: 14:00 - 20:00",
+        pol_checkout: "Check-out: bis 10:30",
+        
+        pol_bed_title: "Schlafmöglichkeit",
+        pol_bed_desc: "Nicht teilbare Doppelbetten. Keine Kinder- oder Zustellbetten.",
+        
         pol_rules_title: "Hausregeln",
-        pol_rules_desc: "Nichtraucherzimmer. Kein Privatparkplatz.",
-        txt_comfort: "Komfort: Klimatisiert und schallisoliert.",
-        txt_cancellation: "Stornierung: Kostenlos bis 30 Tage vor Anreise.",
-        txt_terrace: "Terrasse: Zugang zur Gemeinschaftsterrasse.",
-        sec_services_title: "Inkludierte Leistungen",
-        srv_wifi: "Gratis WLAN",
+        pol_rules_desc: "Nichtraucherzimmer. Kein privater Parkplatz.",
+
+        txt_comfort: "<strong>Komfort:</strong> Klimatisierte und schallisolierte Zimmer.",
+        txt_cancellation: "<strong>Stornierung:</strong> Kostenlos bis 14 Tage vor Anreise.",
+        txt_terrace: "<strong>Terrasse:</strong> Zugang zur Gemeinschaftsterrasse.",
+
+        gal_btn: "Galerie ansehen",
+        sec_services_title: "Inklusivleistungen",
+        
         srv_ac: "Klimaanlage",
-        srv_kettle: "Wasserkocher",
-        srv_hairdryer: "Haartrockner",
-        deluxe_hero_sub: "Raum & Design",
-        deluxe_hero_title: "King Deluxe Zimmer",
-        srv_space: "Viel Platz",
-        srv_tv: "Smart TV 50\" 4K",
-        srv_minibar: "Premium Minibar",
-        srv_relax: "Entspannungsbereich",
-        king_hero_sub: "Intimität & Geschichte",
-        king_hero_title: "King Zimmer",
-        srv_linen: "Bettwäsche inkl.",
-        srv_soap: "Pflegeprodukte",
+        srv_wifi: "Kostenloses WiFi",
+        srv_linen: "Bettwäsche & Handtücher",
+        srv_soap: "Pflegeset",
         srv_solarium: "Sonnenterrasse",
         srv_soundproof: "Schallisolierung",
-        gal_btn: "Galerie Ansehen"
+        srv_kettle: "Wasserkocher Tee & Kaffee",
+        srv_hairdryer: "Haartrockner",
+        
+        footer_loc: "Riomaggiore, Cinque Terre"
     },
-
     es: {
-        nav_home: "Inicio",
-        nav_king: "Habitación King",
-        nav_deluxe: "Habitación Deluxe",
-        nav_gallery: "Galería",
-        nav_experience: "Experiencia",
-        nav_contact: "Contacto",
-        footer_loc: "Riomaggiore, Cinque Terre",
-        hero_sub: "Bienvenido a Riomaggiore",
-        hero_title: "Un refugio suspendido<br>entre cielo y mar",
-        hero_cta: "Descubrir Habitaciones",
-        sec_rooms_title: "Las Habitaciones",
-        room_king_title: "Habitación King",
-        room_deluxe_title: "Habitación King Deluxe",
-        btn_info_book: "Info & Reservar",
-        sec_common_title: "Áreas Comunes",
-        btn_view_gallery: "Ver Galería",
-        sec_exp_title: "Experiencia",
-        sec_exp_desc: "Todo lo que necesitas para vivir las Cinque Terre.",
-        card_services_title: "Servicios Exclusivos",
-        card_services_desc: "Traslados privados, paseos en barco. Pregúntanos.",
-        btn_whatsapp: "Escríbenos por WhatsApp →",
-        card_guide_title: "Nuestra Guía",
-        card_guide_desc: "Descubre secretos locales con nuestra Web App.",
-        btn_guide: "Abrir Five2Go.it",
-        card_links_title: "Enlaces Oficiales",
-        card_links_desc: "Moverse y organizarse:",
-        link_train: "Horarios Trenitalia",
-        link_bus: "Autobús ATC",
-        link_park: "Parque Nacional",
-        link_ferry: "Ferris",
-        // WIDGET PRENOTAZIONE
+        king_hero_sub: "Intimidad & Historia",
+        king_hero_title: "Habitación King",
+
         book_title: "Reservar Ahora",
-        lbl_guests: "Huéspedes",
+        lbl_guests: "Número de Huéspedes",
         opt_2guests: "2 Huéspedes",
         opt_1guest: "1 Huésped",
-        lbl_dates: "Fechas Estancia",
+        lbl_dates: "Fechas de Estancia",
         ph_dates: "Seleccionar fechas",
-        lbl_contact: "Contacto",
-        
-        // Nuovi tag Luxury 2.0
-        lbl_your_stay: "Desglose de costes",
+        lbl_contact: "Contacto preferido",
+        lbl_your_stay: "Detalles de Costos",
         lbl_nights: "Noches",
         lbl_city_tax: "Tasa Turística",
         lbl_grand_total: "TOTAL GENERAL",
-        lbl_deposit_now: "PAGAR AHORA",
+        lbl_deposit_now: "A PAGAR AHORA",
         lbl_deposit_sub: "Depósito de confirmación (20%)",
-        lbl_balance_struct: "PAGO EN EL HOTEL",
+        lbl_balance_struct: "SALDO EN EL HOTEL",
         btn_request: "Solicitar disponibilidad",
+
         sec_details_title: "Reserva y Detalles",
-        txt_deposit_info: "Reserva confirmada tras el pago del depósito del 20%.",
+        txt_deposit_info: "La reserva se confirma tras el pago del <strong>depósito del 20%</strong> mediante enlace seguro.",
+        
         pol_hours_title: "Horarios",
-        pol_checkin: "Entrada: 14:00 - 00:00",
-        pol_checkout: "Salida: antes de 11:00",
-        pol_bed_title: "Camas",
-        pol_bed_desc: "Camas dobles no divisibles. Sin cunas ni camas extra.",
-        pol_rules_title: "Normas",
-        pol_rules_desc: "Habitaciones no fumadores. Sin parking privado.",
-        txt_comfort: "Confort: Aire acondicionado e insonorización.",
-        txt_cancellation: "Cancelación: Gratuita hasta 30 días antes.",
-        txt_terrace: "Terraza: Acceso a terraza compartida.",
+        pol_checkin: "Check-in: 14:00 - 20:00",
+        pol_checkout: "Check-out: antes de las 10:30",
+        
+        pol_bed_title: "Disposición Noche",
+        pol_bed_desc: "Camas dobles no divisibles. No cunas ni camas supletorias.",
+        
+        pol_rules_title: "Reglas de la Casa",
+        pol_rules_desc: "Habitaciones para no fumadores. Sin aparcamiento privado.",
+
+        txt_comfort: "<strong>Confort:</strong> Habitaciones climatizadas e insonorizadas.",
+        txt_cancellation: "<strong>Cancelación:</strong> Gratuita hasta 14 días antes de la llegada.",
+        txt_terrace: "<strong>Terraza:</strong> Acceso a la terraza común, compartida entre los huéspedes.",
+
+        gal_btn: "Ver Galería",
         sec_services_title: "Servicios Incluidos",
-        srv_wifi: "WiFi Gratuito",
+        
         srv_ac: "Aire Acondicionado",
+        srv_wifi: "WiFi Gratuito",
+        srv_linen: "Ropa de Cama Completa",
+        srv_soap: "Set de Cortesía",
+        srv_solarium: "Terraza Solárium",
+        srv_soundproof: "Insonorización",
         srv_kettle: "Hervidor Té y Café",
         srv_hairdryer: "Secador de pelo",
-        deluxe_hero_sub: "Espacio y Diseño",
-        deluxe_hero_title: "Habitación King Deluxe",
-        srv_space: "Espacio Amplio",
-        srv_tv: "Smart TV 50\" 4K",
-        srv_minibar: "Minibar Premium",
-        srv_relax: "Zona Relax",
-        king_hero_sub: "Intimidad e Historia",
-        king_hero_title: "Habitación King",
-        srv_linen: "Ropa de Cama",
-        srv_soap: "Set de Baño",
-        srv_solarium: "Terraza Solarium",
-        srv_soundproof: "Insonorización",
-        gal_btn: "Ver Galería"
-    },
-
+        
+        footer_loc: "Riomaggiore, Cinque Terre"
+    }
 };
+
+
+/* --- AGGIUNGI QUESTE CHIAVI PER LA CAMERA DELUXE --- */
+
+const translations_deluxe = {
+    it: {
+        deluxe_hero_sub: "Eleganza & Relax",
+        deluxe_hero_title: "Camera Deluxe",
+        // Nota: I servizi e le policy usano già le chiavi comuni (srv_*, pol_*)
+    },
+    en: {
+        deluxe_hero_sub: "Elegance & Relax",
+        deluxe_hero_title: "Deluxe Room",
+    },
+    fr: {
+        deluxe_hero_sub: "Élégance & Détente",
+        deluxe_hero_title: "Chambre Deluxe",
+    },
+    de: {
+        deluxe_hero_sub: "Eleganz & Entspannung",
+        deluxe_hero_title: "Deluxe Zimmer",
+    },
+    es: {
+        deluxe_hero_sub: "Elegancia & Relax",
+        deluxe_hero_title: "Habitación Deluxe",
+    }
+};
+/* --- AGGIUNGI QUESTE CHIAVI PER LA HOME PAGE --- */
+
+const translations_home = {
+    it: {
+        // Hero
+        hero_sub: "Benvenuti a Riomaggiore",
+        hero_title: "Un rifugio sospeso<br>tra cielo e mare",
+        hero_cta: "Scopri le Camere",
+
+        // Sezione Camere
+        sec_rooms_title: "Le Nostre Camere",
+        room_king_title: "King Room",
+        room_deluxe_title: "King Deluxe Room",
+        btn_info_book: "Info & Prenota",
+        btn_discover: "Scopri la Camera",
+
+        // Aree Comuni
+        sec_common_title: "Aree Comuni",
+        btn_view_gallery: "Vedi Galleria",
+
+        // Experience (Guest Experience)
+        sec_exp_title: "Guest Experience",
+        sec_exp_desc: "Tutto ciò che ti serve per vivere le Cinque Terre, a portata di click.",
+        
+        card_services_title: "Servizi Esclusivi",
+        card_services_desc: "Transfer privati, gite in barca al tramonto o prenotazioni speciali. Chiedici di più.",
+        btn_whatsapp: "Scrivici su WhatsApp &rarr;",
+
+        card_guide_title: "La Nostra Guida",
+        card_guide_desc: "Scopri i segreti locali, i migliori ristoranti e i sentieri nascosti con la nostra Web App esclusiva.",
+        btn_guide: "Apri Five2Go.it",
+
+        card_links_title: "Link Ufficiali",
+        card_links_desc: "Muoversi e organizzarsi:",
+        link_train: "Trenitalia Orari",
+        link_bus: "Bus ATC La Spezia",
+        link_park: "Parco Nazionale",
+        link_ferry: "Traghetti",
+
+        // Footer (Generico)
+        footer_loc: "Riomaggiore, Cinque Terre",
+        footer_rights: "&copy; 2026 Ca' della Valletta. Tutti i diritti riservati."
+    },
+    en: {
+        hero_sub: "Welcome to Riomaggiore",
+        hero_title: "A sanctuary suspended<br>between sky and sea",
+        hero_cta: "Discover Rooms",
+
+        sec_rooms_title: "Our Rooms",
+        room_king_title: "King Room",
+        room_deluxe_title: "King Deluxe Room",
+        btn_info_book: "Info & Book",
+        btn_discover: "Discover Room",
+
+        sec_common_title: "Common Areas",
+        btn_view_gallery: "View Gallery",
+
+        sec_exp_title: "Guest Experience",
+        sec_exp_desc: "Everything you need to experience Cinque Terre, just a click away.",
+        
+        card_services_title: "Exclusive Services",
+        card_services_desc: "Private transfers, sunset boat tours, or special reservations. Ask us for more.",
+        btn_whatsapp: "Text us on WhatsApp &rarr;",
+
+        card_guide_title: "Our Guide",
+        card_guide_desc: "Discover local secrets, best restaurants, and hidden trails with our exclusive Web App.",
+        btn_guide: "Open Five2Go.it",
+
+        card_links_title: "Official Links",
+        card_links_desc: "Getting around and planning:",
+        link_train: "Trenitalia Schedule",
+        link_bus: "ATC Bus La Spezia",
+        link_park: "National Park",
+        link_ferry: "Ferries",
+
+        footer_loc: "Riomaggiore, Cinque Terre",
+        footer_rights: "&copy; 2026 Ca' della Valletta. All rights reserved."
+    },
+    fr: {
+        hero_sub: "Bienvenue à Riomaggiore",
+        hero_title: "Un refuge suspendu<br>entre ciel et mer",
+        hero_cta: "Découvrir les Chambres",
+
+        sec_rooms_title: "Nos Chambres",
+        room_king_title: "Chambre King",
+        room_deluxe_title: "Chambre King Deluxe",
+        btn_info_book: "Infos & Réserver",
+        btn_discover: "Découvrir",
+
+        sec_common_title: "Espaces Communs",
+        btn_view_gallery: "Voir Galerie",
+
+        sec_exp_title: "Expérience Invité",
+        sec_exp_desc: "Tout ce dont vous avez besoin pour vivre les Cinque Terre, à portée de clic.",
+        
+        card_services_title: "Services Exclusifs",
+        card_services_desc: "Transferts privés, tours en bateau au coucher du soleil ou réservations spéciales.",
+        btn_whatsapp: "Écrivez-nous sur WhatsApp &rarr;",
+
+        card_guide_title: "Notre Guide",
+        card_guide_desc: "Découvrez les secrets locaux, les meilleurs restaurants et sentiers cachés avec notre Web App.",
+        btn_guide: "Ouvrir Five2Go.it",
+
+        card_links_title: "Liens Officiels",
+        card_links_desc: "Se déplacer et s'organiser :",
+        link_train: "Horaires Trenitalia",
+        link_bus: "Bus ATC La Spezia",
+        link_park: "Parc National",
+        link_ferry: "Ferries",
+
+        footer_loc: "Riomaggiore, Cinque Terre",
+        footer_rights: "&copy; 2026 Ca' della Valletta. Tous droits réservés."
+    },
+    de: {
+        hero_sub: "Willkommen in Riomaggiore",
+        hero_title: "Ein Zufluchtsort<br>zwischen Himmel und Meer",
+        hero_cta: "Zimmer Entdecken",
+
+        sec_rooms_title: "Unsere Zimmer",
+        room_king_title: "King Zimmer",
+        room_deluxe_title: "King Deluxe Zimmer",
+        btn_info_book: "Info & Buchen",
+        btn_discover: "Zimmer Entdecken",
+
+        sec_common_title: "Gemeinschaftsbereiche",
+        btn_view_gallery: "Galerie ansehen",
+
+        sec_exp_title: "Gästeerlebnis",
+        sec_exp_desc: "Alles, was Sie brauchen, um die Cinque Terre zu erleben, nur einen Klick entfernt.",
+        
+        card_services_title: "Exklusive Services",
+        card_services_desc: "Private Transfers, Bootstouren bei Sonnenuntergang oder spezielle Reservierungen.",
+        btn_whatsapp: "Schreiben Sie uns auf WhatsApp &rarr;",
+
+        card_guide_title: "Unser Reiseführer",
+        card_guide_desc: "Entdecken Sie lokale Geheimnisse, beste Restaurants und versteckte Pfade mit unserer Web App.",
+        btn_guide: "Five2Go.it öffnen",
+
+        card_links_title: "Offizielle Links",
+        card_links_desc: "Fortbewegung und Planung:",
+        link_train: "Trenitalia Fahrplan",
+        link_bus: "Bus ATC La Spezia",
+        link_park: "Nationalpark",
+        link_ferry: "Fähren",
+
+        footer_loc: "Riomaggiore, Cinque Terre",
+        footer_rights: "&copy; 2026 Ca' della Valletta. Alle Rechte vorbehalten."
+    },
+    es: {
+        hero_sub: "Bienvenido a Riomaggiore",
+        hero_title: "Un refugio suspendido<br>entre cielo y mar",
+        hero_cta: "Descubrir Habitaciones",
+
+        sec_rooms_title: "Nuestras Habitaciones",
+        room_king_title: "Habitación King",
+        room_deluxe_title: "Habitación King Deluxe",
+        btn_info_book: "Info y Reservar",
+        btn_discover: "Descubrir",
+
+        sec_common_title: "Áreas Comunes",
+        btn_view_gallery: "Ver Galería",
+
+        sec_exp_title: "Experiencia del Huésped",
+        sec_exp_desc: "Todo lo que necesitas para vivir las Cinque Terre, a un clic de distancia.",
+        
+        card_services_title: "Servicios Exclusivos",
+        card_services_desc: "Traslados privados, paseos en barco al atardecer o reservas especiales.",
+        btn_whatsapp: "Escríbenos en WhatsApp &rarr;",
+
+        card_guide_title: "Nuestra Guía",
+        card_guide_desc: "Descubre secretos locales, los mejores restaurantes y senderos ocultos con nuestra Web App.",
+        btn_guide: "Abrir Five2Go.it",
+
+        card_links_title: "Enlaces Oficiales",
+        card_links_desc: "Moverse y organizarse:",
+        link_train: "Horarios Trenitalia",
+        link_bus: "Autobús ATC La Spezia",
+        link_park: "Parque Nacional",
+        link_ferry: "Ferris",
+
+        footer_loc: "Riomaggiore, Cinque Terre",
+        footer_rights: "&copy; 2026 Ca' della Valletta. Todos los derechos reservados."
+    }
+};
+/* --- AGGIUNGI QUESTE CHIAVI PER LA GALLERIA --- */
+
+const translations_gallery = {
+    it: {
+        gal_hero_sub: "Esplora",
+        gal_hero_title: "La Nostra Galleria",
+        btn_back_rooms: "Torna alle Camere"
+    },
+    en: {
+        gal_hero_sub: "Explore",
+        gal_hero_title: "Our Gallery",
+        btn_back_rooms: "Back to Rooms"
+    },
+    fr: {
+        gal_hero_sub: "Explorer",
+        gal_hero_title: "Notre Galerie",
+        btn_back_rooms: "Retour aux Chambres"
+    },
+    de: {
+        gal_hero_sub: "Entdecken",
+        gal_hero_title: "Unsere Galerie",
+        btn_back_rooms: "Zurück zu den Zimmern"
+    },
+    es: {
+        gal_hero_sub: "Explora",
+        gal_hero_title: "Nuestra Galería",
+        btn_back_rooms: "Volver a las Habitaciones"
+    }
+};
+
+// 1. Inizializza l'oggetto principale se non esiste (sicurezza)
+if (typeof window.translations === 'undefined') {
+    window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
+}
+
+// 2. Funzione helper per unire i dizionari senza rompere nulla
+function mergeDictionary(sourceDict) {
+    if (typeof sourceDict !== 'undefined') {
+        for (const lang in sourceDict) {
+            // Se la lingua esiste nel principale, aggiungi le chiavi.
+            // Se non esiste, crea la nuova lingua.
+            if (window.translations[lang]) {
+                Object.assign(window.translations[lang], sourceDict[lang]);
+            } else {
+                window.translations[lang] = sourceDict[lang];
+            }
+        }
+    }
+}
+
+// 3. Esegui l'unione di TUTTI i pezzi (se esistono)
+// L'ordine qui sotto determina chi "vince" in caso di chiavi duplicate (l'ultimo vince)
+
+// Unisci Home Page
+if (typeof translations_home !== 'undefined') mergeDictionary(translations_home);
+
+// Unisci King Room
+if (typeof translations_king !== 'undefined') mergeDictionary(translations_king);
+
+// Unisci Deluxe Room
+if (typeof translations_deluxe !== 'undefined') mergeDictionary(translations_deluxe);
+
+// Unisci Servizi Extra Deluxe (se li hai separati)
+if (typeof translations_deluxe_services !== 'undefined') mergeDictionary(translations_deluxe_services);
+
+// Unisci Galleria (QUESTO MANCAVA NEL TUO SECONDO BLOCCO)
+if (typeof translations_gallery !== 'undefined') mergeDictionary(translations_gallery);
+
+// Unisci Privacy/Legal (se presenti in questo file o caricati prima)
+if (typeof privacyTexts !== 'undefined') mergeDictionary(privacyTexts);
+if (typeof legalTexts !== 'undefined') mergeDictionary(legalTexts);
+
+console.log("Traduzioni caricate correttamente:", Object.keys(window.translations.it).length + " chiavi in Italiano.");

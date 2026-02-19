@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King Room | Ca' della Valletta</title>
+    
     <link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="media.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -18,34 +17,38 @@
 </head>
 <body>
 
-    <nav id="navbar">
-        <div class="nav-container">
-             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
-            </div>
-            
+  <nav id="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            Ca' della Valletta
+            <span class="sub-logo">CINQUE TERRE</span>
+        </div>
 
-            <ul class="nav-links">
-                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-                <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
-                <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
-                <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
-                <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+            <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
+            <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
+            <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
+            <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
+            <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
             </ul>
-             <div class="nav-extras">
-            <select id="language-selector">
+
+        <div class="nav-extras">
+            <select id="language-selector" name="language" aria-label="Seleziona la lingua">
                 <option value="it">🇮🇹 IT</option>
                 <option value="en">🇬🇧 EN</option>
                 <option value="fr">🇫🇷 FR</option>
                 <option value="de">🇩🇪 DE</option>
                 <option value="es">🇪🇸 ES</option>
+           
             </select>
+            
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <header class="hero page-hero">
         <div class="video-wrapper">
@@ -58,186 +61,174 @@
         </div>
     </header>
 
-   <section class="section-padding">
-    <div class="container">
-        <div class="room-detail-grid">
-            
-            <div class="detail-text" data-aos="fade-right">
+    <section class="section-padding">
+        <div class="container">
+            <div class="room-detail-grid">
                 
-               <script>
-    window.CURRENT_ROOM = 'king'; 
-    window.ROOM_NAME = 'King Room';
-    // ARRAY DI CALENDARI: Booking + Teamup (Manuale)
-    window.CALENDAR_URLS = [
-        'https://ical.booking.com/v1/export?t=f2eccee5-18cb-4a0e-b7ce-a5c08543a13c',  // Incolla qui l'iCal di Booking
-        'https://ics.teamup.com/feed/ksb6u6inopb4yrqt7s/0.ics'    // Incolla qui l'iCal di Teamup
-    ];
-</script>
-                <div class="booking-widget" id="preventivo-box">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota Ora</h3>
+                <div class="detail-text" data-aos="fade-right">
                     
-                    <div class="input-group">
-                        <label><i class="fas fa-users"></i> <span data-i18n="lbl_guests">Numero Ospiti</span></label>
-                        <select id="guests">
-                            <option value="2" data-i18n="opt_2guests">2 Ospiti</option>
-                            <option value="1" data-i18n="opt_1guest">1 Ospite</option>
-                        </select>
+                    <script>
+                        window.CURRENT_ROOM = 'king'; 
+                        window.ROOM_NAME = 'King Room';
+                        window.CALENDAR_URLS = [
+                            'https://ical.booking.com/v1/export?t=f2eccee5-18cb-4a0e-b7ce-a5c08543a13c',
+                            'https://ics.teamup.com/feed/ksb6u6inopb4yrqt7s/0.ics'
+                        ];
+                    </script>
+
+                    <div class="booking-widget" id="preventivo-box">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota Ora</h3>
+                        
+                        <div class="input-group">
+                            <label for="guests"><i class="fas fa-users"></i> <span data-i18n="lbl_guests">Numero Ospiti</span></label>
+                            <select id="guests" name="guests" aria-label="Seleziona numero ospiti">
+                                <option value="2" data-i18n="opt_2guests">2 Ospiti</option>
+                                <option value="1" data-i18n="opt_1guest">1 Ospite</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="date-picker"><i class="fas fa-calendar-alt"></i> <span data-i18n="lbl_dates">Date Soggiorno</span></label>
+                            <input type="text" id="date-picker" name="dates" placeholder="Seleziona date" data-i18n="ph_dates" aria-label="Seleziona date soggiorno">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="contact-method"><i class="fas fa-comments"></i> <span data-i18n="lbl_contact">Contatto preferito</span></label>
+                            <select id="contact-method" name="contact" aria-label="Seleziona metodo contatto">
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="email">Email</option>
+                            </select>
+                        </div>
+
+                        <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
+                            <i class="fas fa-spinner fa-spin"></i> Calcolo...
+                        </div>
+
+                        <div id="price-summary" style="display:none;" class="price-summary-card">
+                            <div class="summary-header">
+                                <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
+                                <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
+                            </div>
+
+                            <div class="scroll-container">
+                                <div id="nightly-details-list" class="nightly-list"></div>
+                            </div>
+
+                            <div class="summary-row tax-row">
+                                <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
+                                <span id="city-tax-display">€ 0</span>
+                            </div>
+
+                            <div class="divider-solid"></div>
+
+                            <div class="summary-row total-row main-total">
+                                <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
+                                <span id="grand-total-display">€ 0</span>
+                            </div>
+
+                            <div class="payment-cards-container">
+                                <div class="pay-card deposit">
+                                    <div class="pay-icon"><i class="fas fa-lock"></i></div>
+                                    <div class="pay-info">
+                                        <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
+                                        <span class="pay-amount" id="deposit-amount">€ 0</span>
+                                        <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (20%)</span>
+                                    </div>
+                                </div>
+
+                                <div class="pay-card balance">
+                                    <div class="pay-icon"><i class="fas fa-wallet"></i></div>
+                                    <div class="pay-info">
+                                        <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
+                                        <span class="pay-amount" id="balance-due">€ 0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button id="btn-request" class="btn-luxury">
+                                <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
+                                <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="input-group">
-                        <label><i class="fas fa-calendar-alt"></i> <span data-i18n="lbl_dates">Date Soggiorno</span></label>
-                        <input type="text" id="date-picker" placeholder="Seleziona date" data-i18n="ph_dates">
-                    </div>
-
-                    <div class="input-group">
-                        <label><i class="fas fa-comments"></i> <span data-i18n="lbl_contact">Contatto preferito</span></label>
-                        <select id="contact-method">
-                            <option value="whatsapp">WhatsApp</option>
-                            <option value="email">Email</option>
-                        </select>
-                    </div>
-
-                    <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
-                        <i class="fas fa-spinner fa-spin"></i> Calcolo...
-                    </div>
-
-                    <div id="price-summary" style="display:none;" class="price-summary-card">
-    
-    <div class="summary-header">
-        <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
-        <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
-    </div>
-
-    <div class="scroll-container">
-        <div id="nightly-details-list" class="nightly-list">
-            </div>
-    </div>
-
-    <div class="summary-row tax-row">
-        <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
-        <span id="city-tax-display">€ 0</span>
-    </div>
-
-    <div class="divider-solid"></div>
-
-    <div class="summary-row total-row main-total">
-        <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
-        <span id="grand-total-display">€ 0</span>
-    </div>
-
-    <div class="payment-cards-container">
-        
-        <div class="pay-card deposit">
-            <div class="pay-icon"><i class="fas fa-lock"></i></div>
-            <div class="pay-info">
-                <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
-                <span class="pay-amount" id="deposit-amount">€ 0</span>
-                <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (20%)</span>
-            </div>
-        </div>
-
-        <div class="pay-card balance">
-            <div class="pay-icon"><i class="fas fa-wallet"></i></div>
-            <div class="pay-info">
-                <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
-                <span class="pay-amount" id="balance-due">€ 0</span>
-                </div>
-        </div>
-
-    </div>
-
-    <button id="btn-request" class="btn-luxury">
-        <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
-        <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
-    </button>
-</div>
-                </div>
-
-                <h2 class="h2-internal" data-i18n="sec_details_title">Prenotazione & Dettagli</h2>
-                
-                <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;" data-i18n="txt_deposit_info">
-                    La prenotazione si intende confermata al versamento della <strong>caparra del 20%</strong> tramite link sicuro.
-                </p>
-
-                <div class="policy-box">
-                    <div class="policy-item">
-                        <i class="far fa-clock"></i>
-                        <span>
-                            <strong data-i18n="pol_hours_title">Orari</strong><br>
-                            <span data-i18n="pol_checkin">Check-in: 14:00 - 00:00</span><br>
-                            <span data-i18n="pol_checkout">Check-out: entro le 11:00</span>
-                        </span>
-                    </div>
+                    <h2 class="h2-internal" data-i18n="sec_details_title">Prenotazione & Dettagli</h2>
                     
-                    <div class="policy-item">
-                        <i class="fas fa-bed"></i>
-                        <span>
-                            <strong data-i18n="pol_bed_title">Disposizione Notte</strong><br>
-                            <span data-i18n="pol_bed_desc">Letti matrimoniali non divisibili. No culle o letti extra.</span>
-                        </span>
-                    </div>
+                    <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;" data-i18n="txt_deposit_info"></p>
 
-                    <div class="policy-item">
-                        <i class="fas fa-ban"></i>
-                        <span>
-                            <strong data-i18n="pol_rules_title">Regole Struttura</strong><br>
-                            <span data-i18n="pol_rules_desc">Camere non fumatori. No parcheggio privato.</span>
-                        </span>
-                    </div>
-                </div>
-
-                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_comfort">
-                    <strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.
-                </p>
-
-                <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_cancellation">
-                    <strong>Cancellazione:</strong> Gratuita fino a 30 giorni dall'arrivo.
-                </p>
-
-                <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;" data-i18n="txt_terrace">
-                    <strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.
-                </p>
-            </div> 
-
-            <div class="right-column-wrapper" data-aos="fade-left">
-                <div class="detail-gallery-wrapper">
-                    <div class="room-slider" id="roomSlider">
-                        <div class="room-slide active">
-                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Camera King Vista 1">
-                        </div>
-                        <div class="room-slide">
-                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Bagno Design">
-                        </div>
-                        <div class="room-slide">
-                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Dettagli Pietra">
+                    <div class="policy-box">
+                        <div class="policy-item">
+                            <i class="far fa-clock"></i>
+                            <span>
+                                <strong data-i18n="pol_hours_title">Orari</strong><br>
+                                <span data-i18n="pol_checkin"></span><br>
+                                <span data-i18n="pol_checkout"></span>
+                            </span>
                         </div>
                         
-                        <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
-                        <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
+                        <div class="policy-item">
+                            <i class="fas fa-bed"></i>
+                            <span>
+                                <strong data-i18n="pol_bed_title">Disposizione Notte</strong><br>
+                                <span data-i18n="pol_bed_desc"></span>
+                            </span>
+                        </div>
 
-                        <a href="galleria.html" class="gallery-overlay-btn">
-                            <i class="fas fa-th"></i> <span data-i18n="gal_btn">Vedi Galleria</span>
-                        </a>
+                        <div class="policy-item">
+                            <i class="fas fa-ban"></i>
+                            <span>
+                                <strong data-i18n="pol_rules_title">Regole Struttura</strong><br>
+                                <span data-i18n="pol_rules_desc"></span>
+                            </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="services-list" style="margin-top: 30px;">
-                    <h3 data-i18n="sec_services_title">Servizi Inclusi</h3>
-                    <ul>
-                        <li><i class="fas fa-snowflake"></i> <span data-i18n="srv_ac">Aria Condizionata</span></li>
-                        <li><i class="fas fa-wifi"></i> <span data-i18n="srv_wifi">WiFi Gratuito</span></li>
-                        <li><i class="fas fa-bed"></i> <span data-i18n="srv_linen">Biancheria Completa</span></li>
-                        <li><i class="fas fa-pump-soap"></i> <span data-i18n="srv_soap">Set Cortesia</span></li>
-                        <li><i class="fas fa-sun"></i> <span data-i18n="srv_solarium">Terrazza Solarium</span></li>
-                        <li><i class="fas fa-volume-mute"></i> <span data-i18n="srv_soundproof">Insonorizzazione</span></li>
-                        <li><i class="fas fa-mug-hot"></i> <span data-i18n="srv_kettle">Bollitore Tè & Caffè</span></li>
-                        <li><i class="fas fa-wind"></i> <span data-i18n="srv_hairdryer">Asciugacapelli</span></li>
-                    </ul>
-                </div>
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_comfort"></p>
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_cancellation"></p>
+                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;" data-i18n="txt_terrace"></p>
+
+                </div> 
+
+                <div class="right-column-wrapper" data-aos="fade-left">
+                    <div class="detail-gallery-wrapper">
+                        <div class="room-slider" id="roomSlider">
+                            <div class="room-slide active">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Camera King Vista 1">
+                            </div>
+                            <div class="room-slide">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Bagno Design">
+                            </div>
+                            <div class="room-slide">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Dettagli Pietra">
+                            </div>
+                            
+                            <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
+                            <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
+
+                            <a href="galleria.html" class="gallery-overlay-btn">
+                                <i class="fas fa-th"></i> <span data-i18n="gal_btn">Vedi Galleria</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="services-list" style="margin-top: 30px;">
+                        <h3 data-i18n="sec_services_title">Servizi Inclusi</h3>
+                        <ul>
+                            <li><i class="fas fa-snowflake"></i> <span data-i18n="srv_ac"></span></li>
+                            <li><i class="fas fa-wifi"></i> <span data-i18n="srv_wifi"></span></li>
+                            <li><i class="fas fa-bed"></i> <span data-i18n="srv_linen"></span></li>
+                            <li><i class="fas fa-pump-soap"></i> <span data-i18n="srv_soap"></span></li>
+                            <li><i class="fas fa-sun"></i> <span data-i18n="srv_solarium"></span></li>
+                            <li><i class="fas fa-volume-mute"></i> <span data-i18n="srv_soundproof"></span></li>
+                            <li><i class="fas fa-mug-hot"></i> <span data-i18n="srv_kettle"></span></li>
+                            <li><i class="fas fa-wind"></i> <span data-i18n="srv_hairdryer"></span></li>
+                        </ul>
+                    </div>
+                </div> 
+                
             </div> 
-            
-        </div> </div>
-</section>
+        </div>
+    </section>
 
     <footer id="contatti">
         <div class="container footer-content">
@@ -251,22 +242,22 @@
                 <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
             </div>
             <div class="footer-legal">
-    <p>
-        <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
-        Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-        P.IVA: IT01444610453<br>
-        </p>
-    <p style="margin-top: 10px; font-weight: bold;">
-        CIR: 011024-AFF-0196 <br> 
-        CIN: IT011024B4MTWJF09S
-    </p>
-    <p style="margin-top: 15px; font-size: 0.75rem;">
-        <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
-        <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
-          <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
-    </p>
-    <p style="margin-top: 10px;">&copy; 2024 Ca' della Valletta. Tutti i diritti riservati.</p>
-</div>
+                <p>
+                    <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
+                    Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
+                    P.IVA: IT01444610453
+                </p>
+                <p style="margin-top: 10px; font-weight: bold;">
+                    CIR: 011024-AFF-0196 <br> 
+                    CIN: IT011024B4MTWJF09S
+                </p>
+                <p style="margin-top: 15px; font-size: 0.75rem;">
+                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
+                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
+                    <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
+                </p>
+                <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
+            </div>
         </div>
     </footer>
 
