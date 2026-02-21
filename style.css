@@ -329,76 +329,94 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
 .contact-link { display: block; margin: 10px 0; color: var(--accent); }
 .footer-legal { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; }
 
-.booking-trust-badge {
-    margin-top: 30px;
-    padding: 15px;
-    background: #f9f9f9; /* Sfondo leggerissimo per dare importanza */
-    border-radius: 8px;
-    border: 1px solid #eee;
-    transition: all 0.3s ease;
-}
-
-.booking-trust-badge:hover {
-    background: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transform: translateY(-2px);
-}
-
-.trust-link {
+/* Contenitore principale della riga */
+.trust-badges-row {
     display: flex;
-    align-items: center;
-    text-decoration: none !important;
+    justify-content: space-between;
+    align-items: stretch;
     gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-/* Il quadratino blu col voto */
-.rating-box {
-    background-color: #003580; /* Blu Booking */
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 8px 8px 8px 0; /* Design a fumetto */
-    min-width: 45px;
+/* Singola scheda minimalista */
+.trust-card {
+    flex: 1; /* Le fa essere tutte larghe uguali */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-decoration: none !important;
+    color: #333;
+    transition: all 0.3s ease;
     text-align: center;
 }
 
-.trust-text {
-    display: flex;
-    flex-direction: column;
+/* Effetto scorrimento (solo per i link) */
+.trust-card.hover-effect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-color: #ddd;
 }
 
-.trust-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 2px;
-}
-
-.trust-top img {
-    height: 14px;
+/* Loghi */
+.trust-logo {
+    height: 24px;
     width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+    filter: grayscale(10%); /* Leggermente desaturati per eleganza */
 }
 
-/* Le stelline oro */
-.stars {
-    color: #febb02; /* Giallo stelle Booking */
-    font-size: 0.7rem;
-}
-
-.trust-text p {
-    margin: 0;
+/* Numeri dei voti */
+.trust-score {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    color: #444;
-    letter-spacing: 0.2px;
+    color: #111;
+    margin-bottom: 5px;
 }
 
-/* Ottimizzazione mobile */
-@media (max-width: 768px) {
-    .booking-trust-badge {
-        max-width: 280px;
-        margin: 20px auto;
+.trust-score span {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.trust-score small {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+/* Stelline */
+.trust-stars {
+    color: #febb02; /* Giallo Booking/Google */
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+/* Ottimizzazione per Tablet e Mobile */
+@media (max-width: 992px) {
+    .trust-badges-row {
+        gap: 10px;
+    }
+    .trust-card {
+        padding: 15px 5px;
+    }
+    .trust-score span {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .trust-badges-row {
+        flex-direction: column; /* Impila su smartphone */
+        gap: 15px;
+    }
+    .trust-card {
+        padding: 20px;
     }
 }
