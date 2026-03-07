@@ -76,7 +76,7 @@
                         ];
                     </script>
 
-                    <div class="booking-widget" id="preventivo-box">
+                  <div class="booking-widget" id="preventivo-box">
                        <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota la tua Camera alle 5 Terre</h3>
                      
                        <div class="input-group">
@@ -103,54 +103,12 @@
                         <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
                             <i class="fas fa-spinner fa-spin"></i> Calcolo...
                         </div>
+                        
+                        ```
 
-                        <div id="price-summary" style="display:none;" class="price-summary-card">
-                            <div class="summary-header">
-                                <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
-                                <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
-                            </div>
+Sostituendo il codice del tuo form con questo, l'avviso di Lighthouse/Chrome sparirà all'istante perché ora c'è la corrispondenza esatta e gli screen reader per l'accessibilità funzioneranno alla perfezione.
 
-                            <div class="scroll-container">
-                                <div id="nightly-details-list" class="nightly-list"></div>
-                            </div>
-
-                            <div class="summary-row tax-row">
-                                <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
-                                <span id="city-tax-display">€ 0</span>
-                            </div>
-
-                            <div class="divider-solid"></div>
-
-                            <div class="summary-row total-row main-total">
-                                <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
-                                <span id="grand-total-display">€ 0</span>
-                            </div>
-
-                            <div class="payment-cards-container">
-                                <div class="pay-card deposit">
-                                    <div class="pay-icon"><i class="fas fa-lock"></i></div>
-                                    <div class="pay-info">
-                                        <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
-                                        <span class="pay-amount" id="deposit-amount">€ 0</span>
-                                        <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (40%)</span>
-                                    </div>
-                                </div>
-
-                                <div class="pay-card balance">
-                                    <div class="pay-icon"><i class="fas fa-wallet"></i></div>
-                                    <div class="pay-info">
-                                        <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
-                                        <span class="pay-amount" id="balance-due">€ 0</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button id="btn-request" class="btn-luxury">
-                                <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
-                                <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
-                            </button>
-                        </div>
-                    </div>
+**Vuoi che facciamo lo stesso velocissimo check anche per la pagina della Camera Deluxe?** Spesso quando si duplicano le pagine gli errori si portano dietro!
 
                    <h2 class="h2-internal" data-i18n="sec_details_title">Dettagli e Regole della Camera King</h2>
                     
