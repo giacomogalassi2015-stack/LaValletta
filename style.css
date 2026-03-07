@@ -398,6 +398,32 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
     letter-spacing: 2px;
 }
 
+/* --- STILE CORNICE MAPPA (MY MAPS) --- */
+.custom-map-container {
+    max-width: 900px; /* Non farla allargare all'infinito, 900px è molto elegante */
+    margin: 0 auto; /* Questo è il trucco magico per CENTRARLA perfettamente */
+    background-color: #ffffff; /* Sfondo bianco per fare da cornice */
+    padding: 8px; /* Crea uno spazietto bianco (stile polaroid/quadro) attorno alla mappa */
+    border-radius: 16px; /* Arrotonda gli angoli esterni */
+    box-shadow: 0 15px 40px rgba(10, 25, 47, 0.08); /* Ombra morbida ed elegante */
+    border: 1px solid #eaeaea; /* Bordino leggerissimo per staccarla dallo sfondo */
+}
+
+.custom-map-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none !important;
+    border-radius: 10px; /* Arrotonda anche gli angoli della mappa vera e propria */
+    display: block; /* Rimuove lo spazietto vuoto che si crea sotto gli iframe */
+}
+
+/* Altezza adattata per i cellulari (da incollare sempre nel CSS) */
+@media (max-width: 768px) {
+    .custom-map-container iframe {
+        height: 400px; /* Su smartphone la facciamo leggermente più bassa */
+    }
+}
+
 /* Ottimizzazione per Tablet e Mobile */
 @media (max-width: 992px) {
     .trust-badges-row {
