@@ -252,23 +252,99 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue, nights, da
             const rName = (typeof ROOM_NAME !== 'undefined') ? ROOM_NAME : "Camera";
             
             // Messaggio formattato uguale per entrambi i metodi
-            let message = `Salve, vorrei prenotare la *${rName}*.\n\n` +
-                          `📅 *Date:* ${dateString} (${nights} notti)\n` +
-                          `👤 *Ospiti:* ${guests}\n\n` +
-                          `💶 *TOTALE SOGGIORNO:* € ${grandTotal}\n` +
-                          `(Pernotti: €${roomCost} + Tassa: €${cityTax})\n` +
+           // 1. Rileviamo la lingua attuale della pagina (di base è 'it')
+            const currentLang = document.documentElement.lang || 'it';
+
+            // 2. Dizionario delle traduzioni per il messaggio
+            const translations = {
+                it: {
+                    greet: "Salve, vorrei prenotare la",
+                    dates: "Date",
+                    nights: "notti",
+                    guests: "Ospiti",
+                    total: "TOTALE SOGGIORNO",
+                    costRoom: "Pernotti",
+                    costTax: "Tassa",
+                    deposit: "CAPARRA (40%)",
+                    balance: "SALDO IN HOTEL",
+                    waitLink: "Attendo il link per il versamento della caparra. Grazie!",
+                    subject: "Richiesta Prenotazione"
+                },
+                en: {
+                    greet: "Hello, I would like to book the",
+                    dates: "Dates",
+                    nights: "nights",
+                    guests: "Guests",
+                    total: "TOTAL STAY",
+                    costRoom: "Room",
+                    costTax: "Tax",
+                    deposit: "DEPOSIT (40%)",
+                    balance: "BALANCE AT HOTEL",
+                    waitLink: "I await the link to pay the deposit. Thank you!",
+                    subject: "Booking Request"
+                },
+                fr: {
+                    greet: "Bonjour, je voudrais réserver la",
+                    dates: "Dates",
+                    nights: "nuits",
+                    guests: "Personnes",
+                    total: "TOTAL SÉJOUR",
+                    costRoom: "Chambre",
+                    costTax: "Taxe",
+                    deposit: "ACOMPTE (40%)",
+                    balance: "SOLDE À L'HÔTEL",
+                    waitLink: "J'attends le lien pour payer l'acompte. Merci !",
+                    subject: "Demande de réservation"
+                },
+                de: {
+                    greet: "Hallo, ich möchte folgendes Zimmer buchen:",
+                    dates: "Daten",
+                    nights: "Nächte",
+                    guests: "Gäste",
+                    total: "GESAMTBETRAG",
+                    costRoom: "Zimmer",
+                    costTax: "Steuer",
+                    deposit: "ANZAHLUNG (40%)",
+                    balance: "RESTBETRAG IM HOTEL",
+                    waitLink: "Ich warte auf den Link zur Zahlung der Anzahlung. Danke!",
+                    subject: "Buchungsanfrage"
+                },
+                es: {
+                    greet: "Hola, me gustaría reservar la",
+                    dates: "Fechas",
+                    nights: "noches",
+                    guests: "Huéspedes",
+                    total: "ESTANCIA TOTAL",
+                    costRoom: "Habitación",
+                    costTax: "Tasa",
+                    deposit: "DEPÓSITO (40%)",
+                    balance: "SALDO EN EL HOTEL",
+                    waitLink: "Espero el enlace para pagar el depósito. ¡Gracias!",
+                    subject: "Solicitud de reserva"
+                }
+            };
+
+            // Se la lingua non esiste nel dizionario, usa l'italiano di default
+            const t = translations[currentLang] ? translations[currentLang] : translations['it'];
+
+            // 3. Creiamo il messaggio tradotto
+            let message = `${t.greet} *${rName}*.\n\n` +
+                          `📅 *${t.dates}:* ${dateString} (${nights} ${t.nights})\n` +
+                          `👤 *${t.guests}:* ${guests}\n\n` +
+                          `💶 *${t.total}:* € ${grandTotal}\n` +
+                          `(${t.costRoom}: €${roomCost} + ${t.costTax}: €${cityTax})\n` +
                           `--------------------------------\n` +
-                          `🔒 *CAPARRA (40%):* € ${deposit}\n` +
-                          `🏨 *SALDO IN HOTEL:* € ${balanceDue}\n` +
+                          `🔒 *${t.deposit}:* € ${deposit}\n` +
+                          `🏨 *${t.balance}:* € ${balanceDue}\n` +
                           `--------------------------------\n` +
-                          `Attendo il link per il versamento della caparra. Grazie!`;
+                          `${t.waitLink}`;
             
             if (contactMethod === 'whatsapp') {
                 // Logica WhatsApp
                 window.open(`https://wa.me/393489617894?text=${encodeURIComponent(message)}`, '_blank');
             } else {
-                // Logica Mail che genera il modulo precompilato speculare a WhatsApp
-                const subject = `Richiesta Prenotazione: ${rName} - ${dateString}`;
+                // Logica Mail
+                const subject = `${t.subject}: ${rName} - ${dateString}`;
                 const mailtoUrl = `mailto:info@cadellavalletta.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
                 window.location.href = mailtoUrl;
             }

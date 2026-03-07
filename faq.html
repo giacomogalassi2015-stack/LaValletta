@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="faq_title">F.A.Q. | Ca' della Valletta</title>
+    <meta name="description" content="Domande frequenti e guida pratica per il tuo soggiorno a Riomaggiore e alle Cinque Terre.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <div class="logo">
+                Ca' della Valletta
+                <span class="sub-logo">CINQUE TERRE</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
+                <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
+                <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
+                <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
+            </ul>
+
+            <div class="nav-extras">
+                <select id="language-selector" name="language" aria-label="Seleziona la lingua">
+                    <option value="it" selected>🇮🇹 IT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="es">🇪🇸 ES</option>
+                </select>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header style="padding: 160px 0 40px; text-align: center; background-color: #fdfcf9;">
+        <div class="container" data-aos="fade-up">
+            <h1 id="main-faq-title" class="section-title">Domande Frequenti</h1>
+            <p id="main-faq-subtitle" class="lead-text">Tutto quello che devi sapere per il tuo soggiorno</p>
+        </div>
+    </header>
+
+    <main class="section-padding" style="background-color: #fdfcf9; padding-top: 0;">
+        <div class="container">
+            <div id="faq-dynamic-container" class="faq-container">
+                </div>
+        </div>
+    </main>
+
+    <footer id="contatti">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Ca' della Valletta</h2>
+                <p>Riomaggiore, Cinque Terre</p>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="translations.js"></script>
+    <script src="language-manager.js"></script>
+    
+    <script>
+        AOS.init();
+
+        function renderFAQs() {
+            const lang = document.documentElement.lang || 'it';
+            const data = siteContent[lang];
+            const container = document.getElementById('faq-dynamic-container');
+            
+            if (!container || !data) return;
+
+            // 1. Traduciamo i testi fissi dell'header (Titolo e Sottotitolo)
+            document.getElementById('main-faq-title').innerText = data.faq_title;
+            document.getElementById('main-faq-subtitle').innerText = data.faq_subtitle;
+
+            // 2. Generiamo le FAQ dinamiche
+            let html = '';
+            const cats = data.categories;
+            
+            for (let key in cats) {
+                html += `<h3 class="faq-category-title" data-aos="fade-right">${cats[key]}</h3>`;
+                const filtered = data.questions.filter(item => item.cat === key);
+                filtered.forEach(item => {
+                    html += `
+                        <div class="faq-item" data-aos="fade-up">
+                            <details>
+                                <summary>${item.q}</summary>
+                                <div class="faq-answer">${item.a}</div>
+                            </details>
+                        </div>
+                    `;
+                });
+            }
+            container.innerHTML = html;
+        }
+
+        // Gestione caricamento e cambio lingua
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFAQs();
+            
+            const langSelector = document.getElementById('language-selector');
+            if(langSelector) {
+                langSelector.addEventListener('change', () => {
+                    // Timeout necessario per permettere a language-manager.js di aggiornare il DOM
+                    setTimeout(renderFAQs, 100); 
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

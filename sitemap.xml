@@ -2,10 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.cadellavalletta.it/</loc>
+    <loc>https://www.cadellavalletta.it/index.html</loc>
     <priority>1.00</priority>
   </url>
-
   <url>
     <loc>https://www.cadellavalletta.it/index-en.html</loc>
     <priority>0.90</priority>
@@ -24,28 +23,33 @@
   </url>
 
   <url>
-    <loc>https://www.cadellavalletta.it/camera-king</loc>
+    <loc>https://www.cadellavalletta.it/camera-king.html</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/camera-deluxe</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/galleria</loc>
+    <loc>https://www.cadellavalletta.it/camera-deluxe.html</loc>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://www.cadellavalletta.it/privacy</loc>
+    <loc>https://www.cadellavalletta.it/galleria.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/faq.html</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/privacy.html</loc>
     <priority>0.30</priority>
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/termini</loc>
+    <loc>https://www.cadellavalletta.it/termini.html</loc>
     <priority>0.30</priority>
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/cookie-policy</loc>
+    <loc>https://www.cadellavalletta.it/cookie-policy.html</loc>
     <priority>0.30</priority>
   </url>
 

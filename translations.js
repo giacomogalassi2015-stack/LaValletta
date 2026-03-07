@@ -317,6 +317,7 @@ const translations_home = {
         footer_loc: "Riomaggiore, Cinque Terre",
         footer_rights: "&copy; 2026 Ca' della Valletta. Tutti i diritti riservati."
     },
+
     en: {
         hero_sub: "Welcome to Riomaggiore",
         hero_title: "A sanctuary suspended<br>between sky and sea",
@@ -459,6 +460,8 @@ const translations_home = {
     }
 };
 
+
+
 const translations_gallery = {
     it: {
         gal_hero_sub: "Esplora",
@@ -554,6 +557,119 @@ const translations = {
 if (typeof window.translations === 'undefined') {
     window.translations = { it: {}, en: {}, fr: {}, de: {}, es: {}, zh: {} };
 }
+
+const siteContent = {
+    it: {
+        faq_title: "Domande Frequenti (F.A.Q.)",
+        faq_subtitle: "Tutto quello che devi sapere per il tuo soggiorno a Riomaggiore",
+        categories: { transport: "Arrivo e Trasporti", stay: "Soggiorno Ca' della Valletta", experience: "Esperienze e Cibo" },
+        questions: [
+            { cat: "transport", q: "Come si arriva a Riomaggiore in auto?", a: "È possibile tramite l'autostrada A12 (uscita La Spezia), ma la strada è stretta e il paese è ZTL: si arriva solo all'ingresso del borgo." },
+            { cat: "transport", q: "Dove posso parcheggiare a Riomaggiore?", a: "Al parcheggio coperto 'Rio Park' (circa 35€/giorno) o lungo alcuni tratti della strada litoranea, ma i posti sono limitati." },
+            { cat: "transport", q: "Perché consigliate di lasciare l'auto a La Spezia?", a: "A La Spezia sono presenti più parcheggi anche se la maggior parte è a pagamento, inoltre dista solo 8 minuti di treno da Riomaggiore." },
+            { cat: "transport", q: "Il treno è davvero il mezzo migliore?", a: "Sì, il 'Cinque Terre Express' è veloce, frequente (ogni 15-20 min in alta stagione) e collega tutti i borghi senza stress. Il prezzo del biglietto varia in base al periodo." },
+            { cat: "transport", q: "Quando conviene la Cinque Terre Card / Treno?", a: "La 'Card Trekking' conviene per i sentieri a pagamento come il Sentiero Azzurro. La 'Card Treno' conviene se prevedi di prendere più di tre treni al giorno." },
+            { cat: "transport", q: "Come funzionano i battelli?", a: "Operano da fine Marzo a Ottobre. Offrono una vista spettacolare, ma vengono cancellati in caso di mare mosso." },
+            { cat: "stay", q: "La struttura è lontana dalla stazione?", a: "Siamo a circa 100 metri dalla stazione, una passeggiata pianeggiante di soli 5 minuti attraverso il tunnel pedonale." },
+            { cat: "stay", q: "Ci sono molte scale per raggiungervi?", a: "Riomaggiore è verticale. Abbiamo una piccola scalinata di dieci gradini davanti all'ingresso e rampe interne per raggiungere le camere (1° e 2° piano). Consigliamo zaini o trolley medi invece di valigie giganti." },
+            { cat: "stay", q: "Offrite il deposito bagagli?", a: "Non disponiamo di deposito bagagli interno. È possibile depositarli in camera prima del check-in previo accordo. In stazione e a pochi metri da noi sono presenti due depositi bagagli a pagamento." },
+            { cat: "stay", q: "Com'è il Wi-Fi e l'Aria Condizionata?", a: "Il Wi-Fi è gratuito, veloce e copre tutta la struttura. Ogni camera ha un impianto di condizionamento autonomo regolabile dall'ospite." },
+            { cat: "stay", q: "Cosa trovo in dotazione in camera?", a: "Asciugamani, fon, bollitore (tè/caffè), mini-frigo, cassaforte e set di cortesia per l'igiene personale." },
+            { cat: "experience", q: "La Via dell'Amore è aperta?", a: "Sì, riaperta nel 2024. È necessaria la trekking card (acquistabile online o ai punti info). Consigliamo la visita al mattino presto." },
+            { cat: "experience", q: "Devo prenotare i ristoranti in anticipo?", a: "Sì, in alta stagione i posti migliori si esauriscono con giorni di anticipo." },
+            { cat: "experience", q: "Quali sentieri consigliate da Riomaggiore?", a: "Oltre alla Via dell'Amore, il sentiero per il Santuario di Montenero offre la vista più bella di tutta la costa." },
+            { cat: "experience", q: "Cosa fare se piove?", a: "I treni continuano a girare. Puoi visitare i castelli, le chiese storiche o i musei dei vari borghi." }
+        ]
+    },
+    en: {
+        faq_title: "Frequently Asked Questions (F.A.Q.)",
+        faq_subtitle: "Everything you need to know for your stay in Riomaggiore",
+        categories: { transport: "Arrival & Transport", stay: "Staying at Ca' della Valletta", experience: "Experiences & Food" },
+        questions: [
+            { cat: "transport", q: "How do I get to Riomaggiore by car?", a: "Via the A12 motorway (La Spezia exit). The village is a ZTL (Restricted Zone): you can only reach the village entrance." },
+            { cat: "transport", q: "Where can I park in Riomaggiore?", a: "At the 'Rio Park' garage (approx. 35€/day) or limited spots along the coastal road." },
+            { cat: "transport", q: "Why leave the car in La Spezia?", a: "More parking options and only an 8-minute train ride to Riomaggiore." },
+            { cat: "transport", q: "Is the train the best way?", a: "Yes, the 'Cinque Terre Express' is fast, frequent, and stress-free. Prices vary by season." },
+            { cat: "transport", q: "Which Cinque Terre Card should I buy?", a: "The 'Trekking Card' is for paths. The 'Train Card' is best for 3+ train trips per day." },
+            { cat: "transport", q: "How do the ferries work?", a: "Late March to October. Spectacular views, but cancelled if the sea is rough." },
+            { cat: "stay", q: "Distance from the station?", a: "About 100 meters, a flat 5-minute walk through the tunnel." },
+            { cat: "stay", q: "Are there many stairs?", a: "We have 10 steps at the entrance and internal ramps. Backpacks are highly recommended." },
+            { cat: "stay", q: "Do you have luggage storage?", a: "Not internally. Room drop-off possible early by agreement. Paid storage available at the station and nearby." },
+            { cat: "stay", q: "Wi-Fi and AC?", a: "Free fast Wi-Fi and independent AC in every room." },
+            { cat: "stay", q: "Room amenities?", a: "Towels, hairdryer, kettle, mini-fridge, safe, and toiletries." },
+            { cat: "experience", q: "Is Via dell'Amore open?", a: "Yes (2024). Trekking card required. Best visited early morning." },
+            { cat: "experience", q: "Restaurant bookings?", a: "Highly recommended days in advance during high season." },
+            { cat: "experience", q: "Best hiking trails?", a: "The path to the Sanctuary of Montenero offers the best coastal views." },
+            { cat: "experience", q: "What if it rains?", a: "Trains still run. Visit castles, historic churches, or local museums." }
+        ]
+    },
+    fr: {
+        faq_title: "Questions Fréquentes (F.A.Q.)",
+        faq_subtitle: "Tout ce que vous devez savoir pour votre séjour à Riomaggiore",
+        categories: { transport: "Arrivée et Transports", stay: "Séjour chez Ca' della Valletta", experience: "Expériences et Gastronomie" },
+        questions: [
+            { cat: "transport", q: "Comment arriver en voiture ?", a: "Via l'autoroute A12 (La Spezia), mais le village est en zone ZTL : accès limité à l'entrée du bourg." },
+            { cat: "transport", q: "Où stationner à Riomaggiore ?", a: "Parking couvert 'Rio Park' (env. 35€/jour) ou places limitées sur la route côtière." },
+            { cat: "transport", q: "Pourquoi laisser la voiture à La Spezia ?", a: "Plus de parkings et seulement 8 minutes de train jusqu'à Riomaggiore." },
+            { cat: "transport", q: "Le train è-il le meilleur moyen ?", a: "Oui, le 'Cinque Terre Express' est rapide, fréquent et relie tous les villages sans stress." },
+            { cat: "transport", q: "Quelle Cinque Terre Card choisir ?", a: "La 'Trekking' pour i sentieri. La 'Train' pour plus de 3 trajets par jour." },
+            { cat: "transport", q: "Comment fonctionnent les bateaux ?", a: "De fin mars à octobre. Vue magnifique, mais annulés en cas de mer agitée." },
+            { cat: "stay", q: "Distance de la gare ?", a: "Environ 100 mètres, 5 minutes de marche à plat par le tunnel piétonnier." },
+            { cat: "stay", q: "Y a-t-il beaucoup d'escaliers ?", a: "10 marches à l'entrée et des rampes internes. Privilégiez les sacs à dos aux grosses valises." },
+            { cat: "stay", q: "Consigne à bagages ?", a: "Pas de consigne interne. Dépôt en chambre possible tôt sur accord. Consignes payantes à la gare." },
+            { cat: "stay", q: "Wi-Fi et climatisation ?", a: "Wi-Fi gratuit rapide et clim autonome dans chaque chambre." },
+            { cat: "stay", q: "Équipement de la chambre ?", a: "Serviettes, sèche-cheveux, bouilloire, mini-frigo, coffre-fort et produits de toilette." },
+            { cat: "experience", q: "La Via dell'Amore est-elle ouverte ?", a: "Oui (2024). Carte trekking obligatoire (en ligne ou points info)." },
+            { cat: "experience", q: "Faut-il réserver les restaurants ?", a: "Oui, plusieurs jours à l'avance en haute saison." },
+            { cat: "experience", q: "Meilleures randonnées ?", a: "Le sentier vers le Sanctuaire de Montenero offre la plus belle vue." },
+            { cat: "experience", q: "Que faire s'il pleut ?", a: "Les trains circulent. Visitez les châteaux, églises ou musées des villages." }
+        ]
+    },
+    de: {
+        faq_title: "Häufig gestellte Fragen (F.A.Q.)",
+        faq_subtitle: "Alles, was Sie für Ihren Aufenthalt wissen müssen",
+        categories: { transport: "Anreise & Transport", stay: "Unterkunft Ca' della Valletta", experience: "Erlebnisse & Essen" },
+        questions: [
+            { cat: "transport", q: "Anreise mit dem Auto?", a: "Über A12 (Ausfahrt La Spezia). Riomaggiore ist ZTL (verkehrsberuhigt): Zufahrt nur bis zum Dorfeingang möglich." },
+            { cat: "transport", q: "Parken in Riomaggiore?", a: "Parkhaus 'Rio Park' (ca. 35€/Tag) oder begrenzt an der Küstenstraße." },
+            { cat: "transport", q: "Warum Auto in La Spezia lassen?", a: "Mehr Parkplätze und nur 8 Minuten mit dem Zug nach Riomaggiore." },
+            { cat: "transport", q: "Ist der Zug die beste Wahl?", a: "Ja, der 'Cinque Terre Express' ist schnell, fährt oft und ist stressfrei." },
+            { cat: "transport", q: "Cinque Terre Card?", a: "Die 'Trekking Card' für Wanderwege. Die 'Train Card' bei mehr als 3 Fahrten pro Tag." },
+            { cat: "transport", q: "Wie funktionieren die Fähren?", a: "Ende März bis Oktober. Tolle Aussicht, aber bei Seegang eingestellt." },
+            { cat: "stay", q: "Entfernung vom Bahnhof?", a: "Ca. 100 Meter, 5 Min. flacher Fußweg durch den Tunnel." },
+            { cat: "stay", q: "Gibt es viele Treppen?", a: "10 Stufen am Eingang und interne Rampen. Rucksäcke werden empfohlen." },
+            { cat: "stay", q: "Gepäckaufbewahrung?", a: "Keine interne Aufbewahrung. Abgabe im Zimmer vorab nach Absprache. Schließfächer am Bahnhof vorhanden." },
+            { cat: "stay", q: "WLAN und Klimaanlage?", a: "Schnelles Gratis-WLAN und eigene Klimaanlage in jedem Zimmer." },
+            { cat: "stay", q: "Zimmerausstattung?", a: "Handtücher, Föhn, Wasserkocher, Minikühlschrank, Safe und Pflegeprodukte." },
+            { cat: "experience", q: "Ist die Via dell'Amore offen?", a: "Ja (2024). Trekking-Card erforderlich (online oder Info-Points)." },
+            { cat: "experience", q: "Restaurant reservieren?", a: "Ja, in der Hochsaison Tage im Voraus empfohlen." },
+            { cat: "experience", q: "Schönste Wanderwege?", a: "Der Weg zum Heiligtum von Montenero bietet die beste Aussicht." },
+            { cat: "experience", q: "Was tun bei Regen?", a: "Züge fahren weiter. Besuchen Sie Schlösser, Kirchen oder lokale Museen." }
+        ]
+    },
+    es: {
+        faq_title: "Preguntas Frecuentes (F.A.Q.)",
+        faq_subtitle: "Todo lo que necesitas saber para tu estancia en Riomaggiore",
+        categories: { transport: "Llegada y Transporte", stay: "Estancia en Ca' della Valletta", experience: "Experiencias y Comida" },
+        questions: [
+            { cat: "transport", q: "¿Cómo llegar en coche?", a: "Por la A12 (salida La Spezia). El pueblo es ZTL: solo se llega hasta la entrada del pueblo." },
+            { cat: "transport", q: "¿Dónde aparcar en Riomaggiore?", a: "Parking 'Rio Park' (aprox. 35€/día) o plazas limitadas en la carretera costera." },
+            { cat: "transport", q: "¿Por qué dejar el coche en La Spezia?", a: "Más parkings y solo 8 minutos en tren hasta Riomaggiore." },
+            { cat: "transport", q: "¿Es el tren la mejor opción?", a: "Sí, el 'Cinque Terre Express' es rápido, frecuente y sin estrés." },
+            { cat: "transport", q: "¿Qué tarjeta comprar?", a: "La 'Trekking Card' para senderos. La 'Train Card' para más de 3 viajes al día." },
+            { cat: "transport", q: "¿Cómo funcionan los barcos?", a: "De finales de marzo a octubre. Vistas espectaculares, pero cancelados con mala mar." },
+            { cat: "stay", q: "¿Distancia desde la estación?", a: "Unos 100 metros, 5 min caminando por el túnel peatonal." },
+            { cat: "stay", q: "¿Hay muchas escaleras?", a: "10 peldaños en la entrada y rampas internas. Se recomiendan mochilas." },
+            { cat: "stay", q: "¿Ofrecen depósito de equipaje?", a: "No interno. Posibilidad de dejar maletas en la habitación previo acuerdo. Consignas externas cerca." },
+            { cat: "stay", q: "¿Wi-Fi y aire acondicionado?", a: "Wi-Fi gratis rápido y aire acondicionado autónomo en cada habitación." },
+            { cat: "stay", q: "¿Qué hay en la habitación?", a: "Toallas, secador, hervidor, minibar, caja fuerte y artículos de aseo." },
+            { cat: "experience", q: "¿Está abierta la Via dell'Amore?", a: "Sí (2024). Se requiere tarjeta de trekking (online o puntos info)." },
+            { cat: "experience", q: "¿Reservar restaurantes?", a: "Sí, muy recomendado con días de antelación en temporada alta." },
+            { cat: "experience", q: "¿Mejores senderos?", a: "El camino al Santuario de Montenero ofrece la mejor vista de la costa." },
+            { cat: "experience", q: "¿Qué hacer si llueve?", a: "Los trenes siguen funcionando. Visita castillos, iglesias o museos locales." }
+        ]
+    }
+};
 
 function mergeDictionary(sourceDict) {
     if (typeof sourceDict !== 'undefined') {
