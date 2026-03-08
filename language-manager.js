@@ -8,22 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const isPhysicalHomePage = /^index(-[a-z]{2})?\.html$/i.test(filename);
 
     // --- 1. Determina la lingua partendo dall'URL ---
-    let currentLang = 'it';
+    let currentLang = 'it'; // lingua di base di default
 
+    // Cerca se il file è ESATTAMENTE "index-sigla.html"
     const langMatch = filename.match(/index-([a-z]{2})\.html$/i);
+    
     if (langMatch) {
-        // Siamo su una home fisica con lingua (es. index-en.html → 'en')
+        // Siamo su una home tradotta (es. index-en.html), quindi la lingua è 'en'
         currentLang = langMatch[1];
-    } else if (path.includes('-en')) {
-        currentLang = 'en';
-    } else if (path.includes('-fr')) {
-        currentLang = 'fr';
-    } else if (path.includes('-de')) {
-        currentLang = 'de';
-    } else if (path.includes('-es')) {
-        currentLang = 'es';
     } else {
-        // Pagina senza lingua nell'URL (es. faq.html): usa localStorage o html lang
+        // Siamo su camera-king, camera-deluxe, faq, galleria... 
+        // NON leggiamo l'URL (per evitare il bug "-de" in deluxe), ma peschiamo dalla memoria
         currentLang = localStorage.getItem('preferredLanguage')
                    || document.documentElement.lang
                    || 'it';
