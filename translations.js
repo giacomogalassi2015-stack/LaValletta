@@ -698,5 +698,7 @@ if (typeof translations_nav !== 'undefined') mergeDictionary(translations_nav);
 
 if (typeof privacyTexts !== 'undefined') mergeDictionary(privacyTexts);
 if (typeof legalTexts !== 'undefined') mergeDictionary(legalTexts);
+if (typeof translations !== 'undefined') mergeDictionary(translations);
+if (typeof siteContent !== 'undefined') mergeDictionary(siteContent);
 
 console.log("Traduzioni caricate correttamente:", Object.keys(window.translations.it).length + " chiavi in Italiano.");
