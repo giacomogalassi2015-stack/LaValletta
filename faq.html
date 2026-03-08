@@ -14,35 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        /* Fix specifico per iPhone/iOS */
-        #navbar {
-            background: #fff !important; /* Forza sfondo bianco su FAQ */
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 9999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav-links.active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        }
-        .hamburger {
-            cursor: pointer;
-            z-index: 10000;
-        }
-        /* Spazio per l'header sotto la nav fissa */
-        header { padding-top: 120px !important; }
-    </style>
 </head>
 <body>
 
@@ -78,7 +49,7 @@
         </div>
     </nav>
 
-    <header style="background-color: #fdfcf9; text-align: center;">
+    <header style="padding: 160px 0 40px; background-color: #fdfcf9; text-align: center;">
         <div class="container" data-aos="fade-up">
             <h1 id="main-faq-title" class="section-title">Domande Frequenti</h1>
             <p id="main-faq-subtitle" class="lead-text">Tutto quello che devi sapere per il tuo soggiorno</p>
@@ -110,7 +81,7 @@
                     P.IVA: IT01444610453<br>
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
-                    CIR: 011024-AFF-0196 <br> 
+                    CITR: 011024-AFF-0196 <br> 
                     CIN: IT011024B4MTWJF09S
                 </p>
                 <p style="margin-top: 15px; font-size: 0.75rem;">
@@ -124,34 +95,13 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="translations.js"></script>
+    <script src="script.js" defer></script> <script src="translations.js"></script>
     <script src="language-manager.js"></script>
     
     <script>
         AOS.init();
 
-        // 1. GESTIONE MENU MOBILE (HAMBURGER)
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            // Cambia l'icona da barre a X se vuoi
-            const icon = hamburger.querySelector("i");
-            icon.classList.toggle("fa-bars");
-            icon.classList.toggle("fa-times");
-        });
-
-        // Chiudi menu quando si clicca un link
-        document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.querySelector("i").classList.add("fa-bars");
-                hamburger.querySelector("i").classList.remove("fa-times");
-            });
-        });
-
-        // 2. FUNZIONE RENDERING FAQ
+        // FUNZIONE RENDERING FAQ
         function renderFAQs() {
             const lang = document.documentElement.lang || 'it';
             const data = siteContent[lang];
@@ -182,13 +132,15 @@
             container.innerHTML = html;
         }
 
-        // 3. INIZIALIZZAZIONE E CAMBIO LINGUA
+        // INIZIALIZZAZIONE E CAMBIO LINGUA
         document.addEventListener('DOMContentLoaded', () => {
             renderFAQs();
             
             const langSelector = document.getElementById('language-selector');
             if(langSelector) {
                 langSelector.addEventListener('change', () => {
+                    // Questa pagina usa la stessa struttura, cambia lingua al volo senza ricaricare
+                    document.documentElement.lang = langSelector.value;
                     setTimeout(renderFAQs, 100); 
                 });
             }
