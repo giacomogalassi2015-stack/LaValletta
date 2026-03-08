@@ -234,7 +234,7 @@
                     <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
                     <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;" data-i18n="footer_rights">&copy; 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
+                <p style="margin-top: 10px;" data-i18n="footer_rights">© 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
@@ -242,13 +242,26 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js" defer></script>
     
-    <script src="translations.js"></script> 
-    
-    <script src="language-manager.js"></script>
     <script>
         AOS.init();
 
-       
+        const langSelector = document.getElementById('language-selector');
+        if (langSelector) {
+            langSelector.value = 'it';
+            
+            langSelector.addEventListener('change', function() {
+                const lang = this.value;
+
+                // Salviamo in memoria la lingua così se l'utente va nelle FAQ la trova già giusta
+                localStorage.setItem('site_lang', lang);
+
+                if (lang === 'it') window.location.href = 'index.html';
+                else if (lang === 'en') window.location.href = 'index-en.html';
+                else if (lang === 'fr') window.location.href = 'index-fr.html';
+                else if (lang === 'de') window.location.href = 'index-de.html';
+                else if (lang === 'es') window.location.href = 'index-es.html';
+            });
+        }
     </script>
 </body>
 </html>
