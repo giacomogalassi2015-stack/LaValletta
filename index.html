@@ -1,0 +1,14 @@
+<script>
+  var userLang = navigator.language || navigator.userLanguage; 
+  if (userLang.startsWith('en')) {
+    window.location.href = "/EN/index-en.html";
+  } else if (userLang.startsWith('fr')) {
+    window.location.href = "/FR/index-fr.html";
+  } else if (userLang.startsWith('de')) {
+    window.location.href = "/DE/index-de.html";
+  } else if (userLang.startsWith('es')) {
+    window.location.href = "/ES/index-es.html";
+  } else {
+    window.location.href = "/ITA/index.html"; // Default italiano
+  }
+</script>
