@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Camera Matrimoniale King a Riomaggiore | Ca' della Valletta 5 Terre</title>
+    <title>Camera Matrimoniale King a Riomaggiore | Ca' della Valletta 5 Terre</title>
     <meta name="description" content="Scopri la Camera King di Ca' della Valletta a Riomaggiore. Intimità, design e comfort nel cuore delle Cinque Terre. Controlla la disponibilità e prenota.">
     
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
+    <link rel="alternate" hreflang="it" href="camera-king.html">
+    <link rel="alternate" hreflang="en" href="camera-king-en.html">
+    <link rel="alternate" hreflang="fr" href="camera-king-fr.html">
+    <link rel="alternate" hreflang="de" href="camera-king-de.html">
+    <link rel="alternate" hreflang="es" href="camera-king-es.html">
+    <link rel="alternate" hreflang="x-default" href="camera-king-en.html">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../media.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,17 +32,16 @@
             <span class="sub-logo">CINQUE TERRE</span>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-            <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
-            <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
-            <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
-           <li><a href="faq.html" data-i18n="nav_faq">F.A.Q.</a></li>
-            <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
+      <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="galleria.html">Galleria</a></li>
+            <li><a href="index.html#territorio">Experience</a></li>
+            <li><a href="faq.html">F.A.Q.</a></li>
+            <li><a href="#contatti">Contatti</a></li>
         </ul>
 
         <div class="nav-extras">
-            <select id="language-selector" name="language" aria-label="Seleziona la lingua">
+            <select id="language-selector" name="language" aria-label="Seleziona la lingua" onchange="if(this.value==='en')location='camera-king-en.html';else if(this.value==='fr')location='camera-king-fr.html';else if(this.value==='de')location='camera-king-de.html';else if(this.value==='es')location='camera-king-es.html';">
                 <option value="it" selected>🇮🇹 IT</option>
                 <option value="en">🇬🇧 EN</option>
                 <option value="fr">🇫🇷 FR</option>
@@ -56,8 +62,8 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up">
-            <span class="hero-subtitle" data-i18n="king_hero_sub">Intimità & Storia</span>
-           <h1 data-i18n="king_hero_title">Camera Matrimoniale King a Riomaggiore</h1>
+            <span class="hero-subtitle">Intimità &amp; Storia</span>
+            <h1>Camera Matrimoniale King a Riomaggiore</h1>
         </div>
     </header>
 
@@ -77,23 +83,23 @@
                     </script>
 
                     <div class="booking-widget" id="preventivo-box">
-                       <h3 style="font-size: 1.5rem; margin-bottom: 20px;" data-i18n="book_title">Prenota la tua Camera alle 5 Terre</h3>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Prenota la tua Camera alle 5 Terre</h3>
                      
-                       <div class="input-group">
-                            <label for="guests"><i class="fas fa-users"></i> <span data-i18n="lbl_guests">Numero Ospiti</span></label>
+                        <div class="input-group">
+                            <label for="guests"><i class="fas fa-users"></i> Numero Ospiti</label>
                             <select id="guests" name="guests" aria-label="Seleziona numero ospiti">
-                                <option value="2" data-i18n="opt_2guests">2 Ospiti</option>
-                                <option value="1" data-i18n="opt_1guest">1 Ospite</option>
+                                <option value="2">2 Ospiti</option>
+                                <option value="1">1 Ospite</option>
                             </select>
                         </div>
 
                         <div class="input-group">
-                            <label for="date-picker"><i class="fas fa-calendar-alt"></i> <span data-i18n="lbl_dates">Date Soggiorno</span></label>
-                            <input type="text" id="date-picker" name="dates" placeholder="Seleziona date" data-i18n="ph_dates" aria-label="Seleziona date soggiorno">
+                            <label for="date-picker"><i class="fas fa-calendar-alt"></i> Date Soggiorno</label>
+                            <input type="text" id="date-picker" name="dates" placeholder="Seleziona date" aria-label="Seleziona date soggiorno">
                         </div>
 
                         <div class="input-group">
-                            <label for="contact-method"><i class="fas fa-comments"></i> <span data-i18n="lbl_contact">Contatto preferito</span></label>
+                            <label for="contact-method"><i class="fas fa-comments"></i> Contatto preferito</label>
                             <select id="contact-method" name="contact" aria-label="Seleziona metodo contatto">
                                 <option value="whatsapp">WhatsApp</option>
                                 <option value="email">Email</option>
@@ -106,8 +112,8 @@
 
                         <div id="price-summary" style="display:none;" class="price-summary-card">
                             <div class="summary-header">
-                                <h4 data-i18n="lbl_your_stay">Dettaglio Costi</h4>
-                                <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span data-i18n="lbl_nights">Notti</span></span>
+                                <h4>Dettaglio Costi</h4>
+                                <span class="stay-duration"><i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> Notti</span>
                             </div>
 
                             <div class="scroll-container">
@@ -115,14 +121,14 @@
                             </div>
 
                             <div class="summary-row tax-row">
-                                <span class="row-label"><i class="fas fa-landmark"></i> <span data-i18n="lbl_city_tax">Tassa Soggiorno</span></span>
+                                <span class="row-label"><i class="fas fa-landmark"></i> Tassa Soggiorno</span>
                                 <span id="city-tax-display">€ 0</span>
                             </div>
 
                             <div class="divider-solid"></div>
 
                             <div class="summary-row total-row main-total">
-                                <span data-i18n="lbl_grand_total">TOTALE COMPLESSIVO</span>
+                                <span>TOTALE COMPLESSIVO</span>
                                 <span id="grand-total-display">€ 0</span>
                             </div>
 
@@ -130,66 +136,66 @@
                                 <div class="pay-card deposit">
                                     <div class="pay-icon"><i class="fas fa-lock"></i></div>
                                     <div class="pay-info">
-                                        <span class="pay-title" data-i18n="lbl_deposit_now">DA VERSARE ORA</span>
+                                        <span class="pay-title">DA VERSARE ORA</span>
                                         <span class="pay-amount" id="deposit-amount">€ 0</span>
-                                        <span class="pay-sub" data-i18n="lbl_deposit_sub">Caparra confirmatoria (40%)</span>
+                                        <span class="pay-sub">Caparra confirmatoria (40%)</span>
                                     </div>
                                 </div>
 
                                 <div class="pay-card balance">
                                     <div class="pay-icon"><i class="fas fa-wallet"></i></div>
                                     <div class="pay-info">
-                                        <span class="pay-title" data-i18n="lbl_balance_struct">SALDO IN HOTEL</span>
+                                        <span class="pay-title">SALDO IN STRUTTURA</span>
                                         <span class="pay-amount" id="balance-due">€ 0</span>
                                     </div>
                                 </div>
                             </div>
 
                             <button id="btn-request" class="btn-luxury">
-                                <span class="btn-text" data-i18n="btn_request">Richiedi disponibilità</span>
+                                <span class="btn-text">Richiedi disponibilità</span>
                                 <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
                             </button>
                         </div>
                     </div>
 
-                   <h2 class="h2-internal" data-i18n="sec_details_title">Dettagli e Regole della Camera King</h2>
+                    <h2 class="h2-internal">Dettagli e Regole della Camera King</h2>
                     
-                    <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;" data-i18n="txt_deposit_info"></p>
+                    <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;">La prenotazione si intende confermata al versamento della <strong>caparra del 40%</strong> tramite link sicuro.</p>
 
                     <div class="policy-box">
                         <div class="policy-item">
                             <i class="far fa-clock"></i>
                             <span>
-                                <strong data-i18n="pol_hours_title">Orari</strong><br>
-                                <span data-i18n="pol_checkin"></span><br>
-                                <span data-i18n="pol_checkout"></span>
+                                <strong>Orari</strong><br>
+                                Check-in: 14:00 - 20:00<br>
+                                Check-out: entro le 10:30
                             </span>
                         </div>
                         
                         <div class="policy-item">
                             <i class="fas fa-bed"></i>
                             <span>
-                                <strong data-i18n="pol_bed_title">Disposizione Notte</strong><br>
-                                <span data-i18n="pol_bed_desc"></span>
+                                <strong>Disposizione Notte</strong><br>
+                                Letti matrimoniali non divisibili. No culle o letti extra.
                             </span>
                         </div>
 
                         <div class="policy-item">
                             <i class="fas fa-ban"></i>
                             <span>
-                                <strong data-i18n="pol_rules_title">Regole Struttura</strong><br>
-                                <span data-i18n="pol_rules_desc"></span>
+                                <strong>Regole Struttura</strong><br>
+                                Camere non fumatori. No parcheggio privato.
                             </span>
                         </div>
                     </div>
 
-                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_comfort"></p>
-                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;" data-i18n="txt_cancellation"></p>
-                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;" data-i18n="txt_terrace"></p>
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;"><strong>Comfort:</strong> Ambienti climatizzati e insonorizzati.</p>
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;"><strong>Cancellazione:</strong> Gratuita fino a 14 giorni dall'arrivo.</p>
+                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;"><strong>Terrazza:</strong> Accesso alla terrazza comune, ad uso condiviso tra gli ospiti della struttura.</p>
 
                 </div> 
 
-               <div class="right-column-wrapper" data-aos="fade-left">
+                <div class="right-column-wrapper" data-aos="fade-left">
                     <div class="detail-gallery-wrapper">
                         <div class="room-slider" id="roomSlider">
                             <div class="room-slide active">
@@ -206,22 +212,22 @@
                             <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
 
                             <a href="galleria.html" class="gallery-overlay-btn">
-                                <i class="fas fa-th"></i> <span data-i18n="gal_btn">Vedi Galleria</span>
+                                <i class="fas fa-th"></i> Vedi Galleria
                             </a>
                         </div>
                     </div>
 
                     <div class="services-list" style="margin-top: 30px;">
-                        <h3 data-i18n="sec_services_title">Servizi della Camera King</h3>
+                        <h3>Servizi della Camera King</h3>
                         <ul>
-                            <li><i class="fas fa-snowflake"></i> <span data-i18n="srv_ac"></span></li>
-                            <li><i class="fas fa-wifi"></i> <span data-i18n="srv_wifi"></span></li>
-                            <li><i class="fas fa-bed"></i> <span data-i18n="srv_linen"></span></li>
-                            <li><i class="fas fa-pump-soap"></i> <span data-i18n="srv_soap"></span></li>
-                            <li><i class="fas fa-sun"></i> <span data-i18n="srv_solarium"></span></li>
-                            <li><i class="fas fa-volume-mute"></i> <span data-i18n="srv_soundproof"></span></li>
-                            <li><i class="fas fa-mug-hot"></i> <span data-i18n="srv_kettle"></span></li>
-                            <li><i class="fas fa-wind"></i> <span data-i18n="srv_hairdryer"></span></li>
+                            <li><i class="fas fa-snowflake"></i> Aria Condizionata</li>
+                            <li><i class="fas fa-wifi"></i> WiFi Gratuito</li>
+                            <li><i class="fas fa-bed"></i> Biancheria Completa</li>
+                            <li><i class="fas fa-pump-soap"></i> Set Cortesia</li>
+                            <li><i class="fas fa-sun"></i> Terrazza Solarium</li>
+                            <li><i class="fas fa-volume-mute"></i> Insonorizzazione</li>
+                            <li><i class="fas fa-mug-hot"></i> Bollitore Tè &amp; Caffè</li>
+                            <li><i class="fas fa-wind"></i> Asciugacapelli</li>
                         </ul>
                     </div>
                 </div>
@@ -262,7 +268,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>Ca' della Valletta</h2>
-                <p data-i18n="footer_loc">Riomaggiore, Cinque Terre</p>
+                <p>Riomaggiore, Cinque Terre</p>
             </div>
             <div class="footer-info">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
@@ -290,7 +296,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js" defer></script>
+    <script src="../script.js" defer></script>
     
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
@@ -302,15 +308,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
-    <script src="translations.js"></script>
-    <script src="language-manager.js"></script>
-
     <script>
         const SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co'; 
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
         AOS.init();
     </script>
-    <script src="booking.js"></script>
+    <script src="../booking.js"></script>
 
 </body>
 </html>

@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galleria Fotografica | Ca' della Valletta</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
-    
+
+    <link rel="alternate" hreflang="it" href="galleria.html">
+    <link rel="alternate" hreflang="en" href="galleria-en.html">
+    <link rel="alternate" hreflang="fr" href="galleria-fr.html">
+    <link rel="alternate" hreflang="de" href="galleria-de.html">
+    <link rel="alternate" hreflang="es" href="galleria-es.html">
+    <link rel="alternate" hreflang="x-default" href="galleria-en.html">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../media.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -22,50 +28,43 @@
                 Ca' della Valletta
                 <span class="sub-logo">CINQUE TERRE</span>
             </div>
-            
-            <ul class="nav-links">
-                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-                <li><a href="camera-king.html" data-i18n="nav_king">Camera King</a></li>
-                <li><a href="camera-deluxe.html" data-i18n="nav_deluxe">Camera Deluxe</a></li>
-                <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
-                <li><a href="index.html#territorio" data-i18n="nav_experience">Experience</a></li>
-              <li><a href="faq.html" data-i18n="nav_faq">F.A.Q.</a></li>
-                <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
-            </ul>
-            
+           <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="camera-king.html">Camera King</a></li>
+            <li><a href="camera-deluxe.html">Camera Deluxe</a></li>
+            <li><a href="galleria.html">Galleria</a></li>
+            <li><a href="index.html#territorio">Experience</a></li>
+            <li><a href="faq.html">F.A.Q.</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Seleziona la lingua">
-                    <option value="it">🇮🇹 IT</option>
+                <select id="language-selector" name="language" aria-label="Seleziona la lingua"
+                    onchange="if(this.value==='en')location='galleria-en.html';else if(this.value==='fr')location='galleria-fr.html';else if(this.value==='de')location='galleria-de.html';else if(this.value==='es')location='galleria-es.html';">
+                    <option value="it" selected>🇮🇹 IT</option>
                     <option value="en">🇬🇧 EN</option>
                     <option value="fr">🇫🇷 FR</option>
                     <option value="de">🇩🇪 DE</option>
                     <option value="es">🇪🇸 ES</option>
-                    
                 </select>
-                
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
     <header class="hero" style="height: 50vh;">
         <div class="video-wrapper">
-             <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Galleria" class="hero-bg">
+            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Galleria" class="hero-bg">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up">
-            <span class="hero-subtitle" data-i18n="gal_hero_sub"></span>
-            <h1 data-i18n="gal_hero_title"></h1>
+            <span class="hero-subtitle">Esplora</span>
+            <h1>La Nostra Galleria</h1>
         </div>
     </header>
 
     <section class="section-padding">
         <div class="container">
-            
             <div class="gallery-grid">
-                
                 <div class="gallery-item" data-aos="fade-up">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Camera King Letto" loading="lazy">
                 </div>
@@ -75,7 +74,6 @@
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Camera King Dettagli" loading="lazy">
                 </div>
-
                 <div class="gallery-item" data-aos="fade-up">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg" alt="King Deluxe Letto" loading="lazy">
                 </div>
@@ -85,20 +83,16 @@
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Vista" loading="lazy">
                 </div>
-
                 <div class="gallery-item" data-aos="fade-up">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771461197/terrazza_jvagve.jpg" alt="Terrazza Panoramica" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771461207/ingresso_bfueoj.jpg" alt="Ingresso Struttura" loading="lazy">
                 </div>
-
             </div>
-            
             <div class="text-center" style="margin-top: 50px;">
-                <a href="index.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);" data-i18n="btn_back_rooms"></a>
+                <a href="index.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Torna alle Camere</a>
             </div>
-
         </div>
     </section>
 
@@ -106,7 +100,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>Ca' della Valletta</h2>
-                <p data-i18n="footer_loc"></p>
+                <p>Riomaggiore, Cinque Terre</p>
             </div>
             <div class="footer-info">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
@@ -114,18 +108,13 @@
                 <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
             </div>
             <div class="footer-legal">
-                <p>
-                    <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
-                    Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-                    P.IVA: IT01444610453
-                </p>
-                <p style="margin-top: 10px; font-weight: bold;">
-                    CITR: 011024-AFF-0196 <br> 
-                    CIN: IT011024B4MTWJF09S
-                </p>
+                <p><strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
+                Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
+                P.IVA: IT01444610453</p>
+                <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
                 <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
+                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> |
+                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> |
                     <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
                 </p>
                 <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
@@ -134,10 +123,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="translations.js"></script>
-    <script src="language-manager.js"></script>
-    <script src="script.js" defer></script>
-
+    <script src="../script.js" defer></script>
     <script>AOS.init();</script>
 </body>
 </html>

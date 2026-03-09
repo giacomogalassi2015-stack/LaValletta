@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chambre King Deluxe à Riomaggiore | Ca' della Valletta Cinque Terre</title>
+    <meta name="description" content="Réservez la Chambre King Deluxe de Ca' della Valletta à Riomaggiore. Plus d'espace, design exclusif et confort total pour vos vacances aux Cinque Terre.">
+
+    <link rel="alternate" hreflang="it" href="camera-deluxe.html">
+    <link rel="alternate" hreflang="en" href="camera-deluxe-en.html">
+    <link rel="alternate" hreflang="fr" href="camera-deluxe-fr.html">
+    <link rel="alternate" hreflang="de" href="camera-deluxe-de.html">
+    <link rel="alternate" hreflang="es" href="camera-deluxe-es.html">
+    <link rel="alternate" hreflang="x-default" href="camera-deluxe-en.html">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../media.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                Ca' della Valletta
+                <span class="sub-logo">CINQUE TERRE</span>
+            </div>
+          <ul class="nav-links">
+            <li><a href="index-fr.html">Accueil</a></li>
+            <li><a href="camera-king-fr.html">Chambre King</a></li>
+            <li><a href="galleria-fr.html">Galerie</a></li>
+            <li><a href="index-fr.html#territorio">Expérience</a></li>
+            <li><a href="faq-fr.html">F.A.Q.</a></li>
+            <li><a href="#contatti">Contact</a></li>
+        </ul>
+            <div class="nav-extras">
+                <select id="language-selector" name="language" aria-label="Sélectionner la langue">
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="fr" selected>🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="es">🇪🇸 ES</option>
+                </select>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero page-hero">
+        <div class="video-wrapper">
+            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="Chambre King Deluxe" class="hero-bg">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up">
+            <span class="hero-subtitle">Élégance &amp; Détente</span>
+            <h1>Chambre King Deluxe</h1>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="room-detail-grid">
+
+                <div class="detail-text" data-aos="fade-right">
+
+                    <script>
+                        window.CURRENT_ROOM = 'deluxe';
+                        window.ROOM_NAME = 'King Deluxe';
+                        window.CALENDAR_URLS = [
+                            'https://ical.booking.com/v1/export?t=4b6f3e56-fab9-49ca-afc7-921cc4afbbe3',
+                            'https://ics.teamup.com/feed/ksp83j9i4iq83deosz/0.ics'
+                        ];
+                    </script>
+
+                    <div class="booking-widget" id="preventivo-box">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Réserver</h3>
+
+                        <div class="input-group">
+                            <label for="guests"><i class="fas fa-users"></i> <span>Nombre d'Invités</span></label>
+                            <select id="guests" name="guests" aria-label="Sélectionner le nombre d'invités">
+                                <option value="2">2 Invités</option>
+                                <option value="1">1 Invité</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="date-picker"><i class="fas fa-calendar-alt"></i> <span>Dates du Séjour</span></label>
+                            <input type="text" id="date-picker" name="dates" placeholder="Sélectionner dates" aria-label="Sélectionner dates du séjour">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="contact-method"><i class="fas fa-comments"></i> <span>Contact préféré</span></label>
+                            <select id="contact-method" name="contact" aria-label="Sélectionner la méthode de contact">
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="email">Email</option>
+                            </select>
+                        </div>
+
+                        <div id="loading-prices" style="display:none; text-align:center; padding:10px;">
+                            <i class="fas fa-spinner fa-spin"></i> Calcolo...
+                        </div>
+
+                        <div id="price-summary" style="display:none;" class="price-summary-card">
+
+                            <div class="summary-header">
+                                <h4>Détails des Coûts</h4>
+                                <span class="stay-duration">
+                                    <i class="far fa-calendar-alt"></i> <span id="total-nights">0</span> <span>Nuits</span>
+                                </span>
+                            </div>
+
+                            <div class="scroll-container">
+                                <div id="nightly-details-list" class="nightly-list"></div>
+                            </div>
+
+                            <div class="summary-row tax-row">
+                                <span class="row-label"><i class="fas fa-landmark"></i> <span>Taxe de Séjour</span></span>
+                                <span id="city-tax-display">€ 0</span>
+                            </div>
+
+                            <div class="divider-solid"></div>
+
+                            <div class="summary-row total-row main-total">
+                                <span>TOTAL GÉNÉRAL</span>
+                                <span id="grand-total-display">€ 0</span>
+                            </div>
+
+                            <div class="payment-cards-container">
+                                <div class="pay-card deposit">
+                                    <div class="pay-icon"><i class="fas fa-lock"></i></div>
+                                    <div class="pay-info">
+                                        <span class="pay-title">À PAYER MAINTENANT</span>
+                                        <span class="pay-amount" id="deposit-amount">€ 0</span>
+                                        <span class="pay-sub">Arrhes de confirmation (40%)</span>
+                                    </div>
+                                </div>
+                                <div class="pay-card balance">
+                                    <div class="pay-icon"><i class="fas fa-wallet"></i></div>
+                                    <div class="pay-info">
+                                        <span class="pay-title">SOLDE À L'ÉTABLISSEMENT</span>
+                                        <span class="pay-amount" id="balance-due">€ 0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button id="btn-request" class="btn-luxury">
+                                <span class="btn-text">Demander disponibilité</span>
+                                <div class="btn-icon-box"><i class="fas fa-arrow-right"></i></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2 class="h2-internal">Réservation &amp; Détails</h2>
+
+                    <p class="lead-text" style="font-size: 1rem; margin-bottom: 20px;">
+                        La réservation est confirmée au versement des <strong>arrhes de 40%</strong> via lien sécurisé.
+                    </p>
+
+                    <div class="policy-box">
+                        <div class="policy-item">
+                            <i class="far fa-clock"></i>
+                            <span>
+                                <strong>Horaires</strong><br>
+                                <span>Arrivée : 14h00 - 20h00</span><br>
+                                <span>Départ : avant 10h30</span>
+                            </span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fas fa-bed"></i>
+                            <span>
+                                <strong>Disposition Nuit</strong><br>
+                                <span>Lits doubles non séparables. Pas de lits bébé ou lits d'appoint.</span>
+                            </span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fas fa-ban"></i>
+                            <span>
+                                <strong>Règles de la Maison</strong><br>
+                                <span>Chambres non-fumeurs. Pas de parking privé.</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                        <strong>Confort :</strong> Chambres climatisées et insonorisées.
+                    </p>
+                    <p style="margin-bottom: 10px; font-size: 0.9rem; color: #666;">
+                        <strong>Annulation :</strong> Gratuite jusqu'à 14 jours avant l'arrivée.
+                    </p>
+                    <p style="margin-bottom: 0px; font-size: 0.9rem; color: #666;">
+                        <strong>Terrasse :</strong> Accès à la terrasse commune, partagée entre les invités.
+                    </p>
+                </div>
+
+                <div class="right-column-wrapper" data-aos="fade-left">
+                    <div class="detail-gallery-wrapper">
+                        <div class="room-slider" id="roomSlider">
+                            <div class="room-slide active">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg" alt="King Deluxe Letto" loading="lazy">
+                            </div>
+                            <div class="room-slide">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037764/d2_lnozpv.jpg" alt="King Deluxe Dettagli" loading="lazy">
+                            </div>
+                            <div class="room-slide">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Vista" loading="lazy">
+                            </div>
+                            <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
+                            <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>
+                            <a href="galleria-fr.html" class="gallery-overlay-btn">
+                                <i class="fas fa-th"></i> <span>Voir Galerie</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="services-list" style="margin-top: 30px;">
+                        <h3>Services Inclus</h3>
+                        <ul>
+                            <li><i class="fas fa-snowflake"></i> <span>Climatisation</span></li>
+                            <li><i class="fas fa-wifi"></i> <span>WiFi Gratuit</span></li>
+                            <li><i class="fas fa-bed"></i> <span>Linge Complet</span></li>
+                            <li><i class="fas fa-pump-soap"></i> <span>Set de Courtoisie</span></li>
+                            <li><i class="fas fa-sun"></i> <span>Terrasse Solarium</span></li>
+                            <li><i class="fas fa-volume-mute"></i> <span>Insonorisation</span></li>
+                            <li><i class="fas fa-mug-hot"></i> <span>Bouilloire Thé &amp; Café</span></li>
+                            <li><i class="fas fa-wind"></i> <span>Sèche-cheveux</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="trust-badges-row" data-aos="fade-up">
+            <a href="https://www.booking.com/hotel/it/ca-della-valletta.it.html" target="_blank" class="trust-card hover-effect">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" alt="Booking.com" class="trust-logo">
+                <div class="trust-score"><span>9.4</span> <small>/ 10</small></div>
+                <div class="trust-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+            </a>
+            <a href="https://www.airbnb.it/rooms/590298671284208673?guests=1&adults=1&s=67&unique_share_id=4a917119-6c32-4249-a33b-c272a098bfaa&source_impression_id=p3_1771633606_P3aFmozb7-YQUQKY" target="_blank" class="trust-card hover-effect">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" class="trust-logo" style="height: 22px;">
+                <div class="trust-score"><span>4.6</span> <small>/ 5</small></div>
+                <div class="trust-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+            </a>
+            <div class="trust-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="trust-logo" style="height: 20px;">
+                <div class="trust-score"><span>5.0</span> <small>/ 5</small></div>
+                <div class="trust-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contatti">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Ca' della Valletta</h2>
+                <p>Riomaggiore, Cinque Terre</p>
+            </div>
+            <div class="footer-info">
+                <p>Via Della Valletta 13, 19017 (SP)</p>
+                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
+                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+            </div>
+            <div class="footer-legal">
+                <p>
+                    <strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
+                    Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
+                    P.IVA: IT01444610453
+                </p>
+                <p style="margin-top: 10px; font-weight: bold;">
+                    CITR: 011024-AFF-0196 <br>
+                    CIN: IT011024B4MTWJF09S
+                </p>
+                <p style="margin-top: 15px; font-size: 0.75rem;">
+                    <a href="privacy-fr.html" style="text-decoration: underline;">Privacy Policy</a> |
+                    <a href="termini-fr.html" style="text-decoration: underline;">Conditions Générales</a> |
+                    <a href="cookie-policy-fr.html" style="text-decoration: underline;">Cookie Policy</a>
+                </p>
+                <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/de.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/zh.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <script>
+        const SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
+        AOS.init();
+    </script>
+    <script src="../booking.js"></script>
+
+</body>
+</html>

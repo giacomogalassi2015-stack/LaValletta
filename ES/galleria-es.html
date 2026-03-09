@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Fotográfica | Ca' della Valletta</title>
+
+    <link rel="alternate" hreflang="it" href="galleria.html">
+    <link rel="alternate" hreflang="en" href="galleria-en.html">
+    <link rel="alternate" hreflang="fr" href="galleria-fr.html">
+    <link rel="alternate" hreflang="de" href="galleria-de.html">
+    <link rel="alternate" hreflang="es" href="galleria-es.html">
+    <link rel="alternate" hreflang="x-default" href="galleria-en.html">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                Ca' della Valletta
+                <span class="sub-logo">CINQUE TERRE</span>
+            </div>
+          <ul class="nav-links">
+            <li><a href="index-es.html">Inicio</a></li>
+            <li><a href="camera-king-es.html">Habitación King</a></li>
+            <li><a href="camera-deluxe-es.html">Habitación Deluxe</a></li>
+            <li><a href="galleria-es.html">Galería</a></li>
+            <li><a href="index-es.html#territorio">Experiencia</a></li>
+            <li><a href="faq-es.html">F.A.Q.</a></li>
+            <li><a href="#contatti">Contacto</a></li>
+        </ul>
+            <div class="nav-extras">
+                <select id="language-selector" name="language" aria-label="Seleccionar idioma"
+                    onchange="if(this.value==='it')location='galleria.html';else if(this.value==='en')location='galleria-en.html';else if(this.value==='fr')location='galleria-fr.html';else if(this.value==='de')location='galleria-de.html';">
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="es" selected>🇪🇸 ES</option>
+                </select>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" style="height: 50vh;">
+        <div class="video-wrapper">
+            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Galería" class="hero-bg">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up">
+            <span class="hero-subtitle">Explora</span>
+            <h1>Nuestra Galería</h1>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Habitación King Cama" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Habitación King Baño" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Habitación King Detalles" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg" alt="Habitación Deluxe Cama" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037764/d2_lnozpv.jpg" alt="Habitación Deluxe Detalles" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="Habitación Deluxe Vista" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771461197/terrazza_jvagve.jpg" alt="Terraza Panorámica" loading="lazy">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771461207/ingresso_bfueoj.jpg" alt="Entrada de la Propiedad" loading="lazy">
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="index-es.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Volver a las Habitaciones</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contatti">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Ca' della Valletta</h2>
+                <p>Riomaggiore, Cinque Terre</p>
+            </div>
+            <div class="footer-info">
+                <p>Via Della Valletta 13, 19017 (SP)</p>
+                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
+                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+            </div>
+            <div class="footer-legal">
+                <p><strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
+                Sede Social: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
+                NIF: IT01444610453</p>
+                <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
+                <p style="margin-top: 15px; font-size: 0.75rem;">
+                    <a href="privacy-es.html" style="text-decoration: underline;">Política de Privacidad</a> |
+                    <a href="termini-es.html" style="text-decoration: underline;">Términos y Condiciones</a> |
+                    <a href="cookie-policy-es.html" style="text-decoration: underline;">Política de Cookies</a>
+                </p>
+                <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../script.js" defer></script>
+    <script>AOS.init();</script>
+</body>
+</html>
