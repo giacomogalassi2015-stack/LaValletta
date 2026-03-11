@@ -458,3 +458,85 @@ footer { background: #081221; color: #8892b0; padding: 60px 0 40px; text-align: 
 .faq-item details[open] summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); }
 .faq-answer { margin-top: 15px; font-size: 0.95rem; color: #555; line-height: 1.7; border-top: 1px dashed #eee; padding-top: 15px; }
 .faq-category-title { font-family: var(--font-heading); color: var(--accent); font-size: 1.6rem; margin: 40px 0 15px; text-align: left; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+/* ============================================================
+   TRUST BAR — Ca' della Valletta
+   ============================================================ */
+
+.trust-bar {
+    background: transparent;
+    padding: 20px 24px;
+}
+
+.trust-bar__container {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+}
+
+/* Icone SVG — solo outline, terracotta, nessun riempimento */
+.trust-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #A0522D;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Testo — serif, blu petrolio, una sola riga */
+.trust-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #0A192F;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .trust-bar {
+        padding: 16px 20px;
+    }
+
+    .trust-bar__container {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4px;
+    }
+
+    .trust-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 8px;
+        text-align: center;
+    }
+
+    .trust-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .trust-title {
+        font-size: 0.70rem;
+        white-space: normal;
+        line-height: 1.3;
+    }
+}
