@@ -2,10 +2,31 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <meta name="msvalidate.01" content="8063A4BA0D6B56F8FDC89602B16BAD7E">
-  <title>Redirecting…</title>
+  <title>Ca' della Valletta</title>
 </head>
 <body>
+  <script>
+    // Non reindirizzare i bot dei motori di ricerca
+    var ua = navigator.userAgent.toLowerCase();
+    var isBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebot|ia_archiver/.test(ua);
+
+    if (!isBot) {
+      var userLang = navigator.language || navigator.userLanguage;
+      if (userLang.startsWith('en')) {
+        window.location.replace("/EN/index-en.html");
+      } else if (userLang.startsWith('fr')) {
+        window.location.replace("/FR/index-fr.html");
+      } else if (userLang.startsWith('de')) {
+        window.location.replace("/DE/index-de.html");
+      } else if (userLang.startsWith('es')) {
+        window.location.replace("/ES/index-es.html");
+      } else {
+        window.location.replace("/ITA/index.html");
+      }
+    }
+  </script>
 </body>
 </html>
