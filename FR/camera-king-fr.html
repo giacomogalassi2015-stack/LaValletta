@@ -27,17 +27,52 @@
 {
   "@context": "https://schema.org",
   "@type": "HotelRoom",
-  "name": "Camera King | Ca' della Valletta",
-  "description": "Scopri la Camera King di Ca' della Valletta a Riomaggiore. Intimità, design e comfort nel cuore delle Cinque Terre.",
-  "url": "https://www.cadellavalletta.it/camera-king.html",
-  "image": "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg",
-  "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 },
-  "bed": { "@type": "BedDetails", "numberOfBeds": 1, "type": "Double Bed" },
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Aria Condizionata", "value": true }
+  "name": "King Room | Ca' della Valletta",
+  "description": "Discover the King Room at Ca' della Valletta in Riomaggiore. Intimacy, design and comfort in the heart of the Cinque Terre. Featuring double bed, AC and WiFi.",
+  "image": [
+    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg"
   ],
-  "containedInPlace": { "@id": "https://www.cadellavalletta.it/#guesthouse" }
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "maxValue": 2,
+    "unitCode": "C62"
+  },
+  "bed": {
+    "@type": "BedDetails",
+    "numberOfBeds": 1,
+    "type": "Double Bed"
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Air Conditioning",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free WiFi",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Soundproofing",
+      "value": true
+    }
+  ],
+  "containedInPlace": {
+    "@type": "Guesthouse",
+    "name": "Ca' della Valletta",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Della Valletta 13",
+      "addressLocality": "Riomaggiore",
+      "postalCode": "19017",
+      "addressRegion": "SP",
+      "addressCountry": "IT"
+    }
+  }
 }
 </script>
 </head>
