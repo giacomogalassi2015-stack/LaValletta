@@ -1,26 +1,59 @@
-// Recupera le variabili globali 
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// --- URL DEL FOGLIO GOOGLE PUBBLICATO IN CSV ---
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vROmTNDLNHlbBVbuIa2H2QZMO5sLDCvX1gBe1WP_5dNXp7OOmblUiwVFZXprxgUgECRWVZSCL9AYzvo/pub?output=csv"; 
+
 const proxy = "https://api.codetabs.com/v1/proxy?quest=";
 let pricingRules = []; 
 
+// --- FUNZIONE PER CONVERTIRE IL CSV IN JSON (Oggetti Javascript) ---
+function parseCSVToJSON(csvText) {
+    const lines = csvText.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    const result = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        // Usa una regex per gestire eventuali virgole nei testi, anche se qui non dovrebbero esserci
+        const currentLine = lines[i].split(',');
+        if (currentLine.length === headers.length) {
+            const obj = {};
+            for (let j = 0; j < headers.length; j++) {
+                let val = currentLine[j].trim();
+                // Converte le stringhe in numeri (fondamentale per i calcoli dei prezzi!)
+                obj[headers[j]] = isNaN(val) || val === '' ? val : Number(val);
+            }
+            result.push(obj);
+        }
+    }
+    return result;
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     
-    // 1. SCARICA IL LISTINO PREZZI 
+    // 1. SCARICA IL LISTINO PREZZI DA GOOGLE SHEETS
     try {
-        const { data, error } = await client
-            .from('listino_prezzi')
-            .select('*')
-            .order('mese', { ascending: true });
+        // Aggiungiamo un parametro random per evitare che il browser metta in cache il listino vecchio
+        const cacheBuster = "&t=" + new Date().getTime(); 
+        const urlWithCacheBuster = SHEET_CSV_URL.includes('?') ? SHEET_CSV_URL + cacheBuster : SHEET_CSV_URL + "?t=" + new Date().getTime();
         
-        if (error) throw error;
-        pricingRules = data || [];
-        console.log("✅ Listino scaricato:", pricingRules.length + " mesi.");
+        const response = await fetch(urlWithCacheBuster);
+        
+        if (!response.ok) throw new Error("Errore nel download dal foglio Google");
+        
+        const csvText = await response.text();
+        
+        // Trasforma il testo CSV nell'array di oggetti di cui il tuo codice ha bisogno
+        pricingRules = parseCSVToJSON(csvText);
+        
+        // Assicuriamoci che i dati siano ordinati per mese (come faceva Supabase con .order('mese'))
+        pricingRules.sort((a, b) => a.mese - b.mese);
+        
+        console.log("✅ Listino scaricato da Google Sheets:", pricingRules.length + " mesi trovati.");
     } catch (err) {
-        console.error("❌ Errore Supabase:", err.message);
+        console.error("❌ Errore Google Sheets:", err.message);
     }
 
     // 2. SCARICA TUTTI I CALENDARI 
     let blockedDates = [];
+    // ... IL RESTO DEL TUO CODICE RIMANE IDENTICO DA QUI IN POI ...
     const calendarUrls = window.CALENDAR_URLS; 
     
     if (calendarUrls && calendarUrls.length > 0) {
@@ -111,11 +144,57 @@ let currentLang = document.documentElement.lang || localStorage.getItem('preferr
                 }
             }
         ],
-        onChange: function(selectedDates, dateStr) {
-            if (selectedDates.length === 2) {
-                calculateTotal(selectedDates[0], selectedDates[1], dateStr);
+       onChange: function(selectedDates, dateStr, instance) {
+    
+    // --- LOGICA NOTTE SINGOLA AL VOLO ---
+    if (selectedDates.length === 1) {
+        const start = selectedDates[0];
+        
+        // Calcola il giorno successivo come checkout provvisorio
+        const nextDay = new Date(start.getTime());
+        nextDay.setDate(nextDay.getDate() + 1);
+        
+        // Controlla se il giorno successivo è bloccato o fuori dal range
+        const nextDayStr = instance.formatDate(nextDay, "Y-m-d");
+        const isNextDayDisabled = instance.config.disable.some(disabledRange => {
+            if (typeof disabledRange === 'object' && disabledRange.from && disabledRange.to) {
+                return nextDay > new Date(disabledRange.from) && nextDay <= new Date(disabledRange.to);
             }
+            if (typeof disabledRange === 'string') {
+                return nextDayStr === disabledRange;
+            }
+            return false;
+        });
+        
+        // Costruisci la stringa dateStr nel formato atteso da calculateTotal
+        const startStr = instance.formatDate(start, "d/m/Y");
+        const nextDayStrFormatted = instance.formatDate(nextDay, "d/m/Y");
+        const singleNightDateStr = `${startStr} — ${nextDayStrFormatted}`;
+        
+        // Calcola sempre il prezzo della singola notte (check-out = giorno dopo)
+        calculateTotal(start, nextDay, singleNightDateStr);
+        
+        // Se il giorno dopo è bloccato, forza la selezione come range completato
+        if (isNextDayDisabled) {
+            // Imposta il range come "chiuso" con checkout = giorno successivo
+            instance.setDate([start, nextDay], false);
         }
+        
+        return; // Esce: il prezzo è già mostrato, aspetta eventuale secondo click
+    }
+    
+    // --- RANGE NORMALE (2 date selezionate) ---
+    if (selectedDates.length === 2) {
+        const start = selectedDates[0];
+        const end = selectedDates[1];
+        
+        const startStr = instance.formatDate(start, "d/m/Y");
+        const endStr = instance.formatDate(end, "d/m/Y");
+        const rangeDateStr = `${startStr} — ${endStr}`;
+        
+        calculateTotal(start, end, rangeDateStr);
+    }
+}
     });
 }
 
