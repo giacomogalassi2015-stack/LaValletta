@@ -1,0 +1,122 @@
+# ============================================================
+#  .htaccess — https://www.cadellavalletta.it
+#  Gestione lingua lato server (sostituisce lo script JS)
+#  Compatibile con Apache 2.4 + mod_rewrite
+# ============================================================
+
+Options -Indexes
+ServerSignature Off
+
+# ------------------------------------------------------------
+# 1. ABILITA MOD_REWRITE
+# ------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # ------------------------------------------------------------
+    # 2. FORZA HTTPS + WWW
+    #    (due regole separate per evitare loop e redirect doppi)
+    # ------------------------------------------------------------
+
+    # 2a. HTTP → HTTPS (qualsiasi host)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # 2b. Senza www → con www (già su HTTPS)
+    RewriteCond %{HTTPS} on
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # ------------------------------------------------------------
+    # 3. PROTEZIONE LOOP: le richieste già dentro una
+    #    sottocartella lingua NON vengono reindirizzate di nuovo
+    # ------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} ^/(ITA|EN|FR|DE|ES)/ [NC]
+    RewriteRule ^ - [L]
+
+    # ------------------------------------------------------------
+    # 4. LASCIA PASSARE SENZA REDIRECT:
+    #    - robots.txt, sitemap.xml, favicon, file nella root
+    #    - risorse statiche (css, js, img, fonts…)
+    # ------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} ^/(robots\.txt|sitemap\.xml|favicon\.ico) [NC]
+    RewriteRule ^ - [L]
+
+    RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|pdf|xml|txt)$ [NC]
+    RewriteRule ^ - [L]
+
+    # ------------------------------------------------------------
+    # 5. NORMALIZZA PERCORSI MINUSCOLI → MAIUSCOLI
+    #    (per bot che cercano /en/, /ita/, /fr/…)
+    # ------------------------------------------------------------
+    RewriteRule ^ita(/.*)?$  /ITA/$1  [R=301,L,NC]
+    RewriteRule ^en(/.*)?$   /EN/$1   [R=301,L,NC]
+    RewriteRule ^fr(/.*)?$   /FR/$1   [R=301,L,NC]
+    RewriteRule ^de(/.*)?$   /DE/$1   [R=301,L,NC]
+    RewriteRule ^es(/.*)?$   /ES/$1   [R=301,L,NC]
+
+    # ------------------------------------------------------------
+    # 6. REDIRECT LINGUA BASATO SU Accept-Language
+    #    Solo per la root "/" o "/index.html"
+    #    I bot (Googlebot, Bingbot) NON inviano Accept-Language
+    #    → cadranno nel default ITA senza loop
+    # ------------------------------------------------------------
+
+    # Applica solo alla root principale
+    RewriteCond %{REQUEST_URI} ^(/|/index\.html?)$ [NC]
+
+    # --- Inglese ---
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^ /EN/index-en.html [R=302,L]
+
+    # --- Francese ---
+    RewriteCond %{REQUEST_URI} ^(/|/index\.html?)$ [NC]
+    RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+    RewriteRule ^ /FR/index-fr.html [R=302,L]
+
+    # --- Tedesco ---
+    RewriteCond %{REQUEST_URI} ^(/|/index\.html?)$ [NC]
+    RewriteCond %{HTTP:Accept-Language} ^de [NC]
+    RewriteRule ^ /DE/index-de.html [R=302,L]
+
+    # --- Spagnolo ---
+    RewriteCond %{REQUEST_URI} ^(/|/index\.html?)$ [NC]
+    RewriteCond %{HTTP:Accept-Language} ^es [NC]
+    RewriteRule ^ /ES/index-es.html [R=302,L]
+
+    # --- Default: Italiano (include bot senza Accept-Language) ---
+    RewriteCond %{REQUEST_URI} ^(/|/index\.html?)$ [NC]
+    RewriteRule ^ /ITA/index.html [R=302,L]
+
+</IfModule>
+
+# ------------------------------------------------------------
+# 7. PAGINE DI ERRORE PERSONALIZZATE (opzionale)
+# ------------------------------------------------------------
+# ErrorDocument 404 /ITA/404.html
+# ErrorDocument 500 /ITA/500.html
+
+# ------------------------------------------------------------
+# 8. CACHE & PERFORMANCE (opzionale ma consigliato)
+# ------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html                 "access plus 1 hour"
+    ExpiresByType text/css                  "access plus 1 month"
+    ExpiresByType application/javascript    "access plus 1 month"
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+# ------------------------------------------------------------
+# 9. SECURITY HEADERS
+# ------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
