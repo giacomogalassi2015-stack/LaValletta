@@ -193,17 +193,33 @@
     </div>
 </section>
 
+<!-- MAPPA LAZY: l'iframe non viene inserito nel DOM finché
+     l'utente non scrolla a ~200px dalla sezione.
+     Il contenitore con data-src viene intercettato da script.js -->
 <section id="mappa-percorsi" class="section-padding" style="background-color: #fdfdfd;">
     <div class="container">
-        <div class="custom-map-container" data-aos="fade-up" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2865.226086061752!2d9.736103976549126!3d44.09932672346209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fb5f76c26f27%3A0x37aac3cad5b2d4b5!2sAffittacamere%20Ca%20della%20Valletta!5e0!3m2!1sit!2sit!4v1773397477995!5m2!1sit!2sit" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                title="Mappa interattiva di Riomaggiore - Ca' della Valletta"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div
+            class="custom-map-container map-lazy-wrapper"
+            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2865.226086061752!2d9.736103976549126!3d44.09932672346209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fb5f76c26f27%3A0x37aac3cad5b2d4b5!2sAffittacamere%20Ca%20della%20Valletta!5e0!3m2!1sit!2sit!4v1773397477995!5m2!1sit!2sit"
+            data-title="Mappa interattiva di Riomaggiore - Ca' della Valletta"
+            data-aos="fade-up"
+            style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #f0f0f0;">
+
+            <!-- Placeholder visibile prima del caricamento:
+                 mantiene il layout (nessun CLS) e dà feedback visivo -->
+            <div class="map-placeholder" style="
+                position: absolute; inset: 0;
+                display: flex; align-items: center; justify-content: center;
+                background: #f0f0f0; border-radius: 15px;
+                font-family: 'Montserrat', sans-serif; color: #999; font-size: 0.9rem; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                    viewBox="0 0 24 24" stroke="#C5A059" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 2C8.7 2 6 4.7 6 8c0 4.8 6 13 6 13s6-8.2 6-13c0-3.3-2.7-6-6-6z"/>
+                    <circle cx="12" cy="8" r="2" stroke="#C5A059" stroke-width="1.5"/>
+                </svg>
+                Riomaggiore, Cinque Terre
+            </div>
         </div>
     </div>
 </section>
