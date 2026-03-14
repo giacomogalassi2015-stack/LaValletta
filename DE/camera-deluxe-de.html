@@ -23,60 +23,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script type="application/ld+json">
+  
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HotelRoom",
-  "name": "King Deluxe Room | Ca' della Valletta",
-  "description": "Book the King Deluxe Room at Ca' della Valletta in Riomaggiore. More space, exclusive design, and total comfort for your Cinque Terre getaway.",
-  "url": "https://www.cadellavalletta.it/camera-deluxe-en.html",
+  "@id": "https://www.cadellavalletta.it/DE/camera-deluxe-de.html#room",
+  "name": "King Deluxe Zimmer | Ca' della Valletta",
+  "description": "Buchen Sie das King Deluxe Zimmer im Ca' della Valletta in Riomaggiore. Mehr Platz, exklusives Design e absoluter Komfort für Ihren Cinque Terre Urlaub.",
+  "url": "https://www.cadellavalletta.it/DE/camera-deluxe-de.html",
+  "inLanguage": "de",
   "image": [
-    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg",
-    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg",
-    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037764/d2_lnozpv.jpg"
+    "https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/d3_zaoyrv.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037766/d1_c26ire.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037764/d2_lnozpv.jpg"
   ],
-  "occupancy": {
-    "@type": "QuantitativeValue",
-    "maxValue": 2,
-    "unitCode": "C62"
-  },
-  "bed": {
-    "@type": "BedDetails",
-    "numberOfBeds": 1,
-    "type": "Double Bed"
-  },
+  "occupancy": { "@type": "QuantitativeValue", "maxValue": 2, "unitCode": "C62" },
+  "bed": { "@type": "BedDetails", "numberOfBeds": 1, "type": "Doppelbett" },
   "amenityFeature": [
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Air Conditioning",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Free WiFi",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Soundproofing",
-      "value": true
-    }
+    { "@type": "LocationFeatureSpecification", "name": "Klimaanlage", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Kostenloses WLAN", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Schalldämmung", "value": true }
   ],
   "containedInPlace": {
     "@type": "Guesthouse",
-    "@id": "https://www.cadellavalletta.it/#guesthouse",
-    "name": "Ca' della Valletta",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Della Valletta 13",
-      "addressLocality": "Riomaggiore",
-      "postalCode": "19017",
-      "addressRegion": "SP",
-      "addressCountry": "IT"
-    }
+    "@id": "https://www.cadellavalletta.it/#guesthouse"
   }
 }
 </script>
+
 </head>
 <body>
 
@@ -111,7 +86,7 @@
 
     <header class="hero page-hero">
         <div class="video-wrapper">
-            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Zimmer" class="hero-bg">
+            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Zimmer" class="hero-bg">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up">
@@ -259,13 +234,13 @@
                     <div class="detail-gallery-wrapper">
                         <div class="room-slider" id="roomSlider">
                             <div class="room-slide active">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/d1_c26ire.jpg" alt="King Deluxe Letto" loading="lazy">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037766/d1_c26ire.jpg" alt="King Deluxe Letto" loading="lazy">
                             </div>
                             <div class="room-slide">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037764/d2_lnozpv.jpg" alt="King Deluxe Dettagli" loading="lazy">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037764/d2_lnozpv.jpg" alt="King Deluxe Dettagli" loading="lazy">
                             </div>
                             <div class="room-slide">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Vista" loading="lazy">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/d3_zaoyrv.jpg" alt="King Deluxe Vista" loading="lazy">
                             </div>
                             <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
                             <button class="slider-arrow next" onclick="changeRoomSlide(1)">&#10095;</button>

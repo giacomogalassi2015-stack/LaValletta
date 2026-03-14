@@ -24,58 +24,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HotelRoom",
-  "name": "King Room | Ca' della Valletta",
-  "description": "Discover the King Room at Ca' della Valletta in Riomaggiore. Intimacy, design and comfort in the heart of the Cinque Terre. Featuring double bed, AC and WiFi.",
+  "@id": "https://www.cadellavalletta.it/FR/camera-king-fr.html#room",
+  "name": "Chambre King | Ca' della Valletta",
+  "description": "Découvrez la Chambre King à Ca' della Valletta à Riomaggiore. Intimité, design et confort au cœur des Cinque Terre. Avec lit double, climatisation et WiFi.",
+  "url": "https://www.cadellavalletta.it/FR/camera-king-fr.html",
+  "inLanguage": "fr",
   "image": [
-    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg",
-    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg",
-    "https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg"
+    "https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037766/2_mgkhpb.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037767/1_qturjg.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/3_m93t3i.jpg"
   ],
-  "occupancy": {
-    "@type": "QuantitativeValue",
-    "maxValue": 2,
-    "unitCode": "C62"
-  },
-  "bed": {
-    "@type": "BedDetails",
-    "numberOfBeds": 1,
-    "type": "Double Bed"
-  },
+  "occupancy": { "@type": "QuantitativeValue", "maxValue": 2, "unitCode": "C62" },
+  "bed": { "@type": "BedDetails", "numberOfBeds": 1, "type": "Grand Lit Double" },
   "amenityFeature": [
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Air Conditioning",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Free WiFi",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Soundproofing",
-      "value": true
-    }
+    { "@type": "LocationFeatureSpecification", "name": "Climatisation", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "WiFi Gratuit", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Insonorisation", "value": true }
   ],
   "containedInPlace": {
     "@type": "Guesthouse",
-    "name": "Ca' della Valletta",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Della Valletta 13",
-      "addressLocality": "Riomaggiore",
-      "postalCode": "19017",
-      "addressRegion": "SP",
-      "addressCountry": "IT"
-    }
+    "@id": "https://www.cadellavalletta.it/#guesthouse"
   }
 }
 </script>
+
 </head>
 <body>
 
@@ -113,7 +90,7 @@
 
     <header class="hero page-hero">
         <div class="video-wrapper">
-            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="King Room" class="hero-bg">
+            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="King Room" class="hero-bg">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up">
@@ -254,13 +231,13 @@
                     <div class="detail-gallery-wrapper">
                         <div class="room-slider" id="roomSlider">
                             <div class="room-slide active">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037766/2_mgkhpb.jpg" alt="Lit double de la Chambre King à Riomaggiore" loading="lazy">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037766/2_mgkhpb.jpg" alt="Lit double de la Chambre King à Riomaggiore" loading="lazy">
                             </div>
                             <div class="room-slide">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037767/1_qturjg.jpg" alt="Salle de bain design de la Chambre King" loading="lazy">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037767/1_qturjg.jpg" alt="Salle de bain design de la Chambre King" loading="lazy">
                             </div>
                             <div class="room-slide">
-                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="Détails en pierre et intérieur de la chambre à Riomaggiore" loading="lazy">
+                                <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="Détails en pierre et intérieur de la chambre à Riomaggiore" loading="lazy">
                             </div>
                             
                             <button class="slider-arrow prev" onclick="changeRoomSlide(-1)">&#10094;</button>
