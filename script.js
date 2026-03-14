@@ -214,3 +214,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 }());
+
+/* --- INIZIALIZZAZIONE TUTTE LE FUNZIONI --- */
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Inizializza Animazioni AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    }
+
+    // 2. Logica Mappa Lazy (Intersection Observer)
+    const mapWrapper = document.querySelector('.map-lazy-wrapper');
+    if (mapWrapper) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const src = mapWrapper.getAttribute('data-src');
+                    const title = mapWrapper.getAttribute('data-title');
+                    const iframe = document.createElement('iframe');
+                    iframe.src = src;
+                    iframe.title = title;
+                    iframe.style.position = "absolute";
+                    iframe.style.inset = "0";
+                    iframe.style.width = "100%";
+                    iframe.style.height = "100%";
+                    iframe.style.border = "0";
+                    iframe.setAttribute("allowfullscreen", "");
+                    iframe.setAttribute("loading", "lazy");
+                    const placeholder = mapWrapper.querySelector('.map-placeholder');
+                    if (placeholder) placeholder.remove();
+                    mapWrapper.appendChild(iframe);
+                    observer.unobserve(mapWrapper);
+                }
+            });
+        }, { rootMargin: "200px" });
+        observer.observe(mapWrapper);
+    }
+});
