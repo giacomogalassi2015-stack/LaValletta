@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" href="../img/favicon.png" sizes="192x192">
+    <link rel="icon" href="/img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,8 @@
     <meta name="trustpilot-one-time-domain-verification-id" content="2764f941-18ea-4d89-9702-a24b85707bc6"/>
     <meta name="description" content="¿Buscas una pensión en Riomaggiore? Ca' della Valletta ofrece habitaciones King y Deluxe en el corazón de las Cinque Terre. Descubre nuestras habitaciones y reserva ahora.">
     
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../media.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/media.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -275,7 +275,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../script.js" defer></script>
+    <script src="/script.js" defer></script>
     
     <script>
         AOS.init();
@@ -306,9 +306,9 @@
                     
                     let newUrl = '';
                     if (targetLang === 'it') {
-                        newUrl = `../ITA/${pageName}.html`; 
+                        newUrl = `/ITA/${pageName}.html`; 
                     } else {
-                        newUrl = `../${targetFolder}/${pageName}-${targetLang}.html`;
+                        newUrl = `/${targetFolder}/${pageName}-${targetLang}.html`;
                     }
 
                     window.location.href = newUrl;
