@@ -134,3 +134,83 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+/* ============================================================
+   LAZY LOADING GOOGLE MAPS — Intersection Observer
+   Intercetta tutti i contenitori .map-lazy-wrapper.
+   L'iframe viene iniettato nel DOM solo quando l'elemento
+   entra nel viewport con un margine di 200px di anticipo.
+   Questo elimina il caricamento di ~500KB di risorse Google Maps
+   durante il critical path della pagina.
+   ============================================================ */
+(function () {
+    'use strict';
+
+    // Seleziona tutti i contenitori lazy della mappa (1 per pagina index)
+    const mapWrappers = document.querySelectorAll('.map-lazy-wrapper');
+
+    // Se non ci sono mappe lazy nella pagina corrente, esci subito
+    if (!mapWrappers.length) return;
+
+    // Verifica supporto Intersection Observer (tutti i browser moderni + IE edge)
+    if (!('IntersectionObserver' in window)) {
+        // Fallback per browser molto vecchi: carica subito tutti gli iframe
+        mapWrappers.forEach(loadMap);
+        return;
+    }
+
+    const mapObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                loadMap(entry.target);
+                // Una volta caricata, smette di osservare questo elemento
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        // rootMargin: inizia il caricamento quando il contenitore è
+        // a 200px dal bordo inferiore del viewport — l'utente non
+        // percepirà nessun ritardo nello scroll normale
+        rootMargin: '0px 0px 200px 0px',
+        threshold: 0
+    });
+
+    mapWrappers.forEach(function (wrapper) {
+        mapObserver.observe(wrapper);
+    });
+
+    /**
+     * Inietta l'iframe nel contenitore e rimuove il placeholder.
+     * @param {HTMLElement} wrapper - Il div .map-lazy-wrapper
+     */
+    function loadMap(wrapper) {
+        var src   = wrapper.getAttribute('data-src');
+        var title = wrapper.getAttribute('data-title') || 'Google Maps';
+
+        if (!src) return;
+
+        // Crea l'iframe con gli stessi attributi dell'originale
+        var iframe = document.createElement('iframe');
+        iframe.src                 = src;
+        iframe.title               = title;
+        iframe.allowFullscreen     = true;
+        iframe.loading             = 'lazy';       // doppio livello di lazy nativo
+        iframe.referrerPolicy      = 'no-referrer-when-downgrade';
+        iframe.setAttribute('style',
+            'position: absolute; top: 0; left: 0; ' +
+            'width: 100%; height: 100%; border: 0;');
+
+        // Rimuove il placeholder prima di inserire l'iframe
+        var placeholder = wrapper.querySelector('.map-placeholder');
+        if (placeholder) {
+            placeholder.remove();
+        }
+
+        wrapper.appendChild(iframe);
+
+        // Pulisce gli attributi data- non più necessari
+        wrapper.removeAttribute('data-src');
+        wrapper.removeAttribute('data-title');
+    }
+
+}());
