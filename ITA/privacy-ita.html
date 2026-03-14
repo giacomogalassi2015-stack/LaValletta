@@ -24,17 +24,17 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="../ITA/index.html">Home</a></li>
-                <li><a href="../ITA/camera-king.html">Camera King</a></li>
-                <li><a href="../ITA/camera-deluxe.html">Camera Deluxe</a></li>
-                <li><a href="../ITA/galleria.html">Galleria</a></li>
-                <li><a href="../ITA/index.html#territorio">Experience</a></li>
-                <li><a href="../ITA/faq.html">F.A.Q.</a></li>
+                <li><a href="index-ita.html">Home</a></li>
+                <li><a href="camera-king-ita.html">Camera King</a></li>
+                <li><a href="camera-deluxe-ita.html">Camera Deluxe</a></li>
+                <li><a href="galleria-ita.html">Galleria</a></li>
+                <li><a href="index-ita.html#territorio">Experience</a></li>
+                <li><a href="faq-ita.html">F.A.Q.</a></li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>
 
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Seleziona la lingua">
+           <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/privacy-ita.html';else if(this.value==='en')location='/privacy-en.html';else if(this.value==='fr')location='/FR/privacy-fr.html';else if(this.value==='de')location='/DE/privacy-de.html';else if(this.value==='es')location='/ES/privacy-es.html';">
                     <option value="it" selected>🇮🇹 IT</option>
                     <option value="en">🇬🇧 EN</option>
                     <option value="fr">🇫🇷 FR</option>
@@ -165,9 +165,9 @@
                     CIN: IT011024B4MTWJF09S
                 </p>
                 <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="termini.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
-                    <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a>
+                    <a href="privacy-ita.html" style="text-decoration: underline;">Privacy Policy</a> | 
+                    <a href="termini-ita.html" style="text-decoration: underline;">Termini e Condizioni</a> | 
+                    <a href="cookie-policy-ita.html" style="text-decoration: underline;">Cookie Policy</a>
                 </p>
                  <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
@@ -175,17 +175,6 @@
     </footer>
 
     <script src="../script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value;
-                    if (targetLang === 'it') window.location.href = 'privacy.html';
-                    else window.location.href = `privacy-${targetLang}.html`;
-                });
-            }
-        });
-    </script>
+
 </body>
 </html>

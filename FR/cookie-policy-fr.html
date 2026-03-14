@@ -24,17 +24,17 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="../FR/index-fr.html">Accueil</a></li>
-                <li><a href="../FR/camera-king-fr.html">Chambre King</a></li>
-                <li><a href="../FR/camera-deluxe-fr.html">Chambre Deluxe</a></li>
-                <li><a href="../FR/galleria-fr.html">Galerie</a></li>
-                <li><a href="../FR/index-fr.html#territorio">Expérience</a></li>
-                <li><a href="../FR/faq-fr.html">F.A.Q.</a></li>
+                <li><a href="index-fr.html">Accueil</a></li>
+                <li><a href="camera-king-fr.html">Chambre King</a></li>
+                <li><a href="camera-deluxe-fr.html">Chambre Deluxe</a></li>
+                <li><a href="galleria-fr.html">Galerie</a></li>
+                <li><a href="index-fr.html#territorio">Expérience</a></li>
+                <li><a href="faq-fr.html">F.A.Q.</a></li>
                 <li><a href="#contatti">Contact</a></li>
             </ul>
 
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Choisir la langue">
+            <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/cookie-policy-ita.html';else if(this.value==='en')location='/cookie-policy-en.html';else if(this.value==='fr')location='/FR/cookie-policy-fr.html';else if(this.value==='de')location='/DE/cookie-policy-de.html';else if(this.value==='es')location='/ES/cookie-policy-es.html';">
                     <option value="it">🇮🇹 IT</option>
                     <option value="en">🇬🇧 EN</option>
                     <option value="fr" selected>🇫🇷 FR</option>
@@ -132,17 +132,6 @@
     </footer>
 
     <script src="../script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value;
-                    if (targetLang === 'it') window.location.href = 'cookie-policy.html';
-                    else window.location.href = `cookie-policy-${targetLang}.html`;
-                });
-            }
-        });
-    </script>
+   
 </body>
 </html>

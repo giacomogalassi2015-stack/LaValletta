@@ -24,17 +24,17 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="../DE/index-de.html">Startseite</a></li>
-                <li><a href="../DE/camera-king-de.html">King Zimmer</a></li>
-                <li><a href="../DE/camera-deluxe-de.html">Deluxe Zimmer</a></li>
-                <li><a href="../DE/galleria-de.html">Galerie</a></li>
-                <li><a href="../DE/index-de.html#territorio">Erlebnis</a></li>
-                <li><a href="../DE/faq-de.html">F.A.Q.</a></li>
+                <li><a href="index-de.html">Startseite</a></li>
+                <li><a href="camera-king-de.html">King Zimmer</a></li>
+                <li><a href="camera-deluxe-de.html">Deluxe Zimmer</a></li>
+                <li><a href="galleria-de.html">Galerie</a></li>
+                <li><a href="index-de.html#territorio">Erlebnis</a></li>
+                <li><a href="faq-de.html">F.A.Q.</a></li>
                 <li><a href="#contatti">Kontakt</a></li>
             </ul>
 
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language">
+             <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/privacy-ita.html';else if(this.value==='en')location='/privacy-en.html';else if(this.value==='fr')location='/FR/privacy-fr.html';else if(this.value==='de')location='/DE/privacy-de.html';else if(this.value==='es')location='/ES/privacy-es.html';">
                     <option value="it">🇮🇹 IT</option>
                     <option value="en">🇬🇧 EN</option>
                     <option value="fr">🇫🇷 FR</option>
@@ -175,17 +175,6 @@
     </footer>
 
     <script src="../script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value;
-                    if (targetLang === 'it') window.location.href = 'privacy.html';
-                    else window.location.href = `privacy-${targetLang}.html`;
-                });
-            }
-        });
-    </script>
+   
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="../img/favicon.png" sizes="192x192">
+    <link rel="icon" href="img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,8 @@
     <meta name="trustpilot-one-time-domain-verification-id" content="2764f941-18ea-4d89-9702-a24b85707bc6"/>
     <meta name="description" content="Looking for a guesthouse in Riomaggiore? Ca' della Valletta offers King and Deluxe rooms in the heart of Cinque Terre. Discover our rooms and book now.">
     
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../media.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,17 +61,17 @@
     }
     </script>
 
-    <link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index.html" />
-    <link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/EN/index-en.html" />
+    <link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/index-ita.html" />
+    <link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita.html" />
     <link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/index-fr.html" />
     <link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/index-de.html" />
     <link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/index-es.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/EN/index-en.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/index.html" />
     
 </head>
 <body>
 
- <nav id="navbar">
+<nav id="navbar">
     <div class="nav-container">
         <div class="logo">
             Ca' della Valletta
@@ -79,17 +79,17 @@
         </div>
 
         <ul class="nav-links">
-            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="camera-king-en.html">King Room</a></li>
             <li><a href="camera-deluxe-en.html">Deluxe Room</a></li>
             <li><a href="galleria-en.html">Gallery</a></li>
-            <li><a href="index-en.html#territorio">Experience</a></li>
+            <li><a href="index.html#territorio">Experience</a></li>
             <li><a href="faq-en.html">F.A.Q.</a></li>
             <li><a href="#contatti">Contact</a></li>
         </ul>
 
         <div class="nav-extras">
-            <select id="language-selector" name="language" aria-label="Select language">
+            <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/index-ita.html';else if(this.value==='en')location='/index.html';else if(this.value==='fr')location='/FR/index-fr.html';else if(this.value==='de')location='/DE/index-de.html';else if(this.value==='es')location='/ES/index-es.html';">
                 <option value="it">🇮🇹 IT</option>
                 <option value="en" selected>🇬🇧 EN</option>
                 <option value="fr">🇫🇷 FR</option>
@@ -148,6 +148,7 @@
   </div>
 </section>
 <!-- ===== / TRUST BAR ===== -->
+
   <section id="camere" class="section-padding">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
@@ -276,46 +277,8 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../script.js" defer></script>
-    
-    <script>
-        AOS.init();
+    <script src="script.js" defer></script>
+    <script>AOS.init();</script>
 
-        // NUOVO SCRIPT CAMBIO LINGUA (Gestisce le cartelle)
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value; // es: 'en', 'fr', 'de'
-                    
-                    const folders = {
-                        'it': 'ITA',
-                        'en': 'EN',
-                        'fr': 'FR',
-                        'de': 'DE',
-                        'es': 'ES'
-                    };
-                    
-                    const targetFolder = folders[targetLang];
-                    
-                    const currentPath = window.location.pathname;
-                    let pageName = currentPath.split('/').pop().split('.')[0]; 
-                    
-                    // Pulisce il nome
-                    pageName = pageName.replace(/-en|-fr|-de|-es/g, '');
-                    if (pageName === '') pageName = 'index'; 
-                    
-                    let newUrl = '';
-                    if (targetLang === 'it') {
-                        newUrl = `../ITA/${pageName}.html`; 
-                    } else {
-                        newUrl = `../${targetFolder}/${pageName}-${targetLang}.html`;
-                    }
-
-                    window.location.href = newUrl;
-                });
-            }
-        });
-    </script>
 </body>
 </html>

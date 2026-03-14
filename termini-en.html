@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="../img/favicon.png" sizes="192x192">
+    <link rel="icon" href="img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions | Ca' della Valletta</title>
     
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../media.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,17 +24,17 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="../EN/index-en.html">Home</a></li>
-                <li><a href="../EN/camera-king-en.html">King Room</a></li>
-                <li><a href="../EN/camera-deluxe-en.html">Deluxe Room</a></li>
-                <li><a href="../EN/galleria-en.html">Gallery</a></li>
-                <li><a href="../EN/index-en.html#territorio">Experience</a></li>
-                <li><a href="../EN/faq-en.html">F.A.Q.</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="camera-king-en.html">King Room</a></li>
+                <li><a href="camera-deluxe-en.html">Deluxe Room</a></li>
+                <li><a href="galleria-en.html">Gallery</a></li>
+                <li><a href="index.html#territorio">Experience</a></li>
+                <li><a href="faq-en.html">F.A.Q.</a></li>
                 <li><a href="#contatti">Contact</a></li>
             </ul>
 
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language">
+                <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/termini-ita.html';else if(this.value==='en')location='/termini-en.html';else if(this.value==='fr')location='/FR/termini-fr.html';else if(this.value==='de')location='/DE/termini-de.html';else if(this.value==='es')location='/ES/termini-es.html';">
                     <option value="it">🇮🇹 IT</option>
                     <option value="en" selected>🇬🇧 EN</option>
                     <option value="fr">🇫🇷 FR</option>
@@ -151,18 +151,7 @@
         </div>
     </footer>
 
-    <script src="../script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value;
-                    if (targetLang === 'it') window.location.href = 'termini.html';
-                    else window.location.href = `termini-${targetLang}.html`;
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
+
 </body>
 </html>
