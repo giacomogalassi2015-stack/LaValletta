@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <link rel="icon" href="../img/favicon.png" sizes="192x192">
+    <link rel="icon" href="/img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,8 @@
     <meta name="trustpilot-one-time-domain-verification-id" content="2764f941-18ea-4d89-9702-a24b85707bc6"/>
     <meta name="description" content="Suchen Sie ein Gästehaus in Riomaggiore? Ca' della Valletta bietet King- und Deluxe-Zimmer im Herzen der Cinque Terre. Entdecken Sie unsere Zimmer und buchen Sie jetzt.">
     
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../media.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/media.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,46 +276,11 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../script.js" defer></script>
+    <script src="/script.js" defer></script>
     
     <script>
         AOS.init();
 
-        // NUOVO SCRIPT CAMBIO LINGUA (Gestisce le cartelle)
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value; // es: 'en', 'fr', 'de'
-                    
-                    const folders = {
-                        'it': 'ITA',
-                        'en': 'EN',
-                        'fr': 'FR',
-                        'de': 'DE',
-                        'es': 'ES'
-                    };
-                    
-                    const targetFolder = folders[targetLang];
-                    
-                    const currentPath = window.location.pathname;
-                    let pageName = currentPath.split('/').pop().split('.')[0]; 
-                    
-                    // Pulisce il nome
-                    pageName = pageName.replace(/-en|-fr|-de|-es/g, '');
-                    if (pageName === '') pageName = 'index'; 
-                    
-                    let newUrl = '';
-                    if (targetLang === 'it') {
-                        newUrl = `../ITA/${pageName}.html`; 
-                    } else {
-                        newUrl = `../${targetFolder}/${pageName}-${targetLang}.html`;
-                    }
-
-                    window.location.href = newUrl;
-                });
-            }
-        });
     </script>
 </body>
 </html>

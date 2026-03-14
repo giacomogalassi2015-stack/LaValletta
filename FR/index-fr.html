@@ -281,41 +281,6 @@
     <script>
         AOS.init();
 
-        // NUOVO SCRIPT CAMBIO LINGUA (Gestisce le cartelle)
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSelector = document.getElementById('language-selector');
-            if (langSelector) {
-                langSelector.addEventListener('change', function() {
-                    const targetLang = this.value; // es: 'en', 'fr', 'de'
-                    
-                    const folders = {
-                        'it': 'ITA',
-                        'en': 'EN',
-                        'fr': 'FR',
-                        'de': 'DE',
-                        'es': 'ES'
-                    };
-                    
-                    const targetFolder = folders[targetLang];
-                    
-                    const currentPath = window.location.pathname;
-                    let pageName = currentPath.split('/').pop().split('.')[0]; 
-                    
-                    // Pulisce il nome
-                    pageName = pageName.replace(/-en|-fr|-de|-es/g, '');
-                    if (pageName === '') pageName = 'index'; 
-                    
-                    let newUrl = '';
-                    if (targetLang === 'it') {
-                        newUrl = `/ITA/${pageName}.html`; 
-                    } else {
-                        newUrl = `/${targetFolder}/${pageName}-${targetLang}.html`;
-                    }
-
-                    window.location.href = newUrl;
-                });
-            }
-        });
     </script>
 </body>
 </html>
