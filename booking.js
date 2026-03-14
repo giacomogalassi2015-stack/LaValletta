@@ -1,3 +1,36 @@
+// ============================================================
+// LETTURA CONFIGURAZIONE DAL DOM (sostituisce gli <script> inline)
+// Il widget #preventivo-box porta i data-* con room, nome e calendari.
+// Questo blocco deve stare PRIMA di qualsiasi uso di CURRENT_ROOM ecc.
+// ============================================================
+(function readRoomConfig() {
+    var widget = document.getElementById('preventivo-box');
+    if (!widget) return;
+
+    var room     = widget.getAttribute('data-room');
+    var roomName = widget.getAttribute('data-room-name');
+    var calRaw   = widget.getAttribute('data-calendar-urls');
+
+    if (room)     window.CURRENT_ROOM  = room;
+    if (roomName) window.ROOM_NAME     = roomName;
+    if (calRaw) {
+        try {
+            window.CALENDAR_URLS = JSON.parse(calRaw);
+        } catch (e) {
+            console.error('❌ Errore parsing CALENDAR_URLS dal data-attribute:', e);
+            window.CALENDAR_URLS = [];
+        }
+    }
+})();
+
+// ============================================================
+// SUPABASE CONFIG (se booking.js non lo legge già da window)
+// ============================================================
+if (!window.SUPABASE_URL) {
+    window.SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co';
+    window.SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
+}
+
 // --- URL DEL FOGLIO GOOGLE PUBBLICATO IN CSV ---
 const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vROmTNDLNHlbBVbuIa2H2QZMO5sLDCvX1gBe1WP_5dNXp7OOmblUiwVFZXprxgUgECRWVZSCL9AYzvo/pub?output=csv"; 
 
