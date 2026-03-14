@@ -1,122 +1,244 @@
-/* --- MOBILE & TABLET (Sotto i 900px) --- */
+/* ============================================================
+   MOBILE & TABLET — max-width: 900px
+   Consolidato: ex-blocco 1 (righe 1-60) + ex-blocco 2 (righe 62-80)
+   ============================================================ */
 @media (max-width: 900px) {
-    
-    /* 1. NAVBAR MOBILE */
-    #navbar { 
-        padding: 15px 20px !important; 
+
+    /* --- NAVBAR --- */
+    #navbar {
+        padding: 15px 20px;
     }
-    
+
     .nav-container {
         width: 100%;
         justify-content: space-between;
     }
 
-    .logo { font-size: 1.2rem !important;  }
-    .sub-logo { font-size: 0.5rem !important; letter-spacing: 1px !important; }
+    .logo        { font-size: 1.2rem; }
+    .sub-logo    { font-size: 0.5rem; letter-spacing: 1px; }
 
-    .hamburger { 
-        display: block; 
-        position: relative; 
-        z-index: 1001; 
-        margin-left: 0 !important;
-        color: white !important; 
+    .hamburger {
+        display: block;
+        position: relative;
+        z-index: 1001;
+        margin-left: 0;
     }
 
-    /* 2. MENU A TENDINA (OVERLAY) */
+    /* Colore hamburger: default (hero non scrollato) */
+    #navbar:not(.scrolled) .hamburger { color: #ffffff; }
+    /* Colore hamburger: navbar scrollata */
+    #navbar.scrolled .hamburger       { color: var(--primary); }
+
     .nav-links {
-        display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px;
-        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-        background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px);
-        transition: right 0.4s ease; z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        position: fixed;
+        top: 0;
+        right: 0;                          /* sempre in posizione, nascosto via transform */
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 25, 47, 0.98);/* opaco: stesso effetto visivo, zero GPU blur */
+        transform: translateX(100%);       /* nascosto a destra */
+        transition: transform 0.4s ease;   /* compositor-only: nessun layout recalc */
+        z-index: 999;
     }
-    .nav-links.active { right: 0; }
-    .nav-links a { color: white !important; font-size: 1.5rem; }
+
+    /* La classe .active ora toglie il translate invece di spostare 'right' */
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links a               { color: white; font-size: 1.5rem; }
+    #navbar.scrolled .nav-links a { color: #ffffff; }
 
     .nav-links .lang-item {
-        margin-top: 20px; 
-        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: 20px;
         width: 100%;
         text-align: center;
     }
-    .nav-links .lang-item select {
-        color: white !important;
-        border: 1px solid white !important;
+
+    .nav-links .lang-item select,
+    #navbar.scrolled .nav-links .lang-item select {
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.5);
         font-size: 1rem;
         padding: 10px 20px;
         background: transparent;
     }
 
-    /* 3. HOME PAGE: Camere in colonna */
-    .section-padding { padding-top: 10px; padding-bottom: 16px; }
-    h2.section-title { font-size: 2rem; margin-bottom: 20px !important; }
-    .lead-text { margin-bottom: 20px !important; }
-    
-    .room-row { margin-bottom: 40px; gap: 0; display: block; }
-    .room-text { display: none !important; } 
+    /* --- HOME PAGE: CAMERE IN COLONNA --- */
+    .section-padding    { padding-top: 10px; padding-bottom: 16px; }
+    h2.section-title    { font-size: 2rem; margin-bottom: 20px; }
+    .lead-text          { margin-bottom: 20px; }
+
+    .room-row           { margin-bottom: 40px; gap: 0; display: block; }
+    .room-text          { display: none; }
+
     .mobile-room-title {
-        display: block; position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
-        width: 100%; text-align: center; color: white !important;
-        font-family: var(--font-heading); font-size: 2rem; z-index: 20;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.8); pointer-events: none; margin: 0; padding: 0 10px; line-height: 1.1;
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        z-index: 20;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        pointer-events: none;
+        margin: 0;
+        padding: 0 10px;
+        line-height: 1.1;
     }
+
     .room-overlay-btn {
-        display: block; position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.95); color: var(--primary) !important;
-        padding: 12px 30px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
-        text-transform: uppercase; z-index: 30; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none;
+        display: block;
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--primary);
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        z-index: 30;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
     }
 
-    /* 4. PAGINE INTERNE */
-    .room-detail-grid { display: flex; flex-direction: column; gap: 30px; }
-    .detail-text { order: 1; } 
-    .right-column-wrapper { order: 2; margin-top: 20px; } 
-    .services-list ul { grid-template-columns: 1fr; }
-    .resources-grid, .gallery-grid { grid-template-columns: 1fr; gap: 30px; }
+    /* --- PAGINE INTERNE --- */
+    .room-detail-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
 
-    .slider-container, .room-slider { height: 350px; margin-bottom: 20px; background-color: #eee; }
-    .slider-btn, .slider-arrow { width: 50px; height: 50px; background: rgba(0,0,0,0.4); opacity: 1; z-index: 25; outline: none; }
+    .detail-text          { order: 1; }
+    .right-column-wrapper { order: 2; margin-top: 20px; }
+
+    .services-list ul                    { grid-template-columns: 1fr; }
+    .resources-grid, .gallery-grid       { grid-template-columns: 1fr; gap: 30px; }
+
+    .slider-container,
+    .room-slider {
+        height: 350px;
+        aspect-ratio: 4 / 3;             /* riserva spazio prima della paint */
+        margin-bottom: 20px;
+        background-color: #eee;
+    }
+
+    .slider-btn,
+    .slider-arrow {
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 1;
+        z-index: 25;
+        outline: none;
+    }
+
+    .trust-badges-row { gap: 10px; }
+    .trust-card       { padding: 15px 5px; }
+    .trust-score span { font-size: 1.4rem; }
 }
 
-/* --- DESKTOP (Sopra i 901px) --- */
+
+/* ============================================================
+   DESKTOP — min-width: 901px
+   ============================================================ */
 @media (min-width: 901px) {
-    .room-row { display: flex !important; align-items: center; justify-content: space-between; gap: 60px; height: 500px; margin-bottom: 80px; }
-    .room-row.reverse { flex-direction: row-reverse; }
-    .room-row .slider-container { width: 60% !important; height: 100% !important; }
-    
-    .room-text { display: block !important; width: 40%; text-align: left; padding: 0 10px; }
-    .mobile-room-title, .room-overlay-btn { display: none !important; }
 
-    .nav-links .lang-item { 
-        margin-top: 0; 
-        border-top: none; 
-        padding-top: 0; 
-        width: auto; 
+    .room-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        height: 500px;
+        margin-bottom: 80px;
     }
 
-    .room-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .detail-text .booking-widget { margin-top: 0 !important; }
-    .right-column-wrapper { margin-top: 2px; }
+    .room-row.reverse        { flex-direction: row-reverse; }
+    .room-row .slider-container {
+        width: 60%;
+        height: 100%;
+    }
+
+    .room-text {
+        display: block;
+        width: 40%;
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    .mobile-room-title,
+    .room-overlay-btn { display: none; }
+
+    .nav-links .lang-item {
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+        width: auto;
+    }
+
+    .room-detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    .detail-text .booking-widget { margin-top: 0; }
+    .right-column-wrapper        { margin-top: 2px; }
 }
 
-@media (max-width: 900px) {
 
-    .nav-links a,
-    #navbar.scrolled .nav-links a {
-        color: #ffffff !important;
+/* ============================================================
+   SMARTPHONE — max-width: 600px
+   ============================================================ */
+@media (max-width: 600px) {
+
+    /* Trust badges: impila verticalmente */
+    .trust-badges-row {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    #navbar:not(.scrolled) .hamburger {
-         color: #ffffff !important;
+    .trust-card { padding: 20px; }
+
+    /* Trust bar */
+    .trust-bar { padding: 16px 20px; }
+
+    .trust-bar__container {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4px;
     }
 
-    #navbar.scrolled .hamburger {
-         color: var(--primary) !important; 
+    .trust-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 8px;
+        text-align: center;
     }
 
-    .nav-links .lang-item select,
-    #navbar.scrolled .nav-links .lang-item select {
-        color: #ffffff !important;
-        border-color: rgba(255,255,255,0.5) !important;
+    .trust-icon  { width: 20px; height: 20px; }
+
+    .trust-title {
+        font-size: 0.70rem;
+        white-space: normal;
+        line-height: 1.3;
     }
+
+    /* Mappa: altezza ridotta su smartphone */
+    .custom-map-container iframe { height: 400px; }
 }

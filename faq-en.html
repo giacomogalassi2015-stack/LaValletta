@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="img/favicon.png" sizes="192x192">
+    <link rel="icon" href="/img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery | Ca' della Valletta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Frequently Asked Questions (F.A.Q.) | Ca' della Valletta</title>
+    <meta name="description" content="Frequently asked questions and practical guide for your stay in Riomaggiore and the Cinque Terre.">
 
-    <link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/galleria-en.html">
-    <link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/galleria-ita.html">
-    <link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/galleria-fr.html">
-    <link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/galleria-de.html">
-    <link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en.html">
+    <link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/faq-en.html">
+    <link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/faq-ita.html">
+    <link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/faq-fr.html">
+    <link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/faq-de.html">
+    <link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/faq-es.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/faq-en.html">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/media.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <nav id="navbar">
+    <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
                 Ca' della Valletta
                 <span class="sub-logo">CINQUE TERRE</span>
             </div>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="camera-king-en.html">King Room</a></li>
-            <li><a href="camera-deluxe-en.html">King Deluxe Room</a></li>
-            <li><a href="galleria-en.html">Gallery</a></li>
-            <li><a href="index.html#territorio">Experience</a></li>
-            <li><a href="faq-en.html">F.A.Q.</a></li>
-            <li><a href="#contatti">Contact</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/camera-king-en.html">King Room</a></li>
+                <li><a href="/camera-deluxe-en.html">King Deluxe Room</a></li>
+                <li><a href="/galleria-en.html">Gallery</a></li>
+                <li><a href="/index.html#territorio">Experience</a></li>
+                <li><a href="/faq-en.html">F.A.Q.</a></li>
+                <li><a href="#contatti">Contact</a></li>
+            </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/galleria-ita.html';else if(this.value==='en')location='/galleria-en.html';else if(this.value==='fr')location='/FR/galleria-fr.html';else if(this.value==='de')location='/DE/galleria-de.html';else if(this.value==='es')location='/ES/galleria-es.html';">
+                <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/faq-ita.html';else if(this.value==='en')location='/faq-en.html';else if(this.value==='fr')location='/FR/faq-fr.html';else if(this.value==='de')location='/DE/faq-de.html';else if(this.value==='es')location='/ES/faq-es.html';">
                     <option value="it">🇮🇹 IT</option>
                     <option value="en" selected>🇬🇧 EN</option>
                     <option value="fr">🇫🇷 FR</option>
@@ -51,79 +52,153 @@
         </div>
     </nav>
 
-    <header class="hero" style="height: 50vh;">
-        <div class="video-wrapper">
-            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="Gallery" class="hero-bg">
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="fade-up">
-            <span class="hero-subtitle">Explore</span>
-            <h1>Our Gallery</h1>
+    <header style="padding: 160px 0 40px; background-color: #fdfcf9; text-align: center;">
+        <div class="container" data-aos="fade-up">
+            <h1 class="section-title">Frequently Asked Questions (F.A.Q.)</h1>
+            <p class="lead-text">Everything you need to know for your stay in Riomaggiore</p>
         </div>
     </header>
 
-    <section class="section-padding">
+    <main class="section-padding" style="background-color: #fdfcf9; padding-top: 0;">
         <div class="container">
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037766/2_mgkhpb.jpg" alt="King Room Bed" loading="lazy">
+            <div id="faq-dynamic-container" class="faq-container">
+
+                <h3 class="faq-category-title" data-aos="fade-right">Arrival &amp; Transport</h3>
+
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>How do I get to Riomaggiore by car?</summary>
+                        <div class="faq-answer">Via the A12 motorway (La Spezia exit). The village is a ZTL (Restricted Traffic Zone): you can only reach the village entrance by car.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037767/1_qturjg.jpg" alt="King Room Bathroom" loading="lazy">
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Where can I park in Riomaggiore?</summary>
+                        <div class="faq-answer">At the covered 'Rio Park' garage (approx. €35/day) or along limited stretches of the coastal road, but spaces are scarce.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="King Room Details" loading="lazy">
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Why do you recommend leaving the car in La Spezia?</summary>
+                        <div class="faq-answer">La Spezia offers more parking options (most of them paid) and is only an 8-minute train ride from Riomaggiore.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037766/d1_c26ire.jpg" alt="Deluxe Room Bed" loading="lazy">
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Is the train really the best option?</summary>
+                        <div class="faq-answer">Yes, the 'Cinque Terre Express' is fast, frequent (every 15–20 min in high season) and connects all the villages stress-free. Ticket prices vary by season.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037764/d2_lnozpv.jpg" alt="Deluxe Room Details" loading="lazy">
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>When is the Cinque Terre Card worth it?</summary>
+                        <div class="faq-answer">The 'Trekking Card' is worth it for paid trails like the Sentiero Azzurro. The 'Train Card' pays off if you plan to take more than three train trips per day.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771037765/d3_zaoyrv.jpg" alt="Deluxe Room View" loading="lazy">
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>How do the ferries work?</summary>
+                        <div class="faq-answer">They operate from late March to October. The views are spectacular, but services are cancelled when the sea is rough.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771461197/terrazza_jvagve.jpg" alt="Panoramic Terrace" loading="lazy">
+
+                <h3 class="faq-category-title" data-aos="fade-right">Staying at Ca' della Valletta</h3>
+
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Is the property far from the train station?</summary>
+                        <div class="faq-answer">We are about 100 metres from the station — a flat 5-minute walk through the pedestrian tunnel.</div>
+                    </details>
                 </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://res.cloudinary.com/dkg0jfady/image/upload/f_auto,q_auto/v1771461207/ingresso_bfueoj.jpg" alt="Property Entrance" loading="lazy">
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Are there many stairs to reach you?</summary>
+                        <div class="faq-answer">Riomaggiore is a vertical village. We have a short flight of ten steps at the entrance and internal ramps to reach the rooms (1st and 2nd floor). We recommend backpacks or medium-sized trolleys rather than large suitcases.</div>
+                    </details>
                 </div>
-            </div>
-            <div class="text-center" style="margin-top: 50px;">
-                <a href="index.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Back to Rooms</a>
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Do you offer luggage storage?</summary>
+                        <div class="faq-answer">We don't have internal luggage storage. Early drop-off in the room is possible by prior arrangement. There are two paid luggage storage services at the station and a few metres from us.</div>
+                    </details>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>What is the Wi-Fi and air conditioning like?</summary>
+                        <div class="faq-answer">Wi-Fi is free, fast and covers the whole property. Each room has its own independent air conditioning unit that guests can adjust themselves.</div>
+                    </details>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>What amenities will I find in the room?</summary>
+                        <div class="faq-answer">Towels, hairdryer, kettle (tea/coffee), mini-fridge, safe and a personal care toiletry set.</div>
+                    </details>
+                </div>
+
+                <h3 class="faq-category-title" data-aos="fade-right">Experiences &amp; Food</h3>
+
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Is the Via dell'Amore open?</summary>
+                        <div class="faq-answer">Yes, it reopened in 2024. A trekking card is required (available online or at info points). We recommend visiting early in the morning.</div>
+                    </details>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Should I book restaurants in advance?</summary>
+                        <div class="faq-answer">Yes — in high season the best spots fill up days in advance.</div>
+                    </details>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>Which hiking trails do you recommend from Riomaggiore?</summary>
+                        <div class="faq-answer">Besides the Via dell'Amore, the trail to the Sanctuary of Montenero offers the most beautiful view of the entire coastline.</div>
+                    </details>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <details>
+                        <summary>What can I do if it rains?</summary>
+                        <div class="faq-answer">Trains keep running. You can visit the castles, historic churches or local museums in the various villages.</div>
+                    </details>
+                </div>
+
             </div>
         </div>
-    </section>
+    </main>
 
     <footer id="contatti">
         <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
+            <div class="footer-brand" data-aos="fade-up">
+                <h2>Contact Ca' della Valletta in Riomaggiore</h2>
                 <p>Riomaggiore, Cinque Terre</p>
             </div>
-            <div class="footer-info">
+            <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
                 <p>Via Della Valletta 13, 19017 (SP)</p>
                 <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
                 <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
             </div>
             <div class="footer-legal">
-                <p><strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
-                Registered Office: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-                VAT: IT01444610453</p>
-                <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-en.html" style="text-decoration: underline;">Privacy Policy</a> |
-                    <a href="termini-en.html" style="text-decoration: underline;">Terms & Conditions</a> |
-                    <a href="cookie-policy-en.html" style="text-decoration: underline;">Cookie Policy</a>
+                <p>
+                    <strong>Ca' della Valletta</strong> by Giacomo Galassi<br>
+                    Registered Office: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
+                    VAT: IT01444610453
                 </p>
-                <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. All rights reserved.</p>
+                <p style="margin-top: 10px; font-weight: bold;">
+                    CITR: 011024-AFF-0196 <br>
+                    CIN: IT011024B4MTWJF09S
+                </p>
+                <p style="margin-top: 15px; font-size: 0.75rem;">
+                    <a href="/privacy-en.html" style="text-decoration: underline;">Privacy Policy</a> |
+                    <a href="/termini-en.html" style="text-decoration: underline;">Terms &amp; Conditions</a> |
+                    <a href="/cookie-policy-en.html" style="text-decoration: underline;">Cookie Policy</a>
+                </p>
+                <p style="margin-top: 10px;">© 2026 Ca' della Valletta. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js" defer></script>
+    <script src="/script.js" defer></script>
     <script>AOS.init();</script>
 </body>
 </html>
