@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="img/favicon.png" sizes="192x192">
+    <link rel="icon" href="/img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Gallery | Ca' della Valletta</title>
@@ -13,8 +13,8 @@
     <link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es.html">
     <link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en.html">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/media.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -29,17 +29,18 @@
                 Ca' della Valletta
                 <span class="sub-logo">CINQUE TERRE</span>
             </div>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="camera-king-en.html">King Room</a></li>
-            <li><a href="camera-deluxe-en.html">King Deluxe Room</a></li>
-            <li><a href="galleria-en.html">Gallery</a></li>
-            <li><a href="index.html#territorio">Experience</a></li>
-            <li><a href="faq-en.html">F.A.Q.</a></li>
-            <li><a href="#contatti">Contact</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/camera-king-en.html">King Room</a></li>
+                <li><a href="/camera-deluxe-en.html">King Deluxe Room</a></li>
+                <li><a href="/galleria-en.html">Gallery</a></li>
+                <li><a href="/index.html#territorio">Experience</a></li>
+                <li><a href="/faq-en.html">F.A.Q.</a></li>
+                <li><a href="#contatti">Contact</a></li>
+            </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language" onchange="if(this.value==='it')location='/ITA/galleria-ita.html';else if(this.value==='en')location='/galleria-en.html';else if(this.value==='fr')location='/FR/galleria-fr.html';else if(this.value==='de')location='/DE/galleria-de.html';else if(this.value==='es')location='/ES/galleria-es.html';">
+                <select id="language-selector" name="language" aria-label="Select language"
+                    data-page="galleria">
                     <option value="it">🇮🇹 IT</option>
                     <option value="en" selected>🇬🇧 EN</option>
                     <option value="fr">🇫🇷 FR</option>
@@ -91,7 +92,7 @@
                 </div>
             </div>
             <div class="text-center" style="margin-top: 50px;">
-                <a href="index.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Back to Rooms</a>
+                <a href="/index.html#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Back to Rooms</a>
             </div>
         </div>
     </section>
@@ -113,16 +114,17 @@
                 VAT: IT01444610453</p>
                 <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
                 <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-en.html" style="text-decoration: underline;">Privacy Policy</a> |
-                    <a href="termini-en.html" style="text-decoration: underline;">Terms & Conditions</a> |
-                    <a href="cookie-policy-en.html" style="text-decoration: underline;">Cookie Policy</a>
+                    <a href="/privacy-en.html" style="text-decoration: underline;">Privacy Policy</a> |
+                    <a href="/termini-en.html" style="text-decoration: underline;">Terms &amp; Conditions</a> |
+                    <a href="/cookie-policy-en.html" style="text-decoration: underline;">Cookie Policy</a>
                 </p>
                 <p style="margin-top: 10px;">&copy; 2026 Ca' della Valletta. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
- 
-      
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/script.js" defer></script>
+
 </body>
 </html>
