@@ -254,3 +254,169 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(mapWrapper);
     }
 });
+
+/* ============================================================
+   LANGUAGE SELECTOR — gestione cambio lingua senza onchange inline
+   Legge data-page dal <select> per determinare quale pagina aprire.
+   Aggiunge automaticamente il suffisso corretto per ogni lingua
+   e gestisce i percorsi root vs sottocartella.
+   ============================================================ */
+(function () {
+    'use strict';
+
+    /* Mappa pagina → URL per ogni lingua.
+       'index' copre tutte e 5 le home page multilingua.
+       Estendi questo oggetto se aggiungi nuove pagine con selettore. */
+    var PAGE_URLS = {
+        index: {
+            it: '/ITA/index-ita.html',
+            en: '/',
+            fr: '/FR/index-fr.html',
+            de: '/DE/index-de.html',
+            es: '/ES/index-es.html'
+        }
+        /* Esempio per future pagine:
+        'camera-king': {
+            it: '/ITA/camera-king-ita.html',
+            en: '/camera-king-en.html',
+            fr: '/FR/camera-king-fr.html',
+            de: '/DE/camera-king-de.html',
+            es: '/ES/camera-king-es.html'
+        } */
+    };
+
+    var selector = document.getElementById('language-selector');
+    if (!selector) return;
+
+    selector.addEventListener('change', function () {
+        var targetLang = this.value;
+        var page       = this.getAttribute('data-page') || 'index';
+        var urls       = PAGE_URLS[page];
+
+        if (!urls) {
+            console.warn('Language selector: no URL map for page "' + page + '"');
+            return;
+        }
+
+        var destination = urls[targetLang];
+        if (!destination) {
+            console.warn('Language selector: no URL for lang "' + targetLang + '"');
+            return;
+        }
+
+        window.location.href = destination;
+    });
+
+}());
+
+/* ============================================================
+   AOS INIT — rimosso dai blocchi <script> inline degli HTML
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof AOS !== 'undefined') {
+        AOS.init();
+    }
+});
+
+/* ============================================================
+   LANGUAGE SELECTOR — pagine CAMERA
+   Estende PAGE_URLS con camera-king e camera-deluxe.
+   ============================================================ */
+(function () {
+    'use strict';
+
+    var PAGE_URLS = {
+        'index': {
+            it: '/ITA/index-ita.html',
+            en: '/',
+            fr: '/FR/index-fr.html',
+            de: '/DE/index-de.html',
+            es: '/ES/index-es.html'
+        },
+        'camera-king': {
+            it: '/ITA/camera-king-ita.html',
+            en: '/camera-king-en.html',
+            fr: '/FR/camera-king-fr.html',
+            de: '/DE/camera-king-de.html',
+            es: '/ES/camera-king-es.html'
+        },
+        'camera-deluxe': {
+            it: '/ITA/camera-deluxe-ita.html',
+            en: '/camera-deluxe-en.html',
+            fr: '/FR/camera-deluxe-fr.html',
+            de: '/DE/camera-deluxe-de.html',
+            es: '/ES/camera-deluxe-es.html'
+        }
+    };
+
+    var selector = document.getElementById('language-selector');
+    if (!selector) return;
+
+    selector.addEventListener('change', function () {
+        var targetLang  = this.value;
+        var page        = this.getAttribute('data-page') || 'index';
+        var urls        = PAGE_URLS[page];
+        if (!urls) return;
+        var destination = urls[targetLang];
+        if (destination) window.location.href = destination;
+    });
+
+}());
+
+/* ============================================================
+   ROOM CONFIG — legge i data-* dal booking-widget
+   Sostituisce i blocchi <script> inline rimossi dagli HTML.
+   booking.js leggerà window.CURRENT_ROOM / CALENDAR_URLS ecc.
+   ============================================================ */
+(function () {
+    'use strict';
+
+    var widget = document.getElementById('preventivo-box');
+    if (!widget) return;
+
+    var room     = widget.getAttribute('data-room');
+    var roomName = widget.getAttribute('data-room-name');
+    var calRaw   = widget.getAttribute('data-calendar-urls');
+
+    if (room)     window.CURRENT_ROOM    = room;
+    if (roomName) window.ROOM_NAME       = roomName;
+    if (calRaw) {
+        try { window.CALENDAR_URLS = JSON.parse(calRaw); } catch (e) {}
+    }
+
+}());
+
+/* ============================================================
+   SUPABASE CONFIG — centralizzato qui, rimosso dagli HTML
+   ============================================================ */
+window.SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co';
+window.SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
+
+/* ============================================================
+   AOS INIT — rimosso dagli HTML, centralizzato qui
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof AOS !== 'undefined') {
+        AOS.init();
+    }
+});
+
+/* ============================================================
+   ROOM SLIDER — gestisce le frecce onclick rimosso dagli HTML
+   ============================================================ */
+function changeRoomSlide(direction) {
+    var slider = document.getElementById('roomSlider');
+    if (!slider) return;
+    var slides = slider.querySelectorAll('.room-slide');
+    if (!slides.length) return;
+
+    var current = -1;
+    slides.forEach(function (s, i) {
+        if (s.classList.contains('active')) current = i;
+    });
+
+    if (current === -1) return;
+    slides[current].classList.remove('active');
+    var next = (current + direction + slides.length) % slides.length;
+    slides[next].classList.add('active');
+}
