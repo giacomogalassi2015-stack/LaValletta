@@ -190,6 +190,27 @@ document.addEventListener('DOMContentLoaded', () => {
             fr: '/FR/faq-fr.html',
             de: '/DE/faq-de.html',
             es: '/ES/faq-es.html'
+        },
+        'privacy': {
+            it: '/ITA/privacy-ita.html',
+            en: '/privacy-en.html',
+            fr: '/FR/privacy-fr.html',
+            de: '/DE/privacy-de.html',
+            es: '/ES/privacy-es.html'
+        },
+        'termini': {
+            it: '/ITA/termini-ita.html',
+            en: '/termini-en.html',
+            fr: '/FR/termini-fr.html',
+            de: '/DE/termini-de.html',
+            es: '/ES/termini-es.html'
+        },
+        'cookie': {
+            it: '/ITA/cookie-policy-ita.html',
+            en: '/cookie-policy-en.html',
+            fr: '/FR/cookie-policy-fr.html',
+            de: '/DE/cookie-policy-de.html',
+            es: '/ES/cookie-policy-es.html'
         }
     };
 
@@ -200,8 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const page = this.getAttribute('data-page') || 'index';
             const urls = PAGE_URLS[page];
             
-            if (urls && urls[targetLang]) {
-                window.location.href = urls[targetLang];
+           if (urls && urls[targetLang]) {
+                // Cattura l'ancora attuale (es. "#territorio") e uniscila al nuovo URL
+                const currentHash = window.location.hash;
+                window.location.href = urls[targetLang] + currentHash;
             }
         });
     }
@@ -224,3 +247,18 @@ document.addEventListener('DOMContentLoaded', () => {
 /* --- 9. CONFIGURAZIONE SUPABASE --- */
 window.SUPABASE_URL = 'https://qtvmrpzkvqsgzxlddsif.supabase.co';
 window.SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0dm1ycHprdnFzZ3p4bGRkc2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExODY2NzQsImV4cCI6MjA4Njc2MjY3NH0.IjzW0dhRaRp5R2uFw5JLj9ZeqYlK9dYHyU9EAcfB1v4';
+
+/* --- 10. FIX SCROLL ANCORE DOPO CAMBIO LINGUA O REFRESH --- */
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        // Trova l'elemento che corrisponde al cancelletto (es. #camere)
+        const targetSection = document.querySelector(window.location.hash);
+        if (targetSection) {
+            // Aspetta un decimo di secondo per far calcolare bene le altezze ad AOS e alle immagini
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
+        }
+    }
+});
+
