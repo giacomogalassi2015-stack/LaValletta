@@ -6,8 +6,6 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gästehaus Riomaggiore Cinque Terre | Ca' della Valletta</title>
-    <link rel="preload" href="/style.css" as="style">
-    <link rel="preload" href="/media.css" as="style">
     <meta name="description" content="Suchen Sie ein Gästehaus in Riomaggiore? Ca' della Valletta bietet King- und Deluxe-Zimmer im Herzen der Cinque Terre. Entdecken Sie unsere Zimmer und buchen Sie jetzt.">
 
         
@@ -27,40 +25,55 @@
     <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BedAndBreakfast",
+  "@id": "https://www.cadellavalletta.it/#guesthouse",
+  "name": "Ca' della Valletta",
+  "description": "Bed and Breakfast in Riomaggiore, im Herzen der Cinque Terre. King- und Deluxe-Doppelzimmer mit exklusivem Komfort, Klimaanlage und kostenlosem WLAN.",
+  "url": "https://www.cadellavalletta.it/DE/index-de.html",
+  "knowsLanguage": ["it", "en", "fr", "de", "es"],
+  "telephone": "+393489617894",
+  "email": "info@cadellavalletta.it",
+  "vatID": "IT01444610453",
+  "priceRange": "€€",
+  "checkinTime": "14:00",
+  "checkoutTime": "11:00",
+  "image": [
+    "https://res.cloudinary.com/dkg0jfady/image/upload/w_1000,c_limit,f_auto,q_auto:eco/v1771038943/Affittacamere-CA-DELLA-VALLETTA-Riomaggiore-camera-2-_m7h0fz.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/3_m93t3i.jpg",
+    "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/d3_zaoyrv.jpg"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Della Valletta 13",
+    "addressLocality": "Riomaggiore",
+    "postalCode": "19017",
+    "addressRegion": "SP",
+    "addressCountry": "IT"
+  },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Kostenloses WLAN", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Klimaanlage", "value": true }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@context": "https://schema.org",
-      "@type": "BedAndBreakfast",
-      "@id": "https://www.cadellavalletta.it/#guesthouse",
-      "name": "Ca' della Valletta",
-      "description": "Gästehaus in Riomaggiore, im Herzen der Cinque Terre. Bietet King- und Deluxe-Doppelzimmer mit exklusivem Komfort, Klimaanlage und WLAN.",
-      "url": "https://www.cadellavalletta.it/DE/index-de.html",
-      "knowsLanguage": ["it", "en"],
-      "telephone": "+393489617894",
-      "email": "info@cadellavalletta.it",
-      "image": [
-        "https://res.cloudinary.com/dkg0jfady/image/upload/w_1000,c_limit,f_auto,q_auto:eco/v1771038943/Affittacamere-CA-DELLA-VALLETTA-Riomaggiore-camera-2-_m7h0fz.jpg",
-        "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/3_m93t3i.jpg",
-        "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/d3_zaoyrv.jpg"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Via Della Valletta 13",
-        "addressLocality": "Riomaggiore",
-        "postalCode": "19017",
-        "addressRegion": "SP",
-        "addressCountry": "IT"
-      },
-      "priceRange": "€€",
-      "checkinTime": "14:00",
-      "checkoutTime": "11:00",
-      "vatID": "IT01444610453",
-      "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }
-      ]
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://www.cadellavalletta.it/DE/index-de.html"
     }
-    </script>
+  ]
+}
+</script>
 
     <link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita.html" />
     <link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/index.html" />

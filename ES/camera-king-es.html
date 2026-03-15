@@ -33,16 +33,20 @@
   "@type": "HotelRoom",
   "@id": "https://www.cadellavalletta.it/ES/camera-king-es.html#room",
   "name": "Habitación King | Ca' della Valletta",
-  "description": "Descubra la Habitación King en Ca' della Valletta en Riomaggiore. Intimidad, diseño y confort en el corazón de las Cinque Terre. Con cama doble, aire acondicionado y WiFi.",
+  "description": "Descubra la Habitación King de Ca' della Valletta en Riomaggiore. Cama doble, aire acondicionado y WiFi gratuito en el corazón de las Cinque Terre.",
   "url": "https://www.cadellavalletta.it/ES/camera-king-es.html",
-
   "image": [
     "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037766/2_mgkhpb.jpg",
     "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037767/1_qturjg.jpg",
     "https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/3_m93t3i.jpg"
   ],
   "occupancy": { "@type": "QuantitativeValue", "maxValue": 2, "unitCode": "C62" },
-  "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Cama Doble" },
+  "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Cama doble" },
+  "offers": {
+    "@type": "Offer",
+    "price": "150",
+    "priceCurrency": "EUR"
+  },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "WiFi gratuito", "value": true },
@@ -52,6 +56,27 @@
     "@type": "BedAndBreakfast",
     "@id": "https://www.cadellavalletta.it/#guesthouse"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.cadellavalletta.it/ES/index-es.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Habitación King",
+      "item": "https://www.cadellavalletta.it/ES/camera-king-es.html"
+    }
+  ]
 }
 </script>
 
