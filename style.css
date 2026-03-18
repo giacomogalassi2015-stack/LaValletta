@@ -428,32 +428,22 @@ h2.section-title {
 /* ============================================================
    GALLERY GRID
    ============================================================ */
-.interior-overlay {
-  position: absolute;
-  bottom: var(--sp-md);
-  left: var(--sp-md);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px var(--sp-md);
-  border-radius: 4px;
-  font-family: var(--font-heading);
-  letter-spacing: 1px;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--sp-md);
+  gap: var(--sp-lg); /* Aumentato il gap per staccarle di più su PC */
 }
 
 .gallery-item {
-  height: 300px;
-  aspect-ratio: 4 / 3;
+  width: 100%; /* Ora si adatta perfettamente alla larghezza dello schermo o della colonna */
+  height: auto; /* Rimuoviamo il blocco fisso dell'altezza */
+  aspect-ratio: 4 / 3; /* Mantiene la proporzione perfetta della foto */
   overflow: hidden;
   border-radius: 4px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+
 .gallery-item:hover { transform: scale(1.02); }
 
 /* ============================================================
