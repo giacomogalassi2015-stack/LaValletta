@@ -31,7 +31,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["HotelRoom", "Product"],
+  "@type": "HotelRoom",
   "@id": "https://www.cadellavalletta.it/FR/camera-king-fr.html#room",
   "name": "Chambre King | Ca' della Valletta",
   "description": "Découvrez la Chambre King de Ca' della Valletta à Riomaggiore. Grand lit double, climatisation et WiFi gratuit au cœur des Cinque Terre.",
@@ -45,8 +45,8 @@
   "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Grand lit double" },
   "offers": {
     "@type": "Offer",
-    "price": "150",
-    "priceCurrency": "EUR"
+    "price": "150.00",
+    "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-12-31"
   },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Climatisation", "value": true },
@@ -55,7 +55,7 @@
   ],
   "containedInPlace": {
     "@type": "BedAndBreakfast",
-    "@id": "https://www.cadellavalletta.it/#guesthouse"
+    "@id": "https://www.cadellavalletta.it/#guesthouse", "name": "Ca' della Valletta", "address": { "@type": "PostalAddress", "addressLocality": "Riomaggiore", "addressCountry": "IT" }
   }
 }
 </script>

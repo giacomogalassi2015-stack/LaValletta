@@ -30,7 +30,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["HotelRoom", "Product"],
+  "@type": "HotelRoom",
   "@id": "https://www.cadellavalletta.it/camera-deluxe-en.html#room",
   "name": "King Deluxe Room | Ca' della Valletta",
   "description": "Book the King Deluxe Room at Ca' della Valletta in Riomaggiore. More space, exclusive design and total comfort in the heart of Cinque Terre.",
@@ -44,8 +44,8 @@
   "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Double Bed" },
   "offers": {
     "@type": "Offer",
-    "price": "170",
-    "priceCurrency": "EUR"
+    "price": "170.00",
+    "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-12-31"
   },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
@@ -54,7 +54,7 @@
   ],
   "containedInPlace": {
     "@type": "BedAndBreakfast",
-    "@id": "https://www.cadellavalletta.it/#guesthouse"
+    "@id": "https://www.cadellavalletta.it/#guesthouse", "name": "Ca' della Valletta", "address": { "@type": "PostalAddress", "addressLocality": "Riomaggiore", "addressCountry": "IT" }
   }
 }
 </script>
