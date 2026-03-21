@@ -262,3 +262,96 @@ window.addEventListener('load', function() {
     }
 });
 
+// ============================================================
+// LIGHTBOX — Vanilla JS
+// ============================================================
+(function () {
+  'use strict';
+
+  function initLightbox() {
+    const lightbox    = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    const lbImg       = lightbox.querySelector('.lightbox__img');
+    const lbClose     = lightbox.querySelector('.lightbox__close');
+    const lbPrev      = lightbox.querySelector('.lightbox__prev');
+    const lbNext      = lightbox.querySelector('.lightbox__next');
+    const lbCounter   = lightbox.querySelector('.lightbox__counter');
+    const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img'));
+
+    if (!galleryImgs.length) return;
+
+    let currentIndex = 0;
+
+    // Assegna data-index a ogni immagine della gallery
+    galleryImgs.forEach(function (img, i) {
+      img.closest('.gallery-item').setAttribute('data-index', i);
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateImage();
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function updateImage() {
+      var img = galleryImgs[currentIndex];
+      // Usa src ad alta risoluzione rimuovendo trasformazioni Cloudinary riduttive
+      var src = img.src.replace(/w_\d+,c_(?:limit|fill)[^/]*\//g, 'w_1600,c_limit,f_auto,q_auto/');
+      lbImg.src = src;
+      lbImg.alt = img.alt || '';
+      if (lbCounter) {
+        lbCounter.textContent = (currentIndex + 1) + ' / ' + galleryImgs.length;
+      }
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+      updateImage();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryImgs.length;
+      updateImage();
+    }
+
+    // Click su gallery item
+    document.querySelectorAll('.gallery-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var index = parseInt(item.getAttribute('data-index'), 10);
+        openLightbox(index);
+      });
+    });
+
+    // Controlli lightbox
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', function (e) { e.stopPropagation(); showPrev(); });
+    lbNext.addEventListener('click', function (e) { e.stopPropagation(); showNext(); });
+
+    // Chiudi cliccando fuori dall'immagine
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Tastiera: Esc, frecce
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   showPrev();
+      if (e.key === 'ArrowRight')  showNext();
+    });
+  }
+
+  // Avvia dopo il DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox);
+  } else {
+    initLightbox();
+  }
+})();
