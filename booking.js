@@ -642,6 +642,13 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
         });
     }
 
+    /* Fix testi lunghi (es. tedesco) nelle pay-card */
+    document.querySelectorAll('.pay-title, .pay-sub, .pay-amount').forEach(el => {
+        el.style.wordBreak  = 'break-word';
+        el.style.whiteSpace = 'normal';
+        el.style.fontSize   = 'clamp(0.7rem, 2.5vw, 1rem)';
+    });
+
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
     const fmt = n => '€ ' + n.toLocaleString('it-IT', { minimumFractionDigits: 2 });
 
