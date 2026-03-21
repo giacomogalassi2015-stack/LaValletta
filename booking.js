@@ -625,6 +625,7 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
     const loading = document.getElementById('loading-prices');
     const summary = document.getElementById('price-summary');
     if (loading) loading.style.display = 'none';
+    if (summary) summary.style.width = '100%';
     if (summary) summary.style.display = 'block';
 
     /* Lista notti scorrevole */
