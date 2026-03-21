@@ -390,14 +390,14 @@ function buildCopyField(labelText, content, btnLabel, copiedLabel, isTextarea) {
 
     const lbl         = document.createElement('div');
     lbl.textContent   = labelText;
-    lbl.style.cssText = 'font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#7a6a5a;margin-bottom:.4rem;font-family:sans-serif;';
+    lbl.style.cssText = 'font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#8fa8c8;margin-bottom:.4rem;font-family:sans-serif;';
 
     const textEl = isTextarea ? document.createElement('textarea') : document.createElement('div');
     textEl.textContent = content;
     const baseTextStyle = [
-        'background:#120f0a', 'border:1px solid #2e2520',
+        'background:#0c1a2e', 'border:1px solid #C5A059',
         'border-radius:4px', 'padding:.7rem .8rem',
-        'font-size:.82rem', 'color:#c8b89a', 'line-height:1.6',
+        'font-size:.82rem', 'color:#e8ddd0', 'line-height:1.6',
         'width:100%', 'box-sizing:border-box', 'font-family:Georgia,serif'
     ];
     if (isTextarea) {
@@ -413,13 +413,13 @@ function buildCopyField(labelText, content, btnLabel, copiedLabel, isTextarea) {
     copyBtn.textContent   = btnLabel;
     copyBtn.style.cssText = [
         'margin-top:.5rem', 'padding:.45rem .9rem',
-        'background:#2e2520', 'border:1px solid #3a3028',
-        'border-radius:4px', 'color:#c8b89a',
+        'background:#0c1a2e', 'border:1px solid #C5A059',
+        'border-radius:4px', 'color:#C5A059',
         'cursor:pointer', 'font-family:sans-serif',
         'font-size:.8rem', 'transition:background .2s'
     ].join(';');
-    copyBtn.addEventListener('mouseover', () => { copyBtn.style.background = '#3a3028'; });
-    copyBtn.addEventListener('mouseout',  () => { copyBtn.style.background = '#2e2520'; });
+    copyBtn.addEventListener('mouseover', () => { copyBtn.style.background = '#162440'; });
+    copyBtn.addEventListener('mouseout',  () => { copyBtn.style.background = '#0c1a2e'; });
     copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(content).then(() => {
             copyBtn.textContent = copiedLabel;
@@ -462,7 +462,10 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             bodyLabel: 'Testo del messaggio:',
             copyBody:  'Copia messaggio',
             copied:    'Copiato!',
-            whatsapp:  'Scrivici su WhatsApp',
+            call:      'Chiama',
+            whatsapp:  'WhatsApp',
+            telegram:  'Telegram',
+            orContact: 'oppure contattaci direttamente:',
             close:     'Chiudi — il mio client si è aperto'
         },
         en: {
@@ -471,7 +474,10 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             bodyLabel: 'Message:',
             copyBody:  'Copy message',
             copied:    'Copied!',
-            whatsapp:  'Contact us on WhatsApp',
+            call:      'Call',
+            whatsapp:  'WhatsApp',
+            telegram:  'Telegram',
+            orContact: 'or contact us directly:',
             close:     'Close — my email app opened'
         },
         fr: {
@@ -480,7 +486,10 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             bodyLabel: 'Message :',
             copyBody:  'Copier le message',
             copied:    'Copié !',
-            whatsapp:  'Nous écrire sur WhatsApp',
+            call:      'Appeler',
+            whatsapp:  'WhatsApp',
+            telegram:  'Telegram',
+            orContact: 'ou contactez-nous directement :',
             close:     'Fermer — ma messagerie s\'est ouverte'
         },
         de: {
@@ -489,7 +498,10 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             bodyLabel: 'Nachricht:',
             copyBody:  'Nachricht kopieren',
             copied:    'Kopiert!',
-            whatsapp:  'Per WhatsApp schreiben',
+            call:      'Anrufen',
+            whatsapp:  'WhatsApp',
+            telegram:  'Telegram',
+            orContact: 'oder kontaktieren Sie uns direkt:',
             close:     'Schliessen — mein Programm hat sich geöffnet'
         },
         es: {
@@ -498,7 +510,10 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             bodyLabel: 'Mensaje:',
             copyBody:  'Copiar mensaje',
             copied:    'Copiado!',
-            whatsapp:  'Escribirnos por WhatsApp',
+            call:      'Llamar',
+            whatsapp:  'WhatsApp',
+            telegram:  'Telegram',
+            orContact: 'o contáctenos directamente:',
             close:     'Cerrar — mi correo se abrió'
         }
     };
@@ -521,21 +536,21 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     overlay.id            = 'cdv-email-modal';
     overlay.style.cssText = [
         'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
-        'background:rgba(10,8,5,0.82)', 'z-index:9999',
+        'background:rgba(8,18,33,0.91)', 'z-index:9999',
         'display:flex', 'align-items:center', 'justify-content:center',
         'padding:1rem', 'box-sizing:border-box',
-        'backdrop-filter:blur(3px)', '-webkit-backdrop-filter:blur(3px)'
+        'backdrop-filter:blur(4px)', '-webkit-backdrop-filter:blur(4px)'
     ].join(';');
 
     /* Card */
     const card         = document.createElement('div');
     card.style.cssText = [
-        'background:#1a1510', 'border:1px solid #3a3028',
+        'background:#081221', 'border:1px solid #C5A059',
         'border-radius:6px', 'padding:2rem',
         'max-width:540px', 'width:100%',
         'max-height:88vh', 'overflow-y:auto',
         'font-family:Georgia,serif', 'color:#e8ddd0',
-        'position:relative', 'box-shadow:0 24px 64px rgba(0,0,0,0.7)',
+        'position:relative', 'box-shadow:0 24px 64px rgba(8,18,33,0.85)',
         'animation:cdvFadeIn .22s ease'
     ].join(';');
 
@@ -546,7 +561,7 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     closeBtn.innerHTML     = '&#10005;';
     closeBtn.style.cssText = [
         'position:absolute', 'top:1rem', 'right:1rem',
-        'background:none', 'border:none', 'color:#7a6a5a',
+        'background:none', 'border:none', 'color:#C5A059',
         'font-size:1.1rem', 'cursor:pointer', 'line-height:1',
         'padding:4px 6px', 'border-radius:3px'
     ].join(';');
@@ -555,45 +570,80 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     /* Titolo */
     const title         = document.createElement('h3');
     title.textContent   = lbl.title;
-    title.style.cssText = 'margin:0 0 .8rem;font-size:1.1rem;font-weight:normal;letter-spacing:.04em;color:#c8b89a;';
+    title.style.cssText = 'margin:0 0 .8rem;font-size:1.1rem;font-weight:normal;letter-spacing:.04em;color:#C5A059;';
 
     /* Hint */
     const hint         = document.createElement('p');
     hint.textContent   = lbl.hint;
-    hint.style.cssText = 'margin:0 0 1.4rem;font-size:.83rem;color:#7a6a5a;line-height:1.6;font-family:sans-serif;';
+    hint.style.cssText = 'margin:0 0 1.4rem;font-size:.83rem;color:#8fa8c8;line-height:1.6;font-family:sans-serif;';
 
     /* Indirizzo email visibile */
     const emailNote         = document.createElement('p');
     emailNote.textContent   = 'info@cadellavalletta.it';
-    emailNote.style.cssText = 'margin:0 0 1.2rem;font-size:.88rem;color:#c8b89a;font-family:Georgia,serif;letter-spacing:.02em;';
+    emailNote.style.cssText = 'margin:0 0 1.2rem;font-size:.88rem;color:#C5A059;font-family:Georgia,serif;letter-spacing:.02em;';
 
     /* Campo messaggio copiabile */
     const bodyWrap = buildCopyField(lbl.bodyLabel, body, lbl.copyBody, lbl.copied, true);
 
-    /* Bottone WhatsApp */
+    /* Etichetta "oppure contattaci" */
+    const orLabel         = document.createElement('p');
+    orLabel.textContent   = lbl.orContact;
+    orLabel.style.cssText = 'margin:1.4rem 0 .7rem;font-size:.78rem;color:#8fa8c8;font-family:sans-serif;letter-spacing:.03em;text-transform:uppercase;';
+
+    /* Riga bottoni contatto */
+    const btnRow         = document.createElement('div');
+    btnRow.style.cssText = 'display:flex;gap:.6rem;';
+
+    const btnBase = [
+        'flex:1', 'padding:.65rem .4rem', 'border-radius:4px',
+        'border:1px solid #C5A059', 'cursor:pointer',
+        'font-family:sans-serif', 'font-size:.82rem',
+        'letter-spacing:.02em', 'text-align:center',
+        'transition:background .2s', 'color:#C5A059',
+        'background:#0c1a2e', 'text-decoration:none',
+        'display:flex', 'align-items:center', 'justify-content:center'
+    ].join(';');
+
+    /* Chiama */
+    const callBtn         = document.createElement('a');
+    callBtn.href          = 'tel:+393489617894';
+    callBtn.textContent   = lbl.call;
+    callBtn.style.cssText = btnBase;
+    callBtn.addEventListener('mouseover', () => { callBtn.style.background = '#162440'; });
+    callBtn.addEventListener('mouseout',  () => { callBtn.style.background = '#0c1a2e'; });
+
+    /* WhatsApp */
     const waBtn         = document.createElement('button');
     waBtn.type          = 'button';
     waBtn.textContent   = lbl.whatsapp;
-    waBtn.style.cssText = [
-        'display:block', 'width:100%', 'margin-top:1.2rem',
-        'padding:.75rem 1rem', 'border-radius:4px',
-        'background:#25523b', 'color:#e8ddd0',
-        'border:none', 'cursor:pointer', 'font-family:sans-serif',
-        'font-size:.9rem', 'letter-spacing:.03em',
-        'transition:background .2s'
-    ].join(';');
-    waBtn.addEventListener('mouseover', () => { waBtn.style.background = '#1e6644'; });
-    waBtn.addEventListener('mouseout',  () => { waBtn.style.background = '#25523b'; });
+    waBtn.style.cssText = btnBase;
+    waBtn.addEventListener('mouseover', () => { waBtn.style.background = '#162440'; });
+    waBtn.addEventListener('mouseout',  () => { waBtn.style.background = '#0c1a2e'; });
     waBtn.addEventListener('click', () => {
         window.open('https://wa.me/393489617894?text=' + encodeURIComponent(waMsg), '_blank');
     });
+
+    /* Telegram */
+    const tgBtn         = document.createElement('button');
+    tgBtn.type          = 'button';
+    tgBtn.textContent   = lbl.telegram;
+    tgBtn.style.cssText = btnBase;
+    tgBtn.addEventListener('mouseover', () => { tgBtn.style.background = '#162440'; });
+    tgBtn.addEventListener('mouseout',  () => { tgBtn.style.background = '#0c1a2e'; });
+    tgBtn.addEventListener('click', () => {
+        window.open('https://t.me/+393489617894', '_blank');
+    });
+
+    btnRow.appendChild(callBtn);
+    btnRow.appendChild(waBtn);
+    btnRow.appendChild(tgBtn);
 
     /* Link di chiusura testuale in fondo */
     const closeLink         = document.createElement('p');
     closeLink.textContent   = lbl.close;
     closeLink.style.cssText = [
         'text-align:center', 'margin-top:1rem',
-        'font-size:.78rem', 'color:#4a3e34',
+        'font-size:.78rem', 'color:#4a6080',
         'cursor:pointer', 'font-family:sans-serif',
         'text-decoration:underline'
     ].join(';');
@@ -604,7 +654,8 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     card.appendChild(hint);
     card.appendChild(emailNote);
     card.appendChild(bodyWrap);
-    card.appendChild(waBtn);
+    card.appendChild(orLabel);
+    card.appendChild(btnRow);
     card.appendChild(closeLink);
     overlay.appendChild(card);
 
@@ -625,7 +676,6 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
     const loading = document.getElementById('loading-prices');
     const summary = document.getElementById('price-summary');
     if (loading) loading.style.display = 'none';
-    if (summary) summary.style.width = '100%';
     if (summary) summary.style.display = 'block';
 
     /* Lista notti scorrevole */
@@ -641,13 +691,6 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
             container.appendChild(row);
         });
     }
-
-    /* Fix testi lunghi (es. tedesco) nelle pay-card */
-    document.querySelectorAll('.pay-title, .pay-sub, .pay-amount').forEach(el => {
-        el.style.wordBreak  = 'break-word';
-        el.style.whiteSpace = 'normal';
-        el.style.fontSize   = 'clamp(0.7rem, 2.5vw, 1rem)';
-    });
 
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
     const fmt = n => '€ ' + n.toLocaleString('it-IT', { minimumFractionDigits: 2 });
@@ -756,6 +799,11 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
 
         if (contact === 'whatsapp') {
             window.open('https://wa.me/393489617894?text=' + encodeURIComponent(waMsg), '_blank');
+            return;
+        }
+
+        if (contact === 'telegram') {
+            window.open('https://t.me/+393489617894', '_blank');
             return;
         }
 
