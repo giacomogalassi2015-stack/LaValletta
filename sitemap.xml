@@ -1,168 +1,208 @@
-<?xml version="2.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <url>
     <loc>https://www.cadellavalletta.it/</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/camera-king-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/camera-deluxe-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/galleria-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/faq-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/privacy-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/termini-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/cookie-policy-en</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://www.cadellavalletta.it/ITA/index-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/camera-king-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/camera-deluxe-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/galleria-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/faq-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/privacy-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/termini-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/cookie-policy-ita</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://www.cadellavalletta.it/FR/index-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/camera-king-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/camera-deluxe-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/galleria-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/faq-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/privacy-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/termini-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/cookie-policy-fr</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://www.cadellavalletta.it/DE/index-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/camera-king-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/camera-deluxe-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/galleria-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/faq-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/privacy-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/termini-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/cookie-policy-de</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://www.cadellavalletta.it/ES/index-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/camera-king-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/camera-deluxe-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/galleria-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/faq-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/privacy-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/termini-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/cookie-policy-es</loc>
+    <lastmod>2026-03-22</lastmod>
     <priority>0.30</priority>
   </url>
 
