@@ -456,6 +456,29 @@ h2.section-title {
 /* ============================================================
    ROOMS — Home Section
    ============================================================ */
+   .subtitle-type,
+.subtitle-location {
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .subtitle-type {
+    display: inline;
+  }
+  .subtitle-location {
+    display: inline;
+  }
+  .subtitle-type::after {
+    content: " · ";
+  }
+}
+
+.hero-subtitle {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
 .room-row { display: flex; align-items: center; gap: var(--sp-lg); margin-bottom: 0; }
 .room-row.reverse { flex-direction: row-reverse; }
 .room-text        { flex: 1; }
