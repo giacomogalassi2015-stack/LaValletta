@@ -157,60 +157,60 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- 7. LANGUAGE SELECTOR --- */
     const PAGE_URLS = {
         'index': {
-            it: '/ITA/index-ita.html',
+            it: '/ITA/index-ita',
             en: '/',
-            fr: '/FR/index-fr.html',
-            de: '/DE/index-de.html',
-            es: '/ES/index-es.html'
+            fr: '/FR/index-fr',
+            de: '/DE/index-de',
+            es: '/ES/index-es'
         },
         'camera-king': {
-            it: '/ITA/camera-king-ita.html',
-            en: '/camera-king-en.html',
-            fr: '/FR/camera-king-fr.html',
-            de: '/DE/camera-king-de.html',
-            es: '/ES/camera-king-es.html'
+            it: '/ITA/camera-king-ita',
+            en: '/camera-king-en',
+            fr: '/FR/camera-king-fr',
+            de: '/DE/camera-king-de',
+            es: '/ES/camera-king-es'
         },
         'camera-deluxe': {
-            it: '/ITA/camera-deluxe-ita.html',
-            en: '/camera-deluxe-en.html',
-            fr: '/FR/camera-deluxe-fr.html',
-            de: '/DE/camera-deluxe-de.html',
-            es: '/ES/camera-deluxe-es.html'
+            it: '/ITA/camera-deluxe-ita',
+            en: '/camera-deluxe-en',
+            fr: '/FR/camera-deluxe-fr',
+            de: '/DE/camera-deluxe-de',
+            es: '/ES/camera-deluxe-es'
         },
         'galleria': {
-            it: '/ITA/galleria-ita.html',
-            en: '/galleria-en.html',
-            fr: '/FR/galleria-fr.html',
-            de: '/DE/galleria-de.html',
-            es: '/ES/galleria-es.html'
+            it: '/ITA/galleria-ita',
+            en: '/galleria-en',
+            fr: '/FR/galleria-fr',
+            de: '/DE/galleria-de',
+            es: '/ES/galleria-es'
         },
         'faq': {
-            it: '/ITA/faq-ita.html',
-            en: '/faq-en.html',
-            fr: '/FR/faq-fr.html',
-            de: '/DE/faq-de.html',
-            es: '/ES/faq-es.html'
+            it: '/ITA/faq-ita',
+            en: '/faq-en',
+            fr: '/FR/faq-fr',
+            de: '/DE/faq-de',
+            es: '/ES/faq-es'
         },
         'privacy': {
-            it: '/ITA/privacy-ita.html',
-            en: '/privacy-en.html',
-            fr: '/FR/privacy-fr.html',
-            de: '/DE/privacy-de.html',
-            es: '/ES/privacy-es.html'
+            it: '/ITA/privacy-ita',
+            en: '/privacy-en',
+            fr: '/FR/privacy-fr',
+            de: '/DE/privacy-de',
+            es: '/ES/privacy-es'
         },
         'termini': {
-            it: '/ITA/termini-ita.html',
-            en: '/termini-en.html',
-            fr: '/FR/termini-fr.html',
-            de: '/DE/termini-de.html',
-            es: '/ES/termini-es.html'
+            it: '/ITA/termini-ita',
+            en: '/termini-en',
+            fr: '/FR/termini-fr',
+            de: '/DE/termini-de',
+            es: '/ES/termini-es'
         },
         'cookie': {
-            it: '/ITA/cookie-policy-ita.html',
-            en: '/cookie-policy-en.html',
-            fr: '/FR/cookie-policy-fr.html',
-            de: '/DE/cookie-policy-de.html',
-            es: '/ES/cookie-policy-es.html'
+            it: '/ITA/cookie-policy-ita',
+            en: '/cookie-policy-en',
+            fr: '/FR/cookie-policy-fr',
+            de: '/DE/cookie-policy-de',
+            es: '/ES/cookie-policy-es'
         }
     };
 
