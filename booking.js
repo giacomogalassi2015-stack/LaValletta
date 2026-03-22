@@ -425,7 +425,6 @@ function buildCopyField(labelText, content, btnLabel, copiedLabel, isTextarea) {
             copyBtn.textContent = copiedLabel;
             setTimeout(() => { copyBtn.textContent = btnLabel; }, 2000);
         }).catch(() => {
-            /* Fallback execCommand per browser datati */
             const ta          = document.createElement('textarea');
             ta.value          = content;
             ta.style.position = 'fixed';
@@ -447,11 +446,6 @@ function buildCopyField(labelText, content, btnLabel, copiedLabel, isTextarea) {
 
 /* ============================================================
    HELPER — Modal di supporto post-mailto
-   Appare sempre dopo il click su email: se il client si è
-   aperto l'utente chiude il modal; se non si è aperto trova
-   testo pronto da copiare e WhatsApp come alternativa.
-   Nessuna apertura forzata di servizi terzi.
-   Nessuno storage nel browser.
    ============================================================ */
 function showEmailFallbackModal(subject, body, waMsg, lang) {
 
@@ -464,7 +458,6 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             copied:    'Copiato!',
             call:      'Chiama',
             whatsapp:  'WhatsApp',
-            telegram:  'Telegram',
             orContact: 'oppure contattaci direttamente:',
             close:     'Chiudi — il mio client si è aperto'
         },
@@ -476,7 +469,6 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             copied:    'Copied!',
             call:      'Call',
             whatsapp:  'WhatsApp',
-            telegram:  'Telegram',
             orContact: 'or contact us directly:',
             close:     'Close — my email app opened'
         },
@@ -488,7 +480,6 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             copied:    'Copié !',
             call:      'Appeler',
             whatsapp:  'WhatsApp',
-            telegram:  'Telegram',
             orContact: 'ou contactez-nous directement :',
             close:     'Fermer — ma messagerie s\'est ouverte'
         },
@@ -500,7 +491,6 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             copied:    'Kopiert!',
             call:      'Anrufen',
             whatsapp:  'WhatsApp',
-            telegram:  'Telegram',
             orContact: 'oder kontaktieren Sie uns direkt:',
             close:     'Schliessen — mein Programm hat sich geöffnet'
         },
@@ -512,18 +502,15 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
             copied:    'Copiado!',
             call:      'Llamar',
             whatsapp:  'WhatsApp',
-            telegram:  'Telegram',
             orContact: 'o contáctenos directamente:',
             close:     'Cerrar — mi correo se abrió'
         }
     };
     const lbl = modalLabels[lang] || modalLabels.it;
 
-    /* Rimuovi eventuale modal precedente */
     const old = document.getElementById('cdv-email-modal');
     if (old) old.remove();
 
-    /* Inietta keyframe una volta sola */
     if (!document.getElementById('cdv-modal-style')) {
         const style       = document.createElement('style');
         style.id          = 'cdv-modal-style';
@@ -554,7 +541,7 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
         'animation:cdvFadeIn .22s ease'
     ].join(';');
 
-    /* Bottone chiudi — etichetta contestuale */
+    /* Bottone chiudi */
     const closeBtn         = document.createElement('button');
     closeBtn.type          = 'button';
     closeBtn.setAttribute('aria-label', lbl.close);
@@ -575,12 +562,12 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     /* Hint */
     const hint         = document.createElement('p');
     hint.textContent   = lbl.hint;
-    hint.style.cssText = 'margin:0 0 1.4rem;font-size:.83rem;color:#8fa8c8;line-height:1.6;font-family:sans-serif;';
+    hint.style.cssText = 'margin:0 0 .6rem;font-size:.83rem;color:#8fa8c8;line-height:1.6;font-family:sans-serif;';
 
     /* Indirizzo email visibile */
     const emailNote         = document.createElement('p');
     emailNote.textContent   = 'info@cadellavalletta.it';
-    emailNote.style.cssText = 'margin:0 0 1.2rem;font-size:.88rem;color:#C5A059;font-family:Georgia,serif;letter-spacing:.02em;';
+    emailNote.style.cssText = 'margin:0 0 1.4rem;font-size:.88rem;color:#C5A059;font-family:Georgia,serif;letter-spacing:.02em;';
 
     /* Campo messaggio copiabile */
     const bodyWrap = buildCopyField(lbl.bodyLabel, body, lbl.copyBody, lbl.copied, true);
@@ -590,7 +577,7 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     orLabel.textContent   = lbl.orContact;
     orLabel.style.cssText = 'margin:1.4rem 0 .7rem;font-size:.78rem;color:#8fa8c8;font-family:sans-serif;letter-spacing:.03em;text-transform:uppercase;';
 
-    /* Riga bottoni contatto */
+    /* Riga bottoni: Chiama + WhatsApp */
     const btnRow         = document.createElement('div');
     btnRow.style.cssText = 'display:flex;gap:.6rem;';
 
@@ -623,22 +610,10 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
         window.open('https://wa.me/393489617894?text=' + encodeURIComponent(waMsg), '_blank');
     });
 
-    /* Telegram */
-    const tgBtn         = document.createElement('button');
-    tgBtn.type          = 'button';
-    tgBtn.textContent   = lbl.telegram;
-    tgBtn.style.cssText = btnBase;
-    tgBtn.addEventListener('mouseover', () => { tgBtn.style.background = '#162440'; });
-    tgBtn.addEventListener('mouseout',  () => { tgBtn.style.background = '#0c1a2e'; });
-    tgBtn.addEventListener('click', () => {
-        window.open('https://t.me/+393489617894', '_blank');
-    });
-
     btnRow.appendChild(callBtn);
     btnRow.appendChild(waBtn);
-    btnRow.appendChild(tgBtn);
 
-    /* Link di chiusura testuale in fondo */
+    /* Link chiusura in fondo */
     const closeLink         = document.createElement('p');
     closeLink.textContent   = lbl.close;
     closeLink.style.cssText = [
@@ -659,7 +634,6 @@ function showEmailFallbackModal(subject, body, waMsg, lang) {
     card.appendChild(closeLink);
     overlay.appendChild(card);
 
-    /* Chiudi cliccando fuori dalla card */
     overlay.addEventListener('click', function (e) {
         if (e.target === overlay) overlay.remove();
     });
@@ -719,8 +693,8 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
             const errId = 'cdv-no-date-err';
             let errEl   = document.getElementById(errId);
             if (!errEl) {
-                errEl             = document.createElement('p');
-                errEl.id          = errId;
+                errEl               = document.createElement('p');
+                errEl.id            = errId;
                 errEl.style.cssText = 'color:#c8623a;font-size:.82rem;margin:.4rem 0 0;font-family:sans-serif;';
                 newBtn.parentNode.insertBefore(errEl, newBtn.nextSibling);
             }
@@ -750,10 +724,8 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
 
         const t = translations[lang] || translations.it;
 
-        /* Subject arricchito con camera, date e totale */
         const subject = t.subject + ': ' + rName + ' | ' + dateString + ' | EUR ' + grandTotal;
 
-        /* Corpo messaggio — testo piano per email */
         const msg =
             t.greet + ' ' + rName + '.\n\n' +
             t.dates + ': ' + dateString + ' (' + nights + ' ' + t.nights + ')\n' +
@@ -766,7 +738,6 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
             '--------------------------------\n' +
             t.wait;
 
-        /* Messaggio WhatsApp — bold markup */
         const waMsg =
             t.greet + ' *' + rName + '*.\n\n' +
             t.dates + ': ' + dateString + ' (' + nights + ' ' + t.nights + ')\n' +
@@ -802,19 +773,7 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
             return;
         }
 
-        if (contact === 'telegram') {
-            window.open('https://t.me/+393489617894', '_blank');
-            return;
-        }
-
-        /* EMAIL
-           1. Lancia mailto standard: il browser usa qualunque client
-              l'utente ha configurato, senza forzare servizi terzi.
-           2. Dopo 500ms apre il modal di supporto: se il client
-              si è aperto l'utente chiude il modal con un click;
-              se non si è aperto trova testo pronto e WhatsApp.
-           Nessun dato trasmesso a terze parti. Nessuno storage.
-        */
+        /* EMAIL */
         window.location.href =
             'mailto:info@cadellavalletta.it' +
             '?subject=' + encodeURIComponent(subject) +
