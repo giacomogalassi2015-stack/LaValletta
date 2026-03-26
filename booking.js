@@ -41,36 +41,31 @@ const PAYMENT_LABELS = {
         label:   'Metodo di pagamento preferito',
         card:    'Carta di credito / debito',
         bank:    'Bonifico bancario',
-        digital: 'Apple Pay / Google Pay',
-        paypal:  'PayPal'
+        digital: 'Apple Pay / Google Pay'
     },
     en: {
         label:   'Preferred payment method',
         card:    'Credit / debit card',
         bank:    'Bank transfer',
-        digital: 'Apple Pay / Google Pay',
-        paypal:  'PayPal'
+        digital: 'Apple Pay / Google Pay'
     },
     fr: {
         label:   'Méthode de paiement préférée',
         card:    'Carte de crédit / débit',
         bank:    'Virement bancaire',
-        digital: 'Apple Pay / Google Pay',
-        paypal:  'PayPal'
+        digital: 'Apple Pay / Google Pay'
     },
     de: {
         label:   'Bevorzugte Zahlungsmethode',
         card:    'Kredit- / Debitkarte',
         bank:    'Banküberweisung',
-        digital: 'Apple Pay / Google Pay',
-        paypal:  'PayPal'
+        digital: 'Apple Pay / Google Pay'
     },
     es: {
         label:   'Método de pago preferido',
         card:    'Tarjeta de crédito / débito',
         bank:    'Transferencia bancaria',
-        digital: 'Apple Pay / Google Pay',
-        paypal:  'PayPal'
+        digital: 'Apple Pay / Google Pay'
     }
 };
 
@@ -217,8 +212,7 @@ function injectPaymentSelector() {
     const options = [
         { value: 'card',    text: lbl.card    },
         { value: 'bank',    text: lbl.bank    },
-        { value: 'digital', text: lbl.digital },
-        { value: 'paypal',  text: lbl.paypal  }
+        { value: 'digital', text: lbl.digital }
     ];
 
     options.forEach(function (opt) {
