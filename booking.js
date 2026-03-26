@@ -35,6 +35,84 @@ const MIN_NIGHT_MSG = {
     es: 'Mínimo 1 noche. Por favor selecciona fechas diferentes.'
 };
 
+/* Etichette metodo di pagamento per lingua */
+const PAYMENT_LABELS = {
+    it: {
+        label:   'Metodo di pagamento preferito',
+        card:    'Carta di credito / debito',
+        bank:    'Bonifico bancario',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    en: {
+        label:   'Preferred payment method',
+        card:    'Credit / debit card',
+        bank:    'Bank transfer',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    fr: {
+        label:   'Méthode de paiement préférée',
+        card:    'Carte de crédit / débit',
+        bank:    'Virement bancaire',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    de: {
+        label:   'Bevorzugte Zahlungsmethode',
+        card:    'Kredit- / Debitkarte',
+        bank:    'Banküberweisung',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    es: {
+        label:   'Método de pago preferido',
+        card:    'Tarjeta de crédito / débito',
+        bank:    'Transferencia bancaria',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    }
+};
+
+/* Testo nel messaggio per lingua */
+const PAYMENT_MSG = {
+    it: {
+        key:     'Metodo di pagamento caparra',
+        card:    'Carta di credito / debito',
+        bank:    'Bonifico bancario',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    en: {
+        key:     'Deposit payment method',
+        card:    'Credit / debit card',
+        bank:    'Bank transfer',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    fr: {
+        key:     'Méthode de paiement de l\'acompte',
+        card:    'Carte de crédit / débit',
+        bank:    'Virement bancaire',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    de: {
+        key:     'Zahlungsmethode Anzahlung',
+        card:    'Kredit- / Debitkarte',
+        bank:    'Banküberweisung',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    },
+    es: {
+        key:     'Método de pago del depósito',
+        card:    'Tarjeta de crédito / débito',
+        bank:    'Transferencia bancaria',
+        digital: 'Apple Pay / Google Pay',
+        paypal:  'PayPal'
+    }
+};
+
 let pricingRules = [];
 
 /* ============================================================
@@ -66,6 +144,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     initCalendar(blockedDates);
+    injectPaymentSelector();
 
     const guestsEl = document.getElementById('guests');
     if (guestsEl) {
@@ -82,6 +161,79 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     injectClearButton();
 });
+
+/* ============================================================
+   SELETTORE METODO DI PAGAMENTO
+   ============================================================ */
+function injectPaymentSelector() {
+    const btn = document.getElementById('btn-request');
+    if (!btn) return;
+
+    /* Evita duplicati */
+    if (document.getElementById('payment-method-wrap')) return;
+
+    const lang = document.documentElement.lang || 'it';
+    const lbl  = PAYMENT_LABELS[lang] || PAYMENT_LABELS.it;
+
+    const wrap         = document.createElement('div');
+    wrap.id            = 'payment-method-wrap';
+    wrap.style.cssText = 'margin-bottom:1rem;';
+
+    /* Label */
+    const labelEl         = document.createElement('label');
+    labelEl.htmlFor       = 'payment-method';
+    labelEl.textContent   = lbl.label;
+    labelEl.style.cssText = [
+        'display:block',
+        'font-size:.75rem',
+        'letter-spacing:.08em',
+        'text-transform:uppercase',
+        'color:#8fa8c8',
+        'margin-bottom:.4rem',
+        'font-family:sans-serif'
+    ].join(';');
+
+    /* Select */
+    const select         = document.createElement('select');
+    select.id            = 'payment-method';
+    select.style.cssText = [
+        'width:100%',
+        'padding:.6rem .8rem',
+        'background:#0c1a2e',
+        'border:1px solid #C5A059',
+        'border-radius:4px',
+        'color:#e8ddd0',
+        'font-size:.85rem',
+        'font-family:Georgia,serif',
+        'cursor:pointer',
+        'box-sizing:border-box',
+        'appearance:none',
+        '-webkit-appearance:none',
+        'background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\' viewBox=\'0 0 12 8\'%3E%3Cpath fill=\'%23C5A059\' d=\'M6 8L0 0h12z\'/%3E%3C/svg%3E")',
+        'background-repeat:no-repeat',
+        'background-position:right .8rem center'
+    ].join(';');
+
+    const options = [
+        { value: 'card',    text: lbl.card    },
+        { value: 'bank',    text: lbl.bank    },
+        { value: 'digital', text: lbl.digital },
+        { value: 'paypal',  text: lbl.paypal  }
+    ];
+
+    options.forEach(function (opt) {
+        const o       = document.createElement('option');
+        o.value       = opt.value;
+        o.textContent = opt.text;
+        select.appendChild(o);
+    });
+
+    wrap.appendChild(labelEl);
+    wrap.appendChild(select);
+
+    /* Inserisce il selettore immediatamente prima del bottone */
+    btn.parentNode.insertBefore(wrap, btn);
+}
 
 /* ============================================================
    BOTTONE X — Reset fluido
@@ -714,12 +866,18 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
         const contact = document.getElementById('contact-method').value;
         const rName   = window.ROOM_NAME || 'Camera';
 
+        /* ── Legge il metodo di pagamento scelto ─────────── */
+        const paymentSelect = document.getElementById('payment-method');
+        const paymentValue  = paymentSelect ? paymentSelect.value : 'card';
+        const pmsg          = PAYMENT_MSG[lang] || PAYMENT_MSG.it;
+        const paymentText   = pmsg[paymentValue] || pmsg.card;
+
         const translations = {
-            it: { greet: 'Salve, vorrei prenotare la', dates: 'Date', nights: 'notti', guests: 'Ospiti', total: 'TOTALE SOGGIORNO', costRoom: 'Pernotti', costTax: 'Tassa', deposit: 'CAPARRA (40%)', balance: 'SALDO IN HOTEL', wait: 'Attendo il link per il versamento della caparra. Grazie!', subject: 'Richiesta Prenotazione' },
-            en: { greet: 'Hello, I would like to book the', dates: 'Dates', nights: 'nights', guests: 'Guests', total: 'TOTAL STAY', costRoom: 'Room', costTax: 'Tax', deposit: 'DEPOSIT (40%)', balance: 'BALANCE AT HOTEL', wait: 'I await the link to pay the deposit. Thank you!', subject: 'Booking Request' },
-            fr: { greet: 'Bonjour, je voudrais réserver la', dates: 'Dates', nights: 'nuits', guests: 'Personnes', total: 'TOTAL SÉJOUR', costRoom: 'Chambre', costTax: 'Taxe', deposit: 'ACOMPTE (40%)', balance: 'SOLDE À L\'HÔTEL', wait: 'J\'attends le lien pour payer l\'acompte. Merci !', subject: 'Demande de réservation' },
-            de: { greet: 'Hallo, ich möchte folgendes Zimmer buchen:', dates: 'Daten', nights: 'Nächte', guests: 'Gäste', total: 'GESAMTBETRAG', costRoom: 'Zimmer', costTax: 'Steuer', deposit: 'ANZAHLUNG (40%)', balance: 'RESTBETRAG IM HOTEL', wait: 'Ich warte auf den Link zur Zahlung der Anzahlung. Danke!', subject: 'Buchungsanfrage' },
-            es: { greet: 'Hola, me gustaría reservar la', dates: 'Fechas', nights: 'noches', guests: 'Huéspedes', total: 'ESTANCIA TOTAL', costRoom: 'Habitación', costTax: 'Tasa', deposit: 'DEPÓSITO (40%)', balance: 'SALDO EN EL HOTEL', wait: 'Espero el enlace para pagar el depósito. ¡Gracias!', subject: 'Solicitud de reserva' }
+            it: { greet: 'Salve, vorrei prenotare la', dates: 'Date', nights: 'notti', guests: 'Ospiti', total: 'TOTALE SOGGIORNO', costRoom: 'Pernotti', costTax: 'Tassa', deposit: 'CAPARRA (40%)', balance: 'SALDO IN HOTEL', payment: 'Metodo di pagamento caparra', wait: 'Attendo il link per il versamento della caparra. Grazie!', subject: 'Richiesta Prenotazione' },
+            en: { greet: 'Hello, I would like to book the', dates: 'Dates', nights: 'nights', guests: 'Guests', total: 'TOTAL STAY', costRoom: 'Room', costTax: 'Tax', deposit: 'DEPOSIT (40%)', balance: 'BALANCE AT HOTEL', payment: 'Deposit payment method', wait: 'I await the link to pay the deposit. Thank you!', subject: 'Booking Request' },
+            fr: { greet: 'Bonjour, je voudrais réserver la', dates: 'Dates', nights: 'nuits', guests: 'Personnes', total: 'TOTAL SÉJOUR', costRoom: 'Chambre', costTax: 'Taxe', deposit: 'ACOMPTE (40%)', balance: 'SOLDE À L\'HÔTEL', payment: 'Méthode de paiement de l\'acompte', wait: 'J\'attends le lien pour payer l\'acompte. Merci !', subject: 'Demande de réservation' },
+            de: { greet: 'Hallo, ich möchte folgendes Zimmer buchen:', dates: 'Daten', nights: 'Nächte', guests: 'Gäste', total: 'GESAMTBETRAG', costRoom: 'Zimmer', costTax: 'Steuer', deposit: 'ANZAHLUNG (40%)', balance: 'RESTBETRAG IM HOTEL', payment: 'Zahlungsmethode Anzahlung', wait: 'Ich warte auf den Link zur Zahlung der Anzahlung. Danke!', subject: 'Buchungsanfrage' },
+            es: { greet: 'Hola, me gustaría reservar la', dates: 'Fechas', nights: 'noches', guests: 'Huéspedes', total: 'ESTANCIA TOTAL', costRoom: 'Habitación', costTax: 'Tasa', deposit: 'DEPÓSITO (40%)', balance: 'SALDO EN EL HOTEL', payment: 'Método de pago del depósito', wait: 'Espero el enlace para pagar el depósito. ¡Gracias!', subject: 'Solicitud de reserva' }
         };
 
         const t = translations[lang] || translations.it;
@@ -736,6 +894,8 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
             t.deposit + ': EUR ' + deposit + '\n' +
             t.balance + ': EUR ' + balanceDue + '\n' +
             '--------------------------------\n' +
+            t.payment + ': ' + paymentText + '\n' +
+            '--------------------------------\n' +
             t.wait;
 
         const waMsg =
@@ -747,6 +907,8 @@ function updateUI(grandTotal, roomCost, cityTax, deposit, balanceDue,
             '--------------------------------\n' +
             t.deposit + ': EUR ' + deposit + '\n' +
             t.balance + ': EUR ' + balanceDue + '\n' +
+            '--------------------------------\n' +
+            t.payment + ': ' + paymentText + '\n' +
             '--------------------------------\n' +
             t.wait;
 
