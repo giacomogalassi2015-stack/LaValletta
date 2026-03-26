@@ -1,0 +1,145 @@
+# =========================================================
+# 1. REGOLE SPECIALI HOME PAGE
+# Reindirizzamento diretto alla root principale
+# =========================================================
+/index.html             /                       301
+/index-en.html          /                       301
+/index-en               /                       301
+
+# =========================================================
+# 2. VECCHI LINK SENZA LINGUA (Puntano alla primaria: INGLESE)
+# =========================================================
+/galleria.html          /galleria-en            301
+/galleria               /galleria-en            301
+/camera-king.html       /camera-king-en         301
+/camera-king            /camera-king-en         301
+/camera-deluxe.html     /camera-deluxe-en       301
+/camera-deluxe          /camera-deluxe-en       301
+/faq.html               /faq-en                 301
+/faq                    /faq-en                 301
+/termini.html           /termini-en             301
+/termini                /termini-en             301
+/privacy.html           /privacy-en             301
+/privacy                /privacy-en             301
+/cookie-policy.html     /cookie-policy-en       301
+/cookie-policy          /cookie-policy-en       301
+
+# =========================================================
+# 4. ROOT - FILE INGLESI (Primaria)
+# Rimozione estensione .html
+# =========================================================
+/camera-deluxe-en.html  /camera-deluxe-en       301
+/camera-king-en.html    /camera-king-en         301
+/cookie-policy-en.html  /cookie-policy-en       301
+/faq-en.html            /faq-en                 301
+/galleria-en.html       /galleria-en            301
+/privacy-en.html        /privacy-en             301
+/termini-en.html        /termini-en             301
+
+# =========================================================
+# 5. CARTELLA ITA
+# Rimozione estensione .html
+# =========================================================
+/ITA/camera-deluxe-ita.html   /ITA/camera-deluxe-ita    301
+/ITA/camera-king-ita.html     /ITA/camera-king-ita      301
+/ITA/cookie-policy-ita.html   /ITA/cookie-policy-ita    301
+/ITA/faq-ita.html             /ITA/faq-ita              301
+/ITA/galleria-ita.html        /ITA/galleria-ita         301
+/ITA/index-ita.html           /ITA/index-ita            301
+/ITA/privacy-ita.html         /ITA/privacy-ita          301
+/ITA/termini-ita.html         /ITA/termini-ita          301
+
+# =========================================================
+# 6. CARTELLA FR
+# Rimozione estensione .html
+# =========================================================
+/FR/camera-deluxe-fr.html     /FR/camera-deluxe-fr      301
+/FR/camera-king-fr.html       /FR/camera-king-fr        301
+/FR/cookie-policy-fr.html     /FR/cookie-policy-fr      301
+/FR/faq-fr.html               /FR/faq-fr                301
+/FR/galleria-fr.html          /FR/galleria-fr           301
+/FR/index-fr.html             /FR/index-fr              301
+/FR/privacy-fr.html           /FR/privacy-fr            301
+/FR/termini-fr.html           /FR/termini-fr            301
+
+# =========================================================
+# 7. CARTELLA DE
+# Rimozione estensione .html
+# =========================================================
+/DE/camera-deluxe-de.html     /DE/camera-deluxe-de      301
+/DE/camera-king-de.html       /DE/camera-king-de        301
+/DE/cookie-policy-de.html     /DE/cookie-policy-de      301
+/DE/faq-de.html               /DE/faq-de                301
+/DE/galleria-de.html          /DE/galleria-de           301
+/DE/index-de.html             /DE/index-de              301
+/DE/privacy-de.html           /DE/privacy-de            301
+/DE/termini-de.html           /DE/termini-de            301
+
+# =========================================================
+# 8. CARTELLA ES
+# Rimozione estensione .html
+# =========================================================
+/ES/camera-deluxe-es.html     /ES/camera-deluxe-es      301
+/ES/camera-king-es.html       /ES/camera-king-es        301
+/ES/cookie-policy-es.html     /ES/cookie-policy-es      301
+/ES/faq-es.html               /ES/faq-es                301
+/ES/galleria-es.html          /ES/galleria-es           301
+/ES/index-es.html             /ES/index-es              301
+/ES/privacy-es.html           /ES/privacy-es            301
+/ES/termini-es.html           /ES/termini-es            301
+
+# =========================================================
+# GESTIONE SEZIONI (Ancore / Finte Cartelle)
+# Intercetta le finte cartelle in tutte le varianti di percorso
+# =========================================================
+
+# --- Root (Inglese / Primaria) ---
+/contatti                      /#contatti                301
+/contatti/                     /#contatti                301
+/index/contatti                /#contatti                301
+/territorio                    /#territorio              301
+/territorio/                   /#territorio              301
+/index/territorio              /#territorio              301
+
+# --- ITA ---
+/ITA/contatti                  /ITA/index-ita#contatti   301
+/ITA/contatti/                 /ITA/index-ita#contatti   301
+/ITA/index-ita/contatti        /ITA/index-ita#contatti   301
+/ITA/territorio                /ITA/index-ita#territorio 301
+/ITA/territorio/               /ITA/index-ita#territorio 301
+/ITA/index-ita/territorio      /ITA/index-ita#territorio 301
+
+# --- FR ---
+/FR/contatti                   /FR/index-fr#contatti     301
+/FR/contatti/                  /FR/index-fr#contatti     301
+/FR/index-fr/contatti          /FR/index-fr#contatti     301
+/FR/territorio                 /FR/index-fr#territorio   301
+/FR/territorio/                /FR/index-fr#territorio   301
+/FR/index-fr/territorio        /FR/index-fr#territorio   301
+
+# --- DE ---
+/DE/contatti                   /DE/index-de#contatti     301
+/DE/contatti/                  /DE/index-de#contatti     301
+/DE/index-de/contatti          /DE/index-de#contatti     301
+/DE/territorio                 /DE/index-de#territorio   301
+/DE/territorio/                /DE/index-de#territorio   301
+/DE/index-de/territorio        /DE/index-de#territorio   301
+
+# --- ES ---
+/ES/contatti                   /ES/index-es#contatti     301
+/ES/contatti/                  /ES/index-es#contatti     301
+/ES/index-es/contatti          /ES/index-es#contatti     301
+/ES/territorio                 /ES/index-es#territorio   301
+/ES/territorio/                /ES/index-es#territorio   301
+/ES/index-es/territorio        /ES/index-es#territorio   301
+
+# =========================================================
+# RECUPERO VECCHIO SITO WORDPRESS
+# =========================================================
+/trekking-nel-parco-delle-cinque-terre/    /#territorio            301
+/area-marina-protetta/                     /#territorio            301
+/la-tua-vacanza/                           /                       301
+/room/                                     /                       301
+/room/king-deluxe/                         /camera-king-en         301
+/ITA/                                      /ITA/index-ita          301
+/privacy                                   /privacy-en             301
