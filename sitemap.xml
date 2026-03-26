@@ -1,210 +1,452 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
     <loc>https://www.cadellavalletta.it/</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/index-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/index-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/index-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/" />
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/camera-king-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.cadellavalletta.it/ITA/index-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/index-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/index-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/index-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/" />
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/camera-deluxe-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.80</priority>
+    <loc>https://www.cadellavalletta.it/FR/index-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/index-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/index-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/index-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/" />
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/galleria-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
+    <loc>https://www.cadellavalletta.it/DE/index-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/index-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/index-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/index-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/" />
   </url>
   <url>
-    <loc>https://www.cadellavalletta.it/faq-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/privacy-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/termini-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/cookie-policy-en</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
+    <loc>https://www.cadellavalletta.it/ES/index-es</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/index-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/index-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/index-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/index-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/" />
   </url>
 
   <url>
-    <loc>https://www.cadellavalletta.it/ITA/index-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.90</priority>
+    <loc>https://www.cadellavalletta.it/camera-king-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-king-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-king-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-king-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-king-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-king-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-king-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ITA/camera-king-ita</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/ITA/camera-deluxe-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/ITA/galleria-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/ITA/faq-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/ITA/privacy-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/ITA/termini-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/ITA/cookie-policy-ita</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/index-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-king-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-king-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-king-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-king-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-king-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-king-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/FR/camera-king-fr</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/camera-deluxe-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/galleria-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/faq-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/privacy-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/termini-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/FR/cookie-policy-fr</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/index-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-king-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-king-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-king-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-king-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-king-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-king-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/DE/camera-king-de</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/camera-deluxe-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/galleria-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/faq-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/privacy-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/termini-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://www.cadellavalletta.it/DE/cookie-policy-de</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.30</priority>
-  </url>
-
-  <url>
-    <loc>https://www.cadellavalletta.it/ES/index-es</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-king-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-king-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-king-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-king-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-king-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-king-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/camera-king-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-king-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-king-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-king-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-king-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-king-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-king-en" />
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/camera-deluxe-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-deluxe-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-deluxe-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-deluxe-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-deluxe-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/ITA/camera-deluxe-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-deluxe-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-deluxe-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-deluxe-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-deluxe-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/FR/camera-deluxe-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-deluxe-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-deluxe-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-deluxe-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-deluxe-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/DE/camera-deluxe-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-deluxe-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-deluxe-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-deluxe-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-deluxe-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-deluxe-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/camera-deluxe-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/camera-deluxe-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/camera-deluxe-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/camera-deluxe-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/camera-deluxe-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-deluxe-en" />
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/galleria-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/galleria-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/galleria-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/galleria-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/galleria-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/ITA/galleria-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/galleria-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/galleria-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/galleria-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/galleria-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/FR/galleria-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/galleria-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/galleria-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/galleria-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/galleria-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/DE/galleria-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/galleria-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/galleria-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/galleria-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/galleria-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/galleria-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/galleria-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/galleria-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/galleria-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/galleria-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/galleria-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/galleria-en" />
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/faq-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/faq-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/faq-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/faq-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/faq-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/faq-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/faq-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/ITA/faq-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/faq-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/faq-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/faq-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/faq-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/faq-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/faq-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/FR/faq-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/faq-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/faq-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/faq-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/faq-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/faq-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/faq-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/DE/faq-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/faq-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/faq-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/faq-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/faq-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/faq-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/faq-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/faq-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/faq-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/faq-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/faq-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/faq-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/faq-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/faq-en" />
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/privacy-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/privacy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/privacy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/privacy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/privacy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/privacy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/privacy-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/ITA/privacy-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/privacy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/privacy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/privacy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/privacy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/privacy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/privacy-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/FR/privacy-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/privacy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/privacy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/privacy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/privacy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/privacy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/privacy-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/DE/privacy-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/privacy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/privacy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/privacy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/privacy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/privacy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/privacy-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/privacy-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/privacy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/privacy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/privacy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/privacy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/privacy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/privacy-en" />
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/termini-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/termini-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/termini-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/termini-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/termini-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/termini-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/termini-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/ITA/termini-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/termini-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/termini-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/termini-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/termini-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/termini-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/termini-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/FR/termini-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/termini-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/termini-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/termini-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/termini-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/termini-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/termini-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/DE/termini-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/termini-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/termini-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/termini-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/termini-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/termini-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/termini-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/termini-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/termini-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/termini-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/termini-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/termini-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/termini-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/termini-en" />
+  </url>
+
+  <url>
+    <loc>https://www.cadellavalletta.it/cookie-policy-en</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/cookie-policy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/cookie-policy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/cookie-policy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/cookie-policy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/cookie-policy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/cookie-policy-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/ITA/cookie-policy-ita</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/cookie-policy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/cookie-policy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/cookie-policy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/cookie-policy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/cookie-policy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/cookie-policy-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/FR/cookie-policy-fr</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/cookie-policy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/cookie-policy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/cookie-policy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/cookie-policy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/cookie-policy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/cookie-policy-en" />
+  </url>
+  <url>
+    <loc>https://www.cadellavalletta.it/DE/cookie-policy-de</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/cookie-policy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/cookie-policy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/cookie-policy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/cookie-policy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/cookie-policy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/cookie-policy-en" />
   </url>
   <url>
     <loc>https://www.cadellavalletta.it/ES/cookie-policy-es</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.30</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cadellavalletta.it/cookie-policy-en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.cadellavalletta.it/ITA/cookie-policy-ita" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.cadellavalletta.it/FR/cookie-policy-fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.cadellavalletta.it/DE/cookie-policy-de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cadellavalletta.it/ES/cookie-policy-es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/cookie-policy-en" />
   </url>
 
-  
 </urlset>
