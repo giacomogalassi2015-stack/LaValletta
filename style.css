@@ -892,46 +892,7 @@ footer           { background: #081221; color: #8892b0; padding: var(--sp-xl) 0 
   padding-bottom: var(--sp-xs);
 }
 
-/* ============================================================
-   TRUST BAR
-   ============================================================ */
-.trust-bar { background: transparent; padding: var(--sp-md) var(--sp-md); }
 
-.trust-bar__container {
-  max-width: 1050px;
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-sm);
-  padding: 12px var(--sp-sm);
-}
-
-.trust-icon {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  fill: none;
-  stroke: #A0522D;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.trust-title {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: var(--primary);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
 
 /* ============================================================
    LIGHTBOX
@@ -1222,12 +1183,6 @@ footer           { background: #081221; color: #8892b0; padding: var(--sp-xl) 0 
   .trust-badges-row { flex-direction: column; gap: 15px; }
   .trust-card       { padding: 20px; }
 
-  .trust-bar { padding: 16px 20px; }
-
-  .trust-bar__container {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
-  }
 
   .trust-item {
     flex-direction: column;
