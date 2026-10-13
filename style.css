@@ -12,49 +12,49 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('/fonts/subset-Montserrat-Light.woff2') format('woff2');
+  src: url('/font/subset-Montserrat-Light.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/subset-Montserrat-Regular.woff2') format('woff2');
+  src: url('/font/subset-Montserrat-Regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/subset-Montserrat-Medium.woff2') format('woff2');
+  src: url('/font/subset-Montserrat-Medium.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/subset-Montserrat-SemiBold.woff2') format('woff2');
+  src: url('/font/subset-Montserrat-SemiBold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/subset-Montserrat-Bold.woff2') format('woff2');
+  src: url('/font/subset-Montserrat-Bold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/subset-Playfair9pt-Regular.woff2') format('woff2');
+  src: url('/font/subset-Playfair9pt-Regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/subset-Playfair9pt-Bold.woff2') format('woff2');
+  src: url('/font/subset-Playfair9pt-Bold.woff2') format('woff2');
 }
 
 /* ============================================================
