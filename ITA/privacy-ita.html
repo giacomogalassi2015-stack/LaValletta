@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informativa Privacy | Ca' della Valletta</title>
-    
+
     <link rel="stylesheet" href="/style.css">
-    
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -59,8 +59,10 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
 
             <ul class="nav-links">
@@ -68,32 +70,36 @@
                 <li><a href="camera-king-ita">Camera King</a></li>
                 <li><a href="camera-deluxe-ita">Camera Deluxe</a></li>
                 <li><a href="galleria-ita">Galleria</a></li>
-                <li><a href="index-ita#territorio">Experience</a></li>
+                <li><a href="faq-ita">F.A.Q.</a></li>
                 <li><a href="#contatti">Contatti</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Seleziona lingua" data-page="privacy">
+                        <option value="it" selected>🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
 
             <div class="nav-extras">
-               <select id="language-selector" name="language" aria-label="Select language" data-page="privacy">
-                    <option value="it" selected>🇮🇹 IT</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
-                
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <div class="container section-padding" style="margin-top: 100px;">
-        
-        <h1 class="section-title text-center">Informativa Privacy</h1>
-        
-        <div class="lead-text" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
-            
+    <header class="legal-header">
+        <div class="container">
+            <span class="section-kicker">Legale</span>
+            <h1 class="section-title">Informativa Privacy</h1>
+        </div>
+    </header>
+
+    <div class="container section-padding small-container">
+
+        <div class="lead-text legal-body" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
+
             <p><strong>Informativa sul trattamento dei dati personali. In vigore dal 28/01/2026</strong></p>
 
             <h3>PREMESSA</h3>
@@ -118,7 +124,7 @@
 
             <h4>Modulo di preventivo per la prenotazione</h4>
             <p>Le pagine delle camere del Sito includono uno strumento di preventivo che consente di selezionare le date desiderate e ottenere il calcolo immediato del costo del soggiorno e dell'importo della caparra richiesta. Questo strumento opera interamente nel browser dell'utente: nessun dato personale viene salvato su alcun server. Il risultato del calcolo viene trasmesso direttamente al Titolare tramite il client di posta elettronica (mailto) o WhatsApp. Nel caso in cui la funzione mailto non sia supportata dal dispositivo, il Sito mostra un banner con le informazioni già compilate, che l'utente può copiare e inviare manualmente.</p>
-            <p>Il completamento della prenotazione avviene al di fuori del Sito: a seguito della verifica della richiesta, il Titolare invierà all'ospite un link per il pagamento della caparra. Il saldo verrà corrisposto direttamente in struttura. La procedura completa di prenotazione è descritta nei <a href="termini-ita" style="text-decoration: underline;">Termini e Condizioni</a>. La base giuridica del trattamento è il legittimo interesse del Titolare nella gestione delle richieste di prenotazione.</p>
+            <p>Il completamento della prenotazione avviene al di fuori del Sito: a seguito della verifica della richiesta, il Titolare invierà all'ospite un link per il pagamento della caparra. Il saldo verrà corrisposto direttamente in struttura. La procedura completa di prenotazione è descritta nei <a href="termini-ita">Termini e Condizioni</a>. La base giuridica del trattamento è il legittimo interesse del Titolare nella gestione delle richieste di prenotazione.</p>
 
             <h4>Marketing generico</h4>
             <p>Il Titolare del Trattamento non invierà materiale pubblicitario e/o newsletter relativo a prodotti propri o di terzi. Non viene effettuata profilazione né invio di comunicazioni pubblicitarie senza consenso esplicito.</p>
@@ -187,15 +193,28 @@
     </div>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="/cdn-cgi/l/email-protection#543d3a323b143735303138383522353838312020357a3d20" class="contact-link"><span class="__cf_email__" data-cfemail="523b3c343d12313336373e3e3324333e3e372626337c3b26">[email&#160;protected]</span></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-info-title">Contatti</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-links-title">Esplora</span>
+                    <ul class="footer-links">
+                        <li><a href="index-ita">Home</a></li>
+                        <li><a href="camera-king-ita">Camera King</a></li>
+                        <li><a href="camera-deluxe-ita">Camera Deluxe</a></li>
+                        <li><a href="faq-ita">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
@@ -204,15 +223,15 @@
                     P.IVA: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
-                    CITR: 011024-AFF-0196 <br> 
+                    CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-ita" style="text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="termini-ita" style="text-decoration: underline;">Termini e Condizioni</a> | 
-                    <a href="cookie-policy-ita" style="text-decoration: underline;">Cookie Policy</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-ita">Privacy Policy</a> |
+                    <a href="termini-ita">Termini e Condizioni</a> |
+                    <a href="cookie-policy-ita">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;">© 2017-2026 Ca' della Valletta. Tutti i diritti riservati.</p>
+                <p class="footer-copy">© 2017-2026 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>

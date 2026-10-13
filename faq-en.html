@@ -131,8 +131,10 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
@@ -141,32 +143,42 @@
                 <li><a href="/galleria-en">Gallery</a></li>
                 <li><a href="/index#territorio">Experience</a></li>
                 <li><a href="#contatti">Contact</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Select language" data-page="faq">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en" selected>🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language" data-page="faq">
-                    <option value="it">🇮🇹 IT</option>
-                    <option value="en" selected>🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <header style="padding: 160px 0 40px; background-color: #fdfcf9; text-align: center;">
+    <header style="padding: 160px 0 var(--sp-lg); background-color: var(--paper-2); text-align: center;">
         <div class="container" data-aos="fade-up">
-            <h1 class="section-title">Frequently Asked Questions (F.A.Q.)</h1>
+            <span class="section-kicker">Good to Know</span>
+            <h1 class="section-title">Frequently Asked Questions</h1>
             <p class="lead-text">Everything you need to know for your stay in Riomaggiore</p>
         </div>
     </header>
 
-    <main class="section-padding" style="background-color: #fdfcf9; padding-top: 0;">
+    <main class="section-padding" style="padding-top: var(--sp-xl);">
         <div class="container">
+
+            <nav class="faq-pills" aria-label="FAQ categories">
+                <a href="#cat-1">Arrival &amp; Transport</a>
+                <a href="#cat-2">Staying at Ca' della Valletta</a>
+                <a href="#cat-3">Experiences &amp; Food</a>
+            </nav>
+
             <div id="faq-dynamic-container" class="faq-container">
 
-                <h3 class="faq-category-title" data-aos="fade-right">Arrival &amp; Transport</h3>
+                <h3 class="faq-category-title" id="cat-1" data-aos="fade-right">Arrival &amp; Transport</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -205,7 +217,7 @@
                     </details>
                 </div>
 
-                <h3 class="faq-category-title" data-aos="fade-right">Staying at Ca' della Valletta</h3>
+                <h3 class="faq-category-title" id="cat-2" data-aos="fade-right">Staying at Ca' della Valletta</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -240,7 +252,7 @@
                     </details>
                 </div>
 
-                <h3 class="faq-category-title" data-aos="fade-right">Experiences &amp; Food</h3>
+                <h3 class="faq-category-title" id="cat-3" data-aos="fade-right">Experiences &amp; Food</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -278,15 +290,28 @@
     </main>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand" data-aos="fade-up">
-                <h2>Contact Ca' della Valletta in Riomaggiore</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand" data-aos="fade-up">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
+                    <span class="footer-info-title">Contact</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="200">
+                    <span class="footer-links-title">Explore</span>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/camera-king-en">King Room</a></li>
+                        <li><a href="/camera-deluxe-en">Deluxe Room</a></li>
+                        <li><a href="/galleria-en">Gallery</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
@@ -298,12 +323,12 @@
                     CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="/privacy-en" style="text-decoration: underline;">Privacy Policy</a> |
-                    <a href="/termini-en" style="text-decoration: underline;">Terms &amp; Conditions</a> |
-                    <a href="/cookie-policy-en" style="text-decoration: underline;">Cookie Policy</a>
+                <p class="footer-legal-links">
+                    <a href="/privacy-en">Privacy Policy</a> |
+                    <a href="/termini-en">Terms &amp; Conditions</a> |
+                    <a href="/cookie-policy-en">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;">© 2017-2026 Ca' della Valletta. All rights reserved.</p>
+                <p class="footer-copy">© 2017-2026 Ca' della Valletta. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
     <link rel="canonical" href="https://www.cadellavalletta.it/termini-en" />
-    <link rel="icon" href="img/favicon.png" sizes="192x192">
+    <link rel="icon" href="/img/favicon.png" sizes="192x192">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions | Ca' della Valletta</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
-    
-    
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -65,43 +61,48 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
 
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="camera-king-en">King Room</a></li>
-                <li><a href="camera-deluxe-en">Deluxe Room</a></li>
-                <li><a href="galleria-en">Gallery</a></li>
-                <li><a href="index#territorio">Experience</a></li>
-                <li><a href="faq-en">F.A.Q.</a></li>
+                <li><a href="/camera-king-en">King Room</a></li>
+                <li><a href="/camera-deluxe-en">Deluxe Room</a></li>
+                <li><a href="/galleria-en">Gallery</a></li>
+                <li><a href="/faq-en">F.A.Q.</a></li>
                 <li><a href="#contatti">Contact</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Select language" data-page="termini">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en" selected>🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
 
             <div class="nav-extras">
-               <select id="language-selector" name="language" aria-label="Select language" data-page="termini">
-                     <option value="it">🇮🇹 IT</option>
-                    <option value="en" selected>🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
-                
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <div class="container section-padding" style="margin-top: 100px;">
-        
-        <h1 class="section-title text-center">Terms and Conditions</h1>
-        <p class="text-center" style="margin-bottom: 40px; color: #666;">Last updated: 28/01/2026</p>
-        
-        <div class="lead-text" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
-            
+    <header class="legal-header">
+        <div class="container">
+            <span class="section-kicker">Legal</span>
+            <h1 class="section-title">Terms and Conditions</h1>
+            <p class="legal-updated">Last updated: 28/01/2026</p>
+        </div>
+    </header>
+
+    <div class="container section-padding small-container">
+
+        <div class="lead-text legal-body" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
+
             <h3>1. Introduction and Structure Details</h3>
             <p>These Terms and Conditions govern the tourist accommodation contract at the non-hotel facility (Guest House) named <strong>"Ca' della Valletta"</strong>, managed by <strong>Giacomo Galassi</strong> (hereinafter "Manager" or "Structure"), with registered office at Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Identification Codes:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.</p>
             <p>The booking is personal and non-transferable and implies full and unreserved acceptance of these terms by the Customer.</p>
@@ -167,15 +168,28 @@
     </div>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-info-title">Contact</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-links-title">Explore</span>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/camera-king-en">King Room</a></li>
+                        <li><a href="/camera-deluxe-en">Deluxe Room</a></li>
+                        <li><a href="/faq-en">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
@@ -184,20 +198,21 @@
                     VAT: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
-                    CITR: 011024-AFF-0196 <br> 
+                    CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-en" style="text-decoration: underline;">Privacy Policy</a> | 
-                    <a href="termini-en" style="text-decoration: underline;">Terms and Conditions</a> | 
-                    <a href="cookie-policy-en" style="text-decoration: underline;">Cookie Policy</a>
+                <p class="footer-legal-links">
+                    <a href="/privacy-en">Privacy Policy</a> |
+                    <a href="/termini-en">Terms and Conditions</a> |
+                    <a href="/cookie-policy-en">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;">&copy; 2017-2026 Ca' della Valletta. All rights reserved.</p>
+                <p class="footer-copy">&copy; 2017-2026 Ca' della Valletta. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="/script.js" defer></script>
 
 </body>
 </html>

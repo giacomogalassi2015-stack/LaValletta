@@ -54,31 +54,35 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
             <ul class="nav-links">
                 <li><a href="index-de">Startseite</a></li>
                 <li><a href="camera-king-de">King Zimmer</a></li>
                 <li><a href="camera-deluxe-de">Deluxe Zimmer</a></li>
-                <li><a href="galleria-de">Galerie</a></li>
                 <li><a href="index-de#territorio">Erlebnis</a></li>
+                <li><a href="faq-de">F.A.Q.</a></li>
                 <li><a href="#contatti">Kontakt</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Sprache auswählen" data-page="galleria">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de" selected>🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Sprache auswählen" data-page="galleria">
-                    <option value="it">🇮🇹 IT</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de" selected>🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <header class="hero" style="height: 50vh;">
+    <header class="hero page-hero">
         <div class="video-wrapper">
             <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="Galerie" class="hero-bg">
         </div>
@@ -124,33 +128,46 @@
                 </div>
             </div>
             <div class="text-center" style="margin-top: 50px;">
-                <a href="index-de#camere" class="btn-outline" style="color: var(--primary); border-color: var(--primary);">Zurück zu den Zimmern</a>
+                <a href="index-de#camere" class="btn-ghost-dark">Zurück zu den Zimmern</a>
             </div>
         </div>
     </section>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-info-title">Kontakt</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-links-title">Entdecken</span>
+                    <ul class="footer-links">
+                        <li><a href="index-de">Startseite</a></li>
+                        <li><a href="camera-king-de">King Zimmer</a></li>
+                        <li><a href="camera-deluxe-de">Deluxe Zimmer</a></li>
+                        <li><a href="faq-de">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
-                <p><strong>Ca' della Valletta</strong> di Giacomo Galassi<br>
+                <p><strong>Ca' della Valletta</strong> von Giacomo Galassi<br>
                 Eingetragener Sitz: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
-                USt-IdNr.: IT01444610453</p>
+                MwSt: IT01444610453</p>
                 <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-de" style="text-decoration: underline;">Datenschutzrichtlinie</a> |
-                    <a href="termini-de" style="text-decoration: underline;">AGB</a> |
-                    <a href="cookie-policy-de" style="text-decoration: underline;">Cookie-Richtlinie</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-de">Datenschutzerklärung</a> |
+                    <a href="termini-de">Allgemeine Geschäftsbedingungen</a> |
+                    <a href="cookie-policy-de">Cookie-Richtlinie</a>
                 </p>
-                <p style="margin-top: 10px;">&copy; 2017-2026 Ca' della Valletta. Alle Rechte vorbehalten.</p>
+                <p class="footer-copy">&copy; 2017-2026 Ca' della Valletta. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>

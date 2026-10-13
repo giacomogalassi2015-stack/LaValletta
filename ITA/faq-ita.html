@@ -81,7 +81,6 @@
       "name": "Com'è il Wi-Fi e l'aria condizionata?",
       "acceptedAnswer": { "@type": "Answer", "text": "Il Wi-Fi è gratuito, veloce e copre tutta la struttura. Ogni camera dispone di un condizionatore indipendente che gli ospiti possono regolare autonomamente." }
     },
-   
     {
       "@type": "Question",
       "name": "Riomaggiore è troppo affollata in alta stagione? Come posso godermi il borgo in tranquillità?",
@@ -127,42 +126,54 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/ITA/camera-king-ita">Camera King</a></li>
-                <li><a href="/ITA/camera-deluxe-ita">Camera Deluxe</a></li>
-                <li><a href="/ITA/galleria-ita">Galleria</a></li>
-                <li><a href="/ITA/index-ita#territorio">Experience</a></li>
+                <li><a href="index-ita">Home</a></li>
+                <li><a href="camera-king-ita">Camera King</a></li>
+                <li><a href="camera-deluxe-ita">Camera Deluxe</a></li>
+                <li><a href="galleria-ita">Galleria</a></li>
+                <li><a href="index-ita#territorio">Experience</a></li>
                 <li><a href="#contatti">Contatti</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Seleziona lingua" data-page="faq">
+                        <option value="it" selected>🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language" data-page="faq">
-                    <option value="it" selected>🇮🇹 IT</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <header style="padding: 160px 0 40px; background-color: #fdfcf9; text-align: center;">
+    <header style="padding: 160px 0 var(--sp-lg); background-color: var(--paper-2); text-align: center;">
         <div class="container" data-aos="fade-up">
-            <h1 class="section-title">Domande Frequenti (F.A.Q.)</h1>
+            <span class="section-kicker">Da Sapere</span>
+            <h1 class="section-title">Domande Frequenti</h1>
             <p class="lead-text">Tutto quello che devi sapere per il tuo soggiorno a Riomaggiore</p>
         </div>
     </header>
 
-    <main class="section-padding" style="background-color: #fdfcf9; padding-top: 0;">
+    <main class="section-padding" style="padding-top: var(--sp-xl);">
         <div class="container">
+
+            <nav class="faq-pills" aria-label="Categorie FAQ">
+                <a href="#cat-1">Arrivo e Trasporti</a>
+                <a href="#cat-2">Soggiornare a Ca' della Valletta</a>
+                <a href="#cat-3">Esperienze e Ristorazione</a>
+            </nav>
+
             <div id="faq-dynamic-container" class="faq-container">
 
-                <h3 class="faq-category-title" data-aos="fade-right">Arrivo e Trasporti</h3>
+                <h3 class="faq-category-title" id="cat-1" data-aos="fade-right">Arrivo e Trasporti</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -201,7 +212,7 @@
                     </details>
                 </div>
 
-                <h3 class="faq-category-title" data-aos="fade-right">Soggiornare a Ca' della Valletta</h3>
+                <h3 class="faq-category-title" id="cat-2" data-aos="fade-right">Soggiornare a Ca' della Valletta</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -235,9 +246,8 @@
                         <div class="faq-answer">Il Wi-Fi è gratuito, veloce e copre tutta la struttura. Ogni camera dispone di un condizionatore indipendente che gli ospiti possono regolare autonomamente.</div>
                     </details>
                 </div>
-                
 
-                <h3 class="faq-category-title" data-aos="fade-right">Esperienze e Ristorazione</h3>
+                <h3 class="faq-category-title" id="cat-3" data-aos="fade-right">Esperienze e Ristorazione</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -275,15 +285,28 @@
     </main>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand" data-aos="fade-up">
-                <h2>Contatta Ca' della Valletta a Riomaggiore</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand" data-aos="fade-up">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Contatta Ca' della Valletta a Riomaggiore</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
+                    <span class="footer-info-title">Contatti</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="200">
+                    <span class="footer-links-title">Esplora</span>
+                    <ul class="footer-links">
+                        <li><a href="index-ita">Home</a></li>
+                        <li><a href="camera-king-ita">Camera King</a></li>
+                        <li><a href="camera-deluxe-ita">Camera Deluxe</a></li>
+                        <li><a href="galleria-ita">Galleria</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
@@ -295,12 +318,12 @@
                     CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="/ITA/privacy-ita" style="text-decoration: underline;">Privacy Policy</a> |
-                    <a href="/ITA/termini-ita" style="text-decoration: underline;">Termini e Condizioni</a> |
-                    <a href="/ITA/cookie-policy-ita" style="text-decoration: underline;">Cookie Policy</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-ita">Privacy Policy</a> |
+                    <a href="termini-ita">Termini e Condizioni</a> |
+                    <a href="cookie-policy-ita">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;">© 2017-2026 Ca' della Valletta. Tutti i diritti riservati.</p>
+                <p class="footer-copy">© 2017-2026 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>

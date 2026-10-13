@@ -17,11 +17,9 @@
     <link rel="alternate" hreflang="x-default" href="https://www.cadellavalletta.it/camera-king-en">
 
     <link rel="stylesheet" href="/style.css">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
-    
-    
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -42,7 +40,7 @@
   ],
   "occupancy": { "@type": "QuantitativeValue", "maxValue": 2, "unitCode": "C62" },
   "bed": { "@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Double Bed" },
-   
+
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
@@ -81,26 +79,29 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/camera-deluxe-en">King Deluxe Room</a></li>
+                <li><a href="/camera-deluxe-en">Deluxe Room</a></li>
                 <li><a href="/galleria-en">Gallery</a></li>
                 <li><a href="/index#territorio">Experience</a></li>
-                
+                <li><a href="/faq-en">F.A.Q.</a></li>
                 <li><a href="#contatti">Contact</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Select language" data-page="camera-king">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en" selected>🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language"
-                    data-page="camera-king">
-                    <option value="it">🇮🇹 IT</option>
-                    <option value="en" selected>🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
@@ -111,13 +112,18 @@
              <img src="https://res.cloudinary.com/dkg0jfady/image/upload/v1771037765/3_m93t3i.jpg" alt="King Room with double bed and stone details, Ca' della Valletta Riomaggiore" class="hero-bg">
         </div>
         <div class="hero-overlay"></div>
-            <div class="hero-content" data-aos="fade-up">
-  <span class="hero-subtitle">
-    <span class="subtitle-type">Guesthouse</span>
-    <span class="subtitle-location">Riomaggiore, Cinque Terre</span>
-  </span>
-  <h1>King Room</h1>
-</div>
+        <div class="hero-content" data-aos="fade-up">
+            <span class="hero-subtitle">
+                <span class="subtitle-type">Guesthouse</span>
+                <span class="subtitle-location">Riomaggiore, Cinque Terre</span>
+            </span>
+            <h1>King Room</h1>
+            <div class="room-hero-meta">
+                <span><i class="fas fa-user"></i> 1–2 Guests</span>
+                <span><i class="fas fa-bed"></i> Double Bed</span>
+                <span><i class="fas fa-snowflake"></i> A/C &amp; Soundproofing</span>
+            </div>
+        </div>
     </header>
 
     <section class="section-padding">
@@ -131,7 +137,7 @@
                         data-room-name="King Room"
                         data-calendar-urls='["https://ics.teamup.com/feed/ksb6u6inopb4yrqt7s/0.ics"]'>
 
-                        <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Book Now</h3>
+                        <h3>Book Now</h3>
 
                         <div class="input-group">
                             <label for="guests"><i class="fas fa-users"></i> Number of Guests</label>
@@ -147,9 +153,8 @@
                         <div class="input-group">
                             <label for="contact-method"><i class="fas fa-comments"></i> Preferred Contact</label>
                             <select id="contact-method" name="contact" aria-label="Select contact method">
-                              <option value="whatsapp">WhatsApp</option>
+                                <option value="whatsapp">WhatsApp</option>
                                 <option value="email">Email</option>
-                                Telegram</option>
                             </select>
                        </div>
 
@@ -242,7 +247,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="services-list" style="margin-top: 30px;">
+                    <div class="services-list">
                         <h3>Included Services</h3>
                         <ul>
                             <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
@@ -255,50 +260,59 @@
                             <li><i class="fas fa-wind"></i> Hairdryer</li>
                         </ul>
                     </div>
+
+                    <div class="trust-badges-row" data-aos="fade-up">
+                        <a href="https://www.booking.com/Share-k7cfVu" target="_blank" class="trust-card hover-effect">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" alt="Booking.com" class="trust-logo">
+                            <div class="trust-score"><span>9.5</span> <small>/ 10</small></div>
+                            <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </a>
+
+                        <div class="trust-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="trust-logo" style="height: 20px;">
+                            <div class="trust-score"><span>5.0</span> <small>/ 5</small></div>
+                            <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-
-        <div class="trust-badges-row" data-aos="fade-up">
-            <a href="https://www.booking.com/Share-k7cfVu" target="_blank" class="trust-card hover-effect">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" alt="Booking.com" class="trust-logo">
-                <div class="trust-score"><span>9.4</span> <small>/ 10</small></div>
-                <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-            </a>
-            <a href="https://www.airbnb.com.mt/rooms/600617620833182339" target="_blank" class="trust-card hover-effect">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" class="trust-logo" style="height: 22px;">
-                <div class="trust-score"><span>4.6</span> <small>/ 5</small></div>
-                <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-            </a>
-            <div class="trust-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="trust-logo" style="height: 20px;">
-                <div class="trust-score"><span>5.0</span> <small>/ 5</small></div>
-                <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             </div>
         </div>
     </section>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-info-title">Contact</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-links-title">Explore</span>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/camera-deluxe-en">Deluxe Room</a></li>
+                        <li><a href="/galleria-en">Gallery</a></li>
+                        <li><a href="/faq-en">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
-                <p><strong>Ca' della Valletta</strong> di Giacomo Galassi<br>Sede Legale: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>P.IVA: IT01444610453</p>
+                <p><strong>Ca' della Valletta</strong> by Giacomo Galassi<br>Registered Office: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>VAT: IT01444610453</p>
                 <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="/privacy-en" style="text-decoration: underline;">Privacy Policy</a> |
-                    <a href="/termini-en" style="text-decoration: underline;">Terms &amp; Conditions</a> |
-                    <a href="/cookie-policy-en" style="text-decoration: underline;">Cookie Policy</a>
+                <p class="footer-legal-links">
+                    <a href="/privacy-en">Privacy Policy</a> |
+                    <a href="/termini-en">Terms &amp; Conditions</a> |
+                    <a href="/cookie-policy-en">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;">&copy; 2017-2026 Ca' della Valletta. All rights reserved.</p>
+                <p class="footer-copy">&copy; 2017-2026 Ca' della Valletta. All rights reserved.</p>
             </div>
         </div>
     </footer>

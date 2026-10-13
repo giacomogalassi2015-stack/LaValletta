@@ -77,8 +77,10 @@
 <nav id="navbar">
     <div class="nav-container">
         <div class="logo">
-            Ca' della Valletta
-            <span class="sub-logo">CINQUE TERRE</span>
+            <span class="logo-text">
+                Ca' della Valletta
+                <span class="sub-logo">CINQUE TERRE</span>
+            </span>
         </div>
         <ul class="nav-links">
             <li><a href="index-ita">Home</a></li>
@@ -86,16 +88,19 @@
             <li><a href="camera-deluxe-ita">Camera Deluxe</a></li>
             <li><a href="galleria-ita">Galleria</a></li>
             <li><a href="index-ita#territorio">Experience</a></li>
+            <li><a href="faq-ita">F.A.Q.</a></li>
             <li><a href="#contatti">Contatti</a></li>
+            <li class="lang-item">
+                <select id="language-selector" name="language" aria-label="Seleziona lingua" data-page="index">
+                    <option value="it" selected>🇮🇹 IT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="es">🇪🇸 ES</option>
+                </select>
+            </li>
         </ul>
         <div class="nav-extras">
-            <select id="language-selector" name="language" aria-label="Seleziona lingua" data-page="index">
-                <option value="it" selected>🇮🇹 IT</option>
-                <option value="en">🇬🇧 EN</option>
-                <option value="fr">🇫🇷 FR</option>
-                <option value="de">🇩🇪 DE</option>
-                <option value="es">🇪🇸 ES</option>
-            </select>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
@@ -113,68 +118,140 @@
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
             <span class="hero-subtitle">Benvenuti a Riomaggiore</span>
-            <h1>Un rifugio sospeso tra cielo e mare</h1>
-            <a href="#camere" class="btn-outline" style="margin-top: 30px;">Scopri le Camere</a>
+            <h1>Un rifugio sospeso<br>tra cielo e mare</h1>
+            <a href="#camere" class="btn-outline">Scopri le Camere</a>
         </div>
     </header>
 
+    <div class="at-glance-wrap container">
+        <div class="at-glance" data-aos="fade-up">
+            <div class="at-glance__item">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <span class="at-glance__label">Posizione</span>
+                    <span class="at-glance__value">Riomaggiore · Cinque&nbsp;Terre</span>
+                </div>
+            </div>
+            <div class="at-glance__item">
+                <i class="fas fa-key"></i>
+                <div>
+                    <span class="at-glance__label">Camere</span>
+                    <span class="at-glance__value">2 Camere Uniche</span>
+                </div>
+            </div>
+            <div class="at-glance__item">
+                <i class="far fa-clock"></i>
+                <div>
+                    <span class="at-glance__label">Check-in</span>
+                    <span class="at-glance__value">14:00 – 20:00</span>
+                </div>
+            </div>
+            <div class="at-glance__item">
+                <i class="fas fa-wifi"></i>
+                <div>
+                    <span class="at-glance__label">Comfort</span>
+                    <span class="at-glance__value">WiFi &amp; A/C Gratuiti</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="camere" class="section-padding">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
+            <div class="section-head text-center" data-aos="fade-up">
+                <span class="section-kicker">Le Nostre Sistemazioni</span>
                 <h2 class="section-title">Le Nostre Camere</h2>
             </div>
 
-            <div class="room-row">
-                <div class="slider-container" data-aos="fade-right">
-                    <div class="slides-wrapper">
-                        <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="Camera Matrimoniale King a Riomaggiore" class="slide active" loading="lazy" width="800" height="600">
-                        <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037766/2_mgkhpb.jpg" alt="Letto Camera King 5 Terre" class="slide" loading="lazy" width="800" height="600">
-                        <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037767/1_qturjg.jpg" alt="Bagno Camera King" class="slide" loading="lazy" width="800" height="600">
+            <div class="room-showcase">
+                <div class="room-row">
+                    <div class="slider-container" data-aos="fade-right">
+                        <div class="slides-wrapper">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/3_m93t3i.jpg" alt="Camera Matrimoniale King a Riomaggiore" class="slide active" loading="lazy" width="800" height="600">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037766/2_mgkhpb.jpg" alt="Letto Camera King 5 Terre" class="slide" loading="lazy" width="800" height="600">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037767/1_qturjg.jpg" alt="Bagno Camera King" class="slide" loading="lazy" width="800" height="600">
+                        </div>
+                        <button class="slider-btn prev-btn" aria-label="Immagine precedente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next-btn" aria-label="Immagine successiva"><i class="fas fa-chevron-right"></i></button>
+                        <h3 class="mobile-room-title">Camera King</h3>
+                        <a href="camera-king-ita" class="room-overlay-btn" aria-label="Info e prenotazione Camera King">Info &amp; Prenota</a>
                     </div>
-                    <button class="slider-btn prev-btn" aria-label="Immagine precedente"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-btn next-btn" aria-label="Immagine successiva"><i class="fas fa-chevron-right"></i></button>
-                    <h3 class="mobile-room-title">Camera King</h3>
-                    <a href="camera-king-ita" class="room-overlay-btn" aria-label="Info e prenotazione Camera King">Info &amp; Prenota</a>
-                </div>
-                <div class="room-text" data-aos="fade-left">
-                    <h3>Camera King</h3>
-                    <p>Camera spaziosa con letto king-size, bagno privato con doccia a pioggia, aria condizionata, WiFi gratuito e arredi raffinati ispirati ai colori delle Cinque Terre.</p>
-                    <a href="camera-king-ita" class="btn-gold-solid" aria-label="Scopri i dettagli della Camera King">Scopri di più</a>
+                    <div class="room-text" data-aos="fade-left">
+                        <span class="room-num">01 — Camera King</span>
+                        <h3>Camera King</h3>
+                        <p class="description">Camera spaziosa con letto king-size, bagno privato con doccia a pioggia, aria condizionata, WiFi gratuito e arredi raffinati ispirati ai colori delle Cinque Terre.</p>
+                        <div class="room-cta-row">
+                            <a href="camera-king-ita" class="btn-gold-solid" aria-label="Scopri i dettagli della Camera King">Scopri di più</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="room-row reverse">
-                <div class="slider-container" data-aos="fade-left">
-                    <div class="slides-wrapper">
-                        <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/d3_zaoyrv.jpg" alt="Camera King Deluxe a Riomaggiore" class="slide active" loading="lazy" width="800" height="600">
-                        <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037766/d1_c26ire.jpg" alt="Letto Camera Deluxe 5 Terre" class="slide" loading="lazy" width="800" height="600">
-                        <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037764/d2_lnozpv.jpg" alt="Bagno Camera Deluxe" class="slide" loading="lazy" width="800" height="600">
+            <div class="room-showcase">
+                <div class="room-row reverse">
+                    <div class="slider-container" data-aos="fade-left">
+                        <div class="slides-wrapper">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037765/d3_zaoyrv.jpg" alt="Camera King Deluxe a Riomaggiore" class="slide active" loading="lazy" width="800" height="600">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037766/d1_c26ire.jpg" alt="Letto Camera Deluxe 5 Terre" class="slide" loading="lazy" width="800" height="600">
+                            <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_800,c_limit,f_auto,q_auto/v1771037764/d2_lnozpv.jpg" alt="Bagno Camera Deluxe" class="slide" loading="lazy" width="800" height="600">
+                        </div>
+                        <button class="slider-btn prev-btn" aria-label="Immagine precedente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next-btn" aria-label="Immagine successiva"><i class="fas fa-chevron-right"></i></button>
+                        <h3 class="mobile-room-title">Camera Deluxe</h3>
+                        <a href="camera-deluxe-ita" class="room-overlay-btn" aria-label="Info e prenotazione Camera Deluxe">Info &amp; Prenota</a>
                     </div>
-                    <button class="slider-btn prev-btn" aria-label="Immagine precedente"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-btn next-btn" aria-label="Immagine successiva"><i class="fas fa-chevron-right"></i></button>
-                    <h3 class="mobile-room-title">Camera Deluxe</h3>
-                    <a href="camera-deluxe-ita" class="room-overlay-btn" aria-label="Info e prenotazione Camera Deluxe">Info &amp; Prenota</a>
-                </div>
-                <div class="room-text" data-aos="fade-right">
-                    <h3>Camera Deluxe</h3>
-                    <p>Camera doppia elegante con letto king-size, bagno privato con doccia, aria condizionata, WiFi gratuito e arredi curati per un soggiorno confortevole a Riomaggiore.</p>
-                    <a href="camera-deluxe-ita" class="btn-gold-solid" aria-label="Scopri i dettagli della Camera Deluxe">Scopri di più</a>
+                    <div class="room-text" data-aos="fade-right">
+                        <span class="room-num">02 — Camera Deluxe</span>
+                        <h3>Camera Deluxe</h3>
+                        <p class="description">Camera doppia elegante con letto king-size, bagno privato con doccia, aria condizionata, WiFi gratuito e arredi curati per un soggiorno confortevole a Riomaggiore.</p>
+                        <div class="room-cta-row">
+                            <a href="camera-deluxe-ita" class="btn-gold-solid" aria-label="Scopri i dettagli della Camera Deluxe">Scopri di più</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="mappa-percorsi" class="section-padding" style="background-color: #fdfdfd;">
+    <section id="mappa-percorsi" class="section-padding bg-paper-2">
         <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <span class="section-kicker">Dove Siamo</span>
+                <h2 class="section-title">Nel Cuore di Riomaggiore</h2>
+            </div>
             <a href="https://maps.app.goo.gl/cTYakzypVwLtUKzE6" target="_blank" rel="noopener noreferrer" class="clickable-map-card" data-aos="fade-up" aria-label="Apri Ca' della Valletta su Google Maps">
                 <img src="https://res.cloudinary.com/dkg0jfady/image/upload/w_1200,c_limit,f_auto,q_auto:eco/v1773694506/Screenshot_2026-03-16_215403_egxydu.png" alt="Mappa posizione Ca' della Valletta a Riomaggiore, Via Della Valletta 13" class="clickable-map-image" width="1200" height="600">
+                <div class="map-chip">
+                    <i class="fas fa-location-dot"></i>
+                    <span>
+                        <strong>Via Della Valletta 13</strong>
+                        <span>Riomaggiore · Apri su Google Maps</span>
+                    </span>
+                </div>
+                <div class="map-chip-arrow"><i class="fas fa-arrow-right"></i></div>
             </a>
         </div>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Riomaggiore</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Cinque Terre</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Liguria, Italia</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Ca' della Valletta</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Riomaggiore</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Cinque Terre</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Liguria, Italia</span>
+            <span class="marquee__item"><i class="fas fa-diamond"></i>Ca' della Valletta</span>
+        </div>
+    </div>
+
     <section id="territorio" class="experience section-padding bg-dark">
         <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <span class="section-kicker">Oltre il Soggiorno</span>
+                <h2 class="section-title">Vivi le Cinque Terre</h2>
+            </div>
             <div class="resources-grid">
                 <div class="resource-card highlight" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
@@ -198,22 +275,48 @@
                     <div class="card-icon"><i class="fas fa-question-circle"></i></div>
                     <h3>Domande Frequenti</h3>
                     <p>Orari di check-in, parcheggi e tutti i dettagli utili per il tuo soggiorno a Riomaggiore.</p>
-                    <a href="/ITA/faq-ita" class="btn-gold-solid">Leggi le F.A.Q.</a>
+                    <a href="faq-ita" class="btn-gold-solid">Leggi le F.A.Q.</a>
+                </div>
+            </div>
+
+            <div class="trust-badges-row" data-aos="fade-up">
+                <a href="https://www.booking.com/Share-k7cfVu" target="_blank" class="trust-card hover-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" alt="Booking.com" class="trust-logo">
+                    <div class="trust-score"><span>9.5</span> <small>/ 10</small></div>
+                    <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                </a>
+                <div class="trust-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="trust-logo" style="height: 20px;">
+                    <div class="trust-score"><span>5.0</span> <small>/ 5</small></div>
+                    <div class="trust-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand" data-aos="fade-up">
-                <h2>Contatta Ca' della Valletta a Riomaggiore</h2>
-                <p>CINQUE TERRE</p>
-            </div>
-            <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
-                <p>Via Della Valletta 13, 19017 (SP) ItaliaS</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand" data-aos="fade-up">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
+                    <span class="footer-info-title">Contatti</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 Riomaggiore (SP)</span>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="200">
+                    <span class="footer-links-title">Esplora</span>
+                    <ul class="footer-links">
+                        <li><a href="camera-king-ita">Camera King</a></li>
+                        <li><a href="camera-deluxe-ita">Camera Deluxe</a></li>
+                        <li><a href="galleria-ita">Galleria</a></li>
+                        <li><a href="faq-ita">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
@@ -222,12 +325,12 @@
                     P.IVA: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">CITR: 011024-AFF-0196 <br> CIN: IT011024B4MTWJF09S</p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-ita" style="text-decoration: underline;">Privacy Policy</a> |
-                    <a href="termini-ita" style="text-decoration: underline;">Termini e Condizioni</a> |
-                    <a href="cookie-policy-ita" style="text-decoration: underline;">Cookie Policy</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-ita">Privacy Policy</a> |
+                    <a href="termini-ita">Termini e Condizioni</a> |
+                    <a href="cookie-policy-ita">Cookie Policy</a>
                 </p>
-                <p style="margin-top: 10px;">© 2017-2026 Ca' della Valletta. Tutti i diritti riservati.</p>
+                <p class="footer-copy">© 2017-2026 Ca' della Valletta. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>

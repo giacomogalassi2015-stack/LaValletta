@@ -6,13 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conditions Générales | Ca' della Valletta</title>
-    
+
     <link rel="stylesheet" href="/style.css">
-    
-    
-    
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <script type="application/ld+json">
@@ -64,8 +60,10 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
 
             <ul class="nav-links">
@@ -73,34 +71,37 @@
                 <li><a href="camera-king-fr">Chambre King</a></li>
                 <li><a href="camera-deluxe-fr">Chambre Deluxe</a></li>
                 <li><a href="galleria-fr">Galerie</a></li>
-                <li><a href="index-fr#territorio">Expérience</a></li>
-                
+                <li><a href="faq-fr">F.A.Q.</a></li>
                 <li><a href="#contatti">Contact</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Choisir la langue" data-page="termini">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr" selected>🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
 
             <div class="nav-extras">
-              <select id="language-selector" name="language" aria-label="Select language" data-page="termini">
-                     <option value="it">🇮🇹 IT</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="fr" selected>🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
-                
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <div class="container section-padding" style="margin-top: 100px;">
-        
-        <h1 class="section-title text-center">Conditions Générales</h1>
-        <p class="text-center" style="margin-bottom: 40px; color: #666;">Dernière mise à jour: 28/01/2026</p>
-        
-        <div class="lead-text" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
-            
+    <header class="legal-header">
+        <div class="container">
+            <span class="section-kicker">Légal</span>
+            <h1 class="section-title">Conditions Générales</h1>
+            <p class="legal-updated">Dernière mise à jour : 28/01/2026</p>
+        </div>
+    </header>
+
+    <div class="container section-padding small-container">
+
+        <div class="lead-text legal-body" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
+
             <h3>1. Introduction et Données de la Structure</h3>
             <p>Les présentes Conditions Générales régissent le contrat de séjour touristique auprès de la structure d'hébergement extra-hôtelière (Chambres d'hôtes) nommée <strong>"Ca' della Valletta"</strong>, gérée par <strong>Giacomo Galassi</strong> (ci-après "Gérant" ou "Structure"), dont le siège social est situé Via Della Valletta 13, 19017 Riomaggiore (SP).<br><strong>Codes d'identification:</strong> CIR: 011024-AFF-0196 | CIN: IT011024B4MTWJF09S.</p>
             <p>La réservation du séjour est personnelle et incessible et implique l'acceptation intégrale et sans réserve des présentes conditions par le Client.</p>
@@ -166,37 +167,51 @@
     </div>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-info-title">Contact</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-links-title">Explorer</span>
+                    <ul class="footer-links">
+                        <li><a href="index-fr">Accueil</a></li>
+                        <li><a href="camera-king-fr">Chambre King</a></li>
+                        <li><a href="camera-deluxe-fr">Chambre Deluxe</a></li>
+                        <li><a href="faq-fr">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
-                    <strong>Ca' della Valletta</strong> by Giacomo Galassi<br>
+                    <strong>Ca' della Valletta</strong> de Giacomo Galassi<br>
                     Siège Social: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
                     TVA: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
-                    CITR: 011024-AFF-0196 <br> 
+                    CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-fr" style="text-decoration: underline;">Politique de confidentialité</a> | 
-                    <a href="termini-fr" style="text-decoration: underline;">Conditions Générales</a> | 
-                    <a href="cookie-policy-fr" style="text-decoration: underline;">Politique de Cookies</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-fr">Politique de confidentialité</a> |
+                    <a href="termini-fr">Conditions Générales</a> |
+                    <a href="cookie-policy-fr">Politique de Cookies</a>
                 </p>
-                <p style="margin-top: 10px;">&copy; 2017-2026 Ca' della Valletta. Tous droits réservés.</p>
+                <p class="footer-copy">&copy; 2017-2026 Ca' della Valletta. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="/script.js"></script>
-   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="/script.js" defer></script>
+
 </body>
 </html>

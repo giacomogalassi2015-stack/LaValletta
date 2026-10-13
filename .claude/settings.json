@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/galax/AppData/Local/Temp/claude/c--Users-galax-OneDrive-Desktop-LaValletta-LaValletta/d1d70508-74cb-4271-aca1-0ad110cecf43/scratchpad/shots/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(cp index.html \"/c/Users/galax/AppData/Local/Temp/claude/c--Users-galax-OneDrive-Desktop-LaValletta-LaValletta/d1d70508-74cb-4271-aca1-0ad110cecf43/scratchpad/__preview_index.html\")",
+      "Bash(cp \"/c/Users/galax/AppData/Local/Temp/claude/c--Users-galax-OneDrive-Desktop-LaValletta-LaValletta/d1d70508-74cb-4271-aca1-0ad110cecf43/scratchpad/__preview_index.html\" \"./__preview_index.html\")",
+      "Bash(cp index.html \"./__preview_index.html\")"
+    ]
+  }
+}

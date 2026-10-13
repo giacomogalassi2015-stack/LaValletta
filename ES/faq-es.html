@@ -78,6 +78,11 @@
     },
     {
       "@type": "Question",
+      "name": "¿Cómo es el Wi-Fi y el aire acondicionado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El Wi-Fi es gratuito, rápido y cubre todo el alojamiento. Cada habitación dispone de un aire acondicionado independiente que los huéspedes pueden regular por sí mismos." }
+    },
+    {
+      "@type": "Question",
       "name": "¿Riomaggiore está demasiado masificada en temporada alta? ¿Cómo puedo disfrutar del pueblo con tranquilidad?",
       "acceptedAnswer": { "@type": "Answer", "text": "El caos se percibe principalmente entre las 10:00 y las 17:00, cuando el pueblo es frecuentado por los visitantes de un día. Elegir alojarse en Riomaggiore es precisamente el secreto para superar este obstáculo: vivir las Cinque Terre a tu propio ritmo transforma el viaje en una experiencia inmersiva, muy lejos del tour apresurado típico. Tendrás el privilegio de disfrutar de la magia del puerto al atardecer y del silencio de las primeras horas de la mañana, cuando el turismo de masas está ausente." }
     },
@@ -121,42 +126,54 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
             <ul class="nav-links">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/ES/camera-king-es">Habitación King</a></li>
-                <li><a href="/ES/camera-deluxe-es">Habitación Deluxe</a></li>
-                <li><a href="/ES/galleria-es">Galería</a></li>
-                <li><a href="/ES/index-es#territorio">Experiencia</a></li>
+                <li><a href="index-es">Inicio</a></li>
+                <li><a href="camera-king-es">Habitación King</a></li>
+                <li><a href="camera-deluxe-es">Habitación Deluxe</a></li>
+                <li><a href="galleria-es">Galería</a></li>
+                <li><a href="index-es#territorio">Experiencia</a></li>
                 <li><a href="#contatti">Contacto</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Seleccionar idioma" data-page="faq">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es" selected>🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language" data-page="faq">
-                    <option value="it">🇮🇹 IT</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es" selected>🇪🇸 ES</option>
-                </select>
                 <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <header style="padding: 160px 0 40px; background-color: #fdfcf9; text-align: center;">
+    <header style="padding: 160px 0 var(--sp-lg); background-color: var(--paper-2); text-align: center;">
         <div class="container" data-aos="fade-up">
-            <h1 class="section-title">Preguntas Frecuentes (F.A.Q.)</h1>
+            <span class="section-kicker">Antes de Venir</span>
+            <h1 class="section-title">Preguntas Frecuentes</h1>
             <p class="lead-text">Todo lo que necesita saber para su estancia en Riomaggiore</p>
         </div>
     </header>
 
-    <main class="section-padding" style="background-color: #fdfcf9; padding-top: 0;">
+    <main class="section-padding" style="padding-top: var(--sp-xl);">
         <div class="container">
+
+            <nav class="faq-pills" aria-label="Categorías de FAQ">
+                <a href="#cat-1">Llegada &amp; Transporte</a>
+                <a href="#cat-2">Alojarse en Ca' della Valletta</a>
+                <a href="#cat-3">Experiencias &amp; Gastronomía</a>
+            </nav>
+
             <div id="faq-dynamic-container" class="faq-container">
 
-                <h3 class="faq-category-title" data-aos="fade-right">Llegada &amp; Transporte</h3>
+                <h3 class="faq-category-title" id="cat-1" data-aos="fade-right">Llegada &amp; Transporte</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details><summary>¿Cómo llegar a Riomaggiore en coche?</summary>
@@ -189,7 +206,7 @@
                     </details>
                 </div>
 
-                <h3 class="faq-category-title" data-aos="fade-right">Alojarse en Ca' della Valletta</h3>
+                <h3 class="faq-category-title" id="cat-2" data-aos="fade-right">Alojarse en Ca' della Valletta</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details>
@@ -220,9 +237,8 @@
                         <div class="faq-answer">El Wi-Fi es gratuito, rápido y cubre todo el alojamiento. Cada habitación dispone de un aire acondicionado independiente que los huéspedes pueden regular por sí mismos.</div>
                     </details>
                 </div>
-              
 
-                <h3 class="faq-category-title" data-aos="fade-right">Experiencias &amp; Gastronomía</h3>
+                <h3 class="faq-category-title" id="cat-3" data-aos="fade-right">Experiencias &amp; Gastronomía</h3>
 
                 <div class="faq-item" data-aos="fade-up">
                     <details><summary>¿Riomaggiore está demasiado masificada en temporada alta? ¿Cómo puedo disfrutar del pueblo con tranquilidad?</summary>
@@ -255,15 +271,28 @@
     </main>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand" data-aos="fade-up">
-                <h2>Contactar Ca' della Valletta en Riomaggiore</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="mailto:info@cadellavalletta.it" class="contact-link">info@cadellavalletta.it</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand" data-aos="fade-up">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Contactar Ca' della Valletta en Riomaggiore</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="100">
+                    <span class="footer-info-title">Contacto</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info" data-aos="fade-up" data-aos-delay="200">
+                    <span class="footer-links-title">Explorar</span>
+                    <ul class="footer-links">
+                        <li><a href="index-es">Inicio</a></li>
+                        <li><a href="camera-king-es">Habitación King</a></li>
+                        <li><a href="camera-deluxe-es">Habitación Deluxe</a></li>
+                        <li><a href="galleria-es">Galería</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
@@ -275,12 +304,12 @@
                     CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="/ES/privacy-es" style="text-decoration: underline;">Política de Privacidad</a> |
-                    <a href="/ES/termini-es" style="text-decoration: underline;">Términos y Condiciones</a> |
-                    <a href="/ES/cookie-policy-es" style="text-decoration: underline;">Política de Cookies</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-es">Política de Privacidad</a> |
+                    <a href="termini-es">Términos y Condiciones</a> |
+                    <a href="cookie-policy-es">Política de Cookies</a>
                 </p>
-                <p style="margin-top: 10px;">© 2017-2026 Ca' della Valletta. Todos los derechos reservados.</p>
+                <p class="footer-copy">© 2017-2026 Ca' della Valletta. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

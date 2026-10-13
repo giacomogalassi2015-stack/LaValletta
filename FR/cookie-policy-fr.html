@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de Cookies | Ca' della Valletta</title>
-    
+
     <link rel="stylesheet" href="/style.css">
-    
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <script type="application/ld+json">
@@ -58,8 +58,10 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <div class="logo">
-                Ca' della Valletta
-                <span class="sub-logo">CINQUE TERRE</span>
+                <span class="logo-text">
+                    Ca' della Valletta
+                    <span class="sub-logo">CINQUE TERRE</span>
+                </span>
             </div>
 
             <ul class="nav-links">
@@ -67,32 +69,37 @@
                 <li><a href="camera-king-fr">Chambre King</a></li>
                 <li><a href="camera-deluxe-fr">Chambre Deluxe</a></li>
                 <li><a href="galleria-fr">Galerie</a></li>
-                <li><a href="index-fr#territorio">Expérience</a></li>
+                <li><a href="faq-fr">F.A.Q.</a></li>
                 <li><a href="#contatti">Contact</a></li>
+                <li class="lang-item">
+                    <select id="language-selector" name="language" aria-label="Choisir la langue" data-page="cookie">
+                        <option value="it">🇮🇹 IT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="fr" selected>🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
+                        <option value="es">🇪🇸 ES</option>
+                    </select>
+                </li>
             </ul>
 
             <div class="nav-extras">
-                <select id="language-selector" name="language" aria-label="Select language" data-page="cookie">
-                    <option value="it">🇮🇹 IT</option>
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="fr" selected>🇫🇷 FR</option>
-                    <option value="de">🇩🇪 DE</option>
-                    <option value="es">🇪🇸 ES</option>
-                </select>
-                
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </nav>
 
-    <div class="container section-padding" style="margin-top: 100px;">
-        <h1 class="section-title text-center">Politique de Cookies</h1>
-        <p class="text-center" style="margin-bottom: 40px; color: #666;">En vigueur à partir du 28/01/2026</p>
-        
-        <div class="lead-text" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
-            
+    <header class="legal-header">
+        <div class="container">
+            <span class="section-kicker">Légal</span>
+            <h1 class="section-title">Politique de Cookies</h1>
+            <p class="legal-updated">En vigueur à partir du 28/01/2026</p>
+        </div>
+    </header>
+
+    <div class="container section-padding small-container">
+
+        <div class="lead-text legal-body" style="font-size: 0.95rem; text-align: justify; line-height: 1.8;">
+
             <h3>1. Que sont les cookies</h3>
             <p>Les cookies sont de petits fichiers texte que les sites visités par les utilisateurs envoient à leurs terminaux, où ils sont stockés pour être retransmis aux mêmes sites lors de visites ultérieures. Les cookies sont utilisés à diverses fins, ont des caractéristiques différentes et peuvent être utilisés à la fois par le propriétaire du site que vous visitez et par des tiers.</p>
             <p>Vous trouverez ci-dessous toutes les informations sur les cookies installés via ce site et les instructions nécessaires sur la façon de gérer vos préférences les concernant.</p>
@@ -122,49 +129,62 @@
             <h3>3. Gestion des préférences sur les cookies</h3>
             <p>Lors du premier accès, via la bannière, l'utilisateur peut consentir à l'utilisation de cookies. De plus, il est possible de gérer les préférences directement via le navigateur.</p>
             <p>Si vous ne connaissez pas le type et la version du navigateur que vous utilisez, cliquez sur "Aide" dans la fenêtre du navigateur en haut, d'où vous pourrez accéder à toutes les informations nécessaires. Si vous connaissez votre navigateur, cliquez sur celui que vous utilisez pour accéder à la page de gestion des cookies :</p>
-            
+
             <ul>
-                <li><a href="https://support.google.com/chrome/answer/95647?hl=fr" target="_blank" style="text-decoration: underline;">Google Chrome</a></li>
-                <li><a href="https://support.mozilla.org/fr/kb/protection-renforcee-contre-pistage-firefox-ordinateur" target="_blank" style="text-decoration: underline;">Mozilla Firefox</a></li>
-                <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" style="text-decoration: underline;">Apple Safari</a></li>
-                <li><a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" style="text-decoration: underline;">Microsoft Edge / IE</a></li>
+                <li><a href="https://support.google.com/chrome/answer/95647?hl=fr" target="_blank">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/fr/kb/protection-renforcee-contre-pistage-firefox-ordinateur" target="_blank">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank">Apple Safari</a></li>
+                <li><a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Microsoft Edge / IE</a></li>
             </ul>
 
             <hr class="divider">
 
             <h3>4. Droits de la personne concernée</h3>
-            <p>À tout moment, vous pourrez exercer vos droits auprès du Responsable du traitement, conformément au Règlement UE 2016/679 (RGPD). Pour plus d'informations sur vos droits et sur la manière dont vos données sont traitées, nous vous invitons à consulter notre <a href='privacy-fr' style='text-decoration: underline;'>Politique de Confidentialité</a>.</p>
+            <p>À tout moment, vous pourrez exercer vos droits auprès du Responsable du traitement, conformément au Règlement UE 2016/679 (RGPD). Pour plus d'informations sur vos droits et sur la manière dont vos données sont traitées, nous vous invitons à consulter notre <a href="privacy-fr">Politique de Confidentialité</a>.</p>
 
         </div>
     </div>
 
     <footer id="contatti">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Ca' della Valletta</h2>
-                <p>Riomaggiore, Cinque Terre</p>
-            </div>
-            <div class="footer-info">
-                <p>Via Della Valletta 13, 19017 (SP)</p>
-                <a href="tel:+393489617894" class="contact-link">+39 348 96 17 894</a>
-                <a href="/cdn-cgi/l/email-protection#91f8fff7fed1f2f0f5f4fdfdf0e7f0fdfdf4e5e5f0bff8e5" class="contact-link"><span class="__cf_email__" data-cfemail="31585f575e71525055545d5d5047505d5d544545501f5845">[email&#160;protected]</span></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-mark"><i class="fas fa-compass"></i></div>
+                    <h2>Ca' della Valletta</h2>
+                    <p>Riomaggiore · Cinque Terre</p>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-info-title">Contact</span>
+                    <a href="tel:+393489617894" class="contact-link"><i class="fas fa-phone"></i> +39 348 96 17 894</a>
+                    <a href="mailto:info@cadellavalletta.it" class="contact-link"><i class="fas fa-envelope"></i> info@cadellavalletta.it</a>
+                    <span class="contact-link"><i class="fas fa-location-dot"></i> Via Della Valletta 13, 19017 (SP)</span>
+                </div>
+                <div class="footer-info">
+                    <span class="footer-links-title">Explorer</span>
+                    <ul class="footer-links">
+                        <li><a href="index-fr">Accueil</a></li>
+                        <li><a href="camera-king-fr">Chambre King</a></li>
+                        <li><a href="camera-deluxe-fr">Chambre Deluxe</a></li>
+                        <li><a href="faq-fr">F.A.Q.</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-legal">
                 <p>
-                    <strong>Ca' della Valletta</strong> by Giacomo Galassi<br>
+                    <strong>Ca' della Valletta</strong> de Giacomo Galassi<br>
                     Siège Social: Via Della Valletta 13, 19017 Riomaggiore (SP)<br>
                     TVA: IT01444610453
                 </p>
                 <p style="margin-top: 10px; font-weight: bold;">
-                    CITR: 011024-AFF-0196 <br> 
+                    CITR: 011024-AFF-0196 <br>
                     CIN: IT011024B4MTWJF09S
                 </p>
-                <p style="margin-top: 15px; font-size: 0.75rem;">
-                    <a href="privacy-fr" style="text-decoration: underline;">Politique de confidentialité</a> | 
-                    <a href="termini-fr" style="text-decoration: underline;">Conditions Générales</a> | 
-                    <a href="cookie-policy-fr" style="text-decoration: underline;">Politique de Cookies</a>
+                <p class="footer-legal-links">
+                    <a href="privacy-fr">Politique de confidentialité</a> |
+                    <a href="termini-fr">Conditions Générales</a> |
+                    <a href="cookie-policy-fr">Politique de Cookies</a>
                 </p>
-             <p style="margin-top: 10px;">© 2017-2026 Ca' della Valletta. Tous droits réservés.</p>
+                <p class="footer-copy">© 2017-2026 Ca' della Valletta. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
